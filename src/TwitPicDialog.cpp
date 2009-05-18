@@ -28,6 +28,7 @@
 #include <QImageReader>
 #include <QFile>
 #include <QRegExp>
+#include <QFileInfo>
 
 TwitPicDialog::TwitPicDialog(const QString &fileName, QWidget *parent)
 		: QDialog(parent),
@@ -87,7 +88,8 @@ void TwitPicDialog::accept() {
 	post.setRawHeader("Host", "twitpic.com");
 	QByteArray ba;
 	ba.append("--" + boundary + "\r\n");
-	ba.append("Content-Disposition: form-data; name=\"media\"; filename=\"1.jpg\"\r\n");
+	ba.append("Content-Disposition: form-data; name=\"media\"; "
+	          "filename=\"" + QFileInfo(m_fileName).baseName() + "\"\r\n");
 	ba.append("Content-Type: image/" + QImageReader::imageFormat(m_fileName) + "\r\n\r\n");
 	QFile file(m_fileName);
 	file.open(QIODevice::ReadOnly);
