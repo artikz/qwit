@@ -22,7 +22,6 @@
 #include <QDialogButtonBox>
 #include <QPainter>
 #include <QLabel>
-#include <QDebug>
 #include <QNetworkRequest>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>

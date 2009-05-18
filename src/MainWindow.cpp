@@ -224,7 +224,7 @@ MainWindow::MainWindow(QWidget *parent): QDialog(parent) {
 	connect(timer2, SIGNAL(timeout()), this, SLOT(updateItems()));
 	timer2->start(10000);
 }
-#include <QDebug>
+
 void MainWindow::postTwitPic() {
 	QString fileName = QFileDialog::getOpenFileName(this, tr("Pick an image"), QDir::homePath(), tr("Image Files (*.png *.jpg *.jpeg *.bmp)"));
 	if (fileName.isEmpty())
