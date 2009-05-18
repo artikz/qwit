@@ -17,10 +17,9 @@
 
 
 #include "TwitPicDialog.h"
-#include <QGridLayout>
+#include <QVBoxLayout>
 #include <QProgressBar>
 #include <QDialogButtonBox>
-#include <QPainter>
 #include <QLabel>
 #include <QNetworkRequest>
 #include <QNetworkAccessManager>
