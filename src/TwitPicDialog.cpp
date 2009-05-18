@@ -82,7 +82,7 @@ void TwitPicDialog::accept() {
 	m_progressBar->show();
 	QUrl url("http://twitpic.com/api/upload");
 	QNetworkRequest post(url);
-	QByteArray boundary = "------------------------------7251e57fe7ed"; // "--------dlf-maximum";
+	QByteArray boundary = "------------------------------her-ad-hoc-person";
 	post.setHeader(QNetworkRequest::ContentTypeHeader, "multipart/form-data; boundary=" + boundary);
 	post.setRawHeader("Host", "twitpic.com");
 	QByteArray ba;
