@@ -177,7 +177,7 @@ MainWindow::MainWindow(QWidget *parent): QDialog(parent) {
 	charsLeftLabel->setText(QString::number(statusTextEdit->getMaxStatusCharacter()));
 	charsLeftLabel->setForegroundRole(QPalette::Light);
 
-	vboxLayout->insertWidget(1, statusTextEdit);
+	horizontalLayout->insertWidget(0, statusTextEdit);
 
 	optionsDialog = new OptionsDialog(this);
 	optionsDialog->setModal(true);
