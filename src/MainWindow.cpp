@@ -250,6 +250,7 @@ void MainWindow::setupTrayIcon() {
 	trayIcon->setContextMenu(trayIconMenu);
 	trayIcon->setIcon(QIcon(":/images/qwit.png"));
 	trayIcon->show();
+	connect(trayIcon, SIGNAL(messageClicked()), this, SLOT(makeActive()));
 	connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this, SLOT(iconActivated(QSystemTrayIcon::ActivationReason)));
 }
 
@@ -881,6 +882,7 @@ void MainWindow::showhide() {
 		hide();
 	} else {
 		show();
+		activateWindow();
 		for (int i = 0; i < TWITTER_TABS; ++i) {
 			twitterTabs[i].twitterWidget->updateItems();
 		}
@@ -942,6 +944,15 @@ void MainWindow::keyPressEvent(QKeyEvent *event) {
 	} else {
 		QDialog::keyPressEvent(event);
 	}
+}
+
+void MainWindow::makeActive() {
+	if (isVisible()) {
+		//hide();
+	}
+	show();
+	activateWindow();
+	raise();
 }
 
 #endif

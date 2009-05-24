@@ -157,6 +157,7 @@ public slots:
 	void clearTags(QString &text);
 	void setRetweetTag();
 	void postTwitPic();
+	void makeActive();
 
 protected:
 
