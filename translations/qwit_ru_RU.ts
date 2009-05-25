@@ -318,36 +318,36 @@
         <location filename="../src/TwitterWidget.cpp" line="267"/>
         <source>about %n second(s) ago</source>
         <translation>
-            <numerusform>примерно %n секунду назад</numerusform>
-            <numerusform>примерно %n секунды назад</numerusform>
-            <numerusform>примерно %n секунд назад</numerusform>
+            <numerusform>около %n секунды назад</numerusform>
+            <numerusform>около %n секунд назад</numerusform>
+            <numerusform>около %n секунд назад</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../src/TwitterWidget.cpp" line="269"/>
         <source>about %n minute(s) ago</source>
         <translation>
-            <numerusform>примерно %n минуту назад</numerusform>
-            <numerusform>примерно %n минуты назад</numerusform>
-            <numerusform>примерно %n минут назад</numerusform>
+            <numerusform>около %n минуты назад</numerusform>
+            <numerusform>около %n минут назад</numerusform>
+            <numerusform>около %n минут назад</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../src/TwitterWidget.cpp" line="271"/>
         <source>about %n hour(s) ago</source>
         <translation>
-            <numerusform>примерно %n час назад</numerusform>
-            <numerusform>примерно %n часа назад</numerusform>
-            <numerusform>примерно %n часов назад</numerusform>
+            <numerusform>около %n часа назад</numerusform>
+            <numerusform>около %n часов назад</numerusform>
+            <numerusform>около %n часов назад</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../src/TwitterWidget.cpp" line="273"/>
         <source>about %n day(s) ago</source>
         <translation>
-            <numerusform>примерно %n день назад</numerusform>
-            <numerusform>примерно %n дня назад</numerusform>
-            <numerusform>примерно %n дней назад</numerusform>
+            <numerusform>около %n дня назад</numerusform>
+            <numerusform>около %n дней назад</numerusform>
+            <numerusform>около %n дней назад</numerusform>
         </translation>
     </message>
     <message>
