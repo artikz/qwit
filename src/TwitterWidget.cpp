@@ -89,6 +89,22 @@ QString TwitterWidget::prepare(const QString &text, const int &replyStatusId, co
 			}
 		}
 	}
+	s = t;
+	t = "";
+	for (int i = 0; i < s.length(); ++i) {
+		t += s[i];
+		if ((s[i] == '#') && (!i || !isUsernameChar(s[i - 1]))) {
+			int j = i + 1;
+			while ((j < s.length()) && isUsernameChar(s[j])) {
+				++j;
+			}
+			if (j - i - 1 > 0) {
+				QString hashtag = s.mid(i + 1, j - i - 1);
+				t += "<a href=\"http://search.twitter.com/search?q=" + QUrl::toPercentEncoding("#" + hashtag) + "\" style=\"text-decoration:none;font-weight:bold;\">" + hashtag + "</a>";
+				i = j - 1;
+			}
+		}
+	}
 	return t;
 }
 
