@@ -119,6 +119,18 @@ void TwitterWidget::clear() {
 }
 
 void TwitterWidget::addItem(const QString &userpic, const QString &username, const QString &status, const QDateTime &time, int messageId, int replyStatusId, int i, const QString &serviceBaseURL, const QString &currentUsername) {
+// Possible fix for issue 55
+	bool duplicate = false;
+	for (int j = 0; j < items.size(); ++j) {
+		if (items[j].cacheMessageId == messageId) {
+			duplicate = true;
+			break;
+		}
+	}
+	if (duplicate) {
+		return;
+	}
+
 	TwitterWidgetItem item = TwitterWidgetItem();
 
 	item.time = time;
