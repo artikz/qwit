@@ -26,7 +26,7 @@ HEADERS += src/LogsDialog.h \
            src/Twitter.h \
            src/TwitterWidget.h \
            src/UserpicsDownloader.h \
-		   src/TwitPicDialog.h
+	   src/TwitPicDialog.h
 FORMS += src/LogsDialog.ui src/MainWindow.ui src/OptionsDialog.ui
 SOURCES += src/LogsDialog.cpp \
            src/MainWindow.cpp \
@@ -36,14 +36,15 @@ SOURCES += src/LogsDialog.cpp \
            src/Twitter.cpp \
            src/TwitterWidget.cpp \
            src/UserpicsDownloader.cpp \
-		   src/TwitPicDialog.cpp
+	   src/TwitPicDialog.cpp
 TRANSLATIONS += \
            translations/qwit_en_US.ts \
            translations/qwit_es_ES.ts \
            translations/qwit_it_IT.ts \
            translations/qwit_pt_BR.ts \
            translations/qwit_ru_RU.ts \
-           translations/qwit_tr_TR.ts
+           translations/qwit_tr_TR.ts \
+           translations/qwit_kk_KZ.ts
 QT += network xml
 RESOURCES = qwit.qrc
 target.path = $${PREFIX}/bin

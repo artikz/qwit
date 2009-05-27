@@ -15,5 +15,6 @@
         <file>translations/qwit_pt_BR.qm</file>
         <file>translations/qwit_ru_RU.qm</file>
         <file>translations/qwit_tr_TR.qm</file>
+        <file>translations/qwit_kk_KZ.qm</file>
     </qresource>
 </RCC>
