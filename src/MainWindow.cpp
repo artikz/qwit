@@ -257,6 +257,9 @@ void MainWindow::setupTrayIcon() {
 void MainWindow::loadState() {
 	QSettings settings("arti", "qwit");
 
+	QFile file(settings.fileName());
+	file.setPermissions(QFile::ReadUser | QFile::WriteUser);
+
 	settings.beginGroup("MainWindow");
 	resize(settings.value("size", QSize(DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT)).toSize());
 	move(settings.value("pos", QPoint(DEFAULT_WINDOW_X, DEFAULT_WINDOW_Y)).toPoint());
@@ -398,6 +401,9 @@ void MainWindow::updateTimeline() {
 
 void MainWindow::saveState() {
 	QSettings settings("arti", "qwit");
+
+	QFile file(settings.fileName());
+	file.setPermissions(QFile::ReadUser | QFile::WriteUser);
 
 	for (int tab = 0; tab < TWITTER_TABS; ++tab) {
 		twitterTabs[tab].twitterWidget->setMessagesPerPage(messagesPerPage);
