@@ -272,6 +272,7 @@ void MainWindow::loadState() {
 	messagesPerPage = settings.value("messagesPerPage", DEFAULT_MESSAGES_PER_PAGE).toInt();
 	messagesPerTray = settings.value("messagesPerTray", DEFAULT_MESSAGES_PER_TRAY).toInt();
 	verticalAlignControl = settings.value("verticalAlignControl", true).toBool();
+	placeTabsVertically = settings.value("placeTabsVertically", true).toBool();
 	updatesNotification = settings.value("updatesNotification", true).toBool();
 	usernameUnderAvatar = settings.value("usernameUnderAvatar", true).toBool();
 	twitter.setServiceAPIURL(settings.value("serviceAPIURL", "http://twitter.com").toString());
@@ -300,6 +301,7 @@ void MainWindow::loadState() {
 	optionsDialog->messagesPerTrayLineEdit->setText(QString::number(messagesPerTray));
 	optionsDialog->updatesNotificationCheckBox->setCheckState(updatesNotification ? Qt::Checked : Qt::Unchecked);
 	optionsDialog->verticalControlCheckBox->setCheckState(verticalAlignControl ? Qt::Checked : Qt::Unchecked);
+	optionsDialog->placeTabsVerticallyCheckBox->setCheckState(placeTabsVertically ? Qt::Checked : Qt::Unchecked);
 	optionsDialog->usernameUnderAvatarCheckBox->setCheckState(usernameUnderAvatar ? Qt::Checked : Qt::Unchecked);
 	optionsDialog->serviceBaseURLLineEdit->setText(twitter.getServiceBaseURL());
 	optionsDialog->serviceAPIURLLineEdit->setText(twitter.getServiceAPIURL());
@@ -429,6 +431,7 @@ void MainWindow::saveState() {
 	retweetTagPlace = optionsDialog->retweetAtEnd->checkState() == Qt::Checked;
 	bool proxySavePassword = optionsDialog->proxySavePasswordCheckBox->checkState() == Qt::Checked;
 	verticalAlignControl = optionsDialog->verticalControlCheckBox->checkState() == Qt::Checked;
+	placeTabsVertically = optionsDialog->placeTabsVerticallyCheckBox->checkState() == Qt::Checked;
 	updatesNotification = optionsDialog->updatesNotificationCheckBox->checkState() == Qt::Checked;
 	usernameUnderAvatar = optionsDialog->usernameUnderAvatarCheckBox->checkState() == Qt::Checked;
 	greetingMessageLabel->setText(optionsDialog->greetingMessageLineEdit->text());
@@ -451,6 +454,7 @@ void MainWindow::saveState() {
 	settings.setValue("retweetTag", retweetTag);
 	settings.setValue("retweetTagPlace", retweetTagPlace);
 	settings.setValue("verticalAlignControl", verticalAlignControl);
+	settings.setValue("placeTabsVertically", placeTabsVertically);
 	settings.setValue("updatesNotification", updatesNotification);
 	settings.setValue("usernameUnderAvatar", usernameUnderAvatar);
 	settings.setValue("serviceBaseURL", twitter.getServiceBaseURL());
@@ -501,8 +505,6 @@ void MainWindow::saveState() {
 	settings.setValue("searchString", searchLineEdit->text());
 	settings.endGroup();
 
-	updateItems();
-
 	if (useProxy) {
 		twitter.useProxy(proxyAddress, proxyPort, proxyUsername, proxyPassword);
 		userpicsDownloader.useProxy(proxyAddress, proxyPort, proxyUsername, proxyPassword);
@@ -515,6 +517,16 @@ void MainWindow::saveState() {
 		statusTextEdit->setDisabled(true);
 	} else {
 		statusTextEdit->setDisabled(false);
+	}
+	
+	if (placeTabsVertically) {
+		tabWidget->setTabPosition(QTabWidget::West);
+	} else {
+		tabWidget->setTabPosition(QTabWidget::South);
+	}
+
+	for (int i = 0; i < TWITTER_TABS; ++i) {
+		twitterTabs[i].twitterWidget->resize(twitterTabs[i].scrollArea->width() - twitterTabs[i].scrollArea->verticalScrollBar()->width() - 5, 500);
 	}
 }
 

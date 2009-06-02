@@ -121,6 +121,7 @@ public:
 	Twitter twitter;
 	QMap<QString, int> monthes;
 	bool verticalAlignControl;
+	bool placeTabsVertically;
 	bool updatesNotification;
 	bool usernameUnderAvatar;
 
