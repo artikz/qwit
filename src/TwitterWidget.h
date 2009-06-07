@@ -24,6 +24,7 @@
 #include <QTextBrowser>
 #include <QLabel>
 #include <QDateTime>
+#include <QScrollArea>
 
 class TwitterWidgetItem {
 public:
@@ -62,6 +63,8 @@ private:
 	int messagesPerPage;
 	bool usernameUnderAvatar;
 	bool verticalAlignControl;
+	QScrollArea *scrollArea;
+	int scrollPosition;
 
 	QVector<TwitterWidgetItem> items;
 	bool isReplyTo(const QString &text, const QString &username);
@@ -71,7 +74,7 @@ private:
 
 public:
 
-	TwitterWidget();
+	TwitterWidget(QScrollArea *scrollArea);
 	void clear();
 	void addItem(const QString &userpic, const QString &username, const QString &status, const QDateTime &time, int messageId, int replyStatusId, int i, const QString &serviceBaseURL, const QString &currentUsername);
 	void updateItems();
@@ -80,6 +83,8 @@ public:
 	void setMessagesPerPage(int value);
 	void setUsernameUnderAvatar(bool value);
 	void setVerticalAlignControl(bool value);
+	void saveScrollPosition();
+	void restoreScrollPosition();
 
 	static QString formatDateTime(const QDateTime &time);
 

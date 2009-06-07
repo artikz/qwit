@@ -52,14 +52,15 @@ MainWindow::MainWindow(QWidget *parent): QDialog(parent) {
 	monthes["Nov"] = 11;
 	monthes["Dec"] = 12;
 
-	TwitterWidget *twitterWidget = new TwitterWidget();
-	twitterWidget->setObjectName(QString::fromUtf8("homeTwitterWidget"));
-	twitterWidget->sizePolicy().setHorizontalPolicy(QSizePolicy::Maximum);
-
 	QGridLayout *gridLayout = new QGridLayout(homeTab);
 	gridLayout->setObjectName(QString::fromUtf8("homeGridLayout"));
 
 	QScrollArea *scrollArea = new QScrollArea(homeTab);
+
+	TwitterWidget *twitterWidget = new TwitterWidget(scrollArea);
+	twitterWidget->setObjectName(QString::fromUtf8("homeTwitterWidget"));
+	twitterWidget->sizePolicy().setHorizontalPolicy(QSizePolicy::Maximum);
+
 	scrollArea->setBackgroundRole(QPalette::Light);
 	scrollArea->setWidget(twitterWidget);
 	scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
@@ -70,14 +71,15 @@ MainWindow::MainWindow(QWidget *parent): QDialog(parent) {
 	twitterTabs[HOME_TWITTER_TAB] = TwitterTab(scrollArea, twitterWidget, 0);
 
 
-	twitterWidget = new TwitterWidget();
-	twitterWidget->setObjectName(QString::fromUtf8("publicTwitterWidget"));
-	twitterWidget->sizePolicy().setHorizontalPolicy(QSizePolicy::Maximum);
-
 	gridLayout = new QGridLayout(publicTab);
 	gridLayout->setObjectName(QString::fromUtf8("publicGridLayout"));
 
 	scrollArea = new QScrollArea(publicTab);
+
+	twitterWidget = new TwitterWidget(scrollArea);
+	twitterWidget->setObjectName(QString::fromUtf8("publicTwitterWidget"));
+	twitterWidget->sizePolicy().setHorizontalPolicy(QSizePolicy::Maximum);
+
 	scrollArea->setBackgroundRole(QPalette::Light);
 	scrollArea->setWidget(twitterWidget);
 	scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
@@ -88,14 +90,15 @@ MainWindow::MainWindow(QWidget *parent): QDialog(parent) {
 	twitterTabs[PUBLIC_TWITTER_TAB] = TwitterTab(scrollArea, twitterWidget, 0);
 
 
-	twitterWidget = new TwitterWidget();
-	twitterWidget->setObjectName(QString::fromUtf8("repliesTwitterWidget"));
-	twitterWidget->sizePolicy().setHorizontalPolicy(QSizePolicy::Maximum);
-
 	gridLayout = new QGridLayout(repliesTab);
 	gridLayout->setObjectName(QString::fromUtf8("repliesGridLayout"));
 
 	scrollArea = new QScrollArea(repliesTab);
+
+	twitterWidget = new TwitterWidget(scrollArea);
+	twitterWidget->setObjectName(QString::fromUtf8("repliesTwitterWidget"));
+	twitterWidget->sizePolicy().setHorizontalPolicy(QSizePolicy::Maximum);
+
 	scrollArea->setBackgroundRole(QPalette::Light);
 	scrollArea->setWidget(twitterWidget);
 	scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
@@ -106,11 +109,12 @@ MainWindow::MainWindow(QWidget *parent): QDialog(parent) {
 	twitterTabs[REPLIES_TWITTER_TAB] = TwitterTab(scrollArea, twitterWidget, 0);
 
 
-	twitterWidget = new TwitterWidget();
+	scrollArea = new QScrollArea(customTab);
+
+	twitterWidget = new TwitterWidget(scrollArea);
 	twitterWidget->setObjectName(QString::fromUtf8("customTwitterWidget"));
 	twitterWidget->sizePolicy().setHorizontalPolicy(QSizePolicy::Maximum);
 
-	scrollArea = new QScrollArea(customTab);
 	scrollArea->setBackgroundRole(QPalette::Light);
 	scrollArea->setWidget(twitterWidget);
 	scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
@@ -120,14 +124,15 @@ MainWindow::MainWindow(QWidget *parent): QDialog(parent) {
 
 	twitterTabs[CUSTOM_TWITTER_TAB] = TwitterTab(scrollArea, twitterWidget, 0);
 
-	twitterWidget = new TwitterWidget();
-	twitterWidget->setObjectName(QString::fromUtf8("inboxTwitterWidget"));
-	twitterWidget->sizePolicy().setHorizontalPolicy(QSizePolicy::Maximum);
-
 	gridLayout = new QGridLayout(inboxTab);
 	gridLayout->setObjectName(QString::fromUtf8("inboxGridLayout"));
 
 	scrollArea = new QScrollArea(inboxTab);
+
+	twitterWidget = new TwitterWidget(scrollArea);
+	twitterWidget->setObjectName(QString::fromUtf8("inboxTwitterWidget"));
+	twitterWidget->sizePolicy().setHorizontalPolicy(QSizePolicy::Maximum);
+
 	scrollArea->setBackgroundRole(QPalette::Light);
 	scrollArea->setWidget(twitterWidget);
 	scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
@@ -137,14 +142,15 @@ MainWindow::MainWindow(QWidget *parent): QDialog(parent) {
 
 	twitterTabs[INBOX_TWITTER_TAB] = TwitterTab(scrollArea, twitterWidget, 0);
 
-	twitterWidget = new TwitterWidget();
-	twitterWidget->setObjectName(QString::fromUtf8("outboxTwitterWidget"));
-	twitterWidget->sizePolicy().setHorizontalPolicy(QSizePolicy::Maximum);
-
 	gridLayout = new QGridLayout(outboxTab);
 	gridLayout->setObjectName(QString::fromUtf8("outboxGridLayout"));
 
 	scrollArea = new QScrollArea(outboxTab);
+
+	twitterWidget = new TwitterWidget(scrollArea);
+	twitterWidget->setObjectName(QString::fromUtf8("outboxTwitterWidget"));
+	twitterWidget->sizePolicy().setHorizontalPolicy(QSizePolicy::Maximum);
+
 	scrollArea->setBackgroundRole(QPalette::Light);
 	scrollArea->setWidget(twitterWidget);
 	scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
@@ -154,11 +160,12 @@ MainWindow::MainWindow(QWidget *parent): QDialog(parent) {
 
 	twitterTabs[OUTBOX_TWITTER_TAB] = TwitterTab(scrollArea, twitterWidget, 0);
 
-	twitterWidget = new TwitterWidget();
+	scrollArea = new QScrollArea(searchTab);
+
+	twitterWidget = new TwitterWidget(scrollArea);
 	twitterWidget->setObjectName(QString::fromUtf8("searchTwitterWidget"));
 	twitterWidget->sizePolicy().setHorizontalPolicy(QSizePolicy::Maximum);
 
-	scrollArea = new QScrollArea(searchTab);
 	scrollArea->setBackgroundRole(QPalette::Light);
 	scrollArea->setWidget(twitterWidget);
 	scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
@@ -411,6 +418,7 @@ void MainWindow::saveState() {
 		twitterTabs[tab].twitterWidget->setMessagesPerPage(messagesPerPage);
 		twitterTabs[tab].twitterWidget->setUsernameUnderAvatar(usernameUnderAvatar);
 		twitterTabs[tab].twitterWidget->setVerticalAlignControl(verticalAlignControl);
+		twitterTabs[tab].twitterWidget->saveScrollPosition();
 	}
 
 	username = optionsDialog->usernameLineEdit->text();
@@ -527,6 +535,7 @@ void MainWindow::saveState() {
 
 	for (int i = 0; i < TWITTER_TABS; ++i) {
 		twitterTabs[i].twitterWidget->resize(twitterTabs[i].scrollArea->width() - twitterTabs[i].scrollArea->verticalScrollBar()->width() - 5, 500);
+		twitterTabs[i].twitterWidget->restoreScrollPosition();
 	}
 }
 

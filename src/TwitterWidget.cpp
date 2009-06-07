@@ -22,6 +22,7 @@
 #include <QDesktopServices>
 #include <QPalette>
 #include <QChar>
+#include <QScrollArea>
 
 #include "TwitterWidget.h"
 #include "QwitException.h"
@@ -38,7 +39,8 @@ void TwitterWidgetItem::loadIcon() {
 	icon->resize(ICON_SIZE, ICON_SIZE);
 }
 
-TwitterWidget::TwitterWidget(): QWidget() {
+TwitterWidget::TwitterWidget(QScrollArea *scrollArea): QWidget() {
+	this->scrollArea = scrollArea;
 	QDesktopServices::setUrlHandler("reply", this, "replyClicked");
 	QDesktopServices::setUrlHandler("directMessages", this, "directMessagesClicked");
 }
@@ -328,6 +330,14 @@ void TwitterWidget::setUsernameUnderAvatar(bool value) {
 
 void TwitterWidget::setVerticalAlignControl(bool value) {
 	verticalAlignControl = value;
+}
+
+void TwitterWidget::saveScrollPosition() {
+	scrollPosition = scrollArea->horizontalScrollBar()->value();
+}
+
+void TwitterWidget::restoreScrollPosition() {
+	scrollArea->horizontalScrollBar()->setValue(scrollPosition);
 }
 
 #endif
