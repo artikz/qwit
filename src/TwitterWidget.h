@@ -38,7 +38,7 @@ public:
 	QColor color;
 	QDateTime time;
 	QString username;
-	int messageId;
+	uint messageId;
 
 	QString cleanStatus;
 	QString cacheUserpic;
@@ -46,8 +46,8 @@ public:
 	QString cacheStatus;
 	bool reply;
 	QDateTime cacheTime;
-	int cacheMessageId;
-	int cacheReplyStatusId;
+	uint cacheMessageId;
+	uint cacheReplyStatusId;
 	int cacheIndex;
 
 	void loadIcon();
@@ -68,7 +68,7 @@ private:
 
 	QVector<TwitterWidgetItem> items;
 	bool isReplyTo(const QString &text, const QString &username);
-	QString prepare(const QString &text, const int &replyStatusId, const QString &serviceBaseURL);
+	QString prepare(const QString &text, const uint &replyStatusId, const QString &serviceBaseURL);
 	bool isUsernameChar(const QChar &c) const;
 	QString serviceBaseURL;
 
@@ -76,7 +76,7 @@ public:
 
 	TwitterWidget(QScrollArea *scrollArea);
 	void clear();
-	void addItem(const QString &userpic, const QString &username, const QString &status, const QDateTime &time, int messageId, int replyStatusId, int i, const QString &serviceBaseURL, const QString &currentUsername);
+	void addItem(const QString &userpic, const QString &username, const QString &status, const QDateTime &time, uint messageId, uint replyStatusId, int i, const QString &serviceBaseURL, const QString &currentUsername);
 	void updateItems();
 	const TwitterWidgetItem getItem(int index);
 	int getItemsCount();
@@ -101,11 +101,11 @@ public slots:
 
 signals:
 
-        void reply(const QString &);
-        void retweet(const QString &, const QString &);
+	void reply(const QString &);
+	void retweet(const QString &, const QString &);
 	void directMessages(const QString &);
-        void replyID(const QString &);
-        void directMessagesID(const QString &);
+	void replyID(const QString &);
+	void directMessagesID(const QString &);
 };
 
 #endif

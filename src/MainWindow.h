@@ -70,11 +70,11 @@ const int DEFAULT_MESSAGES_PER_TRAY = 10;
 class TwitterTab {
 public:
 	TwitterWidget *twitterWidget;
-	int lastId;
+	uint lastId;
 	QScrollArea *scrollArea;
 	int lastUpdateTime;
 
-	TwitterTab(QScrollArea *scrollArea, TwitterWidget *twitterWidget, int lastId) {
+	TwitterTab(QScrollArea *scrollArea, TwitterWidget *twitterWidget, uint lastId) {
 		this->scrollArea = scrollArea;
 		this->twitterWidget = twitterWidget;
 		this->lastId = lastId;
@@ -133,7 +133,7 @@ public:
 	QDateTime dateFromString(const QString &date);
 	QDateTime dateFromStringAtom(const QString &date);
 	static MainWindow* getInstance();
-	signals:
+signals:
 	void sendRetweetTag(const QString &, const bool &);
 
 public slots:

@@ -53,7 +53,7 @@ bool TwitterWidget::isReplyTo(const QString &text, const QString &username) {
 	return (text.indexOf("@" + username) != -1);
 }
 
-QString TwitterWidget::prepare(const QString &text, const int &replyStatusId, const QString &serviceBaseURL) {
+QString TwitterWidget::prepare(const QString &text, const uint &replyStatusId, const QString &serviceBaseURL) {
 	QString s = text;
 	s.replace(" www.", " http://www.");
 	if (s.startsWith("www.")) s = "http://" + s;
@@ -120,7 +120,7 @@ void TwitterWidget::clear() {
 	items.clear();
 }
 
-void TwitterWidget::addItem(const QString &userpic, const QString &username, const QString &status, const QDateTime &time, int messageId, int replyStatusId, int i, const QString &serviceBaseURL, const QString &currentUsername) {
+void TwitterWidget::addItem(const QString &userpic, const QString &username, const QString &status, const QDateTime &time, uint messageId, uint replyStatusId, int i, const QString &serviceBaseURL, const QString &currentUsername) {
 // Possible fix for issue 55
 	bool duplicate = false;
 	for (int j = 0; j < items.size(); ++j) {

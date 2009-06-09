@@ -32,7 +32,7 @@ public:
 	void focusInEvent(QFocusEvent *event);
 	void focusOutEvent(QFocusEvent *event);
 	int getMaxStatusCharacter();
-        QString retweetTag;
+	QString retweetTag;
     bool retweetTagPlace;
 
 protected:
@@ -43,13 +43,13 @@ signals:
 
 	void returnPressed();
 	void leftCharsNumberChanged(int);
-        void getRetweetTag();
+	void getRetweetTag();
 
 public slots:
 
-        void reply(const QString &username);
-        void retweet(const QString &username, const QString &text);
-        void setRetweetTag(const QString &rtTag, const bool &rtPlace);
+	void reply(const QString &username);
+	void retweet(const QString &username, const QString &text);
+	void setRetweetTag(const QString &rtTag, const bool &rtPlace);
 	void directMessages(const QString &username);
 	void textChangedToCharsNumberChanged();
 	void updateSize();

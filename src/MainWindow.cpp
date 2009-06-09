@@ -349,14 +349,14 @@ void MainWindow::loadState() {
 		for (int i = 0; i < size; ++i) {
 			settings.setArrayIndex(i);
 			if (i == 0) {
-				twitterTabs[tab].lastId = settings.value("messageId").toInt();
+				twitterTabs[tab].lastId = settings.value("messageId").toUInt();
 			}
 			twitterTabs[tab].twitterWidget->addItem(
 				settings.value("userpic").toString(),
 				settings.value("username").toString(),
 				settings.value("status").toString(),
 				QDateTime::fromString(settings.value("time").toString(), "yyyy-MM-dd hh:mm:ss"),
-				settings.value("messageId").toInt(),
+				settings.value("messageId").toUInt(),
 				settings.value("replyStatusId").toInt(),
 				-1,
 				twitter.getServiceBaseURL(),
@@ -634,18 +634,18 @@ void MainWindow::updated(const QByteArray &buffer, int type) {
 		}
 		QDomNode node2 = node.firstChild();
 		QString message = "", timeStr = "", user = "", image = "";
-		int id = 0, replyUserID = 0, replyStatusId = 0;
+		uint id = 0, replyUserID = 0, replyStatusId = 0;
 		while (!node2.isNull()) {
 			if (node2.toElement().tagName() == "created_at") {
 				timeStr = node2.toElement().text();
 			} else if (node2.toElement().tagName() == "text") {
 				message = node2.toElement().text();
 			} else if (node2.toElement().tagName() == "id") {
-				id = node2.toElement().text().toInt();
+				id = node2.toElement().text().toUInt();
 			} else if (node2.toElement().tagName() == "in_reply_to_status_id") {
-				replyStatusId = node2.toElement().text().toInt();
+				replyStatusId = node2.toElement().text().toUInt();
 			} else if (node2.toElement().tagName() == "in_reply_to_user_id") {
-				replyUserID = node2.toElement().text().toInt();
+				replyUserID = node2.toElement().text().toUInt();
 			} else if (node2.toElement().tagName() == "user") {
 				QDomNode node3 = node2.firstChild();
 				while (!node3.isNull()) {
@@ -712,7 +712,7 @@ void MainWindow::updated(const QByteArray &buffer, int type) {
 	QDomNode node = root.firstChild();
 	QString html = "";
 	QString trayMessage = "";
-	int maxId = twitterTabs[type].lastId;
+	uint maxId = twitterTabs[type].lastId;
 	int j = 0;
 	while (!node.isNull()) {
 		if (node.toElement().tagName() != "direct_message") {
@@ -720,14 +720,14 @@ void MainWindow::updated(const QByteArray &buffer, int type) {
 		}
 		QDomNode node2 = node.firstChild();
 		QString message = "", timeStr = "", user = "", image = "", imageRecipient = "",recipientUser = "";
-		int id = 0;
+		uint id = 0;
 		while (!node2.isNull()) {
 			if (node2.toElement().tagName() == "created_at") {
 				timeStr = node2.toElement().text();
 			} else if (node2.toElement().tagName() == "text") {
 				message = node2.toElement().text();
 			} else if (node2.toElement().tagName() == "id") {
-				id = node2.toElement().text().toInt();
+				id = node2.toElement().text().toUInt();
 			} else if (node2.toElement().tagName() == "sender_screen_name") {
 				user = node2.toElement().text();
 			} else if (node2.toElement().tagName() == "recipient_screen_name") {
@@ -811,13 +811,13 @@ void MainWindow::updated(const QByteArray &buffer, int type) {
 			QDomNode node = root.firstChild();
 			QString html = "";
 			QString trayMessage = "";
-			int maxId = twitterTabs[type].lastId;
+			uint maxId = twitterTabs[type].lastId;
 			int a = 0;
 			int b = 0;
 			int j = 0;
 			QByteArray buf=buffer;
 			while (buf.indexOf("<entry>", a)!=-1 && buf.indexOf("<entry>", a)<buf.indexOf("</feed>", 0)) {
-				int id = 0;
+				uint id = 0;
 				QString message = "", timeStr = "", user = "", image = "";
 				a=buf.indexOf("<id>", a)+32;
 				b=buf.indexOf("</id>", a);
