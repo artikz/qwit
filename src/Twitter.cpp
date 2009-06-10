@@ -83,7 +83,7 @@ void Twitter::sendStatus(QString username, QString password, QString status, QSt
 	if (proxyAddress != "") {
 		statusHttp.setProxy(proxyAddress, proxyPort, proxyUsername, proxyPassword);
 	} else {
-		timelineHttp.setProxy(QNetworkProxy(QNetworkProxy::NoProxy));
+		statusHttp.setProxy(QNetworkProxy(QNetworkProxy::NoProxy));
 	}
     /* FIXME
      * https (ssl) mode is not working if setProxy is called with ("", 0)
