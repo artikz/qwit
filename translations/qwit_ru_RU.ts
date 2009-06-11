@@ -278,6 +278,11 @@
         <source>Place controls vertically</source>
         <translation>Расположить кнопки вертикально</translation>
     </message>
+    <message>
+        <location filename="../src/OptionsDialog.ui" line="168"/>
+        <source>Place tabs vertically</source>
+        <translation>Расположить вкладки вертикально</translation>
+    </message>
 </context>
 <context>
     <name>Twitter</name>
