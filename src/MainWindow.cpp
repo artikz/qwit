@@ -626,7 +626,7 @@ void MainWindow::updated(const QByteArray &buffer, int type) {
 	QDomNode node = root.firstChild();
 	QString html = "";
 	QString trayMessage = "";
-	int maxId = twitterTabs[type].lastId;
+	uint maxId = twitterTabs[type].lastId;
 	int j = 0;
 	while (!node.isNull()) {
 		if (node.toElement().tagName() != "status") {
