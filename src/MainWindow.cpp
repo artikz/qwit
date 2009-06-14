@@ -357,7 +357,7 @@ void MainWindow::loadState() {
 				settings.value("status").toString(),
 				QDateTime::fromString(settings.value("time").toString(), "yyyy-MM-dd hh:mm:ss"),
 				settings.value("messageId").toUInt(),
-				settings.value("replyStatusId").toInt(),
+				settings.value("replyStatusId").toUInt(),
 				-1,
 				twitter.getServiceBaseURL(),
 				username
@@ -821,7 +821,7 @@ void MainWindow::updated(const QByteArray &buffer, int type) {
 				QString message = "", timeStr = "", user = "", image = "";
 				a=buf.indexOf("<id>", a)+32;
 				b=buf.indexOf("</id>", a);
-				id=buf.mid(a,b-a).toInt();
+				id=buf.mid(a,b-a).toUInt();
 				a=buf.indexOf("<published>", a)+11;
 				b=buf.indexOf("</published>", a);
 				timeStr=buf.mid(a,b-a);
