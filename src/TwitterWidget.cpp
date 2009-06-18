@@ -266,7 +266,7 @@ void TwitterWidget::replyClicked(const QUrl &url) {
 		emit retweet(QUrl::fromPercentEncoding((url.queryItemValue("user")).toAscii()), QUrl::fromPercentEncoding((url.queryItemValue("status")).toAscii()));
 	}
 	else emit reply(QUrl::fromPercentEncoding((url.queryItemValue("user")).toAscii()));
-	emit replyID(QString::number(url.port()));
+	emit replyID(QString::number((uint)url.port()));
 }
 
 void TwitterWidget::directMessagesClicked(const QUrl &url) {
