@@ -159,6 +159,8 @@ public slots:
 	void setRetweetTag();
 	void postTwitPic();
 	void makeActive();
+	void openUser(const QString &user);
+	void openSearch(const QString &query);
 
 protected:
 

@@ -47,6 +47,13 @@ TRANSLATIONS += \
            translations/qwit_kk_KZ.ts
 QT += network xml
 RESOURCES = qwit.qrc
+
+# Windows icons
+RC_FILE = qwit-win.rc
+
+#Mac OS X icon
+ICON = images/qwit.icns
+
 target.path = $${PREFIX}/bin
 desktop.path = $${PREFIX}/share/applications
 desktop.files += qwit.desktop
@@ -54,3 +61,4 @@ icon.path = $${PREFIX}/share/icons
 icon.files += images/qwit.png
 INSTALLS = target desktop icon
 CONFIG += debug x86 ppc x86_64 ppc64
+OTHER_FILES += qwit-win.rc

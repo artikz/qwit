@@ -97,6 +97,7 @@ public slots:
 
 	void replyClicked(const QUrl &url);
 	void directMessagesClicked(const QUrl &url);
+	void twitterClicked(const QUrl &url);
 	void reloadUserpic(const QString &userpic);
 
 signals:
@@ -106,6 +107,8 @@ signals:
 	void directMessages(const QString &);
 	void replyID(const QString &);
 	void directMessagesID(const QString &);
+	void openUser(const QString &);
+	void openSearch(const QString &);
 };
 
 #endif

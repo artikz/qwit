@@ -216,6 +216,8 @@ MainWindow::MainWindow(QWidget *parent): QDialog(parent) {
 		connect(this, SIGNAL(sendRetweetTag(const QString &, const bool &)), statusTextEdit, SLOT(setRetweetTag(const QString &, const bool &)));
 		connect(twitterTabs[i].twitterWidget, SIGNAL(directMessages(const QString &)), statusTextEdit, SLOT(directMessages(const QString &)));
 		connect(twitterTabs[i].twitterWidget, SIGNAL(directMessagesID(const QString &)), this, SLOT(setDirectMessagesID(const QString &)));
+		connect(twitterTabs[i].twitterWidget, SIGNAL(openUser(const QString &)), this, SLOT(openUser(const QString &)));
+		connect(twitterTabs[i].twitterWidget, SIGNAL(openSearch(const QString &)), this, SLOT(openSearch(const QString &)));
 	}
 
 	connect(statusTextEdit, SIGNAL(leftCharsNumberChanged(int)), this, SLOT(leftCharsNumberChanged(int)));
@@ -380,6 +382,18 @@ void MainWindow::setDirectMessagesID(const QString &replyID) {
 
 void MainWindow::setRetweetTag() {
 	emit sendRetweetTag(retweetTag,retweetTagPlace);
+}
+
+void MainWindow::openUser(const QString &user) {
+    tabWidget->setCurrentIndex(CUSTOM_TWITTER_TAB);
+    customUsernameLineEdit->setText(user);
+    customUsernameChanged();
+}
+
+void MainWindow::openSearch(const QString &query) {
+    tabWidget->setCurrentIndex(SEARCH_TWITTER_TAB);
+    searchLineEdit->setText(query);
+    searchChanged();
 }
 
 void MainWindow::sendStatus() {
