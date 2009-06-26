@@ -162,9 +162,9 @@ void TwitterWidget::addItem(const QString &userpic, const QString &username, con
 	item.status->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 	item.status->setFrameShape(QFrame::NoFrame);
 	item.status->setOpenExternalLinks(true);
-	QFont font = item.status->document()->defaultFont();
-	font.setFamily("Verdana");
-	item.status->document()->setDefaultFont(font);
+//	QFont font = item.status->document()->defaultFont();
+//	font.setFamily("Verdana");
+//	item.status->document()->setDefaultFont(font);
 
 	item.icon = new QLabel(this);
 	item.iconFileName = userpic;
