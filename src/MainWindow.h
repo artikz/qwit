@@ -122,6 +122,7 @@ public:
 	QMap<QString, int> monthes;
 	bool verticalAlignControl;
 	bool placeTabsVertically;
+	bool keepFocusAfterUpdate;
 	bool updatesNotification;
 	bool usernameUnderAvatar;
 

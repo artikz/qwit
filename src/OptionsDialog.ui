@@ -169,6 +169,13 @@
              </property>
             </widget>
            </item>
+           <item>
+            <widget class="QCheckBox" name="keepFocusAfterUpdateCheckBox" >
+             <property name="text" >
+              <string>Keep focus on the text field after status update</string>
+             </property>
+            </widget>
+           </item>
           </layout>
          </item>
          <item row="1" column="0" >

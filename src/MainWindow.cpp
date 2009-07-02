@@ -282,6 +282,7 @@ void MainWindow::loadState() {
 	messagesPerTray = settings.value("messagesPerTray", DEFAULT_MESSAGES_PER_TRAY).toInt();
 	verticalAlignControl = settings.value("verticalAlignControl", true).toBool();
 	placeTabsVertically = settings.value("placeTabsVertically", true).toBool();
+	keepFocusAfterUpdate = settings.value("keepFocusAfterUpdate", true).toBool();
 	updatesNotification = settings.value("updatesNotification", true).toBool();
 	usernameUnderAvatar = settings.value("usernameUnderAvatar", true).toBool();
 	twitter.setServiceAPIURL(settings.value("serviceAPIURL", "http://twitter.com").toString());
@@ -311,6 +312,7 @@ void MainWindow::loadState() {
 	optionsDialog->updatesNotificationCheckBox->setCheckState(updatesNotification ? Qt::Checked : Qt::Unchecked);
 	optionsDialog->verticalControlCheckBox->setCheckState(verticalAlignControl ? Qt::Checked : Qt::Unchecked);
 	optionsDialog->placeTabsVerticallyCheckBox->setCheckState(placeTabsVertically ? Qt::Checked : Qt::Unchecked);
+	optionsDialog->keepFocusAfterUpdateCheckBox->setCheckState(keepFocusAfterUpdate ? Qt::Checked : Qt::Unchecked);
 	optionsDialog->usernameUnderAvatarCheckBox->setCheckState(usernameUnderAvatar ? Qt::Checked : Qt::Unchecked);
 	optionsDialog->serviceBaseURLLineEdit->setText(twitter.getServiceBaseURL());
 	optionsDialog->serviceAPIURLLineEdit->setText(twitter.getServiceAPIURL());
@@ -411,7 +413,9 @@ void MainWindow::sendStatus() {
 	statusTextEdit->setText("");
 	charsLeftLabel->setText(QString::number(statusTextEdit->getMaxStatusCharacter()));
 	charsLeftLabel->setForegroundRole(QPalette::Light);
-	twitterTabs[tabWidget->currentIndex()].twitterWidget->setFocus(Qt::OtherFocusReason);
+	if (!keepFocusAfterUpdate) {
+		twitterTabs[tabWidget->currentIndex()].twitterWidget->setFocus(Qt::OtherFocusReason);
+	}
 }
 
 void MainWindow::updateTimeline() {
@@ -454,6 +458,7 @@ void MainWindow::saveState() {
 	bool proxySavePassword = optionsDialog->proxySavePasswordCheckBox->checkState() == Qt::Checked;
 	verticalAlignControl = optionsDialog->verticalControlCheckBox->checkState() == Qt::Checked;
 	placeTabsVertically = optionsDialog->placeTabsVerticallyCheckBox->checkState() == Qt::Checked;
+	keepFocusAfterUpdate = optionsDialog->keepFocusAfterUpdateCheckBox->checkState() == Qt::Checked;
 	updatesNotification = optionsDialog->updatesNotificationCheckBox->checkState() == Qt::Checked;
 	usernameUnderAvatar = optionsDialog->usernameUnderAvatarCheckBox->checkState() == Qt::Checked;
 	greetingMessageLabel->setText(optionsDialog->greetingMessageLineEdit->text());
@@ -477,6 +482,7 @@ void MainWindow::saveState() {
 	settings.setValue("retweetTagPlace", retweetTagPlace);
 	settings.setValue("verticalAlignControl", verticalAlignControl);
 	settings.setValue("placeTabsVertically", placeTabsVertically);
+	settings.setValue("keepFocusAfterUpdate", keepFocusAfterUpdate);
 	settings.setValue("updatesNotification", updatesNotification);
 	settings.setValue("usernameUnderAvatar", usernameUnderAvatar);
 	settings.setValue("serviceBaseURL", twitter.getServiceBaseURL());
