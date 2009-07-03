@@ -26,32 +26,7 @@
 #include <QDateTime>
 #include <QScrollArea>
 
-class TwitterWidgetItem {
-public:
-	QTextBrowser *status;
-	QLabel *icon;
-	QLabel *sign;
-	QLabel *contrl;
-	QString iconFileName;
-	int top;
-	int height;
-	QColor color;
-	QDateTime time;
-	QString username;
-	uint messageId;
-
-	QString cleanStatus;
-	QString cacheUserpic;
-	QString cacheUsername;
-	QString cacheStatus;
-	bool reply;
-	QDateTime cacheTime;
-	uint cacheMessageId;
-	uint cacheReplyStatusId;
-	int cacheIndex;
-
-	void loadIcon();
-};
+#include "TwitterWidgetItem.h"
 
 const int ICON_SIZE = 48;
 const int MARGIN = 5;
@@ -67,9 +42,6 @@ private:
 	int scrollPosition;
 
 	QVector<TwitterWidgetItem> items;
-	bool isReplyTo(const QString &text, const QString &username);
-	QString prepare(const QString &text, const uint &replyStatusId, const QString &serviceBaseURL);
-	bool isUsernameChar(const QChar &c) const;
 	QString serviceBaseURL;
 
 public:

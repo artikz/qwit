@@ -514,12 +514,12 @@ void MainWindow::saveState() {
 			try {
 				const TwitterWidgetItem &item = twitterTabs[tab].twitterWidget->getItem(i);
 				settings.setArrayIndex(i);
-				settings.setValue("userpic", item.cacheUserpic);
-				settings.setValue("username", item.cacheUsername);
-				settings.setValue("status", item.cacheStatus);
-				settings.setValue("time", item.cacheTime.toString("yyyy-MM-dd hh:mm:ss"));
-				settings.setValue("messageId", item.cacheMessageId);
-				settings.setValue("replyStatusId", item.cacheReplyStatusId);
+				settings.setValue("userpic", item.cacheUserpic());
+				settings.setValue("username", item.cacheUsername());
+				settings.setValue("status", item.cacheStatus());
+				settings.setValue("time", item.cacheTime().toString("yyyy-MM-dd hh:mm:ss"));
+				settings.setValue("messageId", item.cacheMessageId());
+				settings.setValue("replyStatusId", item.cacheReplyStatusId());
 			} catch (const QwitException &exception) {
 				cerr << "Exception catched: " << qPrintable(exception.message) << endl;
 			}

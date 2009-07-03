@@ -31,14 +31,6 @@
 
 using namespace std;
 
-void TwitterWidgetItem::loadIcon() {
-	QPixmap pixmap(iconFileName);
-	if (!pixmap.isNull()) {
-		icon->setPixmap(pixmap.scaled(ICON_SIZE, ICON_SIZE));
-	}
-	icon->resize(ICON_SIZE, ICON_SIZE);
-}
-
 TwitterWidget::TwitterWidget(QScrollArea *scrollArea): QWidget() {
 	this->scrollArea = scrollArea;
 	QDesktopServices::setUrlHandler("twitter", this, "twitterClicked");
@@ -46,156 +38,46 @@ TwitterWidget::TwitterWidget(QScrollArea *scrollArea): QWidget() {
 	QDesktopServices::setUrlHandler("directMessages", this, "directMessagesClicked");
 }
 
-bool TwitterWidget::isUsernameChar(const QChar &c) const {
-	return ((c >= 'a') && (c <= 'z')) || ((c >= 'A') && (c <= 'Z')) || ((c >= '0') && (c <= '9')) || (c == '_');
-}
-
-bool TwitterWidget::isReplyTo(const QString &text, const QString &username) {
-	return (text.indexOf("@" + username) != -1);
-}
-
-QString TwitterWidget::prepare(const QString &text, const uint &replyStatusId, const QString &serviceBaseURL) {
-	QString s = text;
-	s.replace(" www.", " http://www.");
-	if (s.startsWith("www.")) s = "http://" + s;
-	QString t = "";
-	int i = 0, j = 0;
-	while ((j = s.indexOf("http://", i)) != -1) {
-		t += s.mid(i, j - i);
-		int k = s.indexOf(" ", j);
-		if (k == -1) k = s.length();
-		QString url = s.mid(j, k - j);
-		t += "<a href=\"" + url + "\" style=\"text-decoration:none\">" + url + "</a>";
-		i = k;
-	}
-	t += s.mid(i);
-	if (replyStatusId && (t[0] == '@')) {
-		s = t;
-		int i = 1;
-		while ((i < s.length()) && (QChar(s[i]).isLetterOrNumber() || (s[i] == '_'))) ++i;
-		QString username = s.mid(1, i - 1);
-		t = "@<a href=\"" + serviceBaseURL + "/" + username + "/statuses/" + QString::number(replyStatusId) + "\" style=\"text-decoration:none;font-weight:bold;\">" + username + "</a>" + s.mid(i);
-	}
-	s = t;
-	t = "";
-	for (int i = 0; i < s.length(); ++i) {
-		t += s[i];
-		if ((s[i] == '@') && (!i || !isUsernameChar(s[i - 1]))) {
-			int j = i + 1;
-			while ((j < s.length()) && isUsernameChar(s[j])) {
-				++j;
-			}
-			if (j - i - 1 > 0) {
-				QString username = s.mid(i + 1, j - i - 1);
-				t += "<a href=\"twitter://user/" + username + "\" style=\"text-decoration:none;font-weight:bold;\">" + username + "</a>";
-				i = j - 1;
-			}
-		}
-	}
-	s = t;
-	t = "";
-	for (int i = 0; i < s.length(); ++i) {
-		t += s[i];
-		if ((s[i] == '#') && (!i || !isUsernameChar(s[i - 1]))) {
-			int j = i + 1;
-			while ((j < s.length()) && isUsernameChar(s[j])) {
-				++j;
-			}
-			if (j - i - 1 > 0) {
-				QString hashtag = s.mid(i + 1, j - i - 1);
-				// t += "<a href=\"http://search.twitter.com/search?q=" + QUrl::toPercentEncoding("#" + hashtag) + "\" style=\"text-decoration:none;font-weight:bold;\">" + hashtag + "</a>";
-				t += "<a href=\"twitter://search/?q=" + QUrl::toPercentEncoding("#" + hashtag) + "\" style=\"text-decoration:none;font-weight:bold;\">" + hashtag + "</a>";
-				i = j - 1;
-			}
-		}
-	}
-	return t;
-}
-
 void TwitterWidget::clear() {
-	for (int i = 0; i < items.size(); ++i) {
-		delete items[i].status;
-		delete items[i].icon;
-		delete items[i].sign;
-		delete items[i].contrl;
-	}
 	items.clear();
 }
 
-void TwitterWidget::addItem(const QString &userpic, const QString &username, const QString &status, const QDateTime &time, uint messageId, uint replyStatusId, int i, const QString &serviceBaseURL, const QString &currentUsername) {
+void TwitterWidget::addItem(const QString &userpic, const QString &username, const QString &status, const QDateTime &time, uint messageId,
+		uint replyStatusId, int i, const QString &serviceBaseURL, const QString &currentUsername) {
 // Possible fix for issue 55
-	bool duplicate = false;
 	for (int j = 0; j < items.size(); ++j) {
-		if (items[j].cacheMessageId == messageId) {
-			duplicate = true;
-			break;
+		if (items[j].cacheMessageId() == messageId) {
+			return;
 		}
 	}
-	if (duplicate) {
-		return;
-	}
 
-	TwitterWidgetItem item = TwitterWidgetItem();
-
-	item.time = time;
-	item.username = username;
-	item.messageId = messageId;
-
-// Save raw info for caching between sessions
-
-	item.cacheUserpic = userpic;
-	item.cacheUsername = username;
-	item.cacheStatus = status;
-	item.cacheTime = time;
-	item.cacheMessageId = messageId;
-	item.cacheReplyStatusId = replyStatusId;
-	item.cacheIndex = i;
-
-	item.cleanStatus = status;
-
-	item.reply = isReplyTo(status, currentUsername);
-
-	item.status = new QTextBrowser(this);
-	item.status->setHtml(prepare(status, replyStatusId, serviceBaseURL));
-	item.status->setReadOnly(true);
-	item.status->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-	item.status->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-	item.status->setFrameShape(QFrame::NoFrame);
-	item.status->setOpenExternalLinks(true);
-//	QFont font = item.status->document()->defaultFont();
-//	font.setFamily("Verdana");
-//	item.status->document()->setDefaultFont(font);
-
-	item.icon = new QLabel(this);
-	item.iconFileName = userpic;
-	item.loadIcon();
-	item.sign = new QLabel("<a href=\"twitter://user/" + username + "\" style=\"font-weight:bold;text-decoration:none\">" + username + "</a> - <a href=\"http://twitter.com/" + username + "/statuses/" + QString::number(messageId) + "\" style=\"font-size:70%;text-decoration:none\">" + formatDateTime(time) + "</a> <a href=\"directMessages://" + username + ":" + QString::number(messageId) + "\" style=\"text-decoration:none\"><img src=\":/images/dms.png\"/></a> <a href=\"reply://tweet:" + QString::number(messageId) + "/q?user=" + username + "\" style=\"text-decoration:none\"><img src=\":/images/reply.png\"/></a> <a href=\"reply://tweet:" + QString::number(messageId) + "/q?user=" + username + "&status=" + QUrl::toPercentEncoding(status) +  "\" style=\"text-decoration:none\"><img src=\":/images/rt.png\"/></a>", this);
-	item.sign->setAlignment(Qt::AlignRight);
-	item.sign->setOpenExternalLinks(true);
-	item.contrl = new QLabel("<a href=\"twitter://user/" + username + "\" style=\"font-weight:bold;text-decoration:none\">" + username + "</a> - <a href=\"http://twitter.com/" + username + "/statuses/" + QString::number(messageId) + "\" style=\"font-size:70%;text-decoration:none\">" + formatDateTime(time) + "</a> <a href=\"directMessages://" + username + ":" + QString::number(messageId) + "\" style=\"text-decoration:none\"><img src=\":/images/dms.png\"/></a> <a href=\"reply://tweet:" + QString::number(messageId) + "/q?user=" + username + "\" style=\"text-decoration:none\"><img src=\":/images/reply.png\"/></a> <a href=\"reply://tweet:" + QString::number(messageId) + "/q?user=" + username + "&status=" + QUrl::toPercentEncoding(status) +  "\" style=\"text-decoration:none\"><img src=\":/images/rt.png\"/></a>", this);
-	item.contrl->setAlignment(Qt::AlignRight);
-	item.contrl->setOpenExternalLinks(true);
+	TwitterWidgetItem item = TwitterWidgetItem(
+		this,
+		userpic,
+		username,
+		status,
+		time,
+		messageId,
+		replyStatusId,
+		i,
+		serviceBaseURL,
+		currentUsername);
 
 	if (i == -1) {
 		items.push_back(item);
+		cout << "added item" << endl;
 	} else {
 		if (i < 0) i = 0;
 		else if (i > items.size()) i = items.size();
 		items.insert(i, item);
+		cout << "added item" << endl;
 	}
 
-	item.status->show();
-	item.icon->show();
-	item.sign->show();
-	item.contrl->show();
+	item.show();
 
 	while (items.size() > messagesPerPage) {
-		TwitterWidgetItem &item = items[items.size() - 1];
-		delete item.status;
-		delete item.icon;
-		delete item.sign;
-		delete item.contrl;
 		items.pop_back();
+		cout << "popped item" << endl;
 	}
 
 	updateItems();
@@ -204,52 +86,8 @@ void TwitterWidget::addItem(const QString &userpic, const QString &username, con
 void TwitterWidget::updateItems() {
 	int height = 0;
 	int statusItemWidth = width() - (ICON_SIZE + 5 * MARGIN);
-	for (int i = 0; i < items.size(); ++i) {
-		QFontMetrics fontMetrics(items[i].status->font());
-		TwitterWidgetItem &item = items[i];
-		int statusItemHeight = fontMetrics.boundingRect(0, 0, statusItemWidth, 1000, Qt::AlignTop | Qt::TextWordWrap, item.status->toPlainText()).height() + 5;
-		if (statusItemHeight < ICON_SIZE) {
-			statusItemHeight = ICON_SIZE;
-		}
-		item.status->move(ICON_SIZE + 2 * MARGIN, height + MARGIN);
-		item.status->resize(statusItemWidth, statusItemHeight);
-		statusItemHeight += item.status->verticalScrollBar()->maximum() - item.status->verticalScrollBar()->minimum();
-		item.status->resize(statusItemWidth, statusItemHeight);
-		item.icon->move(MARGIN, height + MARGIN);
-
-		if (usernameUnderAvatar) {
-			QString tablew = "";
-			tablew.setNum(statusItemWidth + 70);
-			item.sign->setText(
-			    "<table border=\"0\" width=\"" + tablew + "\" cellpadding=\"0\" cellspacing=\"0\"><tr valign=\"top\"><td width=\"50%\"><a href=\"twitter://user/" + item.username + "\" style=\"font-weight:bold;text-decoration:none;font-size:small\">" + item.username + "</a></td><td width=\"50%\"><p align=\"right\" style=\"margin-right:20px\"><a href=\"http://twitter.com/" + item.username + "/statuses/" + QString::number(item.messageId) + "\" style=\"font-size:small;text-decoration:none\">" + formatDateTime(item.time) + " </a></p></td>"  + (verticalAlignControl ? "" : "<td><p align=\"right\"><a href=\"directMessages://" + item.username + ":" + QString::number(item.messageId) + "\" style=\"text-decoration:none\"><img src=\":/images/dms.png\"/></a><a href=\"reply://tweet:" + QString::number(item.messageId) + "/q?user=" + item.username + "\" style=\"text-decoration:none\"><img src=\":/images/reply.png\"/></a><a href=\"reply://tweet:" + QString::number(item.messageId) + "/q?user=" + item.username + "&status=" + QUrl::toPercentEncoding(item.cleanStatus) +  "\" style=\"text-decoration:none\"><img src=\":/images/rt.png\"/></a></p></td>") + "</tr></table>");
-			item.sign->resize(width()+(7 * MARGIN), 16);
-			item.sign->move(MARGIN, height + statusItemHeight + MARGIN);
-		} else{
-			item.sign->setText("<a href=\"twitter://user/" + item.username + "\" style=\"font-weight:bold;text-decoration:none;font-size:small\">" + item.username + "</a> - <a href=\"http://twitter.com/" + item.username + "/statuses/" + QString::number(item.messageId) + "\" style=\"font-size:small;text-decoration:none\">" + formatDateTime(item.time) + "</a> " + (verticalAlignControl ? "" : "<a href=\"directMessages://" + item.username + ":" + QString::number(item.messageId) + "\" style=\"text-decoration:none\"><img src=\":/images/dms.png\"/></a><a href=\"reply://tweet:" + QString::number(item.messageId) + "/q?user=" + item.username + "\" style=\"text-decoration:none\"><img src=\":/images/reply.png\"/></a><a href=\"reply://tweet:" + QString::number(item.messageId) + "/q?user=" + item.username + "&status=" + QUrl::toPercentEncoding(item.cleanStatus) +  "\" style=\"text-decoration:none\"><img src=\":/images/rt.png\"/></a>"));
-			item.sign->adjustSize();
-			item.sign->move(width() - item.sign->width() - MARGIN, height + statusItemHeight + MARGIN);
-		}
-		item.contrl->setText(verticalAlignControl ? "<a href=\"directMessages://" + item.username + ":" + QString::number(item.messageId) + "\" style=\"text-decoration:none\"><img src=\":/images/dms.png\"/></a><br><a href=\"reply://tweet:" + QString::number(item.messageId) + "/q?user=" + item.username + "\" style=\"text-decoration:none\"><img src=\":/images/reply.png\"/></a><br><a href=\"reply://tweet:" + QString::number(item.messageId) + "/q?user=" + item.username + "&status=" + QUrl::toPercentEncoding(item.cleanStatus) +  "\" style=\"text-decoration:none\"><img src=\":/images/rt.png\"/></a>" :"");
-		item.contrl->adjustSize();
-		item.contrl->move(width() - item.contrl->width() - MARGIN, height + MARGIN);
-
-		if (item.reply) {
-			if (i & 1) {
-				item.color = QColor(128, 255, 128);
-			} else {
-				item.color = QColor(200, 255, 200);
-			}
-		} else if (i & 1) {
-			item.color = QColor(230, 230, 230);
-		} else {
-			item.color = QColor("white");
-		}
-
-		int itemHeight = statusItemHeight + item.sign->height() + MARGIN;
-		itemHeight = max(ICON_SIZE, item.sign->y() + item.sign->height()) + MARGIN - height;
-		item.top = height;
-		item.height = itemHeight;
-		height += itemHeight;
+	for (int i = 0; i < items.size(); ++ i) {
+		height += items[i].update(width(), statusItemWidth, height, (i & 1), usernameUnderAvatar, verticalAlignControl);
 	}
 	resize(width(), height);
 }
@@ -289,7 +127,7 @@ void TwitterWidget::twitterClicked(const QUrl &url) {
 }
 
 void TwitterWidget::reloadUserpic(const QString &userpic) {
-	for (int i = 0; i < items.size(); ++i) if (items[i].iconFileName == userpic) {
+	for (int i = 0; i < items.size(); ++i) if (items[i].iconFileName() == userpic) {
 		TwitterWidgetItem &item = items[i];
 		item.loadIcon();
 //		item.icon->resize(ICON_SIZE, ICON_SIZE);
@@ -299,12 +137,7 @@ void TwitterWidget::reloadUserpic(const QString &userpic) {
 void TwitterWidget::paintEvent(QPaintEvent *event) {
 	QPainter painter(this);
 	for (int i = 0; i < items.size(); ++i) {
-		TwitterWidgetItem &item = items[i];
-		painter.fillRect(0, items[i].top, width(), items[i].height, QBrush(item.color));
-		QPalette p = palette();
-		p.setColor(QPalette::Active, QPalette::Base, item.color);
-		p.setColor(QPalette::Inactive, QPalette::Base, item.color);
-		item.status->setPalette(p);
+		items[i].paint(painter, palette(), width());
 	}
 	event->accept();
 }
