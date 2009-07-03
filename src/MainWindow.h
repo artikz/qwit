@@ -125,6 +125,7 @@ public:
 	bool keepFocusAfterUpdate;
 	bool updatesNotification;
 	bool usernameUnderAvatar;
+	bool openUserProfileInBrowser;
 
 	QString replyStatusID;
 	bool isReply;

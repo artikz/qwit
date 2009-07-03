@@ -25,6 +25,7 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QDialog>
+#include <QDesktopServices>
 #include <iostream>
 
 using namespace std;
@@ -285,6 +286,7 @@ void MainWindow::loadState() {
 	keepFocusAfterUpdate = settings.value("keepFocusAfterUpdate", true).toBool();
 	updatesNotification = settings.value("updatesNotification", true).toBool();
 	usernameUnderAvatar = settings.value("usernameUnderAvatar", true).toBool();
+	openUserProfileInBrowser = settings.value("openUserProfileInBrowser", true).toBool();
 	twitter.setServiceAPIURL(settings.value("serviceAPIURL", "http://twitter.com").toString());
 	twitter.setServiceBaseURL(settings.value("serviceBaseURL", "http://twitter.com").toString());
 	greetingMessageLabel->setText(settings.value("greetingMessage", "What are you doing?").toString());
@@ -314,6 +316,7 @@ void MainWindow::loadState() {
 	optionsDialog->placeTabsVerticallyCheckBox->setCheckState(placeTabsVertically ? Qt::Checked : Qt::Unchecked);
 	optionsDialog->keepFocusAfterUpdateCheckBox->setCheckState(keepFocusAfterUpdate ? Qt::Checked : Qt::Unchecked);
 	optionsDialog->usernameUnderAvatarCheckBox->setCheckState(usernameUnderAvatar ? Qt::Checked : Qt::Unchecked);
+	optionsDialog->openUserProfileInBrowserCheckBox->setCheckState(openUserProfileInBrowser ? Qt::Checked : Qt::Unchecked);
 	optionsDialog->serviceBaseURLLineEdit->setText(twitter.getServiceBaseURL());
 	optionsDialog->serviceAPIURLLineEdit->setText(twitter.getServiceAPIURL());
 	optionsDialog->usernameLineEdit->setText(username);
@@ -387,9 +390,13 @@ void MainWindow::setRetweetTag() {
 }
 
 void MainWindow::openUser(const QString &user) {
-    tabWidget->setCurrentIndex(CUSTOM_TWITTER_TAB);
-    customUsernameLineEdit->setText(user);
-    customUsernameChanged();
+	if (openUserProfileInBrowser) {
+		QDesktopServices::openUrl(QUrl(twitter.getServiceBaseURL() + "/" + user));
+	} else {
+		tabWidget->setCurrentIndex(CUSTOM_TWITTER_TAB);
+		customUsernameLineEdit->setText(user);
+		customUsernameChanged();
+	}
 }
 
 void MainWindow::openSearch(const QString &query) {
@@ -455,6 +462,7 @@ void MainWindow::saveState() {
 	messagesPerTray = optionsDialog->messagesPerTrayLineEdit->text().toInt();
 	retweetTag = optionsDialog->retweetTagEdit->text();
 	retweetTagPlace = optionsDialog->retweetAtEnd->checkState() == Qt::Checked;
+	openUserProfileInBrowser = optionsDialog->openUserProfileInBrowserCheckBox->checkState() == Qt::Checked;
 	bool proxySavePassword = optionsDialog->proxySavePasswordCheckBox->checkState() == Qt::Checked;
 	verticalAlignControl = optionsDialog->verticalControlCheckBox->checkState() == Qt::Checked;
 	placeTabsVertically = optionsDialog->placeTabsVerticallyCheckBox->checkState() == Qt::Checked;
@@ -485,6 +493,7 @@ void MainWindow::saveState() {
 	settings.setValue("keepFocusAfterUpdate", keepFocusAfterUpdate);
 	settings.setValue("updatesNotification", updatesNotification);
 	settings.setValue("usernameUnderAvatar", usernameUnderAvatar);
+	settings.setValue("openUserProfileInBrowser", openUserProfileInBrowser);
 	settings.setValue("serviceBaseURL", twitter.getServiceBaseURL());
 	settings.setValue("serviceAPIURL", twitter.getServiceAPIURL());
 	settings.setValue("greetingMessage", greetingMessageLabel->text());
