@@ -33,6 +33,7 @@ set( qwit_SRCS
 	src/StatusTextEdit.cpp
 	src/Twitter.cpp
 	src/TwitterWidget.cpp
+	src/TwitterWidgetItem.cpp
 	src/UserpicsDownloader.cpp
 	src/TwitPicDialog.cpp
 	)

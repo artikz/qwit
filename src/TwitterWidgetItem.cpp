@@ -112,7 +112,11 @@ bool TwitterWidgetItem::isReplyTo(const QString &text, const QString &username) 
 }
 
 bool TwitterWidgetItem::isUsernameChar(const QChar &c) {
-	return c.isLetterOrNumber() || c == '_';
+	return ((c >= 'a') && (c <= 'z')) || ((c >= 'A') && (c <= 'Z')) || ((c >= '0') && (c <= '9')) || c == '_';
+}
+
+bool TwitterWidgetItem::isHashtagChar(const QChar &c) {
+	return c.isLetterOrNumber() || c == '_' || c == '-';
 }
 
 QString TwitterWidgetItem::prepare(const QString &text, const uint &replyStatusId, const QString &serviceBaseURL) {
@@ -157,9 +161,9 @@ QString TwitterWidgetItem::prepare(const QString &text, const uint &replyStatusI
 	t = "";
 	for (int i = 0; i < s.length(); ++i) {
 		t += s[i];
-		if ((s[i] == '#') && (!i || !isUsernameChar(s[i - 1]))) {
+		if ((s[i] == '#') && (!i || !isHashtagChar(s[i - 1]))) {
 			int j = i + 1;
-			while ((j < s.length()) && isUsernameChar(s[j])) {
+			while ((j < s.length()) && isHashtagChar(s[j])) {
 				++j;
 			}
 			if (j - i - 1 > 0) {
