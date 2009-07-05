@@ -50,7 +50,18 @@ qt4_wrap_ui( qwit_UI_SRCS ${qwit_UI} )
 qt4_add_resources( qwit_RCC_SRCS ${qwit_RCC} )
 qt4_add_translation( qwit_QM ${qwit_TS} )
 
-automoc4_add_executable( qwit
+IF( MINGW )
+# resource compilation for MinGW
+ADD_CUSTOM_COMMAND( OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/qwit-win.o
+		COMMAND windres.exe -I${CMAKE_CURRENT_SOURCE_DIR} -i${CMAKE_CURRENT_SOURCE_DIR}/qwit-win.rc 
+		-o ${CMAKE_CURRENT_BINARY_DIR}/qwit-win.o )
+	SET(qwit_SRCS ${qwit_SRCS} ${CMAKE_CURRENT_BINARY_DIR}/qwit-win.o)
+ELSE( MINGW )
+	SET(qwit_SRCS ${qwit_SRCS} qwit-win.rc)
+ENDIF( MINGW )
+
+
+automoc4_add_executable( qwit WIN32
 	${qwit_SRCS}
 	${qwit_UI_SRCS}
 	${qwit_RCC_SRCS}
