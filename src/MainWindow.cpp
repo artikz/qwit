@@ -238,7 +238,7 @@ MainWindow::MainWindow(QWidget *parent): QDialog(parent) {
 }
 
 void MainWindow::postTwitPic() {
-	QString fileName = QFileDialog::getOpenFileName(this, tr("Pick an image"), QDir::homePath(), tr("Image Files (*.png *.jpg *.jpeg *.bmp)"));
+	QString fileName = QFileDialog::getOpenFileName(this, tr("Pick an image"), QDir::homePath(), tr("Image Files (*.png *.jpg *.jpeg *.bmp *.JPG *.JPEG *.PNG *.GIF *.BMP)"));
 	if (fileName.isEmpty())
 		return;
 	TwitPicDialog dialog(fileName, this);
