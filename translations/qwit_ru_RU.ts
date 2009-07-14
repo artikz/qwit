@@ -19,7 +19,7 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="241"/>
         <source>Image Files (*.png *.jpg *.jpeg *.bmp *.JPG *.JPEG *.PNG *.GIF)</source>
-        <translation>Файлы изображений</translation>
+        <translation>Файлы изображений (*.png *.jpg *.jpeg *.bmp *.JPG *.JPEG *.PNG *.GIF)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="252"/>
