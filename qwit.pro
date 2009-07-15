@@ -44,7 +44,8 @@ TRANSLATIONS += translations/qwit_en_US.ts \
     translations/qwit_ru_RU.ts \
     translations/qwit_tr_TR.ts \
     translations/qwit_de_DE.ts \
-    translations/qwit_kk_KZ.ts
+    translations/qwit_kk_KZ.ts \
+    translations/qwit_zh_CN.ts
 QT += network \
     xml
 RESOURCES = qwit.qrc
