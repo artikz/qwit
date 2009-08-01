@@ -356,15 +356,15 @@ void MainWindow::loadState() {
 		for (int i = 0; i < size; ++i) {
 			settings.setArrayIndex(i);
 			if (i == 0) {
-				twitterTabs[tab].lastId = settings.value("messageId").toUInt();
+				twitterTabs[tab].lastId = settings.value("messageId").toULongLong();
 			}
 			twitterTabs[tab].twitterWidget->addItem(
 				settings.value("userpic").toString(),
 				settings.value("username").toString(),
 				settings.value("status").toString(),
 				QDateTime::fromString(settings.value("time").toString(), "yyyy-MM-dd hh:mm:ss"),
-				settings.value("messageId").toUInt(),
-				settings.value("replyStatusId").toUInt(),
+				settings.value("messageId").toULongLong(),
+				settings.value("replyStatusId").toULongLong(),
 				-1,
 				twitter.getServiceBaseURL(),
 				username
@@ -655,7 +655,7 @@ void MainWindow::updated(const QByteArray &buffer, int type) {
 	QDomNode node = root.firstChild();
 	QString html = "";
 	QString trayMessage = "";
-	uint maxId = twitterTabs[type].lastId;
+	quint64 maxId = twitterTabs[type].lastId;
 	int j = 0;
 	while (!node.isNull()) {
 		if (node.toElement().tagName() != "status") {
@@ -663,18 +663,18 @@ void MainWindow::updated(const QByteArray &buffer, int type) {
 		}
 		QDomNode node2 = node.firstChild();
 		QString message = "", timeStr = "", user = "", image = "";
-		uint id = 0, replyUserID = 0, replyStatusId = 0;
+		quint64 id = 0, replyUserID = 0, replyStatusId = 0;
 		while (!node2.isNull()) {
 			if (node2.toElement().tagName() == "created_at") {
 				timeStr = node2.toElement().text();
 			} else if (node2.toElement().tagName() == "text") {
 				message = node2.toElement().text();
 			} else if (node2.toElement().tagName() == "id") {
-				id = node2.toElement().text().toUInt();
+				id = node2.toElement().text().toULongLong();
 			} else if (node2.toElement().tagName() == "in_reply_to_status_id") {
-				replyStatusId = node2.toElement().text().toUInt();
+				replyStatusId = node2.toElement().text().toULongLong();
 			} else if (node2.toElement().tagName() == "in_reply_to_user_id") {
-				replyUserID = node2.toElement().text().toUInt();
+				replyUserID = node2.toElement().text().toULongLong();
 			} else if (node2.toElement().tagName() == "user") {
 				QDomNode node3 = node2.firstChild();
 				while (!node3.isNull()) {
@@ -741,7 +741,7 @@ void MainWindow::updated(const QByteArray &buffer, int type) {
 	QDomNode node = root.firstChild();
 	QString html = "";
 	QString trayMessage = "";
-	uint maxId = twitterTabs[type].lastId;
+	quint64 maxId = twitterTabs[type].lastId;
 	int j = 0;
 	while (!node.isNull()) {
 		if (node.toElement().tagName() != "direct_message") {
@@ -749,14 +749,14 @@ void MainWindow::updated(const QByteArray &buffer, int type) {
 		}
 		QDomNode node2 = node.firstChild();
 		QString message = "", timeStr = "", user = "", image = "", imageRecipient = "",recipientUser = "";
-		uint id = 0;
+		quint64 id = 0;
 		while (!node2.isNull()) {
 			if (node2.toElement().tagName() == "created_at") {
 				timeStr = node2.toElement().text();
 			} else if (node2.toElement().tagName() == "text") {
 				message = node2.toElement().text();
 			} else if (node2.toElement().tagName() == "id") {
-				id = node2.toElement().text().toUInt();
+				id = node2.toElement().text().toULongLong();
 			} else if (node2.toElement().tagName() == "sender_screen_name") {
 				user = node2.toElement().text();
 			} else if (node2.toElement().tagName() == "recipient_screen_name") {
@@ -840,17 +840,17 @@ void MainWindow::updated(const QByteArray &buffer, int type) {
 			QDomNode node = root.firstChild();
 			QString html = "";
 			QString trayMessage = "";
-			uint maxId = twitterTabs[type].lastId;
+			quint64 maxId = twitterTabs[type].lastId;
 			int a = 0;
 			int b = 0;
 			int j = 0;
 			QByteArray buf=buffer;
 			while (buf.indexOf("<entry>", a)!=-1 && buf.indexOf("<entry>", a)<buf.indexOf("</feed>", 0)) {
-				uint id = 0;
+				quint64 id = 0;
 				QString message = "", timeStr = "", user = "", image = "";
 				a=buf.indexOf("<id>", a)+32;
 				b=buf.indexOf("</id>", a);
-				id=buf.mid(a,b-a).toUInt();
+				id=buf.mid(a,b-a).toULongLong();
 				a=buf.indexOf("<published>", a)+11;
 				b=buf.indexOf("</published>", a);
 				timeStr=buf.mid(a,b-a);

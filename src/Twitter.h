@@ -63,7 +63,7 @@ public:
 	void useProxy(const QString &address, int port, const QString &username, const QString &password);
 	void dontUseProxy();
 	void sendStatus(QString username, QString password, QString status, QString replyID);
-	void update(QString username, QString password, uint lastStatusId, int type, int count);
+	void update(QString username, QString password, quint64 lastStatusId, int type, int count);
 	void setUrl(int index, const QString &url);
 	void abort();
 	QString getServiceBaseURL();

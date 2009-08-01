@@ -70,11 +70,11 @@ const int DEFAULT_MESSAGES_PER_TRAY = 10;
 class TwitterTab {
 public:
 	TwitterWidget *twitterWidget;
-	uint lastId;
+	quint64 lastId;
 	QScrollArea *scrollArea;
 	int lastUpdateTime;
 
-	TwitterTab(QScrollArea *scrollArea, TwitterWidget *twitterWidget, uint lastId) {
+	TwitterTab(QScrollArea *scrollArea, TwitterWidget *twitterWidget, quint64 lastId) {
 		this->scrollArea = scrollArea;
 		this->twitterWidget = twitterWidget;
 		this->lastId = lastId;

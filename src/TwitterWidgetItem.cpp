@@ -33,8 +33,8 @@ TwitterWidgetItem::TwitterWidgetItem(
 		const QString &username,
 		const QString &statusText,
 		const QDateTime &time,
-		uint messageId,
-		uint replyStatusId,
+		quint64 messageId,
+		quint64 replyStatusId,
 		int i,
 		const QString &serviceBaseURL,
 		const QString &currentUsername) {
@@ -119,7 +119,7 @@ bool TwitterWidgetItem::isHashtagChar(const QChar &c) {
 	return c.isLetterOrNumber() || c == '_' || c == '-';
 }
 
-QString TwitterWidgetItem::prepare(const QString &text, const uint &replyStatusId, const QString &serviceBaseURL) {
+QString TwitterWidgetItem::prepare(const QString &text, const quint64 &replyStatusId, const QString &serviceBaseURL) {
 	QString s = text;
 	s.replace(" www.", " http://www.");
 	if (s.startsWith("www.")) s = "http://" + s;

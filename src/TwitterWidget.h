@@ -48,7 +48,7 @@ public:
 
 	TwitterWidget(QScrollArea *scrollArea);
 	void clear();
-	void addItem(const QString &userpic, const QString &username, const QString &status, const QDateTime &time, uint messageId, uint replyStatusId, int i, const QString &serviceBaseURL, const QString &currentUsername);
+	void addItem(const QString &userpic, const QString &username, const QString &status, const QDateTime &time, quint64 messageId, quint64 replyStatusId, int i, const QString &serviceBaseURL, const QString &currentUsername);
 	void updateItems();
 	const TwitterWidgetItem getItem(int index);
 	int getItemsCount();

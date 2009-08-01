@@ -113,7 +113,7 @@ void Twitter::sendStatus(QString username, QString password, QString status, QSt
 	emit stateChanged(tr("Sending status: %1").arg(serviceAPIURL + STATUS_UPDATE_URL));
 }
 
-void Twitter::update(QString username, QString password, uint lastStatusId, int type, int count) {
+void Twitter::update(QString username, QString password, quint64 lastStatusId, int type, int count) {
 	if (urls[type] == "") {
 		cerr << "No url defined" << endl;
 		return;

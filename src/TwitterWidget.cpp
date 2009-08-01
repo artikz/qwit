@@ -42,8 +42,8 @@ void TwitterWidget::clear() {
 	items.clear();
 }
 
-void TwitterWidget::addItem(const QString &userpic, const QString &username, const QString &status, const QDateTime &time, uint messageId,
-		uint replyStatusId, int i, const QString &serviceBaseURL, const QString &currentUsername) {
+void TwitterWidget::addItem(const QString &userpic, const QString &username, const QString &status, const QDateTime &time, quint64 messageId,
+		quint64 replyStatusId, int i, const QString &serviceBaseURL, const QString &currentUsername) {
 // Possible fix for issue 55
 	for (int j = 0; j < items.size(); ++j) {
 		if (items[j].cacheMessageId() == messageId) {
@@ -106,7 +106,7 @@ void TwitterWidget::replyClicked(const QUrl &url) {
 		emit retweet(QUrl::fromPercentEncoding((url.queryItemValue("user")).toAscii()), QUrl::fromPercentEncoding((url.queryItemValue("status")).toAscii()));
 	}
 	else emit reply(QUrl::fromPercentEncoding((url.queryItemValue("user")).toAscii()));
-	emit replyID(QString::number((uint)url.port()));
+	emit replyID(QString::number((quint64)url.port()));
 }
 
 void TwitterWidget::directMessagesClicked(const QUrl &url) {

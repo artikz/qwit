@@ -72,7 +72,7 @@ public:
 	QString iconFileName;
 	QDateTime time;
 	QString username;
-	uint messageId;
+	quint64 messageId;
 
 	int top;
 	int height;
@@ -86,8 +86,8 @@ public:
 	QString cacheUsername;
 	QString cacheStatus;
 	QDateTime cacheTime;
-	uint cacheMessageId;
-	uint cacheReplyStatusId;
+	quint64 cacheMessageId;
+	quint64 cacheReplyStatusId;
 	int cacheIndex;
 };
 
@@ -104,8 +104,8 @@ public:
 		const QString &username,
 		const QString &statusText,
 		const QDateTime &time,
-		uint messageId,
-		uint replyStatusId,
+		quint64 messageId,
+		quint64 replyStatusId,
 		int i,
 		const QString &serviceBaseURL,
 		const QString &currentUsername);
@@ -121,8 +121,8 @@ public:
 	QString cacheStatus()     const { return d->cacheStatus; }
 	QString cacheUsername()   const { return d->cacheUsername; }
 	QDateTime cacheTime()     const { return d->cacheTime; }
-	uint cacheMessageId()     const { return d->cacheMessageId; }
-	uint cacheReplyStatusId() const { return d->cacheReplyStatusId; }
+	quint64 cacheMessageId()     const { return d->cacheMessageId; }
+	quint64 cacheReplyStatusId() const { return d->cacheReplyStatusId; }
 	int cacheIndex()          const { return d->cacheIndex; }
 	QString iconFileName()    const { return d->iconFileName; }
 
@@ -132,7 +132,7 @@ private:
 	static bool isUsernameChar(const QChar &c);
 	static bool isHashtagChar(const QChar &c);
 	static bool isReplyTo(const QString &text, const QString &username);
-	static QString prepare(const QString &text, const uint &replyStatusId, const QString &serviceBaseURL);
+	static QString prepare(const QString &text, const quint64 &replyStatusId, const QString &serviceBaseURL);
 };
 
 #endif // TwitterWidgetItem_H
