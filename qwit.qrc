@@ -18,5 +18,6 @@
         <file>translations/qwit_kk_KZ.qm</file>
         <file>translations/qwit_de_DE.qm</file>
         <file>translations/qwit_zh_CN.qm</file>
+        <file>translations/qwit_fi_FI.qm</file>
     </qresource>
 </RCC>
