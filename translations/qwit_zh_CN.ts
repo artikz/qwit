@@ -2,6 +2,88 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="zh_CN">
 <context>
+    <name>FriendsMgmtDialog</name>
+    <message>
+        <location filename="../src/FriendsMgmtDialog.cpp" line="146"/>
+        <source>Blocking : %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/FriendsMgmtDialog.cpp" line="157"/>
+        <source>Unblocking : %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/FriendsMgmtDialog.cpp" line="202"/>
+        <source>%n friend(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/FriendsMgmtDialog.cpp" line="205"/>
+        <source>%n follower(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/FriendsMgmtDialog.cpp" line="208"/>
+        <source>%n blocked</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <location filename="../src/FriendsMgmtDialog.cpp" line="477"/>
+        <source>Screenname contains illegal character: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/FriendsMgmtDialog.ui" line="14"/>
+        <source>Friends Management</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/FriendsMgmtDialog.ui" line="28"/>
+        <source>Friends</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/FriendsMgmtDialog.ui" line="44"/>
+        <source>new friend:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/FriendsMgmtDialog.ui" line="57"/>
+        <source>add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/FriendsMgmtDialog.ui" line="72"/>
+        <source>Followers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/FriendsMgmtDialog.ui" line="77"/>
+        <source>Blocked</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/FriendsMgmtDialog.ui" line="108"/>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>FriendsMgmtWidget</name>
+    <message>
+        <location filename="../src/FriendsMgmtWidget.cpp" line="117"/>
+        <source>Blocking will prevent %1 from following you. And you won&apos;t see their tweets in your timeline. Are you sure you want to block?</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>LogsDialog</name>
     <message>
         <location filename="../src/LogsDialog.ui" line="13"/>
@@ -12,148 +94,153 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../src/MainWindow.cpp" line="241"/>
+        <location filename="../src/MainWindow.cpp" line="245"/>
         <source>Pick an image</source>
         <translation>选择一幅图片</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="241"/>
+        <location filename="../src/MainWindow.cpp" line="245"/>
         <source>Image Files (*.png *.jpg *.jpeg *.bmp *.JPG *.JPEG *.PNG *.GIF *.BMP)</source>
         <translation>图片文件(*.png *.jpg *.jpeg *.bmp *.JPG *.JPEG *.PNG *.GIF *.BMP)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="252"/>
+        <location filename="../src/MainWindow.cpp" line="256"/>
         <source>&amp;Show / Hide</source>
         <translation>&amp;显示/隐藏主界面</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="254"/>
+        <location filename="../src/MainWindow.cpp" line="258"/>
         <source>&amp;Quit</source>
         <translation>&amp;退出</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="733"/>
-        <location filename="../src/MainWindow.cpp" line="829"/>
+        <location filename="../src/MainWindow.cpp" line="737"/>
+        <location filename="../src/MainWindow.cpp" line="833"/>
         <source>Qwit updates</source>
         <translation>Qwit条目更新</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="13"/>
+        <location filename="../src/MainWindow.ui" line="14"/>
         <source>Qwit</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="39"/>
+        <location filename="../src/MainWindow.ui" line="40"/>
         <source>What are you doing?</source>
         <translation>你在做什么?</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="205"/>
+        <location filename="../src/MainWindow.ui" line="206"/>
         <source>Left characters count - please, do not exceed this number</source>
         <translation>剩余字数-请勿超出字数</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="214"/>
+        <location filename="../src/MainWindow.ui" line="215"/>
         <source>140</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="257"/>
+        <location filename="../src/MainWindow.ui" line="258"/>
         <source>Home</source>
         <translation>首页</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="260"/>
+        <location filename="../src/MainWindow.ui" line="261"/>
         <source>Your and your friends&apos; timeline</source>
         <translation>你和你朋友们的时间线</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="265"/>
+        <location filename="../src/MainWindow.ui" line="266"/>
         <source>Public</source>
         <translation>公众页面</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="268"/>
+        <location filename="../src/MainWindow.ui" line="269"/>
         <source>Public timeline</source>
         <translation>公众页面的时间线</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="273"/>
+        <location filename="../src/MainWindow.ui" line="274"/>
         <source>Replies</source>
         <translation>回复</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="276"/>
+        <location filename="../src/MainWindow.ui" line="277"/>
         <source>Replies to you</source>
         <translation>给你的回复</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="281"/>
+        <location filename="../src/MainWindow.ui" line="282"/>
         <source>Custom</source>
         <translation>自定义</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="284"/>
+        <location filename="../src/MainWindow.ui" line="285"/>
         <source>Custom user timeline</source>
         <translation>自定义时间线</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="294"/>
+        <location filename="../src/MainWindow.ui" line="295"/>
         <source>Username:</source>
         <translation>用户名:</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="309"/>
+        <location filename="../src/MainWindow.ui" line="310"/>
         <source>Inbox</source>
         <translation>收件箱</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="312"/>
+        <location filename="../src/MainWindow.ui" line="313"/>
         <source>Direct messages inbox</source>
         <translation>直接消息(DM)的收件箱</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="317"/>
+        <location filename="../src/MainWindow.ui" line="318"/>
         <source>Outbox</source>
         <translation>发件箱</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="320"/>
+        <location filename="../src/MainWindow.ui" line="321"/>
         <source>Direct messages outbox</source>
         <translation>直接消息(DM)的发件箱</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="325"/>
+        <location filename="../src/MainWindow.ui" line="326"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="328"/>
+        <location filename="../src/MainWindow.ui" line="329"/>
         <source>Search for messages</source>
         <translation>搜索消息</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="338"/>
+        <location filename="../src/MainWindow.ui" line="339"/>
         <source>Search:</source>
         <translation>搜索:</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="395"/>
+        <location filename="../src/MainWindow.ui" line="396"/>
+        <source>Friends Management</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.ui" line="425"/>
         <source>Refresh</source>
         <translation>刷新</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="405"/>
+        <location filename="../src/MainWindow.ui" line="435"/>
         <source>Ctrl+R</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="430"/>
+        <location filename="../src/MainWindow.ui" line="460"/>
         <source>Options</source>
         <translation>选项</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="485"/>
+        <location filename="../src/MainWindow.ui" line="515"/>
         <source>Quit</source>
         <translation>退出</translation>
     </message>
@@ -309,38 +396,38 @@
 <context>
     <name>Twitter</name>
     <message>
-        <location filename="../src/Twitter.cpp" line="113"/>
+        <location filename="../src/Twitter.cpp" line="104"/>
         <source>Sending status: %1</source>
         <translation>正在发送状态: %1</translation>
     </message>
     <message>
-        <location filename="../src/Twitter.cpp" line="160"/>
-        <location filename="../src/Twitter.cpp" line="164"/>
+        <location filename="../src/Twitter.cpp" line="132"/>
+        <location filename="../src/Twitter.cpp" line="136"/>
         <source>Updating timeline: %1</source>
         <translation>正在更新时间线: %1</translation>
     </message>
     <message>
-        <location filename="../src/Twitter.cpp" line="170"/>
+        <location filename="../src/Twitter.cpp" line="142"/>
         <source>Error sending status: %1</source>
         <translation>发送状态出错: %1</translation>
     </message>
     <message>
-        <location filename="../src/Twitter.cpp" line="173"/>
+        <location filename="../src/Twitter.cpp" line="145"/>
         <source>Status sent: %1</source>
         <translation>状态已发送: %1</translation>
     </message>
     <message>
-        <location filename="../src/Twitter.cpp" line="179"/>
+        <location filename="../src/Twitter.cpp" line="151"/>
         <source>Error while updating timeline: %1</source>
         <translation>更新时间线出错: %1</translation>
     </message>
     <message>
-        <location filename="../src/Twitter.cpp" line="183"/>
+        <location filename="../src/Twitter.cpp" line="155"/>
         <source>Timeline updated: %1</source>
         <translation>时间线已更新: %1</translation>
     </message>
     <message>
-        <location filename="../src/Twitter.cpp" line="193"/>
+        <location filename="../src/Twitter.cpp" line="191"/>
         <source>SSL Error while updating/sending: %1</source>
         <translation>更新/发送时发生SSL错误: %1</translation>
     </message>

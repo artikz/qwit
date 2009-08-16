@@ -24,6 +24,7 @@
 #include <QBuffer>
 #include <QSslError>
 
+#define URL_COUNT 14
 #define HOME_XML_URL "/statuses/friends_timeline.xml"
 #define PUBLIC_XML_URL "/statuses/public_timeline.xml"
 #define REPLIES_XML_URL "/statuses/replies.xml"
@@ -31,6 +32,13 @@
 #define INPUT_DIRECT_XML_URL "/direct_messages.xml"
 #define OUTPUT_DIRECT_XML_URL "/direct_messages/sent.xml"
 #define SEARCH_ATOM_URL "/search.atom"
+#define FRIENDS_XML_URL "/statuses/friends.xml"
+#define FOLLOWERS_XML_URL "/statuses/followers.xml"
+#define BLOCKED_XML_URL "/blocks/blocking.xml"
+#define FOLLOW_USER_XML_URL "/friendships/create.xml"
+#define UNFOLLOW_USER_XML_URL "/friendships/destroy.xml"
+#define BLOCK_USER_XML "/blocks/create/"
+#define UNBLOCK_USER_XML "/blocks/destroy/"
 //http://search.twitter.com/search.atom?q=twitter
 
 #define STATUS_UPDATE_URL "/statuses/update.xml"
@@ -47,13 +55,17 @@ class Twitter: public QObject {
 
 	QHttp statusHttp;
 	QHttp timelineHttp;
+	QHttp friendshipsHttp;
+	QHttp friendsMgmtHttp;
 	QBuffer buffer;
+	QBuffer friendshipsBuffer;
+	QBuffer friendsMgmtBuffer;
 	QString proxyAddress;
 	int proxyPort;
 	QString proxyUsername;
 	QString proxyPassword;
 	int currentType;
-	QString urls[7];
+	QString urls[URL_COUNT];
 	QString serviceBaseURL;
 	QString serviceAPIURL;
 
@@ -66,6 +78,13 @@ public:
 	void update(QString username, QString password, quint64 lastStatusId, int type, int count);
 	void setUrl(int index, const QString &url);
 	void abort();
+
+	void getFriendships(QString username, QString password, int type);
+	void createFriendship(QString screenName, QString username, QString password);
+	void destroyFriendship(QString screenName, QString username, QString password);
+	void createBlock(QString screenName, QString username, QString password);
+	void destroyBlock(QString screenName, QString username, QString password);
+
 	QString getServiceBaseURL();
 	QString getServiceAPIURL();
 	void setServiceBaseURL(const QString &url);
@@ -76,12 +95,19 @@ public slots:
 	void statusHttpDone(bool error);
 	void timelineHttpDone(bool error);
 	void httpsError(const QList<QSslError> & errors);
+	void friendshipsHttpDone(bool error);
+	void friendsMgmtHttpDone(bool error);
 
 signals:
 
 	void updated(const QByteArray &, int);
 	void statusUpdated();
 	void stateChanged(const QString &);
+	void friendshipsUpdated(const QByteArray &, int);
+	void friendsMgmtEvent(const QByteArray &, int);
+
+private:
+	void setupConnection(QHttp *qHttp, QUrl *url, QString username, QString password);
 };
 
 #endif

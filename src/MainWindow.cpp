@@ -192,6 +192,9 @@ MainWindow::MainWindow(QWidget *parent): QDialog(parent) {
 
 	logsDialog = new LogsDialog(this);
 
+        friendsMgmtDialog = new FriendsMgmtDialog(this, &twitter, &userpicsDownloader);
+        friendsMgmtDialog->setModal(true);
+
 	acceptClose = false;
 
 	connect(statusTextEdit, SIGNAL(returnPressed()), this, SLOT(sendStatus()));
@@ -203,6 +206,7 @@ MainWindow::MainWindow(QWidget *parent): QDialog(parent) {
 	connect(optionsPushButton, SIGNAL(pressed()), optionsDialog, SLOT(showNormal()));
 	connect(logsPushButton, SIGNAL(pressed()), logsDialog, SLOT(showNormal()));
 	connect(exitPushButton, SIGNAL(pressed()), this, SLOT(quit()));
+        connect(friendsPushButton, SIGNAL(pressed()), friendsMgmtDialog, SLOT(showNormal()));
 
 	connect(&twitter, SIGNAL(updated(const QByteArray&, int)), this, SLOT(updated(const QByteArray&, int)));
 	connect(&twitter, SIGNAL(statusUpdated()), this, SLOT(statusUpdated()));

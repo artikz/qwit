@@ -2,6 +2,91 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="fi_FI" sourcelanguage="en_US">
 <context>
+    <name>FriendsMgmtDialog</name>
+    <message>
+        <location filename="../src/FriendsMgmtDialog.cpp" line="146"/>
+        <source>Blocking : %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/FriendsMgmtDialog.cpp" line="157"/>
+        <source>Unblocking : %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/FriendsMgmtDialog.cpp" line="202"/>
+        <source>%n friend(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/FriendsMgmtDialog.cpp" line="205"/>
+        <source>%n follower(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/FriendsMgmtDialog.cpp" line="208"/>
+        <source>%n blocked</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <location filename="../src/FriendsMgmtDialog.cpp" line="477"/>
+        <source>Screenname contains illegal character: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/FriendsMgmtDialog.ui" line="14"/>
+        <source>Friends Management</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/FriendsMgmtDialog.ui" line="28"/>
+        <source>Friends</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/FriendsMgmtDialog.ui" line="44"/>
+        <source>new friend:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/FriendsMgmtDialog.ui" line="57"/>
+        <source>add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/FriendsMgmtDialog.ui" line="72"/>
+        <source>Followers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/FriendsMgmtDialog.ui" line="77"/>
+        <source>Blocked</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/FriendsMgmtDialog.ui" line="108"/>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>FriendsMgmtWidget</name>
+    <message>
+        <location filename="../src/FriendsMgmtWidget.cpp" line="117"/>
+        <source>Blocking will prevent %1 from following you. And you won&apos;t see their tweets in your timeline. Are you sure you want to block?</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>LogsDialog</name>
     <message>
         <location filename="../src/LogsDialog.ui" line="13"/>
@@ -12,148 +97,157 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../src/MainWindow.cpp" line="229"/>
+        <location filename="../src/MainWindow.cpp" line="245"/>
         <source>Pick an image</source>
         <translation>Valitse kuva</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="229"/>
         <source>Image Files (*.png *.jpg *.jpeg *.bmp)</source>
-        <translation>Kuvatiedostot (*.png *.jpg *.jpeg *.bmp)</translation>
+        <translation type="obsolete">Kuvatiedostot (*.png *.jpg *.jpeg *.bmp)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="240"/>
+        <location filename="../src/MainWindow.cpp" line="245"/>
+        <source>Image Files (*.png *.jpg *.jpeg *.bmp *.JPG *.JPEG *.PNG *.GIF *.BMP)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="256"/>
         <source>&amp;Show / Hide</source>
         <translation>&amp;Näytä / Piilota</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="242"/>
+        <location filename="../src/MainWindow.cpp" line="258"/>
         <source>&amp;Quit</source>
         <translation>&amp;Lopeta</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="674"/>
-        <location filename="../src/MainWindow.cpp" line="770"/>
+        <location filename="../src/MainWindow.cpp" line="737"/>
+        <location filename="../src/MainWindow.cpp" line="833"/>
         <source>Qwit updates</source>
         <translation>Qwit päivitykset</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="13"/>
+        <location filename="../src/MainWindow.ui" line="14"/>
         <source>Qwit</source>
         <translation>Qwit</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="39"/>
+        <location filename="../src/MainWindow.ui" line="40"/>
         <source>What are you doing?</source>
         <translation>Mitä teet?</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="205"/>
+        <location filename="../src/MainWindow.ui" line="206"/>
         <source>Left characters count - please, do not exceed this number</source>
         <translation>Jäljellä olevien merkkien määrä - älä ylitä tätä</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="214"/>
+        <location filename="../src/MainWindow.ui" line="215"/>
         <source>140</source>
         <translation>140</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="270"/>
+        <location filename="../src/MainWindow.ui" line="258"/>
         <source>Home</source>
         <translation>Koti</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="273"/>
+        <location filename="../src/MainWindow.ui" line="261"/>
         <source>Your and your friends&apos; timeline</source>
         <translation>Sinun ja kaveriesi aikajanat</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="278"/>
+        <location filename="../src/MainWindow.ui" line="266"/>
         <source>Public</source>
         <translation>Julkinen</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="281"/>
+        <location filename="../src/MainWindow.ui" line="269"/>
         <source>Public timeline</source>
         <translation>Julkinen aikajana</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="286"/>
+        <location filename="../src/MainWindow.ui" line="274"/>
         <source>Replies</source>
         <translation>Vastaukset</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="289"/>
+        <location filename="../src/MainWindow.ui" line="277"/>
         <source>Replies to you</source>
         <translation>Vastaukset sinulle</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="294"/>
+        <location filename="../src/MainWindow.ui" line="282"/>
         <source>Custom</source>
         <translation>Vapaavalintainen</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="297"/>
+        <location filename="../src/MainWindow.ui" line="285"/>
         <source>Custom user timeline</source>
         <translation>Vapaavalintaisen käyttäjän aikajana</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="307"/>
+        <location filename="../src/MainWindow.ui" line="295"/>
         <source>Username:</source>
         <translation>Käyttäjänimi:</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="322"/>
+        <location filename="../src/MainWindow.ui" line="310"/>
         <source>Inbox</source>
         <translation>Saapuneet</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="325"/>
+        <location filename="../src/MainWindow.ui" line="313"/>
         <source>Direct messages inbox</source>
         <translation>Saapuneet suoraviestit</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="330"/>
+        <location filename="../src/MainWindow.ui" line="318"/>
         <source>Outbox</source>
         <translation>Lähetetyt</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="333"/>
+        <location filename="../src/MainWindow.ui" line="321"/>
         <source>Direct messages outbox</source>
         <translation>Lähetetyt suoraviestit</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="338"/>
+        <location filename="../src/MainWindow.ui" line="326"/>
         <source>Search</source>
         <translation>Haku</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="341"/>
+        <location filename="../src/MainWindow.ui" line="329"/>
         <source>Search for messages</source>
         <translation>Hae viestejä</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="351"/>
+        <location filename="../src/MainWindow.ui" line="339"/>
         <source>Search:</source>
         <translation>Hae:</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="408"/>
+        <location filename="../src/MainWindow.ui" line="396"/>
+        <source>Friends Management</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.ui" line="425"/>
         <source>Refresh</source>
         <translation>Päivitä</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="418"/>
+        <location filename="../src/MainWindow.ui" line="435"/>
         <source>Ctrl+R</source>
         <translation>Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="443"/>
+        <location filename="../src/MainWindow.ui" line="460"/>
         <source>Options</source>
         <translation>Asetukset</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="498"/>
+        <location filename="../src/MainWindow.ui" line="515"/>
         <source>Quit</source>
         <translation>Lopeta</translation>
     </message>
@@ -161,133 +255,148 @@
 <context>
     <name>OptionsDialog</name>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="13"/>
+        <location filename="../src/OptionsDialog.ui" line="14"/>
         <source>Options</source>
         <translation>Asetukset</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="25"/>
+        <location filename="../src/OptionsDialog.ui" line="26"/>
         <source>General</source>
         <translation>Yleiset</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="36"/>
+        <location filename="../src/OptionsDialog.ui" line="37"/>
         <source>Greeting message:</source>
         <translation>Tervehdys:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="46"/>
+        <location filename="../src/OptionsDialog.ui" line="47"/>
         <source>Service base URL:</source>
         <translation>Palvelun kanta-URL:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="56"/>
+        <location filename="../src/OptionsDialog.ui" line="57"/>
         <source>Service API URL:</source>
         <translation>Palvelun API URL:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="66"/>
+        <location filename="../src/OptionsDialog.ui" line="67"/>
         <source>Update interval:</source>
         <translation>Päivitysväli:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="79"/>
+        <location filename="../src/OptionsDialog.ui" line="80"/>
         <source>Number of messages per page:</source>
         <translation>Viestejä sivulla:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="92"/>
+        <location filename="../src/OptionsDialog.ui" line="93"/>
         <source>Number of messages per tray:</source>
         <translatorcomment>&quot;tray&quot; needs a properly Finnish word</translatorcomment>
         <translation type="unfinished">Viestejä per tray:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="105"/>
+        <location filename="../src/OptionsDialog.ui" line="106"/>
         <source>Retweeting tag:</source>
         <translation>Retweet-tagi:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="115"/>
+        <location filename="../src/OptionsDialog.ui" line="116"/>
         <source>Display retweet tag after text instead of in front</source>
         <translation>Näytä retweet-tagi tekstin jälkeen, ei sen edellä</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="138"/>
+        <location filename="../src/OptionsDialog.ui" line="139"/>
         <source>Username under avatar</source>
         <translation>Käyttäjänimi avatarin alla</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="148"/>
+        <location filename="../src/OptionsDialog.ui" line="149"/>
         <source>Notify about updates</source>
         <translation>Ilmoita päivityksistä</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="158"/>
+        <location filename="../src/OptionsDialog.ui" line="159"/>
         <source>Place controls vertically</source>
         <translation>Pystysuora asettelu</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="184"/>
+        <location filename="../src/OptionsDialog.ui" line="169"/>
+        <source>Place tabs vertically</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/OptionsDialog.ui" line="176"/>
+        <source>Open user profile in browser on username click</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/OptionsDialog.ui" line="186"/>
+        <source>Keep focus on the text field after status update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/OptionsDialog.ui" line="209"/>
         <source>Connection</source>
         <translation>Yhteys</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="192"/>
+        <location filename="../src/OptionsDialog.ui" line="217"/>
         <source>use proxy</source>
         <translation>käytä välityspalvelinta</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="199"/>
+        <location filename="../src/OptionsDialog.ui" line="224"/>
         <source>Proxy address:</source>
         <translation>Välityspalvelimen osoite:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="212"/>
+        <location filename="../src/OptionsDialog.ui" line="237"/>
         <source>Proxy port:</source>
         <translation>Välityspalvelimen portti:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="225"/>
+        <location filename="../src/OptionsDialog.ui" line="250"/>
         <source>Proxy username:</source>
         <translation>Välityspalvelimen käyttäjätunnus:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="238"/>
+        <location filename="../src/OptionsDialog.ui" line="263"/>
         <source>Proxy password:</source>
         <translation>Välityspalvelimen salasana:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="255"/>
+        <location filename="../src/OptionsDialog.ui" line="280"/>
         <source>save proxy password</source>
         <translation>tallenna välityspalvelimen salasana</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="278"/>
+        <location filename="../src/OptionsDialog.ui" line="303"/>
         <source>Authentication</source>
         <translation>Tunnistautuminen</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="286"/>
+        <location filename="../src/OptionsDialog.ui" line="311"/>
         <source>Username or email:</source>
         <translation>Käyttäjänimi tai sähköpostiosoite:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="299"/>
+        <location filename="../src/OptionsDialog.ui" line="324"/>
         <source>Password:</source>
         <translation>Salasana:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="316"/>
+        <location filename="../src/OptionsDialog.ui" line="341"/>
         <source>save password</source>
         <translation>tallenna salasana</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="361"/>
+        <location filename="../src/OptionsDialog.ui" line="386"/>
         <source>Save options</source>
         <translation>Tallenna asetukset</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="368"/>
+        <location filename="../src/OptionsDialog.ui" line="393"/>
         <source>Reset options</source>
         <translation>Nollaa asetukset</translation>
     </message>
@@ -295,33 +404,33 @@
 <context>
     <name>Twitter</name>
     <message>
-        <location filename="../src/Twitter.cpp" line="111"/>
+        <location filename="../src/Twitter.cpp" line="104"/>
         <source>Sending status: %1</source>
         <translation>Lähetetään tilaa: %1</translation>
     </message>
     <message>
-        <location filename="../src/Twitter.cpp" line="158"/>
-        <location filename="../src/Twitter.cpp" line="162"/>
+        <location filename="../src/Twitter.cpp" line="132"/>
+        <location filename="../src/Twitter.cpp" line="136"/>
         <source>Updating timeline: %1</source>
         <translation>Päivitetään aikajanaa: %1</translation>
     </message>
     <message>
-        <location filename="../src/Twitter.cpp" line="168"/>
+        <location filename="../src/Twitter.cpp" line="142"/>
         <source>Error sending status: %1</source>
         <translation>Virhe tilaa lähettäessä: %1</translation>
     </message>
     <message>
-        <location filename="../src/Twitter.cpp" line="171"/>
+        <location filename="../src/Twitter.cpp" line="145"/>
         <source>Status sent: %1</source>
         <translation>Tila lähetetty: %1</translation>
     </message>
     <message>
-        <location filename="../src/Twitter.cpp" line="177"/>
+        <location filename="../src/Twitter.cpp" line="151"/>
         <source>Error while updating timeline: %1</source>
         <translation>Virhe aikajanaa päivittäessä: %1</translation>
     </message>
     <message>
-        <location filename="../src/Twitter.cpp" line="181"/>
+        <location filename="../src/Twitter.cpp" line="155"/>
         <source>Timeline updated: %1</source>
         <translation>Aikajana päivitetty: %1</translation>
     </message>
@@ -334,12 +443,12 @@
 <context>
     <name>TwitterWidget</name>
     <message>
-        <location filename="../src/TwitterWidget.cpp" line="269"/>
+        <location filename="../src/TwitterWidget.cpp" line="148"/>
         <source>Just now</source>
         <translation>Juuri äsken</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/TwitterWidget.cpp" line="270"/>
+        <location filename="../src/TwitterWidget.cpp" line="149"/>
         <source>about %n second(s) ago</source>
         <translation>
             <numerusform>noin %n sekunti sitten</numerusform>
@@ -347,7 +456,7 @@
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/TwitterWidget.cpp" line="272"/>
+        <location filename="../src/TwitterWidget.cpp" line="151"/>
         <source>about %n minute(s) ago</source>
         <translation>
             <numerusform>noin %n minuutti sitten</numerusform>
@@ -355,7 +464,7 @@
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/TwitterWidget.cpp" line="274"/>
+        <location filename="../src/TwitterWidget.cpp" line="153"/>
         <source>about %n hour(s) ago</source>
         <translation>
             <numerusform>noin %n tunti sitten</numerusform>
@@ -363,7 +472,7 @@
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/TwitterWidget.cpp" line="276"/>
+        <location filename="../src/TwitterWidget.cpp" line="155"/>
         <source>about %n day(s) ago</source>
         <translation>
             <numerusform>noin %n päivä sitten</numerusform>
@@ -374,17 +483,17 @@
 <context>
     <name>UserpicsDownloader</name>
     <message>
-        <location filename="../src/UserpicsDownloader.cpp" line="43"/>
+        <location filename="../src/UserpicsDownloader.cpp" line="45"/>
         <source>Downloading: %1</source>
         <translation>Lataa: %1</translation>
     </message>
     <message>
-        <location filename="../src/UserpicsDownloader.cpp" line="57"/>
+        <location filename="../src/UserpicsDownloader.cpp" line="59"/>
         <source>Error while downloading userpic: %1</source>
         <translation>Virhe käyttäjäkuvaa ladattessa: %1</translation>
     </message>
     <message>
-        <location filename="../src/UserpicsDownloader.cpp" line="62"/>
+        <location filename="../src/UserpicsDownloader.cpp" line="64"/>
         <source>Downloaded: %1</source>
         <translation>Ladattu: %1</translation>
     </message>

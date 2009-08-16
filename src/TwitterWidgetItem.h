@@ -125,14 +125,13 @@ public:
 	quint64 cacheReplyStatusId() const { return d->cacheReplyStatusId; }
 	int cacheIndex()          const { return d->cacheIndex; }
 	QString iconFileName()    const { return d->iconFileName; }
+	static bool isUsernameChar(const QChar &c);
+	static QString prepare(const QString &text, const quint64 &replyStatusId, const QString &serviceBaseURL);
 
 private:
 	QExplicitlySharedDataPointer<TwitterWidgetItemData> d;
-
-	static bool isUsernameChar(const QChar &c);
-	static bool isHashtagChar(const QChar &c);
 	static bool isReplyTo(const QString &text, const QString &username);
-	static QString prepare(const QString &text, const quint64 &replyStatusId, const QString &serviceBaseURL);
+	static bool isHashtagChar(const QChar &c);
 };
 
 #endif // TwitterWidgetItem_H

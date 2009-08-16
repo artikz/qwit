@@ -1,5 +1,5 @@
 <RCC>
-    <qresource>
+    <qresource prefix="/" >
         <file>images/exit.png</file>
         <file>images/logs.png</file>
         <file>images/options.png</file>
@@ -19,5 +19,9 @@
         <file>translations/qwit_de_DE.qm</file>
         <file>translations/qwit_zh_CN.qm</file>
         <file>translations/qwit_fi_FI.qm</file>
+        <file>images/block.png</file>
+        <file>images/unfollow.png</file>
+        <file>images/follow.png</file>
+        <file>images/friends.png</file>
     </qresource>
 </RCC>

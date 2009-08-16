@@ -47,6 +47,7 @@
 #include "Twitter.h"
 #include "OptionsDialog.h"
 #include "LogsDialog.h"
+#include "FriendsMgmtDialog.h"
 
 #include "ui_MainWindow.h"
 
@@ -117,6 +118,7 @@ public:
 	StatusTextEdit *statusTextEdit;
 	OptionsDialog *optionsDialog;
 	LogsDialog *logsDialog;
+        FriendsMgmtDialog *friendsMgmtDialog;
 	TwitterTab twitterTabs[TWITTER_TABS];
 	Twitter twitter;
 	QMap<QString, int> monthes;

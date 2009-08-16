@@ -38,11 +38,21 @@ Twitter::Twitter() {
 	urls[4] = INPUT_DIRECT_XML_URL;
 	urls[5] = OUTPUT_DIRECT_XML_URL;
 	urls[6] = SEARCH_ATOM_URL;
+        urls[7] = FRIENDS_XML_URL;
+	urls[8] = FOLLOWERS_XML_URL;
+	urls[9] = BLOCKED_XML_URL;
+	urls[10] = FOLLOW_USER_XML_URL;
+	urls[11] = UNFOLLOW_USER_XML_URL;
+	urls[12] = BLOCK_USER_XML;
+	urls[13] = UNBLOCK_USER_XML;
 	proxyAddress = "";
 	connect(&statusHttp, SIGNAL(done(bool)), this, SLOT(statusHttpDone(bool)));
 	connect(&timelineHttp, SIGNAL(done(bool)), this, SLOT(timelineHttpDone(bool)));
 	connect(&timelineHttp, SIGNAL(sslErrors(const QList<QSslError>&)), this, SLOT(httpsError(const QList<QSslError> &)));
 	connect(&statusHttp, SIGNAL(sslErrors(const QList<QSslError>&)), this, SLOT(httpsError(const QList<QSslError> &)));
+
+	connect(&friendshipsHttp, SIGNAL(done(bool)), this, SLOT(friendshipsHttpDone(bool)));
+	connect(&friendsMgmtHttp, SIGNAL(done(bool)), this, SLOT(friendsMgmtHttpDone(bool)));
 }
 
 void Twitter::setServiceBaseURL(const QString &url) {
@@ -80,26 +90,7 @@ void Twitter::sendStatus(QString username, QString password, QString status, QSt
 	header.setValue("Host", url.host());
 	header.setContentType("application/x-www-form-urlencoded");
 
-	if (proxyAddress != "") {
-		statusHttp.setProxy(proxyAddress, proxyPort, proxyUsername, proxyPassword);
-	} else {
-		statusHttp.setProxy(QNetworkProxy(QNetworkProxy::NoProxy));
-	}
-    /* FIXME
-     * https (ssl) mode is not working if setProxy is called with ("", 0)
-     *   } else {
-     *	  timelineHttp.setProxy("", 0);
-     *   }
-     */
-    
-    if(url.toString().indexOf("https") == 0) {
-	    statusHttp.setHost(url.host(), QHttp::ConnectionModeHttps, 443);
-    }
-    else {
-        statusHttp.setHost(url.host(), url.port(80));
-    }
-
-	statusHttp.setUser(username, password);
+	setupConnection(&statusHttp, &url, username, password);
 
 	QByteArray data = "status=";
 	data += QUrl::toPercentEncoding(status);
@@ -131,26 +122,7 @@ void Twitter::update(QString username, QString password, quint64 lastStatusId, i
 		url=(serviceAPIURL + urls[type]);
 	}
 
-	if (proxyAddress != "") {
-		timelineHttp.setProxy(proxyAddress, proxyPort, proxyUsername, proxyPassword);
-    } else {
-		timelineHttp.setProxy(QNetworkProxy(QNetworkProxy::NoProxy));
-	}
-    /* FIXME
-     * https (ssl) mode is not working if setProxy is called with ("", 0)
-     *   } else {
-     *	  timelineHttp.setProxy("", 0);
-     *   }
-     */
-
-    if(url.toString().indexOf("https") == 0) {
-	    timelineHttp.setHost(url.host(), QHttp::ConnectionModeHttps, 443);
-    }
-    else {
-        timelineHttp.setHost(url.host(), url.port(80));
-    }
-
-	timelineHttp.setUser(username, password);
+	setupConnection(&timelineHttp, &url, username, password);
 
 	buffer.open(QIODevice::WriteOnly);
 
@@ -184,6 +156,32 @@ void Twitter::timelineHttpDone(bool error) {
 	emit updated(buffer.data(), currentType);
 }
 
+void Twitter::friendshipsHttpDone(bool error)
+{
+    if(error)
+    {
+	cerr << friendshipsHttp.errorString().toStdString() << endl;
+        // FIXME emit statusInformation
+        return;
+    }
+    friendshipsBuffer.close();
+
+    emit friendshipsUpdated(friendshipsBuffer.data(), currentType);
+}
+
+void Twitter::friendsMgmtHttpDone(bool error)
+{
+    if(error)
+    {
+	cerr << friendsMgmtBuffer.errorString().toStdString() << endl;
+	return;
+    }
+
+    friendsMgmtBuffer.close();
+
+    emit friendsMgmtEvent(friendsMgmtBuffer.data(), currentType);
+}
+
 void Twitter::httpsError(const QList<QSslError> & errors) {
     /*
      * maybe here should be implemtend some error handling
@@ -197,6 +195,8 @@ void Twitter::httpsError(const QList<QSslError> & errors) {
 void Twitter::abort() {
 	timelineHttp.abort();
 	statusHttp.abort();
+	friendshipsHttp.abort();
+	friendsMgmtHttp.abort();
 }
 
 void Twitter::setUrl(int index, const QString &url) {
@@ -204,4 +204,121 @@ void Twitter::setUrl(int index, const QString &url) {
 	emit stateChanged(url);
 }
 
+void Twitter::getFriendships(QString username, QString password, int type)
+{
+    // infer url typ from the current tab widget index
+    type = type +  7;
+
+    if(urls[type] == "")
+    {
+        cerr << "No url defined" << endl;
+        return;
+    }
+
+    if(friendshipsHttp.state() != QHttp::Unconnected)
+    {
+	friendshipsHttp.abort();
+    }
+
+    currentType = type;
+    QUrl url;
+    if((type == 7) || (type == 8) || (type == 9))
+    {
+        url=(serviceAPIURL + urls[type]);
+    }
+    else
+    {
+        cerr << "Unexpected url type: " << type << " received!" << endl;
+        return;
+    }
+
+    setupConnection(&friendshipsHttp, &url, username, password);
+
+    friendshipsBuffer.open(QIODevice::WriteOnly);
+
+    friendshipsHttp.get(urls[type], &friendshipsBuffer);
+}
+
+void Twitter::createFriendship(QString screenName, QString username, QString password)
+{
+    int type = 10;
+    currentType = type;
+    QUrl url(serviceBaseURL + urls[type]);
+
+    setupConnection(&friendsMgmtHttp, &url, username, password);
+
+    friendsMgmtBuffer.open(QIODevice::WriteOnly);
+
+    QByteArray data = "screen_name=";
+    data += screenName;
+    friendsMgmtHttp.post(url.path(), data, &friendsMgmtBuffer);
+}
+
+void Twitter::setupConnection(QHttp *qHttp, QUrl *url, QString username, QString password)
+{
+    if (proxyAddress != "") {
+		qHttp->setProxy(proxyAddress, proxyPort, proxyUsername, proxyPassword);
+	} else {
+		qHttp->setProxy(QNetworkProxy(QNetworkProxy::NoProxy));
+	}
+    /* FIXME
+     * https (ssl) mode is not working if setProxy is called with ("", 0)
+     *   } else {
+     *	  timelineHttp.setProxy("", 0);
+     *   }
+     */
+
+    if(url->toString().indexOf("https") == 0) {
+	    qHttp->setHost(url->host(), QHttp::ConnectionModeHttps, 443);
+    }
+    else {
+	qHttp->setHost(url->host(), url->port(80));
+    }
+
+	qHttp->setUser(username, password);
+}
+
+void Twitter::destroyFriendship(QString screenName, QString username, QString password)
+{
+    int type = 11;
+    currentType = type;
+
+    QUrl url(serviceBaseURL + urls[type]);
+
+    setupConnection(&friendsMgmtHttp, &url, username, password);
+
+    friendsMgmtBuffer.open(QIODevice::WriteOnly);
+
+    QByteArray data = "screen_name=";
+    data += screenName;
+    friendsMgmtHttp.post(url.path(), data, &friendsMgmtBuffer);
+}
+
+void Twitter::createBlock(QString screenName, QString username, QString password)
+{
+    int type = 12;
+    currentType = type;
+
+    QUrl url(serviceBaseURL + urls[type] + screenName + ".xml");
+
+    setupConnection(&friendsMgmtHttp, &url, username, password);
+
+    friendsMgmtBuffer.open(QIODevice::WriteOnly);
+    QByteArray data = "";
+    friendsMgmtHttp.post(url.path(), data, &friendsMgmtBuffer);
+}
+
+void Twitter::destroyBlock(QString screenName, QString username, QString password)
+{
+    int type = 13;
+    currentType = type;
+
+    QUrl url(serviceBaseURL + urls[type] + screenName + ".xml");
+
+    setupConnection(&friendsMgmtHttp, &url, username, password);
+
+    friendsMgmtBuffer.open(QIODevice::WriteOnly);
+    QByteArray data = "";
+    friendsMgmtHttp.post(url.path(), data, &friendsMgmtBuffer);
+}
 #endif

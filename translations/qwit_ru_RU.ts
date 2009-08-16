@@ -2,6 +2,94 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="ru">
 <context>
+    <name>FriendsMgmtDialog</name>
+    <message>
+        <location filename="../src/FriendsMgmtDialog.cpp" line="146"/>
+        <source>Blocking : %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/FriendsMgmtDialog.cpp" line="157"/>
+        <source>Unblocking : %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/FriendsMgmtDialog.cpp" line="202"/>
+        <source>%n friend(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/FriendsMgmtDialog.cpp" line="205"/>
+        <source>%n follower(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/FriendsMgmtDialog.cpp" line="208"/>
+        <source>%n blocked</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <location filename="../src/FriendsMgmtDialog.cpp" line="477"/>
+        <source>Screenname contains illegal character: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/FriendsMgmtDialog.ui" line="14"/>
+        <source>Friends Management</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/FriendsMgmtDialog.ui" line="28"/>
+        <source>Friends</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/FriendsMgmtDialog.ui" line="44"/>
+        <source>new friend:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/FriendsMgmtDialog.ui" line="57"/>
+        <source>add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/FriendsMgmtDialog.ui" line="72"/>
+        <source>Followers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/FriendsMgmtDialog.ui" line="77"/>
+        <source>Blocked</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/FriendsMgmtDialog.ui" line="108"/>
+        <source>Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>FriendsMgmtWidget</name>
+    <message>
+        <location filename="../src/FriendsMgmtWidget.cpp" line="117"/>
+        <source>Blocking will prevent %1 from following you. And you won&apos;t see their tweets in your timeline. Are you sure you want to block?</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>LogsDialog</name>
     <message>
         <location filename="../src/LogsDialog.ui" line="13"/>
@@ -12,148 +100,157 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../src/MainWindow.cpp" line="241"/>
+        <location filename="../src/MainWindow.cpp" line="245"/>
         <source>Pick an image</source>
         <translation>Выберите изображение</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="241"/>
         <source>Image Files (*.png *.jpg *.jpeg *.bmp *.JPG *.JPEG *.PNG *.GIF)</source>
-        <translation>Файлы изображений (*.png *.jpg *.jpeg *.bmp *.JPG *.JPEG *.PNG *.GIF)</translation>
+        <translation type="obsolete">Файлы изображений (*.png *.jpg *.jpeg *.bmp *.JPG *.JPEG *.PNG *.GIF)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="252"/>
+        <location filename="../src/MainWindow.cpp" line="245"/>
+        <source>Image Files (*.png *.jpg *.jpeg *.bmp *.JPG *.JPEG *.PNG *.GIF *.BMP)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="256"/>
         <source>&amp;Show / Hide</source>
         <translation>&amp;Показать / Скрыть</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="254"/>
+        <location filename="../src/MainWindow.cpp" line="258"/>
         <source>&amp;Quit</source>
         <translation>&amp;Выход</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="733"/>
-        <location filename="../src/MainWindow.cpp" line="829"/>
+        <location filename="../src/MainWindow.cpp" line="737"/>
+        <location filename="../src/MainWindow.cpp" line="833"/>
         <source>Qwit updates</source>
         <translation>Обновления Qwit</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="13"/>
+        <location filename="../src/MainWindow.ui" line="14"/>
         <source>Qwit</source>
         <translation>Qwit</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="39"/>
+        <location filename="../src/MainWindow.ui" line="40"/>
         <source>What are you doing?</source>
         <translation>Что вы сейчас делаете?</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="205"/>
+        <location filename="../src/MainWindow.ui" line="206"/>
         <source>Left characters count - please, do not exceed this number</source>
         <translation>Количество оставшихся символов - пожалуйста, не превышайте это число</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="214"/>
+        <location filename="../src/MainWindow.ui" line="215"/>
         <source>140</source>
         <translation>140</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="257"/>
+        <location filename="../src/MainWindow.ui" line="258"/>
         <source>Home</source>
         <translation>Главная</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="260"/>
+        <location filename="../src/MainWindow.ui" line="261"/>
         <source>Your and your friends&apos; timeline</source>
         <translation>Сообщения от вас и ваших друзей</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="265"/>
+        <location filename="../src/MainWindow.ui" line="266"/>
         <source>Public</source>
         <translation>Все</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="268"/>
+        <location filename="../src/MainWindow.ui" line="269"/>
         <source>Public timeline</source>
         <translation>Сообщения ото всех</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="273"/>
+        <location filename="../src/MainWindow.ui" line="274"/>
         <source>Replies</source>
         <translation>Ответы</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="276"/>
+        <location filename="../src/MainWindow.ui" line="277"/>
         <source>Replies to you</source>
         <translation>Ответы вам</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="281"/>
+        <location filename="../src/MainWindow.ui" line="282"/>
         <source>Custom</source>
         <translation>Отдельно</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="284"/>
+        <location filename="../src/MainWindow.ui" line="285"/>
         <source>Custom user timeline</source>
         <translation>Сообщения отдельного пользователя</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="294"/>
+        <location filename="../src/MainWindow.ui" line="295"/>
         <source>Username:</source>
         <translation>Имя пользователя:</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="395"/>
+        <location filename="../src/MainWindow.ui" line="396"/>
+        <source>Friends Management</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.ui" line="425"/>
         <source>Refresh</source>
         <translation>Обновить</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="405"/>
+        <location filename="../src/MainWindow.ui" line="435"/>
         <source>Ctrl+R</source>
         <translation>Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="430"/>
+        <location filename="../src/MainWindow.ui" line="460"/>
         <source>Options</source>
         <translation>Настройки</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="485"/>
+        <location filename="../src/MainWindow.ui" line="515"/>
         <source>Quit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="309"/>
+        <location filename="../src/MainWindow.ui" line="310"/>
         <source>Inbox</source>
         <translation>Входящие</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="312"/>
+        <location filename="../src/MainWindow.ui" line="313"/>
         <source>Direct messages inbox</source>
         <translation>Входящие сообщения</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="317"/>
+        <location filename="../src/MainWindow.ui" line="318"/>
         <source>Outbox</source>
         <translation>Исходящие</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="320"/>
+        <location filename="../src/MainWindow.ui" line="321"/>
         <source>Direct messages outbox</source>
         <translation>Исходящие сообщения</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="325"/>
+        <location filename="../src/MainWindow.ui" line="326"/>
         <source>Search</source>
         <translation>Поиск</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="338"/>
+        <location filename="../src/MainWindow.ui" line="339"/>
         <source>Search:</source>
         <translation>Искать:</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="328"/>
+        <location filename="../src/MainWindow.ui" line="329"/>
         <source>Search for messages</source>
         <translation>Поиск сообщений</translation>
     </message>
@@ -309,38 +406,38 @@
 <context>
     <name>Twitter</name>
     <message>
-        <location filename="../src/Twitter.cpp" line="170"/>
+        <location filename="../src/Twitter.cpp" line="142"/>
         <source>Error sending status: %1</source>
         <translation>Ошибка при отправлении статуса: %1</translation>
     </message>
     <message>
-        <location filename="../src/Twitter.cpp" line="173"/>
+        <location filename="../src/Twitter.cpp" line="145"/>
         <source>Status sent: %1</source>
         <translation>Статус отправлен: %1</translation>
     </message>
     <message>
-        <location filename="../src/Twitter.cpp" line="179"/>
+        <location filename="../src/Twitter.cpp" line="151"/>
         <source>Error while updating timeline: %1</source>
         <translation>Ошибка обновления: %1</translation>
     </message>
     <message>
-        <location filename="../src/Twitter.cpp" line="183"/>
+        <location filename="../src/Twitter.cpp" line="155"/>
         <source>Timeline updated: %1</source>
         <translation>Сообщения обновлены: %1</translation>
     </message>
     <message>
-        <location filename="../src/Twitter.cpp" line="193"/>
+        <location filename="../src/Twitter.cpp" line="191"/>
         <source>SSL Error while updating/sending: %1</source>
         <translation>Ошибка SSL: %1</translation>
     </message>
     <message>
-        <location filename="../src/Twitter.cpp" line="160"/>
-        <location filename="../src/Twitter.cpp" line="164"/>
+        <location filename="../src/Twitter.cpp" line="132"/>
+        <location filename="../src/Twitter.cpp" line="136"/>
         <source>Updating timeline: %1</source>
         <translation>Обновление сообщения: %1</translation>
     </message>
     <message>
-        <location filename="../src/Twitter.cpp" line="113"/>
+        <location filename="../src/Twitter.cpp" line="104"/>
         <source>Sending status: %1</source>
         <translation>Отправка статуса: %1</translation>
     </message>
