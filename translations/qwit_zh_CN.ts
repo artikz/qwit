@@ -6,73 +6,73 @@
     <message>
         <location filename="../src/FriendsMgmtDialog.cpp" line="146"/>
         <source>Blocking : %1</source>
-        <translation type="unfinished"></translation>
+        <translation>阻止中 : %1</translation>
     </message>
     <message>
         <location filename="../src/FriendsMgmtDialog.cpp" line="157"/>
         <source>Unblocking : %1</source>
-        <translation type="unfinished"></translation>
+        <translation>恢复中 : %1</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/FriendsMgmtDialog.cpp" line="202"/>
         <source>%n friend(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n 人是你的朋友</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../src/FriendsMgmtDialog.cpp" line="205"/>
         <source>%n follower(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n 人订阅了你的更新</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../src/FriendsMgmtDialog.cpp" line="208"/>
         <source>%n blocked</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n 人在你的黑名单中</numerusform>
         </translation>
     </message>
     <message>
         <location filename="../src/FriendsMgmtDialog.cpp" line="477"/>
         <source>Screenname contains illegal character: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>显示名称中含有非法字符: %1</translation>
     </message>
     <message>
         <location filename="../src/FriendsMgmtDialog.ui" line="14"/>
         <source>Friends Management</source>
-        <translation type="unfinished"></translation>
+        <translation>管理朋友</translation>
     </message>
     <message>
         <location filename="../src/FriendsMgmtDialog.ui" line="28"/>
         <source>Friends</source>
-        <translation type="unfinished"></translation>
+        <translation>朋友</translation>
     </message>
     <message>
         <location filename="../src/FriendsMgmtDialog.ui" line="44"/>
         <source>new friend:</source>
-        <translation type="unfinished"></translation>
+        <translation>添加新朋友:</translation>
     </message>
     <message>
         <location filename="../src/FriendsMgmtDialog.ui" line="57"/>
         <source>add</source>
-        <translation type="unfinished"></translation>
+        <translation>添加</translation>
     </message>
     <message>
         <location filename="../src/FriendsMgmtDialog.ui" line="72"/>
         <source>Followers</source>
-        <translation type="unfinished"></translation>
+        <translation>订阅者</translation>
     </message>
     <message>
         <location filename="../src/FriendsMgmtDialog.ui" line="77"/>
         <source>Blocked</source>
-        <translation type="unfinished"></translation>
+        <translation>黑名单</translation>
     </message>
     <message>
         <location filename="../src/FriendsMgmtDialog.ui" line="108"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>关闭</translation>
     </message>
 </context>
 <context>
@@ -80,7 +80,7 @@
     <message>
         <location filename="../src/FriendsMgmtWidget.cpp" line="117"/>
         <source>Blocking will prevent %1 from following you. And you won&apos;t see their tweets in your timeline. Are you sure you want to block?</source>
-        <translation type="unfinished"></translation>
+        <translation>把%1拖进黑名单会阻止他订阅你的更新，并且你不能在你的时间线上看到他的更新。你确定要把他拖入黑名单吗?</translation>
     </message>
 </context>
 <context>
@@ -222,7 +222,7 @@
     <message>
         <location filename="../src/MainWindow.ui" line="396"/>
         <source>Friends Management</source>
-        <translation type="unfinished"></translation>
+        <translation>管理朋友</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.ui" line="425"/>
@@ -295,7 +295,7 @@
     <message>
         <location filename="../src/OptionsDialog.ui" line="116"/>
         <source>Display retweet tag after text instead of in front</source>
-        <translation>在消息末尾显示重推标记</translation>
+        <translation>把RT标记移到条目末尾</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="139"/>
