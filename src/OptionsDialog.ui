@@ -1,0 +1,1283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>OptionsDialog</class>
+ <widget class="QDialog" name="OptionsDialog">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>515</width>
+    <height>541</height>
+   </rect>
+  </property>
+  <property name="acceptDrops">
+   <bool>true</bool>
+  </property>
+  <property name="windowTitle">
+   <string>Options</string>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_17">
+   <item row="0" column="0">
+    <layout class="QVBoxLayout" name="verticalLayout_10">
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QListWidget" name="optionsGroupListWidget">
+         <item>
+          <property name="text">
+           <string>Accounts</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>URL shortener</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Connection</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>User interface</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <widget class="QStackedWidget" name="optionsStackedWidget">
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Plain</enum>
+         </property>
+         <property name="midLineWidth">
+          <number>-4</number>
+         </property>
+         <property name="currentIndex">
+          <number>1</number>
+         </property>
+         <widget class="QWidget" name="connectionPage">
+          <layout class="QGridLayout" name="gridLayout_2">
+           <item row="0" column="0">
+            <widget class="QGroupBox" name="groupBox">
+             <property name="title">
+              <string>Connection</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout">
+              <property name="verticalSpacing">
+               <number>6</number>
+              </property>
+              <property name="leftMargin">
+               <number>4</number>
+              </property>
+              <item row="0" column="0">
+               <layout class="QVBoxLayout" name="verticalLayout">
+                <item>
+                 <widget class="QCheckBox" name="useProxyCheckBox">
+                  <property name="text">
+                   <string>use proxy</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_8">
+                  <property name="text">
+                   <string>Proxy address:</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>proxyAddressLineEdit</cstring>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="proxyAddressLineEdit"/>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_9">
+                  <property name="text">
+                   <string>Proxy port:</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>proxyPortLineEdit</cstring>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="proxyPortLineEdit"/>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_6">
+                  <property name="text">
+                   <string>Proxy username:</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>proxyUsernameLineEdit</cstring>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="proxyUsernameLineEdit"/>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_7">
+                  <property name="text">
+                   <string>Proxy password:</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>proxyPasswordLineEdit</cstring>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="proxyPasswordLineEdit">
+                  <property name="echoMode">
+                   <enum>QLineEdit::Password</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="proxySavePasswordCheckBox">
+                  <property name="text">
+                   <string>save proxy password</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="verticalSpacer">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>215</width>
+                    <height>13</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="userInterfacePage">
+          <layout class="QGridLayout" name="gridLayout_7">
+           <item row="0" column="0">
+            <widget class="QGroupBox" name="groupBox_2">
+             <property name="title">
+              <string>User interface</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_5">
+              <item row="0" column="0">
+               <widget class="QTabWidget" name="tabWidget">
+                <property name="currentIndex">
+                 <number>2</number>
+                </property>
+                <widget class="QWidget" name="Tab_2">
+                 <attribute name="title">
+                  <string>Tabs</string>
+                 </attribute>
+                 <layout class="QGridLayout" name="gridLayout_6">
+                  <item row="0" column="0">
+                   <layout class="QVBoxLayout" name="verticalLayout_5">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_4">
+                      <item>
+                       <widget class="QCheckBox" name="homeTabCheckBox">
+                        <property name="text">
+                         <string>Home</string>
+                        </property>
+                        <property name="checked">
+                         <bool>true</bool>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QCheckBox" name="homeTabAutoUpdateCheckBox">
+                        <property name="text">
+                         <string>auto-update</string>
+                        </property>
+                        <property name="checked">
+                         <bool>true</bool>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_5">
+                      <item>
+                       <widget class="QCheckBox" name="publicTabCheckBox">
+                        <property name="text">
+                         <string>Public</string>
+                        </property>
+                        <property name="checked">
+                         <bool>true</bool>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QCheckBox" name="publicTabAutoUpdateCheckBox">
+                        <property name="text">
+                         <string>auto-update</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_6">
+                      <item>
+                       <widget class="QCheckBox" name="repliesTabCheckBox">
+                        <property name="text">
+                         <string>Replies</string>
+                        </property>
+                        <property name="checked">
+                         <bool>true</bool>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QCheckBox" name="repliesTabAutoUpdateCheckBox">
+                        <property name="text">
+                         <string>auto-update</string>
+                        </property>
+                        <property name="checked">
+                         <bool>true</bool>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_7">
+                      <item>
+                       <widget class="QCheckBox" name="customTabCheckBox">
+                        <property name="text">
+                         <string>Custom</string>
+                        </property>
+                        <property name="checked">
+                         <bool>true</bool>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QCheckBox" name="customTabAutoUpdateCheckBox">
+                        <property name="text">
+                         <string>auto-update</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_8">
+                      <item>
+                       <widget class="QCheckBox" name="inboxTabCheckBox">
+                        <property name="text">
+                         <string>Inbox</string>
+                        </property>
+                        <property name="checked">
+                         <bool>true</bool>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QCheckBox" name="inboxTabAutoUpdateCheckBox">
+                        <property name="text">
+                         <string>auto-update</string>
+                        </property>
+                        <property name="checked">
+                         <bool>true</bool>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_9">
+                      <item>
+                       <widget class="QCheckBox" name="outboxTabCheckBox">
+                        <property name="text">
+                         <string>Outbox</string>
+                        </property>
+                        <property name="checked">
+                         <bool>true</bool>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QCheckBox" name="outboxTabAutoUpdateCheckBox">
+                        <property name="text">
+                         <string>auto-update</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_10">
+                      <item>
+                       <widget class="QCheckBox" name="searchTabCheckBox">
+                        <property name="text">
+                         <string>Search</string>
+                        </property>
+                        <property name="checked">
+                         <bool>true</bool>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QCheckBox" name="searchTabAutoUpdateCheckBox">
+                        <property name="text">
+                         <string>auto-update</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_11">
+                      <item>
+                       <widget class="QCheckBox" name="favoritesTabCheckBox">
+                        <property name="text">
+                         <string>Favorites</string>
+                        </property>
+                        <property name="checked">
+                         <bool>true</bool>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QCheckBox" name="favoritesTabAutoUpdateCheckBox">
+                        <property name="text">
+                         <string>auto-update</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_12">
+                      <item>
+                       <widget class="QLabel" name="label_3">
+                        <property name="text">
+                         <string>Update interval:</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QSpinBox" name="updateIntervalSpinBox">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="suffix">
+                         <string>s</string>
+                        </property>
+                        <property name="minimum">
+                         <number>10</number>
+                        </property>
+                        <property name="maximum">
+                         <number>3600</number>
+                        </property>
+                        <property name="value">
+                         <number>300</number>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <spacer name="horizontalSpacer">
+                        <property name="orientation">
+                         <enum>Qt::Horizontal</enum>
+                        </property>
+                        <property name="sizeHint" stdset="0">
+                         <size>
+                          <width>40</width>
+                          <height>20</height>
+                         </size>
+                        </property>
+                       </spacer>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <spacer name="verticalSpacer_3">
+                      <property name="orientation">
+                       <enum>Qt::Vertical</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>20</width>
+                        <height>40</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="tab">
+                 <attribute name="title">
+                  <string>Misc</string>
+                 </attribute>
+                 <layout class="QGridLayout" name="gridLayout_4">
+                  <item row="0" column="0">
+                   <layout class="QVBoxLayout" name="verticalLayout_4">
+                    <item>
+                     <widget class="QCheckBox" name="showGreetingMessageCheckBox">
+                      <property name="text">
+                       <string>Show greeting message:</string>
+                      </property>
+                      <property name="checked">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="greetingMessageLineEdit"/>
+                    </item>
+                    <item>
+                     <widget class="QCheckBox" name="showLeftCharactersNumberCheckBox">
+                      <property name="text">
+                       <string>Show left characters number</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="label_4">
+                      <property name="text">
+                       <string>Number of messages per page:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="messagesPerPageLineEdit"/>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="label_12">
+                      <property name="text">
+                       <string>Number of messages in popup:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="messagesInPopupLineEdit"/>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="label_13">
+                      <property name="text">
+                       <string>Retweet tag:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="retweetTagLineEdit"/>
+                    </item>
+                    <item>
+                     <widget class="QCheckBox" name="retweetTagAfterTextCheckBox">
+                      <property name="text">
+                       <string>Display retweet tag after text instead of in front</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QCheckBox" name="placeUsernameUnderAvatarCheckBox">
+                      <property name="text">
+                       <string>Place username under avatar</string>
+                      </property>
+                      <property name="checked">
+                       <bool>false</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QCheckBox" name="showMessagesInTrayCheckBox">
+                      <property name="text">
+                       <string>Show messages in the tray</string>
+                      </property>
+                      <property name="checked">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QCheckBox" name="placeControlsVerticallyCheckBox">
+                      <property name="text">
+                       <string>Place controls vertically</string>
+                      </property>
+                      <property name="checked">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QCheckBox" name="placeTabsVerticallyCheckBox">
+                      <property name="text">
+                       <string>Place tabs vertically</string>
+                      </property>
+                      <property name="checked">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QCheckBox" name="showLastMessageCheckBox">
+                      <property name="text">
+                       <string>Show last status</string>
+                      </property>
+                      <property name="checked">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <spacer name="verticalSpacer_2">
+                      <property name="orientation">
+                       <enum>Qt::Vertical</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>17</width>
+                        <height>38</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="tab_2">
+                 <attribute name="title">
+                  <string>Colors</string>
+                 </attribute>
+                 <layout class="QGridLayout" name="gridLayout_8">
+                  <item row="0" column="0">
+                   <layout class="QVBoxLayout" name="verticalLayout_6">
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_13">
+                      <item>
+                       <widget class="QLabel" name="label_10">
+                        <property name="text">
+                         <string>Common messages:</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <spacer name="horizontalSpacer_2">
+                        <property name="orientation">
+                         <enum>Qt::Horizontal</enum>
+                        </property>
+                        <property name="sizeHint" stdset="0">
+                         <size>
+                          <width>40</width>
+                          <height>20</height>
+                         </size>
+                        </property>
+                       </spacer>
+                      </item>
+                      <item>
+                       <widget class="QPushButton" name="commonMessagesOddColorPushButton">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="minimumSize">
+                         <size>
+                          <width>32</width>
+                          <height>32</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>32</width>
+                          <height>32</height>
+                         </size>
+                        </property>
+                        <property name="palette">
+                         <palette>
+                          <active>
+                           <colorrole role="Button">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>52</red>
+                              <green>232</green>
+                              <blue>202</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                           <colorrole role="Base">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>255</red>
+                              <green>255</green>
+                              <blue>255</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                           <colorrole role="Window">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>0</red>
+                              <green>170</green>
+                              <blue>255</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                          </active>
+                          <inactive>
+                           <colorrole role="Button">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>52</red>
+                              <green>232</green>
+                              <blue>202</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                           <colorrole role="Base">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>255</red>
+                              <green>255</green>
+                              <blue>255</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                           <colorrole role="Window">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>0</red>
+                              <green>170</green>
+                              <blue>255</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                          </inactive>
+                          <disabled>
+                           <colorrole role="Button">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>52</red>
+                              <green>232</green>
+                              <blue>202</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                           <colorrole role="Base">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>0</red>
+                              <green>170</green>
+                              <blue>255</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                           <colorrole role="Window">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>0</red>
+                              <green>170</green>
+                              <blue>255</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                          </disabled>
+                         </palette>
+                        </property>
+                        <property name="text">
+                         <string/>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QPushButton" name="commonMessagesEvenColorPushButton">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="minimumSize">
+                         <size>
+                          <width>32</width>
+                          <height>32</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>32</width>
+                          <height>32</height>
+                         </size>
+                        </property>
+                        <property name="palette">
+                         <palette>
+                          <active>
+                           <colorrole role="Button">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>52</red>
+                              <green>232</green>
+                              <blue>202</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                           <colorrole role="Base">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>255</red>
+                              <green>255</green>
+                              <blue>255</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                           <colorrole role="Window">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>0</red>
+                              <green>170</green>
+                              <blue>255</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                          </active>
+                          <inactive>
+                           <colorrole role="Button">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>52</red>
+                              <green>232</green>
+                              <blue>202</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                           <colorrole role="Base">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>255</red>
+                              <green>255</green>
+                              <blue>255</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                           <colorrole role="Window">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>0</red>
+                              <green>170</green>
+                              <blue>255</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                          </inactive>
+                          <disabled>
+                           <colorrole role="Button">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>52</red>
+                              <green>232</green>
+                              <blue>202</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                           <colorrole role="Base">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>0</red>
+                              <green>170</green>
+                              <blue>255</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                           <colorrole role="Window">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>0</red>
+                              <green>170</green>
+                              <blue>255</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                          </disabled>
+                         </palette>
+                        </property>
+                        <property name="text">
+                         <string/>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="horizontalLayout_14">
+                      <item>
+                       <widget class="QLabel" name="label_11">
+                        <property name="text">
+                         <string>Mentions:</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <spacer name="horizontalSpacer_3">
+                        <property name="orientation">
+                         <enum>Qt::Horizontal</enum>
+                        </property>
+                        <property name="sizeHint" stdset="0">
+                         <size>
+                          <width>40</width>
+                          <height>20</height>
+                         </size>
+                        </property>
+                       </spacer>
+                      </item>
+                      <item>
+                       <widget class="QPushButton" name="mentionsOddColorPushButton">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="minimumSize">
+                         <size>
+                          <width>32</width>
+                          <height>32</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>32</width>
+                          <height>32</height>
+                         </size>
+                        </property>
+                        <property name="palette">
+                         <palette>
+                          <active>
+                           <colorrole role="Button">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>52</red>
+                              <green>232</green>
+                              <blue>202</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                           <colorrole role="Base">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>255</red>
+                              <green>255</green>
+                              <blue>255</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                           <colorrole role="Window">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>0</red>
+                              <green>170</green>
+                              <blue>255</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                          </active>
+                          <inactive>
+                           <colorrole role="Button">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>52</red>
+                              <green>232</green>
+                              <blue>202</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                           <colorrole role="Base">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>255</red>
+                              <green>255</green>
+                              <blue>255</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                           <colorrole role="Window">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>0</red>
+                              <green>170</green>
+                              <blue>255</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                          </inactive>
+                          <disabled>
+                           <colorrole role="Button">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>52</red>
+                              <green>232</green>
+                              <blue>202</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                           <colorrole role="Base">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>0</red>
+                              <green>170</green>
+                              <blue>255</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                           <colorrole role="Window">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>0</red>
+                              <green>170</green>
+                              <blue>255</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                          </disabled>
+                         </palette>
+                        </property>
+                        <property name="text">
+                         <string/>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QPushButton" name="mentionsEvenColorPushButton">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="minimumSize">
+                         <size>
+                          <width>32</width>
+                          <height>32</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>32</width>
+                          <height>32</height>
+                         </size>
+                        </property>
+                        <property name="palette">
+                         <palette>
+                          <active>
+                           <colorrole role="Button">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>52</red>
+                              <green>232</green>
+                              <blue>202</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                           <colorrole role="Base">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>255</red>
+                              <green>255</green>
+                              <blue>255</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                           <colorrole role="Window">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>0</red>
+                              <green>170</green>
+                              <blue>255</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                          </active>
+                          <inactive>
+                           <colorrole role="Button">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>52</red>
+                              <green>232</green>
+                              <blue>202</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                           <colorrole role="Base">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>255</red>
+                              <green>255</green>
+                              <blue>255</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                           <colorrole role="Window">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>0</red>
+                              <green>170</green>
+                              <blue>255</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                          </inactive>
+                          <disabled>
+                           <colorrole role="Button">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>52</red>
+                              <green>232</green>
+                              <blue>202</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                           <colorrole role="Base">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>0</red>
+                              <green>170</green>
+                              <blue>255</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                           <colorrole role="Window">
+                            <brush brushstyle="SolidPattern">
+                             <color alpha="255">
+                              <red>0</red>
+                              <green>170</green>
+                              <blue>255</blue>
+                             </color>
+                            </brush>
+                           </colorrole>
+                          </disabled>
+                         </palette>
+                        </property>
+                        <property name="text">
+                         <string/>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                    <item>
+                     <spacer name="verticalSpacer_5">
+                      <property name="orientation">
+                       <enum>Qt::Vertical</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>20</width>
+                        <height>40</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </widget>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="accountsPage">
+          <layout class="QGridLayout" name="gridLayout_9">
+           <item row="0" column="0">
+            <widget class="QGroupBox" name="groupBox_3">
+             <property name="title">
+              <string>Accounts</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_3">
+              <item row="0" column="0">
+               <layout class="QVBoxLayout" name="verticalLayout_3">
+                <item>
+                 <widget class="QLabel" name="label">
+                  <property name="text">
+                   <string>Service:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_2">
+                  <item>
+                   <widget class="QComboBox" name="servicesComboBox"/>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="addAccountPushButton">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="text">
+                     <string>Add</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_3">
+                  <item>
+                   <widget class="QListWidget" name="accountsListWidget"/>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_2">
+                    <item>
+                     <widget class="QPushButton" name="editAccountPushButton">
+                      <property name="text">
+                       <string>Edit...</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="deleteAccountPushButton">
+                      <property name="text">
+                       <string>Delete...</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <spacer name="verticalSpacer_4">
+                      <property name="orientation">
+                       <enum>Qt::Vertical</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>20</width>
+                        <height>40</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="urlShortenerPage">
+          <layout class="QGridLayout" name="gridLayout_11">
+           <item row="0" column="0">
+            <widget class="QGroupBox" name="groupBox_4">
+             <property name="title">
+              <string>Url shortener</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_10">
+              <item row="0" column="0">
+               <layout class="QVBoxLayout" name="verticalLayout_7">
+                <item>
+                 <widget class="QLabel" name="label_2">
+                  <property name="text">
+                   <string>Choose service:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="urlShortenersComboBox"/>
+                </item>
+                <item>
+                 <spacer name="verticalSpacer_7">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QDialogButtonBox" name="buttonBox">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="standardButtons">
+        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>OptionsDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>OptionsDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
