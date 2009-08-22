@@ -6,17 +6,17 @@
     <message>
         <location filename="../src/AboutDialog.ui" line="17"/>
         <source>About Qwit</source>
-        <translation type="unfinished"></translation>
+        <translation>Qwit Hakkında</translation>
     </message>
     <message>
         <location filename="../src/AboutDialog.ui" line="66"/>
         <source>Qwit</source>
-        <translation type="unfinished">Qwit</translation>
+        <translation>Qwit</translation>
     </message>
     <message>
         <location filename="../src/AboutDialog.ui" line="95"/>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>Hakkında</translation>
     </message>
     <message>
         <location filename="../src/AboutDialog.ui" line="116"/>
@@ -29,12 +29,20 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Copyright (c) 2008-2009, Artem Iglikov.&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://code.google.com/p/qwit/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://code.google.com/p/qwit/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Özgür, hafif, platform bağımsız, açık kaynaklı, Qt4-tabanlı masaüstü twitter istemcisi.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Telif Hakkı (c) 2008-2009, Artem Iglikov.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://code.google.com/p/qwit/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://code.google.com/p/qwit/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/AboutDialog.ui" line="150"/>
         <source>Authors</source>
-        <translation type="unfinished"></translation>
+        <translation>Yazarlar</translation>
     </message>
     <message>
         <location filename="../src/AboutDialog.ui" line="156"/>
@@ -47,12 +55,20 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;  blog: &lt;a href=&quot;http://arti.kz&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://arti.kz&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Artem Iglikov - projeyi başlatan ve ana geliştirici&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;  e-posta: &lt;a href=&quot;mailto:artem.iglikov@gmail.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;artem.iglikov@gmail.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;  blog: &lt;a href=&quot;http://arti.kz&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://arti.kz&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/AboutDialog.ui" line="172"/>
         <source>Thanks To</source>
-        <translation type="unfinished"></translation>
+        <translation>Teşekkürler</translation>
     </message>
     <message utf8="true">
         <location filename="../src/AboutDialog.ui" line="178"/>
@@ -69,12 +85,24 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Carlos Galisteo&lt;br /&gt;  official Debian package maintainer&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Salvatore Ansani&lt;br /&gt;  unofficial Debian package maintainer&lt;br /&gt;  blog: &lt;a href=&quot;http://ansani.it/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://ansani.it/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;all people who post issues, submit patches, make translations and use Qwit&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Everaldo Coelho&lt;br /&gt;  muhteşem Crystal simge temasının yazarı&lt;br /&gt;  İnternet sitesi: &lt;a href=&quot;http://www.everaldo.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.everaldo.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Thomas Salm&lt;br /&gt;  arkadaş yönetimi penceresini geliştiren&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Roopesh Chander&lt;br /&gt;  twitpic entegrasyonu&lt;br /&gt;  blog: &lt;a href=&quot;http://blog.forwardbias.in/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://blog.forwardbias.in/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Valentin Gritsinger&lt;br /&gt;  doğrudan iletiler ve arama entegrasyonu&lt;br /&gt;  blog: &lt;a href=&quot;http://gritsinger.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://gritsinger.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;kiracatgirl&lt;br /&gt;  çeşitli yamaların yazarı&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Mstislav Sokolov&lt;br /&gt;  FreeBSD paket bakıcısı&lt;br /&gt;  blog: &lt;a href=&quot;http://truebsd.org/sokolov/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://truebsd.org/sokolov/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Carlos Galisteo&lt;br /&gt;  resmi Debian baketi bakımcısı&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Salvatore Ansani&lt;br /&gt;  gayrıresmi Debian baketi bakımcısı&lt;br /&gt;  blog: &lt;a href=&quot;http://ansani.it/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://ansani.it/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;hata bildiren, yama gönderen, çeviri yapan ve Qwit&apos;i kullanan tüm insanlar&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/AboutDialog.ui" line="198"/>
         <source>License</source>
-        <translation type="unfinished"></translation>
+        <translation>Lisans</translation>
     </message>
     <message>
         <location filename="../src/AboutDialog.ui" line="204"/>
@@ -103,37 +131,37 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="17"/>
         <source>Configure account...</source>
-        <translation type="unfinished"></translation>
+        <translation>Hesabı yapılandır...</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="28"/>
         <source>Username:</source>
-        <translation type="unfinished">Kullanıcı adı:</translation>
+        <translation>Kullanıcı adı:</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="38"/>
         <source>Password:</source>
-        <translation type="unfinished">Parola:</translation>
+        <translation>Parola:</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="52"/>
         <source>save password</source>
-        <translation type="unfinished">parolayı kaydet</translation>
+        <translation>parolayı kaydet</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="59"/>
         <source>use https instead of http</source>
-        <translation type="unfinished"></translation>
+        <translation>http yerine https kullan</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="66"/>
         <source>Service base URL:</source>
-        <translation type="unfinished">Servisin taban URL&apos;si:</translation>
+        <translation>Servisin taban URL&apos;si:</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="76"/>
         <source>Service API URL:</source>
-        <translation type="unfinished">Servisin API URL&apos;si:</translation>
+        <translation>Servisin API URL&apos;si:</translation>
     </message>
 </context>
 <context>
@@ -141,22 +169,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/DirectMessageDialog.ui" line="17"/>
         <source>Direct message</source>
-        <translation type="unfinished"></translation>
+        <translation>Doğrudan ileti</translation>
     </message>
     <message>
         <location filename="../src/DirectMessageDialog.ui" line="27"/>
         <source>Account:</source>
-        <translation type="unfinished"></translation>
+        <translation>Hesap:</translation>
     </message>
     <message>
         <location filename="../src/DirectMessageDialog.ui" line="48"/>
         <source>To:</source>
-        <translation type="unfinished"></translation>
+        <translation>Kime:</translation>
     </message>
     <message>
         <location filename="../src/DirectMessageDialog.ui" line="60"/>
         <source>Message:</source>
-        <translation type="unfinished"></translation>
+        <translation>İleti:</translation>
     </message>
 </context>
 <context>
@@ -164,7 +192,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/FavoritesPage.cpp" line="64"/>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Yerimleri</translation>
     </message>
 </context>
 <context>
@@ -172,7 +200,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/HomePage.cpp" line="64"/>
         <source>Home</source>
-        <translation type="unfinished">Ev</translation>
+        <translation>Ev</translation>
     </message>
 </context>
 <context>
@@ -180,7 +208,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/InboxPage.cpp" line="64"/>
         <source>Inbox</source>
-        <translation type="unfinished">Gelen kutusu</translation>
+        <translation>Gelen kutusu</translation>
     </message>
 </context>
 <context>
@@ -188,7 +216,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/MainWindow.cpp" line="748"/>
         <source>Pick an image</source>
-        <translation type="unfinished"></translation>
+        <translation>Bir resim seçin</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="559"/>
@@ -203,12 +231,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/MainWindow.cpp" line="681"/>
         <source>Qwit: new messages receieved for %1@%2</source>
-        <translation type="unfinished"></translation>
+        <translation>Qwit: %1@%2 için yeni iletiler alındı</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="748"/>
         <source>Image Files (*.png *.jpg *.jpeg *.bmp *.PNG *.JPG *.JPEG *.BMP)</source>
-        <translation type="unfinished"></translation>
+        <translation>Resim Dosyaları (*.png *.jpg *.jpeg *.bmp *.PNG *.JPG *.JPEG *.BMP)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.ui" line="14"/>
@@ -218,12 +246,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/MainWindow.ui" line="72"/>
         <source>watching movie - 10 minutes ago</source>
-        <translation type="unfinished"></translation>
+        <translation>film izliyor - 10 dakika önce</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.ui" line="104"/>
         <source>tmp</source>
-        <translation type="unfinished"></translation>
+        <translation>gçc</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.ui" line="140"/>
@@ -231,7 +259,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/MainWindow.ui" line="168"/>
         <location filename="../src/MainWindow.ui" line="182"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
 </context>
 <context>
@@ -239,7 +267,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/MessageTextEdit.cpp" line="147"/>
         <source>My Menu Item</source>
-        <translation type="unfinished"></translation>
+        <translation>Menü Elemanım</translation>
     </message>
 </context>
 <context>
@@ -257,17 +285,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/OptionsDialog.ui" line="389"/>
         <source>s</source>
-        <translation type="unfinished"></translation>
+        <translation>s</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="436"/>
         <source>Misc</source>
-        <translation type="unfinished"></translation>
+        <translation>Diğer</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="444"/>
         <source>Show greeting message:</source>
-        <translation type="unfinished"></translation>
+        <translation>Hoşgeldin iletisini göster:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="457"/>
