@@ -6,76 +6,76 @@
     <message>
         <location filename="../src/FriendsMgmtDialog.cpp" line="146"/>
         <source>Blocking : %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Estetään: %1</translation>
     </message>
     <message>
         <location filename="../src/FriendsMgmtDialog.cpp" line="157"/>
         <source>Unblocking : %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Poistetaan esto: %1</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/FriendsMgmtDialog.cpp" line="202"/>
         <source>%n friend(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n kaveri</numerusform>
+            <numerusform>%n kaveria</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../src/FriendsMgmtDialog.cpp" line="205"/>
         <source>%n follower(s)</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n seuraaja</numerusform>
+            <numerusform>%n seuraajaa</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../src/FriendsMgmtDialog.cpp" line="208"/>
         <source>%n blocked</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n estetty</numerusform>
+            <numerusform>%n estettyä</numerusform>
         </translation>
     </message>
     <message>
         <location filename="../src/FriendsMgmtDialog.cpp" line="477"/>
         <source>Screenname contains illegal character: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Näyttänimessä on merkki jota ei sallita: %1</translation>
     </message>
     <message>
         <location filename="../src/FriendsMgmtDialog.ui" line="14"/>
         <source>Friends Management</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaverien hallinta</translation>
     </message>
     <message>
         <location filename="../src/FriendsMgmtDialog.ui" line="28"/>
         <source>Friends</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaverit</translation>
     </message>
     <message>
         <location filename="../src/FriendsMgmtDialog.ui" line="44"/>
         <source>new friend:</source>
-        <translation type="unfinished"></translation>
+        <translation>uusi kaveri:</translation>
     </message>
     <message>
         <location filename="../src/FriendsMgmtDialog.ui" line="57"/>
         <source>add</source>
-        <translation type="unfinished"></translation>
+        <translation>lisää</translation>
     </message>
     <message>
         <location filename="../src/FriendsMgmtDialog.ui" line="72"/>
         <source>Followers</source>
-        <translation type="unfinished"></translation>
+        <translation>Seuraajat</translation>
     </message>
     <message>
         <location filename="../src/FriendsMgmtDialog.ui" line="77"/>
         <source>Blocked</source>
-        <translation type="unfinished"></translation>
+        <translation>Estetyt</translation>
     </message>
     <message>
         <location filename="../src/FriendsMgmtDialog.ui" line="108"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Sulje</translation>
     </message>
 </context>
 <context>
@@ -83,7 +83,7 @@
     <message>
         <location filename="../src/FriendsMgmtWidget.cpp" line="117"/>
         <source>Blocking will prevent %1 from following you. And you won&apos;t see their tweets in your timeline. Are you sure you want to block?</source>
-        <translation type="unfinished"></translation>
+        <translation>Estäminen estää käyttäjää %1 seuraamasta sinua, etkä näe hänen viestejään aikajanallasi. Oletko varma että haluat estää?</translation>
     </message>
 </context>
 <context>
@@ -108,7 +108,7 @@
     <message>
         <location filename="../src/MainWindow.cpp" line="245"/>
         <source>Image Files (*.png *.jpg *.jpeg *.bmp *.JPG *.JPEG *.PNG *.GIF *.BMP)</source>
-        <translation type="unfinished"></translation>
+        <translation>Kuvatiedostot (*.png *.jpg *.jpeg *.bmp *.JPG *.JPEG *.PNG *.GIF *.BMP)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="256"/>
@@ -229,7 +229,7 @@
     <message>
         <location filename="../src/MainWindow.ui" line="396"/>
         <source>Friends Management</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaverien hallinta</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.ui" line="425"/>
@@ -318,22 +318,22 @@
     <message>
         <location filename="../src/OptionsDialog.ui" line="159"/>
         <source>Place controls vertically</source>
-        <translation>Pystysuora asettelu</translation>
+        <translation type="unfinished">Kontrollit pystysuorassa</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="169"/>
         <source>Place tabs vertically</source>
-        <translation type="unfinished"></translation>
+        <translation>Välilehdet pystysuorassa</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="176"/>
         <source>Open user profile in browser on username click</source>
-        <translation type="unfinished"></translation>
+        <translation>Avaa käyttäjän profiili selaimeen käyttäjänimeä klikattaessa</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="186"/>
         <source>Keep focus on the text field after status update</source>
-        <translation type="unfinished"></translation>
+        <translation>Pidä tekstikenttä aktiivisena tilapäivityksen lähettämisen jälkeen</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="209"/>
