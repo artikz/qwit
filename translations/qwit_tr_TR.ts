@@ -300,7 +300,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/OptionsDialog.ui" line="457"/>
         <source>Show left characters number</source>
-        <translation type="unfinished"></translation>
+        <translation>Kalan karakter sayısını göster</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="464"/>
@@ -310,40 +310,40 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/OptionsDialog.ui" line="474"/>
         <source>Number of messages in popup:</source>
-        <translation type="unfinished"></translation>
+        <translation>Balondaki ileti sayısı:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="484"/>
         <source>Retweet tag:</source>
-        <translation type="unfinished"></translation>
+        <translation>Retweet etiketi:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="501"/>
         <source>Place username under avatar</source>
-        <translation type="unfinished"></translation>
+        <translation>Kullanıcı adı avatarın altında</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="511"/>
         <source>Show messages in the tray</source>
-        <translation type="unfinished"></translation>
+        <translation>İletileri sistem çekmecesinde göster</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="531"/>
         <source>Place tabs vertically</source>
-        <translation type="unfinished"></translation>
+        <translation>Sekmeleri yatay diz</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.cpp" line="71"/>
         <location filename="../src/OptionsDialog.ui" line="34"/>
         <location filename="../src/OptionsDialog.ui" line="1113"/>
         <source>Accounts</source>
-        <translation type="unfinished"></translation>
+        <translation>Hesaplar</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.cpp" line="73"/>
         <location filename="../src/OptionsDialog.ui" line="39"/>
         <source>URL shortener</source>
-        <translation type="unfinished"></translation>
+        <translation>URL kısaltıcı</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.cpp" line="75"/>
@@ -357,7 +357,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/OptionsDialog.ui" line="49"/>
         <location filename="../src/OptionsDialog.ui" line="179"/>
         <source>User interface</source>
-        <translation type="unfinished"></translation>
+        <translation>Kullanıcı arayüzü</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="87"/>
@@ -392,12 +392,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/OptionsDialog.ui" line="189"/>
         <source>Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Sekmeler</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="199"/>
         <source>Home</source>
-        <translation type="unfinished">Ev</translation>
+        <translation>Ev</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="209"/>
@@ -409,92 +409,92 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/OptionsDialog.ui" line="344"/>
         <location filename="../src/OptionsDialog.ui" line="365"/>
         <source>auto-update</source>
-        <translation type="unfinished"></translation>
+        <translation>oto-güncelleme</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="223"/>
         <source>Public</source>
-        <translation type="unfinished">Herkes</translation>
+        <translation>Herkes</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="244"/>
         <source>Replies</source>
-        <translation type="unfinished">Yanıtlar</translation>
+        <translation>Yanıtlar</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="268"/>
         <source>Custom</source>
-        <translation type="unfinished">Özel</translation>
+        <translation>Özel</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="289"/>
         <source>Inbox</source>
-        <translation type="unfinished">Gelen kutusu</translation>
+        <translation>Gelen kutusu</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="313"/>
         <source>Outbox</source>
-        <translation type="unfinished">Giden kutusu</translation>
+        <translation>Giden kutusu</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="334"/>
         <source>Search</source>
-        <translation type="unfinished">Ara</translation>
+        <translation>Arama</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="355"/>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Yerimleri</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="541"/>
         <source>Show last status</source>
-        <translation type="unfinished"></translation>
+        <translation>Son durumu göster</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="567"/>
         <source>Colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Renkler</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="577"/>
         <source>Common messages:</source>
-        <translation type="unfinished"></translation>
+        <translation>Genel iletiler:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="833"/>
         <source>Mentions:</source>
-        <translation type="unfinished"></translation>
+        <translation>Yanıtlar:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1121"/>
         <source>Service:</source>
-        <translation type="unfinished"></translation>
+        <translation>Servis:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1139"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekle</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1155"/>
         <source>Edit...</source>
-        <translation type="unfinished"></translation>
+        <translation>Düzenle...</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1162"/>
         <source>Delete...</source>
-        <translation type="unfinished"></translation>
+        <translation>Sil...</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1195"/>
         <source>Url shortener</source>
-        <translation type="unfinished"></translation>
+        <translation>URL kısaltıcı</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1203"/>
         <source>Choose service:</source>
-        <translation type="unfinished"></translation>
+        <translation>Servisi seçin:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="494"/>
@@ -512,7 +512,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/OutboxPage.cpp" line="64"/>
         <source>Outbox</source>
-        <translation type="unfinished">Giden kutusu</translation>
+        <translation>Giden kutusu</translation>
     </message>
 </context>
 <context>
@@ -520,7 +520,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/PublicPage.cpp" line="65"/>
         <source>Public</source>
-        <translation type="unfinished">Herkes</translation>
+        <translation>Herkes</translation>
     </message>
 </context>
 <context>
@@ -528,33 +528,33 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/QwitTools.cpp" line="90"/>
         <source>Just now</source>
-        <translation type="unfinished">Şimdi</translation>
+        <translation>Şimdi</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/QwitTools.cpp" line="91"/>
         <source>about %n second(s) ago</source>
-        <translation type="unfinished">
+        <translation>
             <numerusform>yaklaşık %n saniye önce</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../src/QwitTools.cpp" line="93"/>
         <source>about %n minute(s) ago</source>
-        <translation type="unfinished">
+        <translation>
             <numerusform>yaklaşık %n dakika önce</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../src/QwitTools.cpp" line="95"/>
         <source>about %n hour(s) ago</source>
-        <translation type="unfinished">
+        <translation>
             <numerusform>yaklaşık %n saat önce</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../src/QwitTools.cpp" line="97"/>
         <source>about %n day(s) ago</source>
-        <translation type="unfinished">
+        <translation>
             <numerusform>yaklaşık %n gün önce</numerusform>
         </translation>
     </message>
@@ -564,7 +564,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/RepliesPage.cpp" line="65"/>
         <source>Replies</source>
-        <translation type="unfinished">Yanıtlar</translation>
+        <translation>Yanıtlar</translation>
     </message>
 </context>
 <context>
@@ -572,12 +572,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/SearchPage.cpp" line="50"/>
         <source>Find:</source>
-        <translation type="unfinished"></translation>
+        <translation>Bul:</translation>
     </message>
     <message>
         <location filename="../src/SearchPage.cpp" line="71"/>
         <source>Search</source>
-        <translation type="unfinished">Ara</translation>
+        <translation>Ara</translation>
     </message>
 </context>
 <context>
@@ -585,83 +585,83 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/Twitter.cpp" line="91"/>
         <source>Sending message: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>İleti gönderiliyor: %1</translation>
     </message>
     <message>
         <location filename="../src/Twitter.cpp" line="113"/>
         <location filename="../src/Twitter.cpp" line="237"/>
         <source>Updating friends messages: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Arkadaşların iletileri güncelleniyor: %1</translation>
     </message>
     <message>
         <location filename="../src/Twitter.cpp" line="134"/>
         <location filename="../src/Twitter.cpp" line="258"/>
         <source>Updating replies: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Yanıtlar güncelleniyor: %1</translation>
     </message>
     <message>
         <location filename="../src/Twitter.cpp" line="155"/>
         <location filename="../src/Twitter.cpp" line="279"/>
         <source>Updating public messages: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Genel iletiler güncelleniyor: %1</translation>
     </message>
     <message>
         <location filename="../src/Twitter.cpp" line="174"/>
         <source>Updating search messages: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Arama iletileri güncelleniyor: %1</translation>
     </message>
     <message>
         <location filename="../src/Twitter.cpp" line="195"/>
         <source>Updating previous search messages: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Önceki iletiler güncelleniyor: %1</translation>
     </message>
     <message>
         <location filename="../src/Twitter.cpp" line="216"/>
         <source>Updating last message: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Son ileti güncelleniyor: %1</translation>
     </message>
     <message>
         <location filename="../src/Twitter.cpp" line="300"/>
         <location filename="../src/Twitter.cpp" line="321"/>
         <source>Updating favorites: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Yerimleri güncelleniyor: %1</translation>
     </message>
     <message>
         <location filename="../src/Twitter.cpp" line="342"/>
         <location filename="../src/Twitter.cpp" line="363"/>
         <source>Updating inbox messages: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Gelen kutusu iletileri güncelleniyor: %1</translation>
     </message>
     <message>
         <location filename="../src/Twitter.cpp" line="384"/>
         <location filename="../src/Twitter.cpp" line="405"/>
         <source>Updating outbox messages: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Giden kutusu iletileri güncelleniyor: %1</translation>
     </message>
     <message>
         <location filename="../src/Twitter.cpp" line="434"/>
         <source>Sending direct message: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Doğrudan ileti gönderiliyor: %1</translation>
     </message>
     <message>
         <location filename="../src/Twitter.cpp" line="463"/>
         <source>Favoring message: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>İleti yerimlerine ekleniyor: %1</translation>
     </message>
     <message>
         <location filename="../src/Twitter.cpp" line="492"/>
         <source>Unfavoring message: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>İleti yerimlerinden siliniyor: %1</translation>
     </message>
     <message>
         <location filename="../src/Twitter.cpp" line="521"/>
         <source>Destroying message: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>İleti siliniyor: %1</translation>
     </message>
     <message>
         <location filename="../src/Twitter.cpp" line="550"/>
         <source>Destroying direct message: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Doğrudan ileti siliniyor: %1</translation>
     </message>
 </context>
 <context>
@@ -669,22 +669,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/TwitterWidget.cpp" line="400"/>
         <source>more</source>
-        <translation type="unfinished"></translation>
+        <translation>daha fazla</translation>
     </message>
     <message>
         <location filename="../src/TwitterWidget.cpp" line="410"/>
         <source>less</source>
-        <translation type="unfinished"></translation>
+        <translation>daha az</translation>
     </message>
     <message>
         <location filename="../src/TwitterWidget.cpp" line="421"/>
         <source>Delete message</source>
-        <translation type="unfinished"></translation>
+        <translation>İletiyi sil</translation>
     </message>
     <message>
         <location filename="../src/TwitterWidget.cpp" line="421"/>
         <source>Are you sure to delete this message?</source>
-        <translation type="unfinished"></translation>
+        <translation>Bu iletiyi silmek istediğinizden emin misiniz?</translation>
     </message>
 </context>
 </TS>
