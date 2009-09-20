@@ -53,11 +53,16 @@ OptionsDialog::OptionsDialog(QWidget *parent): QDialog(parent) {
 	
 	Configuration *config = Configuration::getInstance();
 	for (int i = 0; i < config->UrlShorteners.size(); ++i) {
-		urlShortenersComboBox->addItem(config->UrlShortenersNames[config->UrlShorteners[i]]);
+		urlShortenersComboBox->addItem(QIcon(":/images/" + config->UrlShorteners[i] + ".png"), config->UrlShortenersNames[config->UrlShorteners[i]]);
 	}
 	for (int i = 0; i < config->Services.size(); ++i) {
-		servicesComboBox->addItem(config->ServicesNames[config->Services[i]]);
+		servicesComboBox->addItem(QIcon(":/images/" + config->Services[i] + ".png"), config->ServicesNames[config->Services[i]]);
 	}
+	for (int i = 0; i < config->TranslationsTitles.size(); ++i) {
+		translationsComboBox->addItem(QIcon(":/images/countries/" + config->TranslationsCodes[i].mid(3, 2).toLower() + ".png"), config->TranslationsTitles[i]);
+	}
+	translationsComboBox->setCurrentIndex(config->TranslationsCodes.indexOf(config->language));
+	servicesComboBox->setCurrentIndex(config->Services.indexOf("twitter"));
 
 	optionsStackedWidget->setCurrentWidget(accountsPage);
 

@@ -46,6 +46,9 @@ public:
 	static const QString ApplicationName;
 	static const QString CacheDirectory;
 	static const QString MessagesCacheFileName;
+	static QVector<QString> TranslationsTitles;
+	static QVector<QString> TranslationsCodes;
+	static QVector<QString> TranslationsCountries;
 
 
 	static QMap<QString, QString> ServicesNames;
@@ -95,6 +98,7 @@ public:
 	QColor commonMessagesEvenColor;
 	QColor mentionsOddColor;
 	QColor mentionsEvenColor;
+	QString language;
 
 // Connection
 	bool useProxy;

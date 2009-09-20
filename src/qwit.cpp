@@ -42,12 +42,32 @@ int main(int argc, char *argv[]) {
 	
 	QApplication app(argc, argv);
 
-	QString locale = QLocale::system().name();
-	QTranslator translator;
-	translator.load(QString(":/translations/qwit_") + locale);
-	app.installTranslator(&translator);
+	QLocale systemLocale = QLocale::system();
 
 	Services::initialize();
+
+	Configuration *config = Configuration::getInstance();
+	config->load();
+
+	QTranslator translator;
+	translator.load(QString(":/translations/qwit_") + (config->language == "system" ? systemLocale.name() : config->language));
+	app.installTranslator(&translator);
+
+	Configuration::TranslationsCodes.push_back("system");
+	Configuration::TranslationsCountries.push_back(systemLocale.name().mid(3, 2));
+	Configuration::TranslationsTitles.push_back(app.tr("System (%1, %2)").arg(systemLocale.languageToString(systemLocale.language())).arg(systemLocale.countryToString(systemLocale.country())));
+
+	QDir translationsDir(":/translations");
+	QStringList translationNames = translationsDir.entryList(QStringList("*.qm"), QDir::Files, QDir::Name);
+	QMutableStringListIterator i(translationNames);
+	while (i.hasNext()) {
+		i.next();
+		QString languageCode = i.value().mid(5, 5);
+		QLocale locale(languageCode);
+		Configuration::TranslationsCodes.push_back(languageCode);
+		Configuration::TranslationsCountries.push_back(languageCode.mid(3, 2));
+		Configuration::TranslationsTitles.push_back(QString("%1, %2").arg(systemLocale.languageToString(locale.language())).arg(systemLocale.countryToString(locale.country())));
+	}
 
 	MainWindow::getInstance()->show();
 	return app.exec();

@@ -186,6 +186,7 @@ void MainWindow::saveOptions() {
 	config->commonMessagesOddColor = optionsDialog->commonMessagesOddColorPushButton->palette().color(QPalette::Button);
 	config->mentionsEvenColor = optionsDialog->mentionsEvenColorPushButton->palette().color(QPalette::Button);
 	config->mentionsOddColor = optionsDialog->mentionsOddColorPushButton->palette().color(QPalette::Button);
+	config->language = config->TranslationsCodes[optionsDialog->translationsComboBox->currentIndex()];
 
 	config->useProxy = (optionsDialog->useProxyCheckBox->checkState() == Qt::Checked);
 	config->proxyAddress = optionsDialog->proxyAddressLineEdit->text();
@@ -345,10 +346,12 @@ void MainWindow::resetOptionsDialog() {
 	palette.setColor(QPalette::Button, config->mentionsOddColor);
 	optionsDialog->mentionsOddColorPushButton->setPalette(palette);
 
+	optionsDialog->translationsComboBox->setCurrentIndex(config->TranslationsCodes.indexOf(config->language));
+
 // Accounts
 	optionsDialog->accountsListWidget->clear();
 	for (int i = 0; i < config->accounts.size(); ++i) {
-		optionsDialog->accountsListWidget->addItem(Configuration::ServicesNames[config->accounts[i]->type] + ": " + config->accounts[i]->username);
+		optionsDialog->accountsListWidget->addItem(new QListWidgetItem(QIcon(":/images/" + config->accounts[i]->type + ".png"), config->accounts[i]->username));
 	}
 
 // Connection
@@ -365,6 +368,8 @@ void MainWindow::resetOptionsDialog() {
 
 void MainWindow::addAccountButton(Account *account) {
 	qDebug() << ("MainWindow::addAccountButton()");
+
+	QObject::connect(account, SIGNAL(newMessagesReceived(const QVector<Message>&, Account *)), this, SLOT(showNewMessages(const QVector<Message>&, Account *)));
 
 	QToolButton *accountButton = new QToolButton(this);
 	accountButton->setIcon(QIcon(":/images/" + account->type + ".png"));
