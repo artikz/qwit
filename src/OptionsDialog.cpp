@@ -161,7 +161,7 @@ void OptionsDialog::commitAccount() {
 		case AccountConfigurationDialog::ActionAdd: {
 				Account *account = new Account(Configuration::Services[accountConfigurationDialog->accountType], accountConfigurationDialog->accountUsernameLineEdit->text(), accountConfigurationDialog->accountPasswordLineEdit->text(), accountConfigurationDialog->useHttpsCheckBox->checkState() == Qt::Checked);
 				config->addAccount(account);
-				accountsListWidget->addItem(Configuration::ServicesNames[account->type] + ": " + account->username);
+				accountsListWidget->addItem(new QListWidgetItem(QIcon(":/images/" + account->type + ".png"), account->username));
 				accountsListWidget->setCurrentRow(account->id);
 				mainWindow->addAccountButton(account);
 			}
@@ -172,7 +172,7 @@ void OptionsDialog::commitAccount() {
 				account->password = accountConfigurationDialog->accountPasswordLineEdit->text();
 				account->useHttps = (accountConfigurationDialog->useHttpsCheckBox->checkState() == Qt::Checked);
 				accountsListWidget->takeItem(account->id);
-				accountsListWidget->insertItem(account->id, Configuration::ServicesNames[account->type] + ": " + account->username);
+				accountsListWidget->insertItem(account->id, new QListWidgetItem(QIcon(":/images/" + account->type + ".png"), account->username));
 				accountsListWidget->setCurrentRow(account->id);
 				mainWindow->updateAccountButton(account);
 			}
