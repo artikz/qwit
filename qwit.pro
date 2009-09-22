@@ -11,10 +11,8 @@ MOC_DIR = var
 UI_SOURCES_DIR = var
 UI_HEADERS_DIR = var
 RCC_DIR = var
-unix {
-# Prefix: base instalation directory
-    isEmpty( PREFIX ):PREFIX = /usr/local
-}
+unix:# Prefix: base instalation directory
+isEmpty( PREFIX ):PREFIX = /usr/local
 DEFINES += 'REVISION=\\\"$(shell svnversion -n .)\\\"'
 DEFINES += 'VERSION=\\\"1.0-alpha\\\"'
 
@@ -45,7 +43,9 @@ HEADERS += src/Configuration.h \
     src/UserpicsDownloader.h \
     src/QwitHeaders.h \
     src/UrlShortener.h \
-    src/TwitterWidgetItem.h
+    src/TwitterWidgetItem.h \
+    src/TwitterWidgetItemMessage.h \
+    src/Translator.h
 FORMS += src/MainWindow.ui \
     src/OptionsDialog.ui \
     src/AboutDialog.ui \
@@ -76,7 +76,9 @@ SOURCES += src/qwit.cpp \
     src/QwitTools.cpp \
     src/UserpicsDownloader.cpp \
     src/UrlShortener.cpp \
-    src/TwitterWidgetItem.cpp
+    src/TwitterWidgetItem.cpp \
+    src/TwitterWidgetItemMessage.cpp \
+    src/Translator.cpp
 TRANSLATIONS += translations/qwit_en_US.ts \
     translations/qwit_es_ES.ts \
     translations/qwit_it_IT.ts \

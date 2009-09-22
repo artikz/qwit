@@ -91,7 +91,6 @@ void OptionsDialog::addAccount() {
 	accountConfigurationDialog->accountPasswordLineEdit->setText("");
 	accountConfigurationDialog->accountUsernameLineEdit->setFocus();
 	accountConfigurationDialog->useHttpsCheckBox->setChecked(Qt::Unchecked);
-	Configuration *config = Configuration::getInstance();
 	int serviceId = servicesComboBox->currentIndex();
 	if (serviceId == Configuration::ServicesIds["custom"]) {
 		accountConfigurationDialog->serviceBaseUrlLineEdit->setText("");

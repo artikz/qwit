@@ -69,7 +69,7 @@ void TwitterWidget::addItem(const Message &message) {
 
 	item->message = message;
 
-	item->messageTextBrowser = new QTextBrowser(this);
+	item->messageTextBrowser = new TwitterWidgetItemMessage(this, message);
 	item->messageTextBrowser->setHtml(QwitTools::prepareMessage(message.text, message.account));
 	item->messageTextBrowser->setReadOnly(true);
 	item->messageTextBrowser->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);

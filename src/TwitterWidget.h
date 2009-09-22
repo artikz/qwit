@@ -33,6 +33,7 @@
 
 #include "QwitHeaders.h"
 #include "TwitterWidgetItem.h"
+#include "TwitterWidgetItemMessage.h"
 
 const int MARGIN = 5;
 
