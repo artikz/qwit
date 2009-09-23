@@ -87,7 +87,21 @@ void Services::initialize() {
 
 	QMap<QString, QString> customOptions;
 	customOptions["title"] = "Custom";
-	options["custom"] = customOptions;
+        customOptions["friends"] = "/statuses/friends_timeline";
+        customOptions["public"] = "/statuses/public_timeline";
+        customOptions["replies"] = "/statuses/mentions";
+        customOptions["favorites"] = "/favorites";
+        customOptions["favor"] = "/favorites/create/";
+        customOptions["unfavor"] = "/favorites/destroy/";
+        customOptions["user"] = "/statuses/user_timeline/";
+        customOptions["last"] = "/users/show/";
+        customOptions["update"] = "/statuses/update";
+        customOptions["destroy"] = "/statuses/destroy/";
+        customOptions["inbox"] = "/direct_messages";
+        customOptions["outbox"] = "/direct_messages/sent";
+        customOptions["send"] = "/direct_messages/new";
+        customOptions["destroydirectmessage"] = "/direct_messages/destroy/";
+        options["custom"] = customOptions;
 
 	QMap<QString, QString> fakeShortenerOptions;
 	fakeShortenerOptions["title"] = "Do not shorten urls";

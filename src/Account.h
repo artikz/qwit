@@ -43,15 +43,16 @@ class Account: public QObject {
 	Q_OBJECT
 	
 private:
-	QString _serviceBaseUrl;
-	QString _serviceApiUrl;
-	QString _searchBaseUrl;
-	QString _searchApiUrl;
-	QString _singleMessageUrl;
 	QStringList usernamesCache;
 
 public:
-	int id;
+        QString _serviceBaseUrl;
+        QString _serviceApiUrl;
+        QString _searchBaseUrl;
+        QString _searchApiUrl;
+        QString _singleMessageUrl;
+
+        int id;
 	QString type;
 	QString username;
 	QString password;
@@ -72,7 +73,7 @@ public:
 	QVector<Message> searchMessages;
 
 	Account();
-	Account(const QString &type, const QString &username, const QString &password, bool useHttps = false);
+        Account(const QString &type, const QString &username, const QString &password, bool useHttps = false, const QString &serviceBaseUrl = "", const QString &serviceApiUrl = "");
 	void saveMessages(QSettings &messagesCache);
 	void loadMessages(QSettings &messagesCache);
 	QString serviceApiUrl();

@@ -150,7 +150,9 @@ void Configuration::load() {
 		QString password = settings.value("password", "").toString();
 		QString type = settings.value("type", "").toString();
 		bool useHttps = settings.value("useHttps", false).toBool();
-		Account *account = new Account(type, username, password, useHttps);
+                QString serviceBaseUrl = settings.value("serviceBaseUrl", "").toString();
+                QString serviceApiUrl = settings.value("serviceApiUrl", "").toString();
+                Account *account = new Account(type, username, password, useHttps, serviceBaseUrl, serviceApiUrl);
 		addAccount(account);
 	}
 	settings.endArray();
@@ -242,7 +244,11 @@ void Configuration::save() {
 		settings.setValue("password", accounts[i]->password);
 		settings.setValue("type", accounts[i]->type);
 		settings.setValue("useHttps", accounts[i]->useHttps);
-	}
+                if (accounts[i]->type == "custom") {
+                        settings.setValue("serviceBaseUrl", accounts[i]->serviceBaseUrl());
+                        settings.setValue("serviceApiUrl", accounts[i]->serviceBaseUrl());
+                }
+        }
 	settings.endArray();
 	settings.endGroup();
 	

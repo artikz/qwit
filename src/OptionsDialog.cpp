@@ -158,7 +158,13 @@ void OptionsDialog::commitAccount() {
 	MainWindow *mainWindow = MainWindow::getInstance();
 	switch (accountConfigurationDialog->action) {
 		case AccountConfigurationDialog::ActionAdd: {
-				Account *account = new Account(Configuration::Services[accountConfigurationDialog->accountType], accountConfigurationDialog->accountUsernameLineEdit->text(), accountConfigurationDialog->accountPasswordLineEdit->text(), accountConfigurationDialog->useHttpsCheckBox->checkState() == Qt::Checked);
+                                Account *account = new Account(
+                                        Configuration::Services[accountConfigurationDialog->accountType],
+                                        accountConfigurationDialog->accountUsernameLineEdit->text(),
+                                        accountConfigurationDialog->accountPasswordLineEdit->text(),
+                                        accountConfigurationDialog->useHttpsCheckBox->checkState() == Qt::Checked,
+                                        accountConfigurationDialog->serviceBaseUrlLineEdit->text(),
+                                        accountConfigurationDialog->serviceApiUrlLineEdit->text());
 				config->addAccount(account);
 				accountsListWidget->addItem(new QListWidgetItem(QIcon(":/images/" + account->type + ".png"), account->username));
 				accountsListWidget->setCurrentRow(account->id);
@@ -170,7 +176,9 @@ void OptionsDialog::commitAccount() {
 				account->username = accountConfigurationDialog->accountUsernameLineEdit->text();
 				account->password = accountConfigurationDialog->accountPasswordLineEdit->text();
 				account->useHttps = (accountConfigurationDialog->useHttpsCheckBox->checkState() == Qt::Checked);
-				accountsListWidget->takeItem(account->id);
+                                account->_serviceBaseUrl = accountConfigurationDialog->serviceBaseUrlLineEdit->text();
+                                account->_serviceApiUrl = accountConfigurationDialog->serviceApiUrlLineEdit->text();
+                                accountsListWidget->takeItem(account->id);
 				accountsListWidget->insertItem(account->id, new QListWidgetItem(QIcon(":/images/" + account->type + ".png"), account->username));
 				accountsListWidget->setCurrentRow(account->id);
 				mainWindow->updateAccountButton(account);
