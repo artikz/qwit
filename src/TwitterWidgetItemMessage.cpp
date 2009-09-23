@@ -42,12 +42,11 @@ TwitterWidgetItemMessage::TwitterWidgetItemMessage(QWidget *parent, const Messag
 }
 
 void TwitterWidgetItemMessage::contextMenuEvent(QContextMenuEvent *event) {
-	QMenu *menu = createStandardContextMenu();
+	QMenu *menu = createStandardContextMenu(event->pos());
 	QAction *action = menu->addAction(tr("Translate by GoogleTranslate"));
 	if (menu->exec(event->globalPos()) == action) {
 		Translator::getInstance()->translate(message.text, this);
 	}
-
 	delete menu;
 }
 
