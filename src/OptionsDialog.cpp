@@ -44,7 +44,7 @@ OptionsDialog::OptionsDialog(QWidget *parent): QDialog(parent) {
 	
 	accountConfigurationDialog = new AccountConfigurationDialog(this);
 	
-	connect(optionsGroupListWidget, SIGNAL(itemActivated(QListWidgetItem*)), this, SLOT(changeOptionsGroup(QListWidgetItem*)));
+	connect(optionsGroupListWidget, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(changeOptionsGroup(QListWidgetItem*)));
 	optionsStackedWidget->setCurrentWidget(accountsPage);
 	connect(addAccountPushButton, SIGNAL(pressed()), this, SLOT(addAccount()));
 	connect(deleteAccountPushButton, SIGNAL(pressed()), this, SLOT(deleteAccount()));
