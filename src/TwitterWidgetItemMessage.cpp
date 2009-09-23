@@ -46,13 +46,6 @@ void TwitterWidgetItemMessage::contextMenuEvent(QContextMenuEvent *event) {
 	QAction *action = menu->addAction(tr("Translate by GoogleTranslate"));
 	if (menu->exec(event->globalPos()) == action) {
 		Translator::getInstance()->translate(message.text, this);
-		qDebug() << message.text;
-/*		if (textCursor().selectedText() != "") {
-			text = textCursor().selectedText();
-		} else {
-			text = toPlainText();
-		}
-		cout << qPrintable(text) << endl;*/
 	}
 
 	delete menu;
@@ -60,7 +53,6 @@ void TwitterWidgetItemMessage::contextMenuEvent(QContextMenuEvent *event) {
 
 void TwitterWidgetItemMessage::insertTranslation(const QString &text) {
 	qDebug() << "TwitterWidgetItemMessage::insertTranslation()";
-	qDebug() << text;
 	setHtml(QwitTools::prepareMessage(text, message.account));
 }
 

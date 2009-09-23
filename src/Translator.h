@@ -50,7 +50,7 @@ public slots:
 	void requestFinished(int id, bool error);
 
 signals:
-	void translated(const QString &text);
+	void textTranslated(const QString &text, QObject *receiver);
 };
 
 #endif

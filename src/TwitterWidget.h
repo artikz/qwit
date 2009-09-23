@@ -84,6 +84,7 @@ public slots:
 	void disableLessButton();
 	void enableMoreButton();
 	void enableLessButton();
+	void insertTranslation(const QString &translation, QObject *item);
 
 signals:
 	

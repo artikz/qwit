@@ -34,6 +34,7 @@
 #include "QwitHeaders.h"
 
 #include "TwitterWidget.h"
+#include "Translator.h"
 #include "QwitException.h"
 #include "QwitTools.h"
 #include "Configuration.h"
@@ -52,6 +53,7 @@ TwitterWidget::TwitterWidget(QWidget *parent, bool paintMentions): QWidget(paren
 	connect(&directMessageButtonGroup, SIGNAL(buttonClicked(int)), this, SLOT(directMessageButtonClicked(int)));
 	connect(&favorButtonGroup, SIGNAL(buttonClicked(int)), this, SLOT(favorButtonClicked(int)));
 	connect(&destroyButtonGroup, SIGNAL(buttonClicked(int)), this, SLOT(destroyButtonClicked(int)));
+	connect(Translator::getInstance(), SIGNAL(textTranslated(const QString&, QObject*)), this, SLOT(insertTranslation(const QString&, QObject*)));
 }
 
 void TwitterWidget::clear() {
@@ -462,6 +464,18 @@ void TwitterWidget::disableMoreButton() {
 void TwitterWidget::disableLessButton() {
 	if (lessToolButton) {
 		lessToolButton->setEnabled(false);
+	}
+}
+
+void TwitterWidget::insertTranslation(const QString &translation, QObject *item) {
+	if (item && item->inherits("TwitterWidgetItemMessage")) {
+		for (int i = 0; i < items.size(); ++i) {
+			if (items[i]->messageTextBrowser == item) {
+				TwitterWidgetItemMessage *receiver = (TwitterWidgetItemMessage*)item;
+				receiver->insertTranslation(translation);
+				break;
+			}
+		}
 	}
 }
 

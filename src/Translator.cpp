@@ -35,7 +35,6 @@
 
 #include "Configuration.h"
 #include "Translator.h"
-#include "TwitterWidgetItemMessage.h"
 
 Translator* Translator::instance = 0;
 
@@ -55,8 +54,6 @@ void Translator::translate(const QString &text, QObject *sender) {
 	qDebug() << "Translator::translate() " + text;
 
 	Configuration *config = Configuration::getInstance();
-
-//	currentText = text;
 
 	QUrl translatorUrl("http://ajax.googleapis.com/ajax/services/language/translate");
 
@@ -94,7 +91,7 @@ void Translator::requestFinished(int id, bool error) {
 		}
 		QObject *sender = requestSender[id];
 		requestSender.erase(requestSender.find(id));
-		((TwitterWidgetItemMessage*)sender)->insertTranslation(translatedText);
+		emit textTranslated(translatedText, sender);
 	}
 }
 
