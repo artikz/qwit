@@ -72,7 +72,8 @@ MainWindow::MainWindow(QWidget *parent): QDialog(parent) {
 	optionsDialog = new OptionsDialog(this);
 	connect(optionsDialog, SIGNAL(accepted()), this, SLOT(saveOptions()));
 	connect(optionsDialog, SIGNAL(rejected()), this, SLOT(resetOptionsDialog()));
-	
+	connect(optionsDialog, SIGNAL(rejected()), this, SLOT(ensureThereAreAccounts()));
+
 	aboutDialog = new AboutDialog(this);
 	
 	directMessageDialog = new DirectMessageDialog(this);
@@ -113,6 +114,11 @@ MainWindow::MainWindow(QWidget *parent): QDialog(parent) {
 	connect(UrlShortener::getInstance(), SIGNAL(urlShortened(const QString &)), messageTextEdit, SLOT(insertUrl(const QString &)));
 
 	updateAll();
+
+	Configuration *config = Configuration::getInstance();
+	if (config->accounts.size() == 0) {
+		showOptionsDialog();
+	}
 }
 
 void MainWindow::leftCharsNumberChanged(int count) {
@@ -198,6 +204,8 @@ void MainWindow::saveOptions() {
 
 	saveState();
 	updateState();
+
+	ensureThereAreAccounts();
 }
 
 void MainWindow::updateState() {
@@ -453,6 +461,9 @@ void MainWindow::updateCurrentAccount(int id) {
 	qDebug() << ("MainWindow::updateCurrentAccount()");
 
 	Configuration *config = Configuration::getInstance();
+	if (config->accounts.size() == 0) {
+		return;
+	}
 	if (config->currentAccountId == -1) {
 		return;
 	}
@@ -694,6 +705,7 @@ void MainWindow::redrawPages() {
 }
 
 void MainWindow::updateAccount(Account *account) {
+	qDebug() << "MainWindow::updateAccount()";
 	for (int i = 0; i < pages.size(); ++i) {
 		if (pages[i]->updateAutomatically()) {
 			pages[i]->update(account);
@@ -759,6 +771,24 @@ void MainWindow::postTwitPic() {
 	dialog.setUser(config->currentAccount()->username, config->currentAccount()->password);
 	if (dialog.exec() == QDialog::Accepted) {
 		messageTextEdit->append(dialog.twitPickedUrlString());
+	}
+}
+
+void MainWindow::ensureThereAreAccounts() {
+	Configuration *config = Configuration::getInstance();
+	if (config->accounts.size() == 0) {
+		QMessageBox::warning(this, "Warning!", "You must configure at least one account before you can use Qwit!");
+		mainTabWidget->setEnabled(false);
+		refreshToolButton->setEnabled(false);
+		messageTextEdit->setEnabled(false);
+		twitPicButton->setEnabled(false);
+		lastMessageLabel->setText("");
+		stateLabel->setText("No accounts configured");
+	} else {
+		mainTabWidget->setEnabled(true);
+		refreshToolButton->setEnabled(true);
+		messageTextEdit->setEnabled(true);
+		twitPicButton->setEnabled(true);
 	}
 }
 

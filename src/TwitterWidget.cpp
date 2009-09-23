@@ -295,13 +295,19 @@ int TwitterWidget::arrangeDirectMessage(TwitterWidgetItem *item, int index, int 
 }
 
 void TwitterWidget::updateItems() {
-//	qDebug() << ("TwitterWidget::updateItems()");
+	qDebug() << ("TwitterWidget::updateItems()");
 
 	retweetButtonGroup.buttons().clear();
 	replyButtonGroup.buttons().clear();
 	directMessageButtonGroup.buttons().clear();
 	favorButtonGroup.buttons().clear();
 	destroyButtonGroup.buttons().clear();
+	Configuration *config = Configuration::getInstance();
+	if (config->accounts.size() == 0) {
+		removeLessButton();
+		removeMoreButton();
+		return;
+	}
 	int height = 0;
 	for (int i = 0; i < items.size(); ++i) {
 		TwitterWidgetItem *item = items[i];
@@ -324,7 +330,6 @@ void TwitterWidget::updateItems() {
 			height += arrangeDirectMessage(item, i, height);
 		}
 	}
-	Configuration *config = Configuration::getInstance();
 	if (moreToolButton) {
 		moreToolButton->move((width() - moreToolButton->width()) / 2, height + MARGIN);
 		moreToolButton->show();
