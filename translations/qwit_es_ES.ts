@@ -2,6 +2,14 @@
 <!DOCTYPE TS>
 <TS version="2.0" language="es_ES">
 <context>
+    <name></name>
+    <message>
+        <location filename="../src/qwit.cpp" line="58"/>
+        <source>System (%1, %2)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AboutDialog</name>
     <message>
         <location filename="../src/AboutDialog.ui" line="17"/>
@@ -186,27 +194,27 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../src/MainWindow.cpp" line="748"/>
+        <location filename="../src/MainWindow.cpp" line="765"/>
         <source>Pick an image</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="559"/>
+        <location filename="../src/MainWindow.cpp" line="575"/>
         <source>&amp;Show / Hide</source>
         <translation>&amp;Mostrar/Ocultar</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="561"/>
+        <location filename="../src/MainWindow.cpp" line="577"/>
         <source>&amp;Quit</source>
         <translation>&amp;Salir</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="681"/>
+        <location filename="../src/MainWindow.cpp" line="697"/>
         <source>Qwit: new messages receieved for %1@%2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="748"/>
+        <location filename="../src/MainWindow.cpp" line="765"/>
         <source>Image Files (*.png *.jpg *.jpeg *.bmp *.PNG *.JPG *.JPEG *.BMP)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -250,231 +258,241 @@ p, li { white-space: pre-wrap; }
         <translation>Opciones</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="376"/>
+        <location filename="../src/OptionsDialog.ui" line="382"/>
         <source>Update interval:</source>
         <translation>Intervalo de actualización:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="389"/>
+        <location filename="../src/OptionsDialog.ui" line="395"/>
         <source>s</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="436"/>
+        <location filename="../src/OptionsDialog.ui" line="442"/>
         <source>Misc</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="444"/>
+        <location filename="../src/OptionsDialog.ui" line="450"/>
         <source>Show greeting message:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="457"/>
+        <location filename="../src/OptionsDialog.ui" line="463"/>
         <source>Show left characters number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="464"/>
+        <location filename="../src/OptionsDialog.ui" line="470"/>
         <source>Number of messages per page:</source>
         <translation>Número de mensajes por página:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="474"/>
+        <location filename="../src/OptionsDialog.ui" line="480"/>
         <source>Number of messages in popup:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="484"/>
+        <location filename="../src/OptionsDialog.ui" line="490"/>
         <source>Retweet tag:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="501"/>
+        <location filename="../src/OptionsDialog.ui" line="507"/>
         <source>Place username under avatar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="511"/>
+        <location filename="../src/OptionsDialog.ui" line="517"/>
         <source>Show messages in the tray</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="531"/>
+        <location filename="../src/OptionsDialog.ui" line="537"/>
         <source>Place tabs vertically</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.cpp" line="71"/>
-        <location filename="../src/OptionsDialog.ui" line="34"/>
-        <location filename="../src/OptionsDialog.ui" line="1113"/>
+        <location filename="../src/OptionsDialog.cpp" line="76"/>
+        <location filename="../src/OptionsDialog.ui" line="40"/>
+        <location filename="../src/OptionsDialog.ui" line="1153"/>
         <source>Accounts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.cpp" line="73"/>
-        <location filename="../src/OptionsDialog.ui" line="39"/>
+        <location filename="../src/OptionsDialog.cpp" line="78"/>
+        <location filename="../src/OptionsDialog.ui" line="45"/>
         <source>URL shortener</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.cpp" line="75"/>
-        <location filename="../src/OptionsDialog.ui" line="44"/>
-        <location filename="../src/OptionsDialog.ui" line="73"/>
+        <location filename="../src/OptionsDialog.cpp" line="80"/>
+        <location filename="../src/OptionsDialog.ui" line="50"/>
+        <location filename="../src/OptionsDialog.ui" line="79"/>
         <source>Connection</source>
         <translation>Conexión</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.cpp" line="77"/>
-        <location filename="../src/OptionsDialog.ui" line="49"/>
-        <location filename="../src/OptionsDialog.ui" line="179"/>
+        <location filename="../src/OptionsDialog.cpp" line="82"/>
+        <location filename="../src/OptionsDialog.ui" line="55"/>
+        <location filename="../src/OptionsDialog.ui" line="185"/>
         <source>User interface</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="87"/>
+        <location filename="../src/OptionsDialog.ui" line="93"/>
         <source>use proxy</source>
         <translation>usar proxy</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="94"/>
+        <location filename="../src/OptionsDialog.ui" line="100"/>
         <source>Proxy address:</source>
         <translation>Dirección del proxy:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="107"/>
+        <location filename="../src/OptionsDialog.ui" line="113"/>
         <source>Proxy port:</source>
         <translation>Puerto del proxy:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="120"/>
+        <location filename="../src/OptionsDialog.ui" line="126"/>
         <source>Proxy username:</source>
         <translation>Usuario del proxy:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="133"/>
+        <location filename="../src/OptionsDialog.ui" line="139"/>
         <source>Proxy password:</source>
         <translation>Contraseña del proxy:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="150"/>
+        <location filename="../src/OptionsDialog.ui" line="156"/>
         <source>save proxy password</source>
         <translation>guardar contraseña del proxy</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="189"/>
+        <location filename="../src/OptionsDialog.ui" line="195"/>
         <source>Tabs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="199"/>
+        <location filename="../src/OptionsDialog.ui" line="205"/>
         <source>Home</source>
         <translation type="unfinished">Home</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="209"/>
-        <location filename="../src/OptionsDialog.ui" line="233"/>
-        <location filename="../src/OptionsDialog.ui" line="254"/>
-        <location filename="../src/OptionsDialog.ui" line="278"/>
-        <location filename="../src/OptionsDialog.ui" line="299"/>
-        <location filename="../src/OptionsDialog.ui" line="323"/>
-        <location filename="../src/OptionsDialog.ui" line="344"/>
-        <location filename="../src/OptionsDialog.ui" line="365"/>
+        <location filename="../src/OptionsDialog.ui" line="215"/>
+        <location filename="../src/OptionsDialog.ui" line="239"/>
+        <location filename="../src/OptionsDialog.ui" line="260"/>
+        <location filename="../src/OptionsDialog.ui" line="284"/>
+        <location filename="../src/OptionsDialog.ui" line="305"/>
+        <location filename="../src/OptionsDialog.ui" line="329"/>
+        <location filename="../src/OptionsDialog.ui" line="350"/>
+        <location filename="../src/OptionsDialog.ui" line="371"/>
         <source>auto-update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="223"/>
+        <location filename="../src/OptionsDialog.ui" line="229"/>
         <source>Public</source>
         <translation type="unfinished">Público</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="244"/>
+        <location filename="../src/OptionsDialog.ui" line="250"/>
         <source>Replies</source>
         <translation type="unfinished">Respuestas</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="268"/>
+        <location filename="../src/OptionsDialog.ui" line="274"/>
         <source>Custom</source>
         <translation type="unfinished">Personalizado</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="289"/>
+        <location filename="../src/OptionsDialog.ui" line="295"/>
         <source>Inbox</source>
         <translation type="unfinished">Entrada</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="313"/>
+        <location filename="../src/OptionsDialog.ui" line="319"/>
         <source>Outbox</source>
         <translation type="unfinished">Salida</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="334"/>
+        <location filename="../src/OptionsDialog.ui" line="340"/>
         <source>Search</source>
         <translation type="unfinished">Buscar</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="355"/>
+        <location filename="../src/OptionsDialog.ui" line="361"/>
         <source>Favorites</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="541"/>
+        <location filename="../src/OptionsDialog.ui" line="547"/>
         <source>Show last status</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="567"/>
+        <location filename="../src/OptionsDialog.ui" line="573"/>
         <source>Colors</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="577"/>
+        <location filename="../src/OptionsDialog.ui" line="583"/>
         <source>Common messages:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="833"/>
+        <location filename="../src/OptionsDialog.ui" line="839"/>
         <source>Mentions:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="1121"/>
+        <location filename="../src/OptionsDialog.ui" line="1109"/>
+        <source>Language</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/OptionsDialog.ui" line="1117"/>
+        <source>Choose UI language:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/OptionsDialog.ui" line="1161"/>
         <source>Service:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="1139"/>
+        <location filename="../src/OptionsDialog.ui" line="1179"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="1155"/>
+        <location filename="../src/OptionsDialog.ui" line="1195"/>
         <source>Edit...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="1162"/>
+        <location filename="../src/OptionsDialog.ui" line="1202"/>
         <source>Delete...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="1195"/>
+        <location filename="../src/OptionsDialog.ui" line="1235"/>
         <source>Url shortener</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="1203"/>
+        <location filename="../src/OptionsDialog.ui" line="1243"/>
         <source>Choose service:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="494"/>
+        <location filename="../src/OptionsDialog.ui" line="500"/>
         <source>Display retweet tag after text instead of in front</source>
         <translation>Mostrar etiqueta de citado después del texto en lugar de antes.</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="521"/>
+        <location filename="../src/OptionsDialog.ui" line="527"/>
         <source>Place controls vertically</source>
         <translation>Colocar controles verticalmente</translation>
     </message>
@@ -643,23 +661,31 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>TwitterWidget</name>
     <message>
-        <location filename="../src/TwitterWidget.cpp" line="400"/>
+        <location filename="../src/TwitterWidget.cpp" line="407"/>
         <source>more</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/TwitterWidget.cpp" line="410"/>
+        <location filename="../src/TwitterWidget.cpp" line="417"/>
         <source>less</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/TwitterWidget.cpp" line="421"/>
+        <location filename="../src/TwitterWidget.cpp" line="428"/>
         <source>Delete message</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/TwitterWidget.cpp" line="421"/>
+        <location filename="../src/TwitterWidget.cpp" line="428"/>
         <source>Are you sure to delete this message?</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TwitterWidgetItemMessage</name>
+    <message>
+        <location filename="../src/TwitterWidgetItemMessage.cpp" line="46"/>
+        <source>Translate by GoogleTranslate</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
