@@ -6,7 +6,7 @@
     <message>
         <location filename="../src/qwit.cpp" line="58"/>
         <source>System (%1, %2)</source>
-        <translation type="unfinished"></translation>
+        <translation>系统语言(%1,%2)</translation>
     </message>
 </context>
 <context>
@@ -177,7 +177,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/DirectMessageDialog.ui" line="17"/>
         <source>Direct message</source>
-        <translation>私人信件</translation>
+        <translation>私信内容</translation>
     </message>
     <message>
         <location filename="../src/DirectMessageDialog.ui" line="27"/>
@@ -216,7 +216,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/InboxPage.cpp" line="64"/>
         <source>Inbox</source>
-        <translation>收件箱</translation>
+        <translation>私信收件箱</translation>
     </message>
 </context>
 <context>
@@ -239,7 +239,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/MainWindow.cpp" line="697"/>
         <source>Qwit: new messages receieved for %1@%2</source>
-        <translation>快推:账户%1中有新推: %2</translation>
+        <translation>快推:%2账户%1中有新推</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="765"/>
@@ -313,17 +313,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/OptionsDialog.ui" line="470"/>
         <source>Number of messages per page:</source>
-        <translation>每页显示消息数:</translation>
+        <translation>每页显示推数:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="500"/>
         <source>Display retweet tag after text instead of in front</source>
-        <translation>把RT标记移到条目末尾</translation>
+        <translation>把RT标记移到推尾</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="527"/>
         <source>Place controls vertically</source>
-        <translation>竖直放置控件栏</translation>
+        <translation>竖直放置操作按钮</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="537"/>
@@ -390,7 +390,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/OptionsDialog.ui" line="195"/>
         <source>Tabs</source>
-        <translation>页面</translation>
+        <translation>标签</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="205"/>
@@ -447,7 +447,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/OptionsDialog.ui" line="480"/>
         <source>Number of messages in popup:</source>
-        <translation>任务栏弹出每次显示新推数目:</translation>
+        <translation>任务栏每次弹出显示新推数目:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="490"/>
@@ -457,12 +457,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/OptionsDialog.ui" line="507"/>
         <source>Place username under avatar</source>
-        <translation>放置用户名于头像之下</translation>
+        <translation>放置用户名于头像正下方</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="517"/>
         <source>Show messages in the tray</source>
-        <translation>在任务栏弹出新推</translation>
+        <translation>有新推时在任务栏弹出提示</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="547"/>
@@ -487,17 +487,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/OptionsDialog.ui" line="1109"/>
         <source>Language</source>
-        <translation type="unfinished"></translation>
+        <translation>语言</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1117"/>
         <source>Choose UI language:</source>
-        <translation type="unfinished"></translation>
+        <translation>选择界面语言:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1161"/>
         <source>Service:</source>
-        <translation>微博服务:</translation>
+        <translation>选择微博服务:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1179"/>
@@ -710,7 +710,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/TwitterWidgetItemMessage.cpp" line="46"/>
         <source>Translate by GoogleTranslate</source>
-        <translation type="unfinished"></translation>
+        <translation>翻译由Google Translate完成</translation>
     </message>
 </context>
 </TS>
