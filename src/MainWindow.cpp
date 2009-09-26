@@ -624,7 +624,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event) {
 
 void MainWindow::quit() {
 	qDebug() << ("MainWindow::quit()");
-
+	trayIcon->hide();
 	acceptClose = true;
 	close();
 }
