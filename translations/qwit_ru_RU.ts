@@ -6,7 +6,7 @@
     <message>
         <location filename="../src/qwit.cpp" line="58"/>
         <source>System (%1, %2)</source>
-        <translation type="unfinished"></translation>
+        <translation>Системная (%1, %2)</translation>
     </message>
 </context>
 <context>
@@ -19,12 +19,12 @@
     <message>
         <location filename="../src/AboutDialog.ui" line="66"/>
         <source>Qwit</source>
-        <translation type="unfinished">Qwit</translation>
+        <translation>Qwit</translation>
     </message>
     <message>
         <location filename="../src/AboutDialog.ui" line="95"/>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>О проекте</translation>
     </message>
     <message>
         <location filename="../src/AboutDialog.ui" line="116"/>
@@ -37,12 +37,20 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Copyright (c) 2008-2009, Artem Iglikov.&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://code.google.com/p/qwit/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://code.google.com/p/qwit/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Бесплатный  легкий кроссплатформенный твиттер-клиент с открытым исходным кодом на Qt.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Все права защищены. (c) 2008-2009, Артем Игликов.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://code.google.com/p/qwit/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://code.google.com/p/qwit/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/AboutDialog.ui" line="150"/>
         <source>Authors</source>
-        <translation type="unfinished"></translation>
+        <translation>Авторы</translation>
     </message>
     <message>
         <location filename="../src/AboutDialog.ui" line="156"/>
@@ -55,12 +63,20 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;  blog: &lt;a href=&quot;http://arti.kz&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://arti.kz&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Артем Игликов - основатель проекта и главный разработчик&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;  e-mail: &lt;a href=&quot;mailto:artem.iglikov@gmail.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;artem.iglikov@gmail.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;  блог: &lt;a href=&quot;http://arti.kz&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://arti.kz&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/AboutDialog.ui" line="172"/>
         <source>Thanks To</source>
-        <translation type="unfinished"></translation>
+        <translation>Благодарность</translation>
     </message>
     <message utf8="true">
         <location filename="../src/AboutDialog.ui" line="178"/>
@@ -82,7 +98,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/AboutDialog.ui" line="198"/>
         <source>License</source>
-        <translation type="unfinished"></translation>
+        <translation>Лицензия</translation>
     </message>
     <message>
         <location filename="../src/AboutDialog.ui" line="204"/>
@@ -111,37 +127,37 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="17"/>
         <source>Configure account...</source>
-        <translation type="unfinished"></translation>
+        <translation>Настроить аккаунт...</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="28"/>
         <source>Username:</source>
-        <translation type="unfinished">Имя пользователя:</translation>
+        <translation>Имя пользователя:</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="38"/>
         <source>Password:</source>
-        <translation type="unfinished">Пароль:</translation>
+        <translation>Пароль:</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="52"/>
         <source>save password</source>
-        <translation type="unfinished">сохранять пароль</translation>
+        <translation>сохранять пароль</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="59"/>
         <source>use https instead of http</source>
-        <translation type="unfinished"></translation>
+        <translation>использовать https поверх http</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="66"/>
         <source>Service base URL:</source>
-        <translation type="unfinished">Базовый адрес сервиса:</translation>
+        <translation>Базовый адрес сервиса:</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="76"/>
         <source>Service API URL:</source>
-        <translation type="unfinished">Адрес API сервиса:</translation>
+        <translation>Адрес API сервиса:</translation>
     </message>
 </context>
 <context>
@@ -149,22 +165,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/DirectMessageDialog.ui" line="17"/>
         <source>Direct message</source>
-        <translation type="unfinished"></translation>
+        <translation>Личное сообщение</translation>
     </message>
     <message>
         <location filename="../src/DirectMessageDialog.ui" line="27"/>
         <source>Account:</source>
-        <translation type="unfinished"></translation>
+        <translation>Аккаунт:</translation>
     </message>
     <message>
         <location filename="../src/DirectMessageDialog.ui" line="48"/>
         <source>To:</source>
-        <translation type="unfinished"></translation>
+        <translation>Кому:</translation>
     </message>
     <message>
         <location filename="../src/DirectMessageDialog.ui" line="60"/>
         <source>Message:</source>
-        <translation type="unfinished"></translation>
+        <translation>Сообщение:</translation>
     </message>
 </context>
 <context>
@@ -172,7 +188,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/FavoritesPage.cpp" line="64"/>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Фаворитсы</translation>
     </message>
 </context>
 <context>
@@ -180,7 +196,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/HomePage.cpp" line="64"/>
         <source>Home</source>
-        <translation type="unfinished">Главная</translation>
+        <translation>Главная</translation>
     </message>
 </context>
 <context>
@@ -188,35 +204,55 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/InboxPage.cpp" line="64"/>
         <source>Inbox</source>
-        <translation type="unfinished">Входящие</translation>
+        <translation>Входящие</translation>
     </message>
 </context>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../src/MainWindow.cpp" line="765"/>
+        <location filename="../src/MainWindow.cpp" line="774"/>
         <source>Pick an image</source>
         <translation>Выберите изображение</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="575"/>
+        <location filename="../src/MainWindow.cpp" line="580"/>
         <source>&amp;Show / Hide</source>
         <translation>&amp;Показать / Скрыть</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="577"/>
+        <location filename="../src/MainWindow.cpp" line="582"/>
         <source>&amp;Quit</source>
         <translation>&amp;Выход</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="697"/>
+        <location filename="../src/MainWindow.cpp" line="683"/>
+        <source>Tweet sent</source>
+        <translation>Твит отправлен</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="689"/>
+        <source>Tweet not sent</source>
+        <translation>Твит не отправлен</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="704"/>
         <source>Qwit: new messages receieved for %1@%2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="765"/>
+        <location filename="../src/MainWindow.cpp" line="761"/>
+        <source>Tweet favorited</source>
+        <translation>Твит добавлен в фаворитсы</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="766"/>
+        <source>Tweet unfavorited</source>
+        <translation>Твит удален из фаворитсов</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.cpp" line="774"/>
         <source>Image Files (*.png *.jpg *.jpeg *.bmp *.PNG *.JPG *.JPEG *.BMP)</source>
-        <translation type="unfinished"></translation>
+        <translation>Файлы изображений (*.png *.jpg *.jpeg *.bmp *.PNG *.JPG *.JPEG *.BMP)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.ui" line="14"/>
@@ -265,22 +301,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/OptionsDialog.ui" line="395"/>
         <source>s</source>
-        <translation type="unfinished"></translation>
+        <translation>с</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="442"/>
         <source>Misc</source>
-        <translation type="unfinished"></translation>
+        <translation>Разное</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="450"/>
         <source>Show greeting message:</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать приветствие:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="463"/>
         <source>Show left characters number</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать количество оставшихся символов</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="470"/>
@@ -292,13 +328,13 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/OptionsDialog.ui" line="40"/>
         <location filename="../src/OptionsDialog.ui" line="1153"/>
         <source>Accounts</source>
-        <translation type="unfinished"></translation>
+        <translation>Аккаунты</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.cpp" line="78"/>
         <location filename="../src/OptionsDialog.ui" line="45"/>
         <source>URL shortener</source>
-        <translation type="unfinished"></translation>
+        <translation>Укоротитель ссылок</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.cpp" line="80"/>
@@ -312,7 +348,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/OptionsDialog.ui" line="55"/>
         <location filename="../src/OptionsDialog.ui" line="185"/>
         <source>User interface</source>
-        <translation type="unfinished"></translation>
+        <translation>Интерфейс</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="93"/>
@@ -347,12 +383,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/OptionsDialog.ui" line="195"/>
         <source>Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Вкладки</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="205"/>
         <source>Home</source>
-        <translation type="unfinished">Главная</translation>
+        <translation>Главная</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="215"/>
@@ -364,122 +400,122 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/OptionsDialog.ui" line="350"/>
         <location filename="../src/OptionsDialog.ui" line="371"/>
         <source>auto-update</source>
-        <translation type="unfinished"></translation>
+        <translation>автообновление</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="229"/>
         <source>Public</source>
-        <translation type="unfinished">Все</translation>
+        <translation>Все</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="250"/>
         <source>Replies</source>
-        <translation type="unfinished">Ответы</translation>
+        <translation>Ответы</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="274"/>
         <source>Custom</source>
-        <translation type="unfinished">Отдельно</translation>
+        <translation>Отдельно</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="295"/>
         <source>Inbox</source>
-        <translation type="unfinished">Входящие</translation>
+        <translation>Входящие</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="319"/>
         <source>Outbox</source>
-        <translation type="unfinished">Исходящие</translation>
+        <translation>Исходящие</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="340"/>
         <source>Search</source>
-        <translation type="unfinished">Поиск</translation>
+        <translation>Поиск</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="361"/>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Фаворитсы</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="480"/>
         <source>Number of messages in popup:</source>
-        <translation type="unfinished"></translation>
+        <translation>Количество сообщений в всплывающем окне:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="490"/>
         <source>Retweet tag:</source>
-        <translation type="unfinished"></translation>
+        <translation>Тег ретвита:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="507"/>
         <source>Place username under avatar</source>
-        <translation type="unfinished"></translation>
+        <translation>Имя пользователя под аватаром</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="517"/>
         <source>Show messages in the tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать сообщения в трее</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="547"/>
         <source>Show last status</source>
-        <translation type="unfinished"></translation>
+        <translation>Показывать последний статус</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="573"/>
         <source>Colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Цвета</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="583"/>
         <source>Common messages:</source>
-        <translation type="unfinished"></translation>
+        <translation>Общая лента:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="839"/>
         <source>Mentions:</source>
-        <translation type="unfinished"></translation>
+        <translation>Мнения:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1109"/>
         <source>Language</source>
-        <translation type="unfinished"></translation>
+        <translation>Язык</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1117"/>
         <source>Choose UI language:</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите язык интерфейса:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1161"/>
         <source>Service:</source>
-        <translation type="unfinished"></translation>
+        <translation>Сервис:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1179"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1195"/>
         <source>Edit...</source>
-        <translation type="unfinished"></translation>
+        <translation>Изменить...</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1202"/>
         <source>Delete...</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить...</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1235"/>
         <source>Url shortener</source>
-        <translation type="unfinished"></translation>
+        <translation>Укоротитель ссылок</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1243"/>
         <source>Choose service:</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите сервис:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="500"/>
@@ -502,7 +538,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/OutboxPage.cpp" line="64"/>
         <source>Outbox</source>
-        <translation type="unfinished">Исходящие</translation>
+        <translation>Исходящие</translation>
     </message>
 </context>
 <context>
@@ -510,7 +546,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/PublicPage.cpp" line="65"/>
         <source>Public</source>
-        <translation type="unfinished">Все</translation>
+        <translation>Все</translation>
     </message>
 </context>
 <context>
@@ -518,12 +554,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/QwitTools.cpp" line="90"/>
         <source>Just now</source>
-        <translation type="unfinished">Только что</translation>
+        <translation>Только что</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/QwitTools.cpp" line="91"/>
         <source>about %n second(s) ago</source>
-        <translation type="unfinished">
+        <translation>
             <numerusform>около %n секунды назад</numerusform>
             <numerusform>около %n секунд назад</numerusform>
             <numerusform>около %n секунд назад</numerusform>
@@ -532,7 +568,7 @@ p, li { white-space: pre-wrap; }
     <message numerus="yes">
         <location filename="../src/QwitTools.cpp" line="93"/>
         <source>about %n minute(s) ago</source>
-        <translation type="unfinished">
+        <translation>
             <numerusform>около %n минуты назад</numerusform>
             <numerusform>около %n минут назад</numerusform>
             <numerusform>около %n минут назад</numerusform>
@@ -541,7 +577,7 @@ p, li { white-space: pre-wrap; }
     <message numerus="yes">
         <location filename="../src/QwitTools.cpp" line="95"/>
         <source>about %n hour(s) ago</source>
-        <translation type="unfinished">
+        <translation>
             <numerusform>около %n часа назад</numerusform>
             <numerusform>около %n часов назад</numerusform>
             <numerusform>около %n часов назад</numerusform>
@@ -550,7 +586,7 @@ p, li { white-space: pre-wrap; }
     <message numerus="yes">
         <location filename="../src/QwitTools.cpp" line="97"/>
         <source>about %n day(s) ago</source>
-        <translation type="unfinished">
+        <translation>
             <numerusform>около %n дня назад</numerusform>
             <numerusform>около %n дней назад</numerusform>
             <numerusform>около %n дней назад</numerusform>
@@ -562,7 +598,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/RepliesPage.cpp" line="65"/>
         <source>Replies</source>
-        <translation type="unfinished">Ответы</translation>
+        <translation>Ответы</translation>
     </message>
 </context>
 <context>
@@ -570,12 +606,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/SearchPage.cpp" line="50"/>
         <source>Find:</source>
-        <translation type="unfinished"></translation>
+        <translation>Найти:</translation>
     </message>
     <message>
         <location filename="../src/SearchPage.cpp" line="71"/>
         <source>Search</source>
-        <translation type="unfinished">Поиск</translation>
+        <translation>Поиск</translation>
     </message>
 </context>
 <context>
@@ -667,7 +703,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/TwitterWidget.cpp" line="407"/>
         <source>more</source>
-        <translation type="unfinished"></translation>
+        <translation>Ещё</translation>
     </message>
     <message>
         <location filename="../src/TwitterWidget.cpp" line="417"/>
@@ -677,12 +713,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/TwitterWidget.cpp" line="428"/>
         <source>Delete message</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить сообщение</translation>
     </message>
     <message>
         <location filename="../src/TwitterWidget.cpp" line="428"/>
         <source>Are you sure to delete this message?</source>
-        <translation type="unfinished"></translation>
+        <translation>Вы уверены, что хотите удалить это сообщение?</translation>
     </message>
 </context>
 <context>
@@ -690,7 +726,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/TwitterWidgetItemMessage.cpp" line="46"/>
         <source>Translate by GoogleTranslate</source>
-        <translation type="unfinished"></translation>
+        <translation>Переведено google Translate</translation>
     </message>
 </context>
 </TS>

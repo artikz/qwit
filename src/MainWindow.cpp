@@ -449,6 +449,7 @@ void MainWindow::showOptionsDialog() {
 
 	resetOptionsDialog();
 	optionsDialog->showNormal();
+	optionsToolButton->setChecked(false);
 }
 
 void MainWindow::accountButtonClicked(int id) {
