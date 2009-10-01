@@ -65,7 +65,8 @@ AboutDialog::AboutDialog(QWidget *parent): QDialog(parent) {
 	if (lastNumber != "") {
 		revision = lastNumber;
 	}
-	applicationTitleLabel->setText("Qwit - " + version + " (revision " + revision + ")");
+	applicationTitleLabel->setText("Qwit - " + version);
+//	applicationTitleLabel->setText("Qwit - " + version + " (revision " + revision + ")");
 }
 
 #endif

@@ -13,7 +13,7 @@ UI_HEADERS_DIR = var
 RCC_DIR = var
 unix:# Prefix: base instalation directory
 isEmpty( PREFIX ):PREFIX = /usr/local
-DEFINES += 'REVISION=\\\"$(shell svnversion -n .)\\\"'
+#DEFINES += 'REVISION=\\\"$(shell svnversion -n .)\\\"'
 DEFINES += 'VERSION=\\\"1.0-alpha\\\"'
 
 # Input
