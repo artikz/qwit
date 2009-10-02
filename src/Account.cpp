@@ -37,6 +37,7 @@
 #include "QwitTools.h"
 #include "Configuration.h"
 #include "Services.h"
+#include "UserpicsDownloader.h"
 
 Account::Account() {
 	qDebug() << ("Account::Account()");
@@ -368,6 +369,7 @@ void Account::loadMessages(QSettings &messagesCache) {
 	for (int i = 0; i < n; ++i) {
 		messagesCache.setArrayIndex(i);
 		Message message = Message::load(messagesCache, this);
+		UserpicsDownloader::getInstance()->setUserImageFileName(serviceBaseUrl(), message.username, message.userpicFilename, false);
 		usernames << message.username;
 		friendsMessages.push_back(message);
 	}

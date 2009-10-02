@@ -41,6 +41,7 @@ class UserpicsDownloader: public QObject {
 	QHttp *http;
 	int requestId;
 	QQueue<QPair<QString, QString> > queue;
+	QHash<QString, QString> userImageMap;
 	static UserpicsDownloader* instance;
 	UserpicsDownloader();
 	
@@ -49,6 +50,10 @@ public:
 	static UserpicsDownloader* getInstance();
 	void startDownload();
 	void download(const QString &url, const QString &filename);
+	
+	// user image file name: maps the username to her profile image stored in the local cache
+	void setUserImageFileName(QString serviceBaseUrl, QString user, QString imageFileName, bool replace = true);
+	QString userImageFileName(QString serviceBaseUrl, QString user) const;
 
 public slots:
 

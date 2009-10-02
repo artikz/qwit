@@ -110,4 +110,15 @@ void UserpicsDownloader::requestStarted(int id) {
 	}
 }
 
+void UserpicsDownloader::setUserImageFileName(QString serviceBaseUrl, QString user, QString imageFileName, bool replace) {
+	if (!replace && userImageMap.contains(serviceBaseUrl + " " + user)) {
+		return;
+	}
+	userImageMap[serviceBaseUrl + " " + user] = imageFileName;
+}
+
+QString UserpicsDownloader::userImageFileName(QString serviceBaseUrl, QString user) const {
+	return userImageMap[serviceBaseUrl + " " + user];
+}
+
 #endif

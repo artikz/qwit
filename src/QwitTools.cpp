@@ -176,7 +176,8 @@ QVector<Message> QwitTools::parseMessages(const QByteArray &data, Account *accou
 			}
 			imageFileName = Configuration::CacheDirectory + imageFileName;
 			UserpicsDownloader::getInstance()->download(image, imageFileName);
-                        messages.push_back(Message(id, text.simplified(), user, imageFileName, time.toLocalTime(), favorited, account, source, inReplyToMessageId, inReplyToUsername, following, false));
+			UserpicsDownloader::getInstance()->setUserImageFileName(account->serviceBaseUrl(), user, imageFileName);
+			messages.push_back(Message(id, text.simplified(), user, imageFileName, time.toLocalTime(), favorited, account, source, inReplyToMessageId, inReplyToUsername, following, false));
 		}
 		node = node.nextSibling();
 	}
