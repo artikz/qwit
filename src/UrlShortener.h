@@ -40,15 +40,17 @@ class UrlShortener: public QObject {
 	QString currentUrl;
 	QBuffer buffer;
 	int requestId;
+	bool enabled;
 	static UrlShortener *instance;
 	UrlShortener();
-	
+
 public:
 	static UrlShortener *getInstance();
 	
 public slots:
 	void shorten(const QString &url);
 	void requestFinished(int id, bool error);
+	void setShorteningEnabled(bool enabled);
 
 signals:
 	void urlShortened(const QString &shortenedUrl);

@@ -79,6 +79,9 @@ MainWindow::MainWindow(QWidget *parent): QDialog(parent) {
 	directMessageDialog = new DirectMessageDialog(this);
 	connect(directMessageDialog , SIGNAL(accepted()), this, SLOT(sendDirectMessage()));
 
+	connect(urlShorteningEnabledButton, SIGNAL(toggled(bool)), UrlShortener::getInstance(), SLOT(setShorteningEnabled(bool)));
+	connect(urlShorteningEnabledButton, SIGNAL(toggled(bool)), this, SLOT(updateUrlShorteningButtonTooltip(bool)));
+	updateUrlShorteningButtonTooltip(urlShorteningEnabledButton->isChecked());
 	connect(twitPicButton, SIGNAL(clicked()), this, SLOT(postTwitPic()));
 
 	connect(refreshToolButton, SIGNAL(pressed()), this, SLOT(refresh()));
@@ -791,6 +794,13 @@ void MainWindow::ensureThereAreAccounts() {
 		messageTextEdit->setEnabled(true);
 		twitPicButton->setEnabled(true);
 	}
+}
+
+void MainWindow::updateUrlShorteningButtonTooltip(bool enabled) {
+	if (enabled)
+		urlShorteningEnabledButton->setToolTip(tr("Disable shortening of pasted links"));
+	else
+		urlShorteningEnabledButton->setToolTip(tr("Enable shortening of pasted links"));
 }
 
 #endif

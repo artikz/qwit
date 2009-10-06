@@ -49,12 +49,16 @@ UrlShortener* UrlShortener::getInstance() {
 	return instance;
 }
 
+void UrlShortener::setShorteningEnabled(bool yes) {
+	enabled = yes;
+}
+
 void UrlShortener::shorten(const QString &url) {
 	qDebug() << "UrlShortener::shorten() " + url;
 
 	Configuration *config = Configuration::getInstance();
 
-	if (config->urlShortener == "0") {
+	if (!enabled || config->urlShortener == "0") {
 		emit urlShortened(url);
 		return;
 	}
