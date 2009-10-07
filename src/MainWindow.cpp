@@ -743,14 +743,14 @@ void MainWindow::directMessage(const Message &message) {
 	}
 	directMessageDialog->accountsComboBox->setCurrentIndex(message.account->id);
 	directMessageDialog->usernameLineEdit->setText(message.username);
-	directMessageDialog->messagePlainTextEdit->clear();
-	directMessageDialog->messagePlainTextEdit->setFocus();
+	directMessageDialog->messageTextEdit->clear();
+	directMessageDialog->messageTextEdit->setFocus();
 	directMessageDialog->showNormal();
 }
 
 void MainWindow::sendDirectMessage() {
 	Configuration *config = Configuration::getInstance();
-	config->accounts[directMessageDialog->accountsComboBox->currentIndex()]->sendDirectMessage(directMessageDialog->usernameLineEdit->text(), directMessageDialog->messagePlainTextEdit->toPlainText());
+	config->accounts[directMessageDialog->accountsComboBox->currentIndex()]->sendDirectMessage(directMessageDialog->usernameLineEdit->text(), directMessageDialog->messageTextEdit->toPlainText());
 }
 
 void MainWindow::favor(const Message &message) {
