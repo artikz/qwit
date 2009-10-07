@@ -35,7 +35,7 @@
 #include <QProgressBar>
 #include <QLabel>
 #include <QPushButton>
-#include <QNetworkReply>
+//#include <QNetworkReply>
 #include <QHttp>
 #include <QBuffer>
 
@@ -67,7 +67,7 @@ private:
 	QPushButton *m_postButton, *m_cancelButton;
 	QProgressBar *m_progressBar;
 	QString m_username, m_password;
-	QNetworkReply *m_reply;
+//	QNetworkReply *m_reply;
 	QString m_twitPickedUrlString;
 };
 

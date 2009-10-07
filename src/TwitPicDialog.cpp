@@ -36,7 +36,7 @@
 #include <QLabel>
 #include <QNetworkRequest>
 #include <QNetworkAccessManager>
-#include <QNetworkReply>
+//#include <QNetworkReply>
 #include <QImageReader>
 #include <QFile>
 #include <QRegExp>
