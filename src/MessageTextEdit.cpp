@@ -94,8 +94,24 @@ void MessageTextEdit::keyPressEvent(QKeyEvent *e) {
 		}
 	}
 	if ((e->key() == Qt::Key_Return) || (e->key() == Qt::Key_Enter)) {
+		QString tweet = toPlainText();
+		if (tweet.count() > getMaxMessageCharactersNumber()) {
+			// if tweet > 140 chars, popup an Are-You-Sure dialog
+			QMessageBox mbox(QMessageBox::Warning,
+							 tr("Message too long"),
+							 tr("This message exceeds %1 characters.").arg(getMaxMessageCharactersNumber()));
+			mbox.setInformativeText(tr("Your followers might receive only a truncated message. Do you want to send this message anyway?"));
+			QPushButton *yesButton = mbox.addButton(tr("Send"), QMessageBox::AcceptRole);
+			QPushButton *noButton = mbox.addButton(tr("Don't send"), QMessageBox::DestructiveRole);
+			mbox.setDefaultButton(noButton);
+			mbox.exec();
+			if (mbox.clickedButton() == noButton) {
+				e->accept();
+				return;
+			}
+		}
 		setEnabled(false);
-		emit messageEntered(toPlainText(), inReplyToMessageId);
+		emit messageEntered(tweet, inReplyToMessageId);
 		e->accept();
 		return;
 	}
