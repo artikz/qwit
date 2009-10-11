@@ -81,6 +81,7 @@ MainWindow::MainWindow(QWidget *parent): QDialog(parent) {
 
 	connect(urlShorteningEnabledButton, SIGNAL(toggled(bool)), UrlShortener::getInstance(), SLOT(setShorteningEnabled(bool)));
 	connect(urlShorteningEnabledButton, SIGNAL(toggled(bool)), this, SLOT(updateUrlShorteningButtonTooltip(bool)));
+	UrlShortener::getInstance()->setShorteningEnabled(urlShorteningEnabledButton->isChecked());
 	updateUrlShorteningButtonTooltip(urlShorteningEnabledButton->isChecked());
 	connect(twitPicButton, SIGNAL(clicked()), this, SLOT(postTwitPic()));
 
