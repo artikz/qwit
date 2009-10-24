@@ -41,6 +41,104 @@ Translator* Translator::instance = 0;
 Translator::Translator() {
 	http = new QHttp(this);
 	connect(http, SIGNAL(requestFinished(int, bool)), this, SLOT(requestFinished(int, bool)));
+	languages["af"] = "Afrikaans";
+	languages["sq"] = "Albanian";
+	languages["am"] = "Amharic";
+	languages["ar"] = "Arabic";
+	languages["hy"] = "Armenian";
+	languages["az"] = "Azerbaijani";
+	languages["eu"] = "Basque";
+	languages["be"] = "Belarusian";
+	languages["bn"] = "Bengali";
+	languages["bh"] = "Bihari";
+	languages["bg"] = "Bulgarian";
+	languages["my"] = "Burmese";
+	languages["ca"] = "Catalan";
+	languages["chr"] = "Cherokee";
+	languages["zh"] = "Chinese";
+	languages["zh-CN"] = "Chinese Simplified";
+	languages["zh-TW"] = "Chinese Traditional";
+	languages["hr"] = "Croatian";
+	languages["cs"] = "Czech";
+	languages["da"] = "Danish";
+	languages["dv"] = "Dhivehi";
+	languages["nl"] = "Dutch";
+	languages["en"] = "English";
+	languages["eo"] = "Esperanto";
+	languages["et"] = "Estonian";
+	languages["tl"] = "Filipino";
+	languages["fi"] = "Finnish";
+	languages["fr"] = "French";
+	languages["gl"] = "Galician";
+	languages["ka"] = "Georgian";
+	languages["de"] = "German";
+	languages["el"] = "Greek";
+	languages["gn"] = "Guarani";
+	languages["gu"] = "Gujarati";
+	languages["iw"] = "Hebrew";
+	languages["hi"] = "Hindi";
+	languages["hu"] = "Hungarian";
+	languages["is"] = "Icelandic";
+	languages["id"] = "Indonesian";
+	languages["iu"] = "Inuktitut";
+	languages["ga"] = "Irish";
+	languages["it"] = "Italian";
+	languages["ja"] = "Japanese";
+	languages["kn"] = "Kannada";
+	languages["kk"] = "Kazakh";
+	languages["km"] = "Khmer";
+	languages["ko"] = "Korean";
+	languages["ku"] = "Kurdish";
+	languages["ky"] = "Kyrgyz";
+	languages["lo"] = "Laothian";
+	languages["lv"] = "Latvian";
+	languages["lt"] = "Lithuanian";
+	languages["mk"] = "Macedonian";
+	languages["ms"] = "Malay";
+	languages["ml"] = "Malayalam";
+	languages["mt"] = "Maltese";
+	languages["mr"] = "Marathi";
+	languages["mn"] = "Mongolian";
+	languages["ne"] = "Nepali";
+	languages["no"] = "Norwegian";
+	languages["or"] = "Oriya";
+	languages["ps"] = "Pashto";
+	languages["fa"] = "Persian";
+	languages["pl"] = "Polish";
+	languages["pt-PT"] = "Portuguese";
+	languages["pa"] = "Punjabi";
+	languages["ro"] = "Romanian";
+	languages["ru"] = "Russian";
+	languages["sa"] = "Sanskrit";
+	languages["sr"] = "Serbian";
+	languages["sd"] = "Sindhi";
+	languages["si"] = "Sinhalese";
+	languages["sk"] = "Slovak";
+	languages["sl"] = "Slovenian";
+	languages["es"] = "Spanish";
+	languages["sw"] = "Swahili";
+	languages["sv"] = "Swedish";
+	languages["tg"] = "Tajik";
+	languages["ta"] = "Tamil";
+	languages["tl"] = "Tagalog";
+	languages["te"] = "Telugu";
+	languages["th"] = "Thai";
+	languages["bo"] = "Tibetan";
+	languages["tr"] = "Turkish";
+	languages["uk"] = "Ukrainian";
+	languages["ur"] = "Urdu";
+	languages["uz"] = "Uzbek";
+	languages["ug"] = "Uighur";
+	languages["vi"] = "Vietnamese";
+	languages["cy"] = "Welsh";
+	languages["yi"] = "Yiddish";
+
+	countries["kk"] = "kz";
+	countries["ru"] = "ru";
+	countries["en"] = "us";
+}
+
+Translator::~Translator() {
 }
 
 Translator* Translator::getInstance() {
@@ -50,12 +148,18 @@ Translator* Translator::getInstance() {
 	return instance;
 }
 
-void Translator::translate(const QString &text, QObject *sender) {
+void Translator::translate(const QString &text, const QString &language, QObject *sender) {
 	qDebug() << "Translator::translate() " + text;
 
 	Configuration *config = Configuration::getInstance();
 
 	QUrl translatorUrl("http://ajax.googleapis.com/ajax/services/language/translate");
+	QString request = "?v=1.0&q=" + QUrl::toPercentEncoding(text) + "&format=html&langpair=%7C" + language;
+
+	QHttpRequestHeader header;
+	header.setRequest("GET", translatorUrl.path() + request);
+	header.setValue("Host", translatorUrl.host());
+	header.setValue("Referer", "Qwit");
 
 	if (config->useProxy) {
 		http->setProxy(config->proxyAddress, config->proxyPort, config->proxyUsername, config->proxyPassword);
@@ -70,9 +174,7 @@ void Translator::translate(const QString &text, QObject *sender) {
 	}
 
 	buffer.open(QIODevice::WriteOnly);
-	QString request = "?v=1.0&q=" + QUrl::toPercentEncoding(text) + "&format=html&langpair=%7Cen";
-	qDebug() << translatorUrl.path() + request;
-	int requestId = http->get(translatorUrl.path() + request, &buffer);
+	int requestId = http->request(header, 0, &buffer);
 	requestSender[requestId] = sender;
 }
 
@@ -83,9 +185,11 @@ void Translator::requestFinished(int id, bool error) {
 			qDebug() << ("Translator::requestFinished() " + QString::number(id));
 			Configuration *config = Configuration::getInstance();
 			QString response = buffer.data();
-			int position1 = response.indexOf("translatedText") + 17;
-			int position2 = response.lastIndexOf("detectedSourceLanguage") - 3;
-			translatedText = response.mid(position1, position2 - position1);
+			if (response.indexOf("translatedText") != -1) {
+				int position1 = response.indexOf("translatedText") + 17;
+				int position2 = response.lastIndexOf("detectedSourceLanguage") - 3;
+				translatedText = response.mid(position1, position2 - position1).trimmed();
+			}
 		} else {
 			qDebug() << ("Translator::requestFinished() " + QString::number(id) + " error " + QString::number(http->lastResponse().statusCode()) + " " + http->lastResponse().reasonPhrase());
 		}

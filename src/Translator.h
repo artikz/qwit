@@ -41,12 +41,15 @@ class Translator: public QObject {
 	QMap<int, QObject*> requestSender;
 	static Translator *instance;
 	Translator();
+	~Translator();
 
 public:
+	QMap<QString, QString> languages;
+	QMap<QString, QString> countries;
 	static Translator *getInstance();
 
 public slots:
-	void translate(const QString &url, QObject *sender);
+	void translate(const QString &url, const QString &language, QObject *sender);
 	void requestFinished(int id, bool error);
 
 signals:

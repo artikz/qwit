@@ -158,11 +158,6 @@ void MessageTextEdit::updateSize() {
 }
 
 void MessageTextEdit::contextMenuEvent(QContextMenuEvent *event) {
-// custom context menu example
-	QMenu *menu = createStandardContextMenu();
-	menu->addAction(tr("My Menu Item"));
-	menu->exec(event->globalPos());
-	delete menu;
 }
 
 void MessageTextEdit::retweet(const Message &message) {

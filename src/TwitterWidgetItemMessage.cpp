@@ -39,20 +39,40 @@
 
 TwitterWidgetItemMessage::TwitterWidgetItemMessage(QWidget *parent, const Message &message): QTextBrowser(parent) {
 	this->message = message;
+	Translator *translator = Translator::getInstance();
+	languagesMenu = new QMenu(tr("Translate by GoogleTranslate"));
+	actionLanguage[languagesMenu->addAction(tr("Restore original"))] = "-";
+	languagesMenu->addSeparator();
+	for (QMap<QString, QString>::iterator it = translator->languages.begin(); it != translator->languages.end(); ++it) {
+		QString country = "";
+		if (translator->countries.find(it.key()) != translator->countries.end()) country = translator->countries[it.key()];
+		else country = it.key().mid(0, 2);
+		actionLanguage[languagesMenu->addAction(QIcon(":/images/countries/" + country + ".png"), it.value())] = it.key();
+	}
 }
 
 void TwitterWidgetItemMessage::contextMenuEvent(QContextMenuEvent *event) {
 	QMenu *menu = createStandardContextMenu(event->pos());
-	QAction *action = menu->addAction(tr("Translate by GoogleTranslate"));
-	if (menu->exec(event->globalPos()) == action) {
-		Translator::getInstance()->translate(message.text, this);
+	menu->addMenu(languagesMenu);
+	Translator *translator = Translator::getInstance();
+	QAction *action = menu->exec(event->globalPos());
+	if (actionLanguage.find(action) != actionLanguage.end()) {
+		if (actionLanguage[action] == "-") {
+			setHtml(QwitTools::prepareMessage(message.text, message.account));
+		} else {
+			translator->translate(message.text, actionLanguage[action], this);
+		}
 	}
 	delete menu;
 }
 
 void TwitterWidgetItemMessage::insertTranslation(const QString &text) {
 	qDebug() << "TwitterWidgetItemMessage::insertTranslation()";
-	setHtml(QwitTools::prepareMessage(text, message.account));
+	if (text != "") {
+		setHtml(QwitTools::prepareMessage(text, message.account));
+	} else {
+		QMessageBox::critical(this, tr("Translation error"), tr("An error occured during translation - maybe this language isn't supported by GoogleTranslate yet."));
+	}
 }
 
 #endif

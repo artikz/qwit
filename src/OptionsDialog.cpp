@@ -81,6 +81,8 @@ void OptionsDialog::changeOptionsGroup(QListWidgetItem *item) {
 		optionsStackedWidget->setCurrentWidget(connectionPage);
 	} else if (item->text() == tr("User interface")) {
 		optionsStackedWidget->setCurrentWidget(userInterfacePage);
+	} else if (item->text() == tr("Translator")) {
+		optionsStackedWidget->setCurrentWidget(translatorPage);
 	}
 }
 

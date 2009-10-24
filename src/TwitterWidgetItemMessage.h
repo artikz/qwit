@@ -38,6 +38,8 @@ class TwitterWidgetItemMessage: public QTextBrowser {
 	Q_OBJECT
 
 	Message message;
+	QMenu *languagesMenu;
+	QMap<QAction*, QString> actionLanguage;
 
 public:
 	TwitterWidgetItemMessage(QWidget *parent, const Message &message);
