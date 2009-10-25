@@ -599,6 +599,20 @@ void Twitter::requestStarted(int id) {
 		qDebug() << ("Request started: " + receiveSearchMessagesRequests[id]);
 	} else if (receivePreviousSearchMessagesRequests.find(id) != receivePreviousSearchMessagesRequests.end()) {
 		qDebug() << ("Request started: " + receivePreviousSearchMessagesRequests[id]);
+	} else if (receiveFriendshipsRequests.find(id) != receiveFriendshipsRequests.end()) {
+	    qDebug() << ("Request started: " + receiveFriendshipsRequests[id]);
+	} else if (receiveFollowersRequests.find(id) != receiveFollowersRequests.end()) {
+	    qDebug() << ("Request started: " + receiveFollowersRequests[id]);
+	} else if (receiveBlocksRequests.find(id) != receiveBlocksRequests.end()) {
+	    qDebug() << ("Request started: " + receiveBlocksRequests[id]);
+	} else if (createFriendshipRequests.find(id) != createFriendshipRequests.end()) {
+	    qDebug() << ("Request started: " + createFriendshipRequests[id]);
+	} else if (destroyFriendshipRequests.find(id) != destroyFriendshipRequests.end()) {
+	    qDebug() << ("Request started: " + destroyFriendshipRequests[id]);
+	} else if (createBlockRequests.find(id) != createBlockRequests.end()) {
+	    qDebug() << ("Request started: " + createBlockRequests[id]);
+	} else if (destroyBlockRequests.find(id) != destroyBlockRequests.end()) {
+	    qDebug() << ("Request started: " + destroyBlockRequests[id]);
 	}
 }
 
@@ -707,6 +721,49 @@ void Twitter::requestFinished(int id, bool error) {
 			account->setRemainingRequests(remainingRequests != "" ? remainingRequests.toInt() : -1);
 			emit previousSearchMessagesReceived(buffer.data());
 			receivePreviousSearchMessagesRequests.remove(id);
+	} else if (receiveFriendshipsRequests.find(id) != receiveFriendshipsRequests.end()) {
+	    qDebug() << ("Request finished: " + receiveFriendshipsRequests[id]);
+	    account->setRemainingRequests(remainingRequests != "" ? remainingRequests.toInt() : -1);
+	    emit friendshipsReceived(buffer.data());
+	    receiveFriendshipsRequests.remove(id);
+	} else if (receiveFollowersRequests.find(id) != receiveFollowersRequests.end()) {
+	    qDebug() << ("Request finished: " + receiveFollowersRequests[id]);
+	    account->setRemainingRequests(remainingRequests != "" ? remainingRequests.toInt() : -1);
+	    emit followersReceived(buffer.data());
+	    receiveFollowersRequests.remove(id);
+	} else if (receiveBlocksRequests.find(id) != receiveBlocksRequests.end()) {
+	    qDebug() << ("Request finished: " + receiveBlocksRequests[id]);
+	    account->setRemainingRequests(remainingRequests != "" ? remainingRequests.toInt() : -1);
+	    emit blocksReceived(buffer.data());
+	    receiveBlocksRequests.remove(id);
+	} else if (createFriendshipRequests.find(id) != createFriendshipRequests.end()) {
+	    qDebug() << ("Request finished: " + createFriendshipRequests[id]);
+	    account->setRemainingRequests(remainingRequests != "" ? remainingRequests.toInt() : -1);
+	    uint requestId = httpRequestId2InternalRequestId[id];
+	    httpRequestId2InternalRequestId.remove(id);
+	    emit friendshipCreated(buffer.data(), requestId);
+	    createFriendshipRequests.remove(id);
+	} else if (destroyFriendshipRequests.find(id) != destroyFriendshipRequests.end()) {
+	    qDebug() << ("Request finished: " + destroyFriendshipRequests[id]);
+	    account->setRemainingRequests(remainingRequests != "" ? remainingRequests.toInt() : -1);
+	    uint requestId = httpRequestId2InternalRequestId[id];
+	    httpRequestId2InternalRequestId.remove(id);
+	    emit friendshipDestroyed(buffer.data(), requestId);
+	    destroyFriendshipRequests.remove(id);
+	} else if (createBlockRequests.find(id) != createBlockRequests.end()) {
+	    qDebug() << ("Request finished: " + createBlockRequests[id]);
+	    account->setRemainingRequests(remainingRequests != "" ? remainingRequests.toInt() : -1);
+	    uint requestId = httpRequestId2InternalRequestId[id];
+	    httpRequestId2InternalRequestId.remove(id);
+	    emit blockCreated(buffer.data(), requestId);
+	    createBlockRequests.remove(id);
+	} else if (destroyBlockRequests.find(id) != destroyBlockRequests.end()) {
+	    qDebug() << ("Request finished: " + destroyBlockRequests[id]);
+	    account->setRemainingRequests(remainingRequests != "" ? remainingRequests.toInt() : -1);
+	    uint requestId = httpRequestId2InternalRequestId[id];
+	    httpRequestId2InternalRequestId.remove(id);
+	    emit blockDestroyed(buffer.data(), requestId);
+	    destroyBlockRequests.remove(id);
 		}
 	} else {
 		if (sendMessageRequests.find(id) != sendMessageRequests.end()) {
@@ -731,4 +788,184 @@ void Twitter::sslErrors(const QList<QSslError> &errors) {
 	}
 }
 
+void Twitter::receiveFriendships() {
+    qDebug() << ("Twitter::receiveFriendships()");
+
+    setupProxy();
+
+    QUrl url(account->serviceApiUrl() + Services::options[account->type]["showFriendships"] + ".xml");
+
+    if(url.toString().indexOf("https") == 0) {
+	http->setHost(url.host(), QHttp::ConnectionModeHttps, url.port(443));
+    } else {
+	http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
+    }
+
+    http->setUser(account->username, account->password);
+
+    buffer.open(QIODevice::WriteOnly);
+
+    int id = http->get(url.path(), &buffer);
+    receiveFriendshipsRequests[id] = tr("Getting friendships: %1").arg(url.host() + url.path());
+}
+
+void Twitter::receiveFollowers() {
+    qDebug() << ("Twitter::receiveFollowers()");
+
+    setupProxy();
+
+    QUrl url(account->serviceApiUrl() + Services::options[account->type]["showFollowers"] + ".xml");
+
+    if(url.toString().indexOf("https") == 0) {
+	http->setHost(url.host(), QHttp::ConnectionModeHttps, url.port(443));
+    } else {
+	http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
+    }
+
+    http->setUser(account->username, account->password);
+
+    buffer.open(QIODevice::WriteOnly);
+
+    int id = http->get(url.path(), &buffer);
+    receiveFollowersRequests[id] = tr("Getting followers: %1").arg(url.host() + url.path());
+}
+
+void Twitter::receiveBlocks() {
+    qDebug() << ("Twitter::receiveBlocks()");
+
+    setupProxy();
+
+    QUrl url(account->serviceApiUrl() + Services::options[account->type]["showBlocks"] + ".xml");
+
+    if(url.toString().indexOf("https") == 0) {
+	http->setHost(url.host(), QHttp::ConnectionModeHttps, url.port(443));
+    } else {
+	http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
+    }
+
+    http->setUser(account->username, account->password);
+
+    buffer.open(QIODevice::WriteOnly);
+
+    int id = http->get(url.path(), &buffer);
+    receiveBlocksRequests[id] = tr("Getting blocked users: %1").arg(url.host() + url.path());
+}
+
+void Twitter::createFriendship(QString screenName, uint requestId) {
+    qDebug() << ("Twitter::createFriendship()");
+
+    setupProxy();
+
+    QUrl url(account->serviceApiUrl() + Services::options[account->type]["createFriendship"] + ".xml");
+
+    QHttpRequestHeader header;
+    header.setRequest("POST", url.path());
+    header.setValue("Host", url.host());
+    header.setContentType("application/x-www-form-urlencoded");
+
+    if(url.toString().indexOf("https") == 0) {
+	http->setHost(url.host(), QHttp::ConnectionModeHttps, url.port(443));
+    } else {
+	http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
+    }
+
+    http->setUser(account->username, account->password);
+
+    QByteArray data = "screen_name=";
+    data+= screenName;
+
+    buffer.open(QIODevice::WriteOnly);
+
+    int id = http->request(header, data, &buffer);
+    createFriendshipRequests[id] = tr("Sending create friendship request: %1").arg(url.host() + url.path());
+    httpRequestId2InternalRequestId[id] = requestId;
+}
+
+void Twitter::destroyFriendship(QString screenName, uint requestId) {
+    qDebug() << ("Twitter::destroyFriendship()");
+
+    setupProxy();
+
+    QUrl url(account->serviceApiUrl() + Services::options[account->type]["destroyFriendship"] + ".xml");
+
+    QHttpRequestHeader header;
+    header.setRequest("POST", url.path());
+    header.setValue("Host", url.host());
+    header.setContentType("application/x-www-form-urlencoded");
+
+    if(url.toString().indexOf("https") == 0) {
+	http->setHost(url.host(), QHttp::ConnectionModeHttps, url.port(443));
+    } else {
+	http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
+    }
+
+    http->setUser(account->username, account->password);
+
+    QByteArray data = "screen_name=";
+    data += screenName;
+
+    buffer.open(QIODevice::WriteOnly);
+
+    int id = http->request(header, data, &buffer);
+    destroyFriendshipRequests[id] = tr("Sending destroy friendship request: %1").arg(url.host() + url.path());
+    httpRequestId2InternalRequestId[id] = requestId;
+}
+
+void Twitter::createBlock(QString screenName, uint requestId) {
+    qDebug() << ("Twitter::createBlock()");
+
+    setupProxy();
+
+    QUrl url(account->serviceApiUrl() + Services::options[account->type]["createBlock"] + screenName + ".xml");
+
+    QHttpRequestHeader header;
+    header.setRequest("POST", url.path());
+    header.setValue("Host", url.host());
+    header.setContentType("application/x-www-form-urlencoded");
+
+    if(url.toString().indexOf("https") == 0) {
+	http->setHost(url.host(), QHttp::ConnectionModeHttps, url.port(443));
+    } else {
+	http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
+    }
+
+    http->setUser(account->username, account->password);
+
+    QByteArray data;
+
+    buffer.open(QIODevice::WriteOnly);
+
+    int id = http->request(header, data, &buffer);
+    createBlockRequests[id] = tr("Sending create block request: %1").arg(url.host() + url.path());
+    httpRequestId2InternalRequestId[id] = requestId;
+}
+
+void Twitter::destroyBlock(QString screenName, uint requestId) {
+    qDebug() << ("Twitter::destroyBlock()");
+
+    setupProxy();
+
+    QUrl url(account->serviceApiUrl() + Services::options[account->type]["destroyBlock"] + screenName + ".xml");
+
+    QHttpRequestHeader header;
+    header.setRequest("POST", url.path());
+    header.setValue("Host", url.host());
+    header.setContentType("application/x-www-form-urlencoded");
+
+    if(url.toString().indexOf("https") == 0) {
+	http->setHost(url.host(), QHttp::ConnectionModeHttps, url.port(443));
+    } else {
+	http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
+    }
+
+    http->setUser(account->username, account->password);
+
+    QByteArray data;
+
+    buffer.open(QIODevice::WriteOnly);
+
+    int id = http->request(header, data, &buffer);
+    destroyBlockRequests[id] = tr("Sending destroy block request: %1").arg(url.host() + url.path());
+    httpRequestId2InternalRequestId[id] = requestId;
+}
 #endif

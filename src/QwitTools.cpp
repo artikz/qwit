@@ -428,69 +428,96 @@ Message QwitTools::parseUser(const QByteArray &data, Account *account) {
 	}
 	
 	QDomNode node = root.firstChild();
+	QString text = "", timeStr = "", user = "", image = "", source = "";
+	quint64 id = 0;
+	quint64 inReplyToMessageId = 0;
+	QString inReplyToUsername = "";
+	bool following = false;
+	bool favorited = false;
 	while (!node.isNull()) {
-		if (node.toElement().tagName() == "status") {
-			QDomNode node2 = node.firstChild();
-			QString text = "", timeStr = "", user = "", image = "", source = "";
-			quint64 id = 0;
-			int inReplyToMessageId = 0;
-			QString inReplyToUsername = "";
-                        bool following = false;
-                        bool favorited = false;
-			while (!node2.isNull()) {
-				if (node2.toElement().tagName() == "created_at") {
-					timeStr = node2.toElement().text();
-				} else if (node2.toElement().tagName() == "text") {
-					text = node2.toElement().text();
-				} else if (node2.toElement().tagName() == "id") {
-					id = node2.toElement().text().toULongLong();
-				} else if (node2.toElement().tagName() == "in_reply_to_status_id") {
-					inReplyToMessageId = node2.toElement().text().toULongLong();
-				} else if (node2.toElement().tagName() == "in_reply_to_screen_name") {
-					inReplyToUsername = node2.toElement().text();
-				} else if (node2.toElement().tagName() == "screen_name") {
-					user = node2.toElement().text();
-				} else if (node2.toElement().tagName() == "profile_image_url") {
-					image = node2.toElement().text();
-				} else if (node2.toElement().tagName() == "favorited") {
-					favorited = node2.toElement().text() == "true";
-				} else if (node2.toElement().tagName() == "source") {
-					source = node2.toElement().text();
-                                } else if (node2.toElement().tagName() == "following") {
-                                        following = node2.toElement().text() == "true";
-                                }
-				node2 = node2.nextSibling();
-			}
-			if (id) {
-				QDateTime time = QwitTools::dateFromString(timeStr);
-				time = QDateTime(time.date(), time.time(), Qt::UTC);
-				QByteArray hash = QCryptographicHash::hash(image.toAscii(), QCryptographicHash::Md5);
-				QString imageFileName = "";
-				for (int i = 0; i < hash.size(); ++i) {
-					unsigned char c = hash[i];
-					c >>= 4;
-					if (c < 10) {
-						c += '0';
-					} else {
-						c += 'A' - 10;
-					}
-					imageFileName += (char)c;
-					c = hash[i];
-					c &= 15;
-					if (c < 10) {
-						c += '0';
-					} else {
-						c += 'A' - 10;
-					}
-					imageFileName += (char)c;
-				}
-				imageFileName = Configuration::CacheDirectory + imageFileName;
-				UserpicsDownloader::getInstance()->download(image, imageFileName);
-                                message = Message(id, text.simplified(), user, imageFileName, time.toLocalTime(), favorited, account, source, inReplyToMessageId, inReplyToUsername, following, false);
-			}
-		} else {
+//	    if(node.toElement().tagName() == "id") {}
+//	    if(node.toElement().tagName() == "name") {}
+	    if(node.toElement().tagName() == "screen_name") {
+		user = node.toElement().text();
+	    }
+//	    if(node.toElement().tagName() == "location") {}
+//	    if(node.toElement().tagName() == "description") {}
+	    if(node.toElement().tagName() == "profile_image_url") {
+		image = node.toElement().text();
+	    }
+//	    if(node.toElement().tagName() == "url") {}
+//	    if(node.toElement().tagName() == "protected") {}
+//	    if(node.toElement().tagName() == "followers_count") {}
+//	    if(node.toElement().tagName() == "profile_background_color") {}
+//	    if(node.toElement().tagName() == "profile_text_color") {}
+//	    if(node.toElement().tagName() == "profile_link_color") {}
+//	    if(node.toElement().tagName() == "profile_sidebar_fill_color") {}
+//	    if(node.toElement().tagName() == "profile_sidebar_border_color") {}
+//	    if(node.toElement().tagName() == "friends_count") {}
+//	    if(node.toElement().tagName() == "created_at") {}
+//	    if(node.toElement().tagName() == "favourites_count") {}
+//	    if(node.toElement().tagName() == "utc_offset") {}
+//	    if(node.toElement().tagName() == "time_zone") {}
+//	    if(node.toElement().tagName() == "profile_background_image_url") {}
+//	    if(node.toElement().tagName() == "profile_background_tile") {}
+//	    if(node.toElement().tagName() == "statuses_count") {}
+//	    if(node.toElement().tagName() == "notifications") {}
+//	    if(node.toElement().tagName() == "verified") {}
+	    if(node.toElement().tagName() == "following") {
+		following = node.toElement().text() == "true";
+	    }
+	    if(node.toElement().tagName() == "status") {
+		QDomNode node2 = node.firstChild();
+		while (!node2.isNull()) {
+		    if (node2.toElement().tagName() == "created_at") {
+			timeStr = node2.toElement().text();
+		    } else if (node2.toElement().tagName() == "text") {
+			text = node2.toElement().text();
+		    } else if (node2.toElement().tagName() == "id") {
+			id = node2.toElement().text().toULongLong();
+		    } else if (node2.toElement().tagName() == "in_reply_to_status_id") {
+			inReplyToMessageId = node2.toElement().text().toULongLong();
+		    } else if (node2.toElement().tagName() == "in_reply_to_screen_name") {
+			inReplyToUsername = node2.toElement().text();
+		    } else if (node2.toElement().tagName() == "screen_name") {
+			user = node2.toElement().text();
+		    } else if (node2.toElement().tagName() == "profile_image_url") {
+			image = node2.toElement().text();
+		    } else if (node2.toElement().tagName() == "favorited") {
+			favorited = node2.toElement().text() == "true";
+		    }
+		    node2 = node2.nextSibling();
 		}
-		node = node.nextSibling();
+	    }
+	    node = node.nextSibling();
+	}
+
+	if (id) {
+	    QDateTime time = QwitTools::dateFromString(timeStr);
+	    time = QDateTime(time.date(), time.time(), Qt::UTC);
+	    QByteArray hash = QCryptographicHash::hash(image.toAscii(), QCryptographicHash::Md5);
+	    QString imageFileName = "";
+	    for (int i = 0; i < hash.size(); ++i) {
+		unsigned char c = hash[i];
+		c >>= 4;
+		if (c < 10) {
+		    c += '0';
+		} else {
+		    c += 'A' - 10;
+		}
+		imageFileName += (char)c;
+		c = hash[i];
+		c &= 15;
+		if (c < 10) {
+		    c += '0';
+		} else {
+		    c += 'A' - 10;
+		}
+		imageFileName += (char)c;
+	    }
+	    imageFileName = Configuration::CacheDirectory + imageFileName;
+	    UserpicsDownloader::getInstance()->download(image, imageFileName);
+	    message = Message(id, text.simplified(), user, imageFileName, time.toLocalTime(), favorited, account, source, inReplyToMessageId, inReplyToUsername, following, false);
 	}
 	return message;
 }
@@ -804,4 +831,141 @@ bool QwitTools::isMention(const Message &message) {
 	return (re.indexIn(message.text) != -1);
 }
 
+QVector<Message> QwitTools::parseUsers(const QByteArray &data, Account *account) {
+    QVector<Message> messages;
+
+    QDomDocument document;
+    document.setContent(data);
+
+    QDomElement root = document.documentElement();
+
+    if(root.tagName() != "users")
+	return messages;
+
+    QDomNode node = root.firstChild();
+    while(!node.isNull()) {
+	if(node.toElement().tagName() != "user")
+	    return messages;
+
+	QString text = "", timeStr = "", user = "", image = "", source = "";
+	quint64 id = 0;
+	quint64 inReplyToMessageId = 0;
+	QString inReplyToUsername = "";
+	bool following = false;
+	bool favorited = false;
+
+	QDomNode node2 = node.firstChild();
+	while(!node2.isNull()) {
+	    if(node2.toElement().tagName() == "id")
+	    {
+		id = node2.toElement().text().toULongLong();
+	    }
+	    else if(node2.toElement().tagName() == "name"){}
+	    else if(node2.toElement().tagName() == "screen_name")
+	    {
+		user = node2.toElement().text();
+	    }
+	    else if(node2.toElement().tagName() == "location"){}
+	    //	    else if(node2.toElement().tagName() == "description"){}
+	    else if(node2.toElement().tagName() == "profile_image_url")
+	    {
+		image = node2.toElement().text();
+	    }
+	    //	    else if(node2.toElement().tagName() == "url"){}
+	    //	    else if(node2.toElement().tagName() == "protected"){}
+	    //	    else if(node2.toElement().tagName() == "followers_count"){}
+	    //	    else if(node2.toElement().tagName() == "profile_background_color"){}
+	    //	    else if(node2.toElement().tagName() == "profile_text_color"){}
+	    //	    else if(node2.toElement().tagName() == "profile_link_color"){}
+	    //	    else if(node2.toElement().tagName() == "profile_sidebar_fill_color"){}
+	    //	    else if(node2.toElement().tagName() == "profile_sidebar_border_color"){}
+	    //	    else if(node2.toElement().tagName() == "friends_count"){}
+	    //	    else if(node2.toElement().tagName() == "created_at"){}
+	    //	    else if(node2.toElement().tagName() == "favourites_count"){}
+	    //	    else if(node2.toElement().tagName() == "utc_offset"){}
+	    //	    else if(node2.toElement().tagName() == "time_zone"){}
+	    //	    else if(node2.toElement().tagName() == "profile_background_image_url"){}
+	    //	    else if(node2.toElement().tagName() == "profile_background_tile"){}
+	    //	    else if(node2.toElement().tagName() == "statuses_count"){}
+	    //	    else if(node2.toElement().tagName() == "notifications"){}
+	    //	    else if(node2.toElement().tagName() == "verified"){}
+	    else if(node2.toElement().tagName() == "following")
+	    {
+		following = node2.toElement().text() == "true";
+	    }
+	    else if(node2.toElement().tagName() == "status")
+	    {
+		QDomNode node3 = node2.firstChild();
+		while(!node3.isNull())
+		{
+		    if(node3.toElement().tagName() == "created_at")
+		    {
+			timeStr = node3.toElement().text();
+		    }
+		    else if(node3.toElement().tagName() == "id")
+		    {
+			// in this case we are not interested in the message ID
+//			id = node3.toElement().text().toULongLong();
+		    }
+		    else if(node3.toElement().tagName() == "text")
+		    {
+			text = node3.toElement().text();
+		    }
+		    else if(node3.toElement().tagName() == "source")
+		    {
+			source = node3.toElement().text();
+		    }
+		    //		    else if(node3.toElement().tagName() == "truncated"){}
+		    else if(node3.toElement().tagName() == "in_reply_to_status_id")
+		    {
+			inReplyToMessageId = node3.toElement().text().toULongLong();
+		    }
+//		    else if(node3.toElement().tagName() == "in_reply_to_user_id"){}
+		    else if(node3.toElement().tagName() == "favorited")
+		    {
+			favorited = node3.toElement().text() == "true";
+		    }
+		    else if(node3.toElement().tagName() == "in_reply_to_screen_name")
+		    {
+			inReplyToUsername = node3.toElement().text();
+		    }
+		    node3 = node3.nextSibling();
+		}
+	    }
+	    node2 = node2.nextSibling();
+	}
+
+	if(id) {
+	    QDateTime time = QwitTools::dateFromString(timeStr);
+	    time = QDateTime(time.date(), time.time(), Qt::UTC);
+	    QByteArray hash = QCryptographicHash::hash(image.toAscii(), QCryptographicHash::Md5);
+	    QString imageFileName = "";
+	    for (int i = 0; i < hash.size(); ++i) {
+		unsigned char c = hash[i];
+		c >>= 4;
+		if (c < 10) {
+		    c += '0';
+		} else {
+		    c += 'A' - 10;
+		}
+		imageFileName += (char)c;
+		c = hash[i];
+		c &= 15;
+		if (c < 10) {
+		    c += '0';
+		} else {
+		    c += 'A' - 10;
+		}
+		imageFileName += (char)c;
+	    }
+	    imageFileName = Configuration::CacheDirectory + imageFileName;
+	    UserpicsDownloader::getInstance()->download(image, imageFileName);
+	    Message message = Message(id, text.simplified(), user, imageFileName, time.toLocalTime(), favorited, account, source, inReplyToMessageId, inReplyToUsername, following, false);
+	    messages.push_back(message);
+	}
+	node = node.nextSibling();
+    }
+
+    return messages;
+}
 #endif

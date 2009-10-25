@@ -71,6 +71,9 @@ public:
 	QVector<Message> inboxMessages;
 	QVector<Message> outboxMessages;
 	QVector<Message> searchMessages;
+	QVector<Message> friendships;
+	QVector<Message> followers;
+	QVector<Message> blocks;
 
 	Account();
         Account(const QString &type, const QString &username, const QString &password, bool useHttps = false, const QString &serviceBaseUrl = "", const QString &serviceApiUrl = "");
@@ -128,6 +131,22 @@ public slots:
 	void favorMessage(const Message &message);
 	void unfavorMessage(const Message &message);
 	void destroyMessage(const Message &message);
+	void receiveFriendships();
+	void receiveFollowers();
+	void receiveBlocks();
+	void createFriendship(QString screenName, uint requestId = 0);
+	void destroyFriendship(QString screenName, uint requestId);
+	void createBlock(QString screenName, uint requestId);
+	void destroyBlock(QString screenName, uint requestId);
+
+    private slots:
+	void updateFriendships(const QByteArray &data);
+	void updateFollowers(const QByteArray &data);
+	void updateBlocks(const QByteArray &data);
+	void addFriendship(const QByteArray &data, uint requestId);
+	void removeFriendship(const QByteArray &data, uint requestId);
+	void addBlock(const QByteArray &data, uint requestId);
+	void removeBlock(const QByteArray &data, uint requestId);
 	
 signals:
 	void friendsMessagesUpdated(const QVector<Message> &, Account *);
@@ -149,6 +168,14 @@ signals:
 	void previousFavoritesReceived();
 	void previousInboxMessagesReceived();
 	void previousOutboxMessagesReceived();
+	// redirect incoming signal to the dedicated element
+	void friendshipsUpdated(const QVector<Message> &);
+	void followersUpdated(const QVector<Message> &);
+	void blocksUpdated(const QVector<Message> &);
+	void friendshipAdded(const Message&, uint);
+	void friendshipRemoved(const Message&, uint);
+	void blockAdded(const Message&, uint);
+	void blockRemoved(const Message&, uint);
 };
 
 #endif

@@ -167,6 +167,20 @@
         </widget>
        </item>
        <item>
+        <widget class="QToolButton" name="friendsMgmtToolButton">
+         <property name="text">
+          <string>...</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../qwit.qrc">
+           <normaloff>:/images/friends.png</normaloff>:/images/friends.png</iconset>
+         </property>
+         <property name="autoRaise">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QToolButton" name="refreshToolButton">
          <property name="toolTip">
           <string>Refresh</string>

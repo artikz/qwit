@@ -72,6 +72,13 @@ Account::Account() {
 	connect(twitter, SIGNAL(previousInboxMessagesReceived(const QByteArray&)), this, SIGNAL(previousInboxMessagesReceived()));
 	connect(twitter, SIGNAL(previousOutboxMessagesReceived(const QByteArray&)), this, SIGNAL(previousOutboxMessagesReceived()));
 	connect(twitter, SIGNAL(previousSearchMessagesReceived(const QByteArray&)), this, SIGNAL(previousSearchMessagesReceived()));
+	connect(twitter, SIGNAL(friendshipsReceived(QByteArray)), this, SLOT(updateFriendships(QByteArray)));
+	connect(twitter, SIGNAL(followersReceived(QByteArray)), this, SLOT(updateFollowers(QByteArray)));
+	connect(twitter, SIGNAL(blocksReceived(QByteArray)), this, SLOT(updateBlocks(QByteArray)));
+	connect(twitter, SIGNAL(friendshipCreated(const QByteArray&)), this, SIGNAL(friendshipAdded(const QByteArray&)));
+	connect(twitter, SIGNAL(friendshipDestroyed(const QByteArray&)), this, SIGNAL(friendshipRemoved(const QByteArray&)));
+	connect(twitter, SIGNAL(blockCreated(const QByteArray&)), this, SIGNAL(blockAdded(const QByteArray&)));
+	connect(twitter, SIGNAL(blockDestroyed(const QByteArray&)), this, SIGNAL(blockRemoved(const QByteArray&)));
 	sendingMessage = false;
 }
 
@@ -112,6 +119,13 @@ Account::Account(const QString &type, const QString &username, const QString &pa
 	connect(twitter, SIGNAL(previousInboxMessagesReceived(const QByteArray&)), this, SIGNAL(previousInboxMessagesReceived()));
 	connect(twitter, SIGNAL(previousOutboxMessagesReceived(const QByteArray&)), this, SIGNAL(previousOutboxMessagesReceived()));
 	connect(twitter, SIGNAL(previousSearchMessagesReceived(const QByteArray&)), this, SIGNAL(previousSearchMessagesReceived()));
+	connect(twitter, SIGNAL(friendshipsReceived(QByteArray)), this, SLOT(updateFriendships(QByteArray)));
+	connect(twitter, SIGNAL(followersReceived(QByteArray)), this, SLOT(updateFollowers(QByteArray)));
+	connect(twitter, SIGNAL(blocksReceived(QByteArray)), this, SLOT(updateBlocks(QByteArray)));
+	connect(twitter, SIGNAL(friendshipCreated(QByteArray,uint)), this, SLOT(addFriendship(QByteArray,uint)));
+	connect(twitter, SIGNAL(friendshipDestroyed(QByteArray,uint)), this, SLOT(removeFriendship(QByteArray,uint)));
+	connect(twitter, SIGNAL(blockCreated(QByteArray,uint)), this, SLOT(addBlock(QByteArray,uint)));
+	connect(twitter, SIGNAL(blockDestroyed(QByteArray,uint)), this, SLOT(removeBlock(QByteArray,uint)));
 	sendingMessage = false;
         _serviceBaseUrl = serviceBaseUrl;
         _serviceApiUrl = serviceApiUrl;
@@ -762,4 +776,94 @@ void Account::removePreviousSearchMessages(int count) {
 	emit searchMessagesUpdated(searchMessages, this);
 }
 
+void Account::receiveFriendships() {
+    qDebug() << ("Account::receiveFriendships()");
+    twitter->receiveFriendships();
+}
+
+void Account::receiveFollowers() {
+    qDebug() << ("Account::receiveFollowers()");
+    twitter->receiveFollowers();
+}
+
+void Account::receiveBlocks() {
+    qDebug() << ("Account::receiveBlocks()");
+    twitter->receiveBlocks();
+}
+
+void Account::createFriendship(QString screenName, uint requestId) {
+    qDebug() << ("Account::createFriendship()");
+    twitter->createFriendship(screenName, requestId);
+}
+
+void Account::destroyFriendship(QString screenName, uint requestId) {
+    qDebug() << ("Account::destroyFriendship()");
+    twitter->destroyFriendship(screenName, requestId);
+}
+
+void Account::createBlock(QString screenName, uint requestId) {
+    qDebug() << ("Account::createBlock()");
+    twitter->createBlock(screenName, requestId);
+}
+
+void Account::destroyBlock(QString screenName, uint requestId) {
+    qDebug() << ("Account::destroyBlock()");
+    twitter->destroyBlock(screenName, requestId);
+}
+
+void Account::updateFriendships(const QByteArray &data) {
+    qDebug() << ("Account::updateFriendships()");
+
+    QVector<Message> friends = QwitTools::parseUsers(data, this);
+
+    emit friendshipsUpdated(friends);
+}
+
+void Account::updateFollowers(const QByteArray &data) {
+    qDebug() << ("Account::updateFollowers()");
+
+    QVector<Message> followers = QwitTools::parseUsers(data, this);
+
+    emit followersUpdated(followers);
+}
+
+void Account::updateBlocks(const QByteArray &data) {
+    qDebug() << (" Account::updateBlocks()");
+
+    QVector<Message> blocks = QwitTools::parseUsers(data, this);
+
+    emit blocksUpdated(blocks);
+}
+
+void Account::addFriendship(const QByteArray &data, uint requestId) {
+    qDebug() << ("Account::addFriendship()");
+
+    Message message = QwitTools::parseUser(data, this);
+
+    emit friendshipAdded(message, requestId);
+}
+
+void Account::removeFriendship(const QByteArray &data, uint requestId) {
+    qDebug() << ("removeFriendship()");
+
+    Message message = QwitTools::parseUser(data, this);
+
+    emit friendshipRemoved(message, requestId);
+}
+
+void Account::addBlock(const QByteArray &data, uint requestId) {
+    qDebug() << ("Account::addBlock()");
+
+    Message message = QwitTools::parseUser(data, this);
+
+    emit blockAdded(message, requestId);
+}
+
+void Account::removeBlock(const QByteArray &data, uint requestId) {
+    qDebug() << ("Account::removeBlock()");
+
+    Message message = QwitTools::parseUser(data, this);
+
+    emit blockRemoved(message, requestId);
+}
 #endif

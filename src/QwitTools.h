@@ -63,6 +63,7 @@ public:
 	static QVector<Message> mergeMessages(QVector<Message> &messages, QVector<Message> &receivedMessages);
 	static bool isUrl(const QString &s);
 	static bool isMention(const Message &message);
+	static QVector<Message> parseUsers(const QByteArray &data, Account *account);
 };
 
 void handleMessage(QtMsgType type, const char *msg);

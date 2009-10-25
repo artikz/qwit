@@ -45,12 +45,20 @@ HEADERS += src/Configuration.h \
     src/UrlShortener.h \
     src/TwitterWidgetItem.h \
     src/TwitterWidgetItemMessage.h \
-    src/Translator.h
+	src/Translator.h \
+    src/FriendsMgmtDialog.h \
+    src/UserMgmtWidget.h \
+    src/UserMgmtWidgetItem.h \
+    src/AbstractUserMgmtPage.h \
+    src/FriendshipsMgmtPage.h \
+    src/FollowersMgmtPage.h \
+    src/BlocksMgmtPage.h
 FORMS += src/MainWindow.ui \
     src/OptionsDialog.ui \
     src/AboutDialog.ui \
     src/AccountConfigurationDialog.ui \
-    src/DirectMessageDialog.ui
+    src/DirectMessageDialog.ui \
+    src/FriendsMgmtDialog.ui
 SOURCES += src/qwit.cpp \
     src/Configuration.cpp \
     src/MainWindow.cpp \
@@ -77,8 +85,15 @@ SOURCES += src/qwit.cpp \
     src/UserpicsDownloader.cpp \
     src/UrlShortener.cpp \
     src/TwitterWidgetItem.cpp \
+    src/FriendsMgmtDialog.cpp \
+    src/UserMgmtWidget.cpp \
+    src/UserMgmtWidgetItem.cpp \
     src/TwitterWidgetItemMessage.cpp \
-    src/Translator.cpp
+	src/Translator.cpp \
+    src/AbstractUserMgmtPage.cpp \
+    src/FriendshipsMgmtPage.cpp \
+    src/FollowersMgmtPage.cpp \
+    src/BlocksMgmtPage.cpp
 TRANSLATIONS += translations/qwit_en_US.ts \
     translations/qwit_es_ES.ts \
     translations/qwit_it_IT.ts \

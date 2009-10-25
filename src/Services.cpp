@@ -61,6 +61,15 @@ void Services::initialize() {
 	twitterOptions["destroydirectmessage"] = "/direct_messages/destroy/";
 	twitterOptions["searchapiurl"] = "http://search.twitter.com";
 	twitterOptions["search"] = "/search";
+
+	twitterOptions["showFriendships"] = "/statuses/friends";
+	twitterOptions["showFollowers"] = "/statuses/followers";
+	twitterOptions["showBlocks"] = "/blocks/blocking";
+	twitterOptions["createFriendship"] = "/friendships/create";
+	twitterOptions["destroyFriendship"] = "/friendships/destroy";
+	twitterOptions["createBlock"] = "/blocks/create/";
+	twitterOptions["destroyBlock"] = "/blocks/destroy/";
+
 	options["twitter"] = twitterOptions;
 
 	QMap<QString, QString> identicaOptions;
@@ -83,6 +92,15 @@ void Services::initialize() {
 	identicaOptions["outbox"] = "/direct_messages/sent";
 	identicaOptions["send"] = "/direct_messages/new";
 	identicaOptions["destroydirectmessage"] = "/direct_messages/destroy/";
+	// FIXME test whether the following options exist
+	identicaOptions["showFriendships"] = "/statuses/friends";
+	identicaOptions["showFollowers"] = "/statuses/followers";
+	identicaOptions["showBlocks"] = "/blocks/blocking";
+	identicaOptions["createFriendship"] = "/friendships/create";
+	identicaOptions["destroyFriendship"] = "/friendships/destroy";
+	identicaOptions["createBlock"] = "/blocks/create/";
+	identicaOptions["destroyBlock"] = "/blocks/destroy/";
+
 	options["identica"] = identicaOptions;
 
 	QMap<QString, QString> customOptions;

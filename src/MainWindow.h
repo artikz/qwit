@@ -39,6 +39,7 @@
 #include "MessageTextEdit.h"
 #include "OptionsDialog.h"
 #include "AboutDialog.h"
+#include "FriendsMgmtDialog.h"
 #include "DirectMessageDialog.h"
 #include "HomePage.h"
 #include "RepliesPage.h"
@@ -56,6 +57,7 @@ private:
 
 	OptionsDialog *optionsDialog;
 	AboutDialog *aboutDialog;
+	FriendsMgmtDialog *friendsMgmtDialog;
 	DirectMessageDialog *directMessageDialog;
 	QVector<QToolButton*> accountsButtons;
 	QHBoxLayout *accountsLayout;

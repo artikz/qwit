@@ -17,6 +17,9 @@
         <file>images/follow.png</file>
         <file>images/shorten.png</file>
         <file>images/qwitnewmessages.png</file>
+        <file>images/friends.png</file>
+        <file>images/unblock.png</file>
+        <file>images/block.png</file>
         <file>translations/qwit_it_IT.qm</file>
         <file>translations/qwit_kk_KZ.qm</file>
         <file>translations/qwit_pt_BR.qm</file>

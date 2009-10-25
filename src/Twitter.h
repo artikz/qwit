@@ -64,7 +64,15 @@ class Twitter: public QObject {
 	QMap<int, QString> unfavorMessageRequests;
 	QMap<int, QString> destroyMessageRequests;
 	QMap<int, QString> destroyDirectMessageRequests;
+	QMap<int, QString> receiveFriendshipsRequests;
+	QMap<int, QString> receiveFollowersRequests;
+	QMap<int, QString> receiveBlocksRequests;
+	QMap<int, QString> createFriendshipRequests;
+	QMap<int, QString> destroyFriendshipRequests;
+	QMap<int, QString> createBlockRequests;
+	QMap<int, QString> destroyBlockRequests;
 	void setupProxy();
+	QMap<int, uint> httpRequestId2InternalRequestId;
 
 public:
 
@@ -90,6 +98,13 @@ public:
 	void unfavorMessage(quint64 messageId);
 	void destroyMessage(quint64 messageId);
 	void destroyDirectMessage(quint64 messageId);
+	void receiveFriendships();
+	void receiveFollowers();
+	void receiveBlocks();
+	void createFriendship(QString screenName, uint requestId);
+	void destroyFriendship(QString screenName, uint requestId);
+	void createBlock(QString screenName, uint requestId);
+	void destroyBlock(QString screenName, uint requestId);
 	void abort();
 
 signals:
@@ -116,6 +131,13 @@ signals:
 	void previousInboxMessagesReceived(const QByteArray &);
 	void previousOutboxMessagesReceived(const QByteArray &);
 	void previousSearchMessagesReceived(const QByteArray &);
+	void friendshipsReceived(const QByteArray &);
+	void followersReceived(const QByteArray &);
+	void blocksReceived(const QByteArray &);
+	void friendshipCreated(const QByteArray &, uint);
+	void friendshipDestroyed(const QByteArray &, uint);
+	void blockCreated(const QByteArray &, uint);
+	void blockDestroyed(const QByteArray &, uint);
 
 public slots:
 
