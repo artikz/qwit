@@ -189,6 +189,7 @@ void Translator::requestFinished(int id, bool error) {
 				int position1 = response.indexOf("translatedText") + 17;
 				int position2 = response.lastIndexOf("detectedSourceLanguage") - 3;
 				translatedText = response.mid(position1, position2 - position1).trimmed();
+				qDebug() << response;
 			}
 		} else {
 			qDebug() << ("Translator::requestFinished() " + QString::number(id) + " error " + QString::number(http->lastResponse().statusCode()) + " " + http->lastResponse().reasonPhrase());

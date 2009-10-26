@@ -155,6 +155,13 @@ void Services::initialize() {
 	uiopmeOptions["requesttemplate"] = "?u=%url";
 	uiopmeOptions["responseregexp"] = "http://uiop.me/\\w+";
 	urlShorteners["uiopme"] = uiopmeOptions;
+
+	QMap<QString, QString> trimOptions;
+	trimOptions["title"] = "tr.im";
+	trimOptions["apiurl"] = "http://api.tr.im/v1/trim_simple";
+	trimOptions["requesttemplate"] = "?url=%url";
+	trimOptions["responseregexp"] = "http://tr.im/\\w+";
+	urlShorteners["trim"] = trimOptions;
 }
 
 #endif

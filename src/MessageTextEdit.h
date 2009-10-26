@@ -42,6 +42,8 @@ private:
 	quint64 inReplyToMessageId;
 	QCompleter *_completer;
 	QString textUnderCursor() const;
+	QMenu *languagesMenu;
+	QMap<QAction*, QString> actionLanguage;
 
 public:
 	static const int MaxMessageCharacters = 140;
@@ -69,6 +71,7 @@ signals:
 private slots:
 
 	void insertCompletion(const QString &completion);
+	void insertTranslation(const QString &translation, QObject *item);
 
 public slots:
 

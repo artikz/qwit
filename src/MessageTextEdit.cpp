@@ -36,6 +36,7 @@
 #include "MessageTextEdit.h"
 #include "Configuration.h"
 #include "QwitTools.h"
+#include "Translator.h"
 
 const int MessageTextEdit::MaxMessageCharacters;
 const int MessageTextEdit::StandardHeight;
@@ -54,6 +55,17 @@ MessageTextEdit::MessageTextEdit(QWidget *parent): QTextEdit(parent) {
 	completer->setCompletionMode(QCompleter::PopupCompletion);
 	completer->setCaseSensitivity(Qt::CaseInsensitive);
 	QObject::connect(completer, SIGNAL(activated(const QString&)), this, SLOT(insertCompletion(const QString&)));
+	Translator *translator = Translator::getInstance();
+	languagesMenu = new QMenu(tr("Translate by GoogleTranslate"));
+	actionLanguage[languagesMenu->addAction(tr("Restore original"))] = "-";
+	languagesMenu->addSeparator();
+	for (QMap<QString, QString>::iterator it = translator->languages.begin(); it != translator->languages.end(); ++it) {
+		QString country = "";
+		if (translator->countries.find(it.key()) != translator->countries.end()) country = translator->countries[it.key()];
+		else country = it.key().mid(0, 2);
+		actionLanguage[languagesMenu->addAction(QIcon(":/images/countries/" + country + ".png"), it.value())] = it.key();
+	}
+	connect(Translator::getInstance(), SIGNAL(textTranslated(const QString&, QObject*)), this, SLOT(insertTranslation(const QString&, QObject*)));
 }
 
 int MessageTextEdit::getMaxMessageCharactersNumber() {
@@ -158,6 +170,18 @@ void MessageTextEdit::updateSize() {
 }
 
 void MessageTextEdit::contextMenuEvent(QContextMenuEvent *event) {
+	QMenu *menu = createStandardContextMenu(event->pos());
+	menu->addMenu(languagesMenu);
+	Translator *translator = Translator::getInstance();
+	QAction *action = menu->exec(event->globalPos());
+	if (actionLanguage.find(action) != actionLanguage.end()) {
+		if (actionLanguage[action] == "-") {
+			setPlainText(toPlainText());
+		} else {
+			translator->translate(toPlainText(), actionLanguage[action], this);
+		}
+	}
+	delete menu;
 }
 
 void MessageTextEdit::retweet(const Message &message) {
@@ -239,6 +263,13 @@ QString MessageTextEdit::textUnderCursor() const {
 	QTextCursor tc = textCursor();
 	tc.select(QTextCursor::WordUnderCursor);
 	return tc.selectedText();
+}
+
+
+void MessageTextEdit::insertTranslation(const QString &translation, QObject *item) {
+	if (item == this) {
+		setPlainText(translation);
+	}
 }
 
 #endif
