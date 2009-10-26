@@ -44,6 +44,7 @@ private:
 	QString textUnderCursor() const;
 	QMenu *languagesMenu;
 	QMap<QAction*, QString> actionLanguage;
+	QString original;
 
 public:
 	static const int MaxMessageCharacters = 140;
@@ -71,7 +72,6 @@ signals:
 private slots:
 
 	void insertCompletion(const QString &completion);
-	void insertTranslation(const QString &translation, QObject *item);
 
 public slots:
 
@@ -80,6 +80,7 @@ public slots:
 	void retweet(const Message &message);
 	void reply(const Message &message);
 	void insertUrl(const QString &url);
+	void insertTranslation(const QString &text, QObject *item);
 };
 
 #endif

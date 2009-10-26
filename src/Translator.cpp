@@ -173,8 +173,9 @@ void Translator::translate(const QString &text, const QString &language, QObject
 		http->setHost(translatorUrl.host(), QHttp::ConnectionModeHttp, translatorUrl.port(80));
 	}
 
-	buffer.open(QIODevice::WriteOnly);
-	int requestId = http->request(header, 0, &buffer);
+	buffer = new QBuffer(this);
+	buffer->open(QIODevice::WriteOnly);
+	int requestId = http->request(header, 0, buffer);
 	requestSender[requestId] = sender;
 }
 
@@ -184,20 +185,34 @@ void Translator::requestFinished(int id, bool error) {
 		if (!error && (http->lastResponse().statusCode() == 200)) {
 			qDebug() << ("Translator::requestFinished() " + QString::number(id));
 			Configuration *config = Configuration::getInstance();
-			QString response = buffer.data();
+			QString response = buffer->data();
 			if (response.indexOf("translatedText") != -1) {
 				int position1 = response.indexOf("translatedText") + 17;
 				int position2 = response.lastIndexOf("detectedSourceLanguage") - 3;
-				translatedText = response.mid(position1, position2 - position1).trimmed();
-				qDebug() << response;
+				translatedText = QString::fromUtf8(response.mid(position1, position2 - position1).trimmed().toLocal8Bit().data());
+				qDebug() << translatedText;
 			}
 		} else {
 			qDebug() << ("Translator::requestFinished() " + QString::number(id) + " error " + QString::number(http->lastResponse().statusCode()) + " " + http->lastResponse().reasonPhrase());
 		}
+		delete buffer;
 		QObject *sender = requestSender[id];
 		requestSender.erase(requestSender.find(id));
 		emit textTranslated(translatedText, sender);
 	}
+}
+
+QMenu* Translator::createLanguagesMenu(QMap<QAction*, QString> &actionLanguage) {
+	QMenu *languagesMenu = new QMenu(tr("Translate by GoogleTranslate"));
+	actionLanguage[languagesMenu->addAction(tr("Restore original"))] = "-";
+	languagesMenu->addSeparator();
+	for (QMap<QString, QString>::iterator it = languages.begin(); it != languages.end(); ++it) {
+		QString country = "";
+		if (countries.find(it.key()) != countries.end()) country = countries[it.key()];
+		else country = it.key().mid(0, 2);
+		actionLanguage[languagesMenu->addAction(QIcon(":/images/countries/" + country + ".png"), it.value())] = it.key();
+	}
+	return languagesMenu;
 }
 
 #endif

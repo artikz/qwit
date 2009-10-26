@@ -49,10 +49,8 @@ void TwitterWidgetItem::loadUserpic() {
 		QPixmap comboPic(ICON_SIZE, ICON_SIZE);
 		comboPic.fill(Qt::transparent);
 		QPainter painter(&comboPic);
-		painter.drawPixmap(0, ICON_SIZE * 0.2,
-						   pixmap.scaled(ICON_SIZE * 0.8, ICON_SIZE * 0.8, Qt::KeepAspectRatio, Qt::SmoothTransformation));
-		painter.drawPixmap(ICON_SIZE * 0.5, 0,
-						   inReplyToUserPic.scaled(ICON_SIZE * 0.5, ICON_SIZE * 0.5, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+		painter.drawPixmap(0, ICON_SIZE * 0.2, pixmap.scaled(ICON_SIZE * 0.8, ICON_SIZE * 0.8, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+		painter.drawPixmap(ICON_SIZE * 0.5, 0, inReplyToUserPic.scaled(ICON_SIZE * 0.5, ICON_SIZE * 0.5, Qt::KeepAspectRatio, Qt::SmoothTransformation));
 		pixmap = comboPic;
 	}
 	if (!pixmap.isNull()) {

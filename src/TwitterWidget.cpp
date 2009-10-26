@@ -421,7 +421,9 @@ void TwitterWidget::addLessButton() {
 }
 
 void TwitterWidget::retweetButtonClicked(int id) {
-	emit retweet(items[id]->message);
+	Message message = items[id]->message;
+	message.text = items[id]->messageTextBrowser->toPlainText();
+	emit retweet(message);
 }
 
 void TwitterWidget::destroyButtonClicked(int id) {

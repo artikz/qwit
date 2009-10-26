@@ -55,16 +55,8 @@ MessageTextEdit::MessageTextEdit(QWidget *parent): QTextEdit(parent) {
 	completer->setCompletionMode(QCompleter::PopupCompletion);
 	completer->setCaseSensitivity(Qt::CaseInsensitive);
 	QObject::connect(completer, SIGNAL(activated(const QString&)), this, SLOT(insertCompletion(const QString&)));
-	Translator *translator = Translator::getInstance();
-	languagesMenu = new QMenu(tr("Translate by GoogleTranslate"));
-	actionLanguage[languagesMenu->addAction(tr("Restore original"))] = "-";
-	languagesMenu->addSeparator();
-	for (QMap<QString, QString>::iterator it = translator->languages.begin(); it != translator->languages.end(); ++it) {
-		QString country = "";
-		if (translator->countries.find(it.key()) != translator->countries.end()) country = translator->countries[it.key()];
-		else country = it.key().mid(0, 2);
-		actionLanguage[languagesMenu->addAction(QIcon(":/images/countries/" + country + ".png"), it.value())] = it.key();
-	}
+
+	languagesMenu = Translator::getInstance()->createLanguagesMenu(actionLanguage);
 	connect(Translator::getInstance(), SIGNAL(textTranslated(const QString&, QObject*)), this, SLOT(insertTranslation(const QString&, QObject*)));
 }
 
@@ -174,11 +166,12 @@ void MessageTextEdit::contextMenuEvent(QContextMenuEvent *event) {
 	menu->addMenu(languagesMenu);
 	Translator *translator = Translator::getInstance();
 	QAction *action = menu->exec(event->globalPos());
+	original = toPlainText();
 	if (actionLanguage.find(action) != actionLanguage.end()) {
 		if (actionLanguage[action] == "-") {
-			setPlainText(toPlainText());
+			setPlainText(original);
 		} else {
-			translator->translate(toPlainText(), actionLanguage[action], this);
+			translator->translate(original, actionLanguage[action], this);
 		}
 	}
 	delete menu;
@@ -265,11 +258,13 @@ QString MessageTextEdit::textUnderCursor() const {
 	return tc.selectedText();
 }
 
-
-void MessageTextEdit::insertTranslation(const QString &translation, QObject *item) {
+void MessageTextEdit::insertTranslation(const QString &text, QObject *item) {
 	if (item == this) {
-		setPlainText(translation);
+		if (text != "") {
+			setPlainText(text);
+		} else {
+			QMessageBox::critical(this, tr("Translation error"), tr("An error occured during translation - maybe this language isn't supported by GoogleTranslate yet."));
+		}
 	}
 }
-
 #endif
