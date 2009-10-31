@@ -41,101 +41,72 @@ Translator* Translator::instance = 0;
 Translator::Translator() {
 	http = new QHttp(this);
 	connect(http, SIGNAL(requestFinished(int, bool)), this, SLOT(requestFinished(int, bool)));
-	languages["af"] = "Afrikaans";
-	languages["sq"] = "Albanian";
-	languages["am"] = "Amharic";
-	languages["ar"] = "Arabic";
-	languages["hy"] = "Armenian";
-	languages["az"] = "Azerbaijani";
-	languages["eu"] = "Basque";
-	languages["be"] = "Belarusian";
-	languages["bn"] = "Bengali";
-	languages["bh"] = "Bihari";
-	languages["bg"] = "Bulgarian";
-	languages["my"] = "Burmese";
-	languages["ca"] = "Catalan";
-	languages["chr"] = "Cherokee";
-	languages["zh"] = "Chinese";
-	languages["zh-CN"] = "Chinese Simplified";
-	languages["zh-TW"] = "Chinese Traditional";
-	languages["hr"] = "Croatian";
-	languages["cs"] = "Czech";
-	languages["da"] = "Danish";
-	languages["dv"] = "Dhivehi";
-	languages["nl"] = "Dutch";
-	languages["en"] = "English";
-	languages["eo"] = "Esperanto";
-	languages["et"] = "Estonian";
-	languages["tl"] = "Filipino";
-	languages["fi"] = "Finnish";
-	languages["fr"] = "French";
-	languages["gl"] = "Galician";
-	languages["ka"] = "Georgian";
-	languages["de"] = "German";
-	languages["el"] = "Greek";
-	languages["gn"] = "Guarani";
-	languages["gu"] = "Gujarati";
-	languages["iw"] = "Hebrew";
-	languages["hi"] = "Hindi";
-	languages["hu"] = "Hungarian";
-	languages["is"] = "Icelandic";
-	languages["id"] = "Indonesian";
-	languages["iu"] = "Inuktitut";
-	languages["ga"] = "Irish";
-	languages["it"] = "Italian";
-	languages["ja"] = "Japanese";
-	languages["kn"] = "Kannada";
-	languages["kk"] = "Kazakh";
-	languages["km"] = "Khmer";
-	languages["ko"] = "Korean";
-	languages["ku"] = "Kurdish";
-	languages["ky"] = "Kyrgyz";
-	languages["lo"] = "Laothian";
-	languages["lv"] = "Latvian";
-	languages["lt"] = "Lithuanian";
-	languages["mk"] = "Macedonian";
-	languages["ms"] = "Malay";
-	languages["ml"] = "Malayalam";
-	languages["mt"] = "Maltese";
-	languages["mr"] = "Marathi";
-	languages["mn"] = "Mongolian";
-	languages["ne"] = "Nepali";
-	languages["no"] = "Norwegian";
-	languages["or"] = "Oriya";
-	languages["ps"] = "Pashto";
-	languages["fa"] = "Persian";
-	languages["pl"] = "Polish";
-	languages["pt-PT"] = "Portuguese";
-	languages["pa"] = "Punjabi";
-	languages["ro"] = "Romanian";
-	languages["ru"] = "Russian";
-	languages["sa"] = "Sanskrit";
-	languages["sr"] = "Serbian";
-	languages["sd"] = "Sindhi";
-	languages["si"] = "Sinhalese";
-	languages["sk"] = "Slovak";
-	languages["sl"] = "Slovenian";
-	languages["es"] = "Spanish";
-	languages["sw"] = "Swahili";
-	languages["sv"] = "Swedish";
-	languages["tg"] = "Tajik";
-	languages["ta"] = "Tamil";
-	languages["tl"] = "Tagalog";
-	languages["te"] = "Telugu";
-	languages["th"] = "Thai";
-	languages["bo"] = "Tibetan";
-	languages["tr"] = "Turkish";
-	languages["uk"] = "Ukrainian";
-	languages["ur"] = "Urdu";
-	languages["uz"] = "Uzbek";
-	languages["ug"] = "Uighur";
-	languages["vi"] = "Vietnamese";
-	languages["cy"] = "Welsh";
-	languages["yi"] = "Yiddish";
+        languages["af"] = "Afrikaans";
+        languages["sq"] = "Albanian";
+        languages["ar"] = "Arabic";
+        languages["be"] = "Belarusian";
+        languages["bg"] = "Bulgarian";
+        languages["ca"] = "Catalan";
+        languages["zh"] = "Chinese";
+        languages["zh-CN"] = "Chinese Simplified";
+        languages["zh-TW"] = "Chinese Traditional";
+        languages["hr"] = "Croatian";
+        languages["cs"] = "Czech";
+        languages["da"] = "Danish";
+        languages["nl"] = "Dutch";
+        languages["en"] = "English";
+        languages["et"] = "Estonian";
+        languages["tl"] = "Filipino";
+        languages["fi"] = "Finnish";
+        languages["fr"] = "French";
+        languages["gl"] = "Galician";
+        languages["de"] = "German";
+        languages["el"] = "Greek";
+        languages["iw"] = "Hebrew";
+        languages["hi"] = "Hindi";
+        languages["hu"] = "Hungarian";
+        languages["is"] = "Icelandic";
+        languages["id"] = "Indonesian";
+        languages["ga"] = "Irish";
+        languages["it"] = "Italian";
+        languages["ja"] = "Japanese";
+        languages["ko"] = "Korean";
+        languages["lv"] = "Latvian";
+        languages["lt"] = "Lithuanian";
+        languages["mk"] = "Macedonian";
+        languages["ms"] = "Malay";
+        languages["mt"] = "Maltese";
+        languages["no"] = "Norwegian";
+        languages["fa"] = "Persian";
+        languages["pl"] = "Polish";
+        languages["pt-PT"] = "Portuguese";
+        languages["ro"] = "Romanian";
+        languages["ru"] = "Russian";
+        languages["sr"] = "Serbian";
+        languages["sk"] = "Slovak";
+        languages["sl"] = "Slovenian";
+        languages["es"] = "Spanish";
+        languages["sw"] = "Swahili";
+        languages["sv"] = "Swedish";
+        languages["th"] = "Thai";
+        languages["tr"] = "Turkish";
+        languages["uk"] = "Ukrainian";
+        languages["vi"] = "Vietnamese";
+        languages["cy"] = "Welsh";
+        languages["yi"] = "Yiddish";
 
 	countries["kk"] = "kz";
 	countries["ru"] = "ru";
 	countries["en"] = "us";
+
+        QVector<QPair<QString, QString> > list;
+        for (QMap<QString, QString>::iterator it = languages.begin(); it != languages.end(); ++it) {
+                list.push_back(qMakePair(it.value(), it.key()));
+        }
+        qSort(list);
+        for (int i = 0; i < list.size(); ++i) {
+            languageCodesSorted.push_back(list[i].second);
+        }
 }
 
 Translator::~Translator() {
@@ -185,12 +156,11 @@ void Translator::requestFinished(int id, bool error) {
 		if (!error && (http->lastResponse().statusCode() == 200)) {
 			qDebug() << ("Translator::requestFinished() " + QString::number(id));
 			Configuration *config = Configuration::getInstance();
-			QString response = buffer->data();
+                        QString response = QString::fromUtf8(buffer->data().data());
 			if (response.indexOf("translatedText") != -1) {
 				int position1 = response.indexOf("translatedText") + 17;
 				int position2 = response.lastIndexOf("detectedSourceLanguage") - 3;
-				translatedText = QString::fromUtf8(response.mid(position1, position2 - position1).trimmed().toLocal8Bit().data());
-				qDebug() << translatedText;
+                                translatedText = response.mid(position1, position2 - position1).trimmed();
 			}
 		} else {
 			qDebug() << ("Translator::requestFinished() " + QString::number(id) + " error " + QString::number(http->lastResponse().statusCode()) + " " + http->lastResponse().reasonPhrase());
@@ -203,14 +173,16 @@ void Translator::requestFinished(int id, bool error) {
 }
 
 QMenu* Translator::createLanguagesMenu(QMap<QAction*, QString> &actionLanguage) {
-	QMenu *languagesMenu = new QMenu(tr("Translate by GoogleTranslate"));
+        QMenu *languagesMenu = new QMenu(tr("GoogleTranslate"));
+        languagesMenu->setIcon(QIcon(":/images/google.png"));
 	actionLanguage[languagesMenu->addAction(tr("Restore original"))] = "-";
 	languagesMenu->addSeparator();
-	for (QMap<QString, QString>::iterator it = languages.begin(); it != languages.end(); ++it) {
-		QString country = "";
-		if (countries.find(it.key()) != countries.end()) country = countries[it.key()];
-		else country = it.key().mid(0, 2);
-		actionLanguage[languagesMenu->addAction(QIcon(":/images/countries/" + country + ".png"), it.value())] = it.key();
+        for (int i = 0; i < languageCodesSorted.size(); ++i) {
+                QString languageCode = languageCodesSorted[i];
+                QString country = "";
+                if (countries.find(languageCode) != countries.end()) country = countries[languageCode];
+                else country = languageCode.mid(0, 2);
+                actionLanguage[languagesMenu->addAction(QIcon(":/images/countries/" + country + ".png"), languages[languageCode])] = languageCode;
 	}
 	return languagesMenu;
 }

@@ -39,6 +39,7 @@ class Translator: public QObject {
 	QHttp *http;
 	QBuffer *buffer;
 	QMap<int, QObject*> requestSender;
+        QVector<QString> languageCodesSorted;
 	static Translator *instance;
 	Translator();
 	~Translator();

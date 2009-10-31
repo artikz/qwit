@@ -43,5 +43,6 @@
         <file>images/countries/ru.png</file>
         <file>images/countries/tr.png</file>
         <file>images/countries/us.png</file>
+        <file>images/google.png</file>
     </qresource>
 </RCC>
