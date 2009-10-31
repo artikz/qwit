@@ -896,22 +896,49 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>TwitterWidget</name>
     <message>
-        <location filename="../src/TwitterWidget.cpp" line="407"/>
+        <location filename="../src/TwitterWidget.cpp" line="92"/>
+        <source>favorize tweet</source>
+        <translation>Tweet favorisieren</translation>
+    </message>
+    <message>
+        <location filename="../src/TwitterWidget.cpp" line="102"/>
+        <source>reply to %1</source>
+        <translation>%1 antworten</translation>
+    </message>
+    <message>
+        <location filename="../src/TwitterWidget.cpp" line="113"/>
+        <location filename="../src/TwitterWidget.cpp" line="133"/>
+        <source>destroy tweet</source>
+        <translation>entfernten</translation>
+    </message>
+    <message>
+        <location filename="../src/TwitterWidget.cpp" line="123"/>
+        <location filename="../src/TwitterWidget.cpp" line="141"/>
+        <source>retweet</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../src/TwitterWidget.cpp" line="150"/>
+        <source>direct message</source>
+        <translation>Direktnachricht</translation>
+    </message>
+    <message>
+        <location filename="../src/TwitterWidget.cpp" line="422"/>
         <source>more</source>
         <translation>mehr</translation>
     </message>
     <message>
-        <location filename="../src/TwitterWidget.cpp" line="417"/>
+        <location filename="../src/TwitterWidget.cpp" line="432"/>
         <source>less</source>
         <translation>weniger</translation>
     </message>
     <message>
-        <location filename="../src/TwitterWidget.cpp" line="430"/>
+        <location filename="../src/TwitterWidget.cpp" line="445"/>
         <source>Delete message</source>
         <translation>Lösche Nachricht</translation>
     </message>
     <message>
-        <location filename="../src/TwitterWidget.cpp" line="430"/>
+        <location filename="../src/TwitterWidget.cpp" line="445"/>
         <source>Are you sure to delete this message?</source>
         <translation>Möchtest Du die Nachricht wirklich löschen?</translation>
     </message>
@@ -936,22 +963,22 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>UserMgmtWidgetItem</name>
     <message>
-        <location filename="../src/UserMgmtWidgetItem.cpp" line="71"/>
+        <location filename="../src/UserMgmtWidgetItem.cpp" line="70"/>
         <source>follow %1</source>
         <translation>%1 folgen</translation>
     </message>
     <message>
-        <location filename="../src/UserMgmtWidgetItem.cpp" line="77"/>
+        <location filename="../src/UserMgmtWidgetItem.cpp" line="78"/>
         <source>unfollow %1</source>
         <translation>%1 nicht mehr folgen</translation>
     </message>
     <message>
-        <location filename="../src/UserMgmtWidgetItem.cpp" line="83"/>
+        <location filename="../src/UserMgmtWidgetItem.cpp" line="86"/>
         <source>block %1</source>
         <translation>%1 sperren</translation>
     </message>
     <message>
-        <location filename="../src/UserMgmtWidgetItem.cpp" line="89"/>
+        <location filename="../src/UserMgmtWidgetItem.cpp" line="94"/>
         <source>unblock %1</source>
         <translation>%1 entsperren</translation>
     </message>

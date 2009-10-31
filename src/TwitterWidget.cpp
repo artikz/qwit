@@ -88,16 +88,20 @@ void TwitterWidget::addItem(const Message &message) {
 
 	if (!message.directMessage) {
 		item->favorButton = new QToolButton(this);
+		QAction *favorAction = new QAction(this);
+		favorAction->setToolTip(tr("favorize tweet"));
+		item->favorButton->setDefaultAction(favorAction);
 		item->favorButton->setIcon(QwitTools::getToolButtonIcon(":/images/favor.png", message.favorited));
-		item->favorButton->setText("");
 		item->favorButton->setToolButtonStyle(Qt::ToolButtonIconOnly);
 		item->favorButton->setAutoRaise(true);
 		item->favorButton->show();
 	}
 
 	item->replyButton = new QToolButton(this);
+	QAction *replyAction = new QAction(this);
+	replyAction->setToolTip(tr("reply to %1").arg(item->message.username));
+	item->replyButton->setDefaultAction(replyAction);
 	item->replyButton->setIcon(QwitTools::getToolButtonIcon(":/images/reply.png"));
-	item->replyButton->setText("");
 	item->replyButton->setToolButtonStyle(Qt::ToolButtonIconOnly);
 	item->replyButton->setAutoRaise(true);
 	item->replyButton->show();
@@ -105,6 +109,9 @@ void TwitterWidget::addItem(const Message &message) {
 	if (!message.directMessage) {
 		if (message.username == message.account->username) {
 			item->destroyButton = new QToolButton(this);
+			QAction *destroyAction = new QAction(this);
+			destroyAction->setToolTip(tr("destroy tweet"));
+			item->destroyButton->setDefaultAction(destroyAction);
 			item->destroyButton->setIcon(QwitTools::getToolButtonIcon(":/images/destroy.png"));
 			item->destroyButton->setText("");
 			item->destroyButton->setToolButtonStyle(Qt::ToolButtonIconOnly);
@@ -112,29 +119,37 @@ void TwitterWidget::addItem(const Message &message) {
 			item->destroyButton->show();
 		} else {
 			item->retweetButton = new QToolButton(this);
+			QAction *retweetAction = new QAction(this);
+			retweetAction->setToolTip(tr("retweet"));
+			item->retweetButton->setDefaultAction(retweetAction);
 			item->retweetButton->setIcon(QwitTools::getToolButtonIcon(":/images/retweet.png"));
-			item->retweetButton->setText("");
 			item->retweetButton->setToolButtonStyle(Qt::ToolButtonIconOnly);
 			item->retweetButton->setAutoRaise(true);
 			item->retweetButton->show();
 		}
 	} else {
 		item->destroyButton = new QToolButton(this);
+		QAction *destroyAction = new QAction(this);
+		destroyAction->setToolTip(tr("destroy tweet"));
+		item->destroyButton->setDefaultAction(destroyAction);
 		item->destroyButton->setIcon(QwitTools::getToolButtonIcon(":/images/destroy.png"));
-		item->destroyButton->setText("");
 		item->destroyButton->setToolButtonStyle(Qt::ToolButtonIconOnly);
 		item->destroyButton->setAutoRaise(true);
 		item->destroyButton->show();
 		item->retweetButton = new QToolButton(this);
+		QAction *favorAction = new QAction(this);
+		favorAction->setToolTip(tr("retweet"));
+		item->retweetButton->setDefaultAction(favorAction);
 		item->retweetButton->setIcon(QwitTools::getToolButtonIcon(":/images/retweet.png"));
-		item->retweetButton->setText("");
 		item->retweetButton->setToolButtonStyle(Qt::ToolButtonIconOnly);
 		item->retweetButton->setAutoRaise(true);
 		item->retweetButton->show();
 	}
 	item->directMessageButton = new QToolButton(this);
+	QAction *favorAction = new QAction(this);
+	favorAction->setToolTip(tr("direct message"));
+	item->directMessageButton->setDefaultAction(favorAction);
 	item->directMessageButton->setIcon(QwitTools::getToolButtonIcon(":/images/directMessage.png"));
-	item->directMessageButton->setText("");
 	item->directMessageButton->setToolButtonStyle(Qt::ToolButtonIconOnly);
 	item->directMessageButton->setAutoRaise(true);
 	item->directMessageButton->resize(18, 18);

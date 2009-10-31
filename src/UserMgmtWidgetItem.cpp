@@ -64,29 +64,36 @@ UserMgmtWidgetItem::UserMgmtWidgetItem(Message message, QWidget *parent, int wid
 
     // setup Buttons
     followButton = new QToolButton(parent);
-    followButton->setIcon(QwitTools::getToolButtonIcon(":/images/follow.png"));
-    followButton->setText("");
     followButton->setToolButtonStyle(Qt::ToolButtonIconOnly);
     followButton->setAutoRaise(true);
-    followButton->setStatusTip(tr("follow %1").arg(message.username));
+    QAction *action = new QAction(parent);
+    action->setToolTip(tr("follow %1").arg(message.username));
+    followButton->setDefaultAction(action);
+    followButton->setIcon(QwitTools::getToolButtonIcon(":/images/follow.png"));
+
     unfollowButton = new QToolButton(parent);
-    unfollowButton->setIcon(QwitTools::getToolButtonIcon(":/images/unfollow.png"));
-    unfollowButton->setText("");
     unfollowButton->setToolButtonStyle(Qt::ToolButtonIconOnly);
     unfollowButton->setAutoRaise(true);
-    unfollowButton->setStatusTip(tr("unfollow %1").arg(message.username));
+    action = new QAction(parent);
+    action->setToolTip(tr("unfollow %1").arg(message.username));
+    unfollowButton->setDefaultAction(action);
+    unfollowButton->setIcon(QwitTools::getToolButtonIcon(":/images/unfollow.png"));
+
     blockButton = new QToolButton(parent);
-    blockButton->setIcon(QwitTools::getToolButtonIcon(":/images/block.png"));
-    blockButton->setText("");
     blockButton->setToolButtonStyle(Qt::ToolButtonIconOnly);
     blockButton->setAutoRaise(true);
-    blockButton->setStatusTip(tr("block %1").arg(message.username));
+    action = new QAction(parent);
+    action->setToolTip(tr("block %1").arg(message.username));
+    blockButton->setDefaultAction(action);
+    blockButton->setIcon(QwitTools::getToolButtonIcon(":/images/block.png"));
+
     unblockButton = new QToolButton(parent);
-    unblockButton->setIcon(QwitTools::getToolButtonIcon(":/images/unblock.png"));
-    unblockButton->setText("");
     unblockButton->setToolButtonStyle(Qt::ToolButtonIconOnly);
     unblockButton->setAutoRaise(true);
-    unblockButton->setStatusTip(tr("unblock %1").arg(message.username));
+    action = new QAction(parent);
+    action->setToolTip(tr("unblock %1").arg(message.username));
+    unblockButton->setDefaultAction(action);
+    unblockButton->setIcon(QwitTools::getToolButtonIcon(":/images/unblock.png"));
 
     connect(followButton, SIGNAL(pressed()), this, SLOT(on_followToolButton_pressed()));
     connect(unfollowButton, SIGNAL(pressed()), this, SLOT(on_unfollowToolButton_pressed()));
