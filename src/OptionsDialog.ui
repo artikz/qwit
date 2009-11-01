@@ -47,11 +47,6 @@
          </item>
          <item>
           <property name="text">
-           <string>Translator</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
            <string>Connection</string>
           </property>
          </item>

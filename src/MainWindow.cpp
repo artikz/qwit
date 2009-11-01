@@ -55,11 +55,12 @@ MainWindow::MainWindow(QWidget *parent): QDialog(parent) {
 	instance = this;
 
 	setupUi(this);
-	
+
 	greetingMessageLabel = new QLabel(this);
 	leftCharactersNumberLabel = new QLabel(this);
 
 	messageTextEdit = new MessageTextEdit(this);
+
 	messageTextEdit->setObjectName(QString::fromUtf8("messageTextEdit"));
 	messageHorizontalLayout->insertWidget(0, messageTextEdit);
 	connect(messageTextEdit, SIGNAL(leftCharsNumberChanged(int)), this, SLOT(leftCharsNumberChanged(int)));
@@ -296,6 +297,8 @@ void MainWindow::updateState() {
 	for (int i = 0; i < pages.size(); ++i) {
 		mainTabWidget->addTab(pages[i], pages[i]->title());
 	}
+
+	urlShorteningEnabledButton->setIcon(QIcon(":/images/" + config->urlShortener + ".png"));
 	
 	updateCurrentAccount(config->currentAccountId);
 	

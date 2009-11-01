@@ -120,14 +120,14 @@ void Services::initialize() {
         customOptions["send"] = "/direct_messages/new";
         customOptions["destroydirectmessage"] = "/direct_messages/destroy/";
         options["custom"] = customOptions;
-
+/*
 	QMap<QString, QString> fakeShortenerOptions;
 	fakeShortenerOptions["title"] = "Do not shorten urls";
 	fakeShortenerOptions["apiurl"] = "";
 	fakeShortenerOptions["requesttemplate"] = "";
 	fakeShortenerOptions["responseregexp"] = "";
 	urlShorteners["0"] = fakeShortenerOptions;
-
+*/
 	QMap<QString, QString> murlkzOptions;
 	murlkzOptions["title"] = "murl.kz";
 	murlkzOptions["apiurl"] = "http://api.murl.kz/basic";
