@@ -75,7 +75,7 @@ void Twitter::sendMessage(const QString &message, quint64 inReplyToMessageId) {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, account->password);
+	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
 
 	QByteArray data = "status=";
 	data += QUrl::toPercentEncoding(message);
@@ -104,7 +104,7 @@ void Twitter::receiveFriendsMessages(quint64 lastMessageId, int count) {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, account->password);
+	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
 
 	buffer.open(QIODevice::WriteOnly);
 
@@ -126,7 +126,7 @@ void Twitter::receiveReplies(quint64 lastMessageId, int count) {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, account->password);
+	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
 
 	buffer.open(QIODevice::WriteOnly);
 
@@ -147,7 +147,7 @@ void Twitter::receivePublicMessages(quint64 lastMessageId, int count) {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, account->password);
+	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
 
 	buffer.open(QIODevice::WriteOnly);
 
@@ -187,7 +187,7 @@ void Twitter::receivePreviousSearchMessages(int page, int count, const QString &
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, account->password);
+	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
 
 	buffer.open(QIODevice::WriteOnly);
 
@@ -208,7 +208,7 @@ void Twitter::receiveLastMessage() {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, account->password);
+	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
 
 	buffer.open(QIODevice::WriteOnly);
 
@@ -229,7 +229,7 @@ void Twitter::receivePreviousFriendsMessages(quint64 lastMessageId, int count) {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, account->password);
+	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
 
 	buffer.open(QIODevice::WriteOnly);
 
@@ -250,7 +250,7 @@ void Twitter::receivePreviousReplies(quint64 lastMessageId, int count) {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, account->password);
+	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
 
 	buffer.open(QIODevice::WriteOnly);
 
@@ -271,7 +271,7 @@ void Twitter::receivePreviousPublicMessages(quint64 lastMessageId, int count) {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, account->password);
+	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
 
 	buffer.open(QIODevice::WriteOnly);
 
@@ -292,7 +292,7 @@ void Twitter::receiveFavorites() {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, account->password);
+	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
 
 	buffer.open(QIODevice::WriteOnly);
 
@@ -313,7 +313,7 @@ void Twitter::receivePreviousFavorites(int page) {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, account->password);
+	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
 
 	buffer.open(QIODevice::WriteOnly);
 
@@ -334,7 +334,7 @@ void Twitter::receiveInboxMessages(quint64 lastMessageId, int count) {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, account->password);
+	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
 
 	buffer.open(QIODevice::WriteOnly);
 
@@ -355,7 +355,7 @@ void Twitter::receivePreviousInboxMessages(quint64 lastMessageId, int count) {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, account->password);
+	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
 
 	buffer.open(QIODevice::WriteOnly);
 
@@ -376,7 +376,7 @@ void Twitter::receiveOutboxMessages(quint64 lastMessageId, int count) {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, account->password);
+	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
 
 	buffer.open(QIODevice::WriteOnly);
 
@@ -397,7 +397,7 @@ void Twitter::receivePreviousOutboxMessages(quint64 lastMessageId, int count) {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, account->password);
+	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
 
 	buffer.open(QIODevice::WriteOnly);
 
@@ -423,7 +423,7 @@ void Twitter::sendDirectMessage(const QString &username, const QString &message)
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, account->password);
+	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
 
 	QByteArray data = "user=" + QUrl::toPercentEncoding(username) + "&text=" + QUrl::toPercentEncoding(message);
 
@@ -452,7 +452,7 @@ void Twitter::favorMessage(quint64 messageId) {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, account->password);
+	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
 
 	QByteArray data;
 
@@ -481,7 +481,7 @@ void Twitter::unfavorMessage(quint64 messageId) {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, account->password);
+	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
 
 	QByteArray data;
 
@@ -510,7 +510,7 @@ void Twitter::destroyMessage(quint64 messageId) {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, account->password);
+	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
 
 	QByteArray data;
 
@@ -539,7 +539,7 @@ void Twitter::destroyDirectMessage(quint64 messageId) {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, account->password);
+	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
 
 	QByteArray data;
 
@@ -721,62 +721,62 @@ void Twitter::requestFinished(int id, bool error) {
 			account->setRemainingRequests(remainingRequests != "" ? remainingRequests.toInt() : -1);
 			emit previousSearchMessagesReceived(buffer.data());
 			receivePreviousSearchMessagesRequests.remove(id);
-	} else if (receiveFriendshipsRequests.find(id) != receiveFriendshipsRequests.end()) {
-	    qDebug() << ("Request finished: " + receiveFriendshipsRequests[id]);
-	    account->setRemainingRequests(remainingRequests != "" ? remainingRequests.toInt() : -1);
-	    emit friendshipsReceived(buffer.data());
-	    receiveFriendshipsRequests.remove(id);
-	} else if (receiveFollowersRequests.find(id) != receiveFollowersRequests.end()) {
-	    qDebug() << ("Request finished: " + receiveFollowersRequests[id]);
-	    account->setRemainingRequests(remainingRequests != "" ? remainingRequests.toInt() : -1);
-	    emit followersReceived(buffer.data());
-	    receiveFollowersRequests.remove(id);
-	} else if (receiveBlocksRequests.find(id) != receiveBlocksRequests.end()) {
-	    qDebug() << ("Request finished: " + receiveBlocksRequests[id]);
-	    account->setRemainingRequests(remainingRequests != "" ? remainingRequests.toInt() : -1);
-	    emit blocksReceived(buffer.data());
-	    receiveBlocksRequests.remove(id);
-	} else if (createFriendshipRequests.find(id) != createFriendshipRequests.end()) {
-	    qDebug() << ("Request finished: " + createFriendshipRequests[id]);
-	    account->setRemainingRequests(remainingRequests != "" ? remainingRequests.toInt() : -1);
-	    uint requestId = httpRequestId2InternalRequestId[id];
-	    httpRequestId2InternalRequestId.remove(id);
-	    emit friendshipCreated(buffer.data(), requestId);
-	    createFriendshipRequests.remove(id);
-	} else if (destroyFriendshipRequests.find(id) != destroyFriendshipRequests.end()) {
-	    qDebug() << ("Request finished: " + destroyFriendshipRequests[id]);
-	    account->setRemainingRequests(remainingRequests != "" ? remainingRequests.toInt() : -1);
-	    uint requestId = httpRequestId2InternalRequestId[id];
-	    httpRequestId2InternalRequestId.remove(id);
-	    emit friendshipDestroyed(buffer.data(), requestId);
-	    destroyFriendshipRequests.remove(id);
-	} else if (createBlockRequests.find(id) != createBlockRequests.end()) {
-	    qDebug() << ("Request finished: " + createBlockRequests[id]);
-	    account->setRemainingRequests(remainingRequests != "" ? remainingRequests.toInt() : -1);
-	    uint requestId = httpRequestId2InternalRequestId[id];
-	    httpRequestId2InternalRequestId.remove(id);
-	    emit blockCreated(buffer.data(), requestId);
-	    createBlockRequests.remove(id);
-	} else if (destroyBlockRequests.find(id) != destroyBlockRequests.end()) {
-	    qDebug() << ("Request finished: " + destroyBlockRequests[id]);
-	    account->setRemainingRequests(remainingRequests != "" ? remainingRequests.toInt() : -1);
-	    uint requestId = httpRequestId2InternalRequestId[id];
-	    httpRequestId2InternalRequestId.remove(id);
-	    emit blockDestroyed(buffer.data(), requestId);
-	    destroyBlockRequests.remove(id);
+		} else if (receiveFriendshipsRequests.find(id) != receiveFriendshipsRequests.end()) {
+			qDebug() << ("Request finished: " + receiveFriendshipsRequests[id]);
+			account->setRemainingRequests(remainingRequests != "" ? remainingRequests.toInt() : -1);
+			emit friendshipsReceived(buffer.data());
+			receiveFriendshipsRequests.remove(id);
+		} else if (receiveFollowersRequests.find(id) != receiveFollowersRequests.end()) {
+			qDebug() << ("Request finished: " + receiveFollowersRequests[id]);
+			account->setRemainingRequests(remainingRequests != "" ? remainingRequests.toInt() : -1);
+			emit followersReceived(buffer.data());
+			receiveFollowersRequests.remove(id);
+		} else if (receiveBlocksRequests.find(id) != receiveBlocksRequests.end()) {
+			qDebug() << ("Request finished: " + receiveBlocksRequests[id]);
+			account->setRemainingRequests(remainingRequests != "" ? remainingRequests.toInt() : -1);
+			emit blocksReceived(buffer.data());
+			receiveBlocksRequests.remove(id);
+		} else if (createFriendshipRequests.find(id) != createFriendshipRequests.end()) {
+			qDebug() << ("Request finished: " + createFriendshipRequests[id]);
+			account->setRemainingRequests(remainingRequests != "" ? remainingRequests.toInt() : -1);
+			uint requestId = httpRequestId2InternalRequestId[id];
+			httpRequestId2InternalRequestId.remove(id);
+			emit friendshipCreated(buffer.data(), requestId);
+			createFriendshipRequests.remove(id);
+		} else if (destroyFriendshipRequests.find(id) != destroyFriendshipRequests.end()) {
+			qDebug() << ("Request finished: " + destroyFriendshipRequests[id]);
+			account->setRemainingRequests(remainingRequests != "" ? remainingRequests.toInt() : -1);
+			uint requestId = httpRequestId2InternalRequestId[id];
+			httpRequestId2InternalRequestId.remove(id);
+			emit friendshipDestroyed(buffer.data(), requestId);
+			destroyFriendshipRequests.remove(id);
+		} else if (createBlockRequests.find(id) != createBlockRequests.end()) {
+			qDebug() << ("Request finished: " + createBlockRequests[id]);
+			account->setRemainingRequests(remainingRequests != "" ? remainingRequests.toInt() : -1);
+			uint requestId = httpRequestId2InternalRequestId[id];
+			httpRequestId2InternalRequestId.remove(id);
+			emit blockCreated(buffer.data(), requestId);
+			createBlockRequests.remove(id);
+		} else if (destroyBlockRequests.find(id) != destroyBlockRequests.end()) {
+			qDebug() << ("Request finished: " + destroyBlockRequests[id]);
+			account->setRemainingRequests(remainingRequests != "" ? remainingRequests.toInt() : -1);
+			uint requestId = httpRequestId2InternalRequestId[id];
+			httpRequestId2InternalRequestId.remove(id);
+			emit blockDestroyed(buffer.data(), requestId);
+			destroyBlockRequests.remove(id);
 		}
 	} else {
 		if (sendMessageRequests.find(id) != sendMessageRequests.end()) {
-			qDebug() << ("Request failed (message not sent): " + sendMessageRequests[id]);
+			qWarning() << ("Request failed (message not sent): " + sendMessageRequests[id]);
 			emit messageNotSent();
 			sendMessageRequests.remove(id);
 		}
 		if (http->lastResponse().isValid()) {
-			qDebug() << ("Twitter::requestFinished() " + QString::number(id) + " error " + QString::number(http->lastResponse().statusCode()) + " " + http->lastResponse().reasonPhrase());
+			qWarning() << ("Twitter::requestFinished() " + QString::number(id) + " error " + QString::number(http->lastResponse().statusCode()) + " " + http->lastResponse().reasonPhrase());
 		} else if (error) {
-			qDebug() << ("Twitter::requestFinished() " + QString::number(id) + " error " + QString::number(http->error()) + " " + http->errorString());
+			qWarning() << ("Twitter::requestFinished() " + QString::number(id) + " error " + QString::number(http->error()) + " " + http->errorString());
 		} else {
-			qDebug() << ("Twitter::requestFinished() " + QString::number(id));
+			qWarning() << ("Twitter::requestFinished() " + QString::number(id));
 		}
 	}
 }
@@ -801,7 +801,7 @@ void Twitter::receiveFriendships() {
 	http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
     }
 
-    http->setUser(account->username, account->password);
+    http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
 
     buffer.open(QIODevice::WriteOnly);
 
@@ -822,7 +822,7 @@ void Twitter::receiveFollowers() {
 	http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
     }
 
-    http->setUser(account->username, account->password);
+    http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
 
     buffer.open(QIODevice::WriteOnly);
 
@@ -843,7 +843,7 @@ void Twitter::receiveBlocks() {
 	http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
     }
 
-    http->setUser(account->username, account->password);
+    http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
 
     buffer.open(QIODevice::WriteOnly);
 
@@ -869,7 +869,7 @@ void Twitter::createFriendship(QString screenName, uint requestId) {
 	http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
     }
 
-    http->setUser(account->username, account->password);
+    http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
 
     QByteArray data = "screen_name=";
     data+= screenName;
@@ -899,7 +899,7 @@ void Twitter::destroyFriendship(QString screenName, uint requestId) {
 	http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
     }
 
-    http->setUser(account->username, account->password);
+    http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
 
     QByteArray data = "screen_name=";
     data += screenName;
@@ -929,7 +929,7 @@ void Twitter::createBlock(QString screenName, uint requestId) {
 	http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
     }
 
-    http->setUser(account->username, account->password);
+    http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
 
     QByteArray data;
 
@@ -958,7 +958,7 @@ void Twitter::destroyBlock(QString screenName, uint requestId) {
 	http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
     }
 
-    http->setUser(account->username, account->password);
+    http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
 
     QByteArray data;
 

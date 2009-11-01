@@ -761,7 +761,7 @@ QString QwitTools::prepareMessage(const QString &text, Account *account) {
 void handleMessage(QtMsgType type, const char *msg) {
 	switch (type) {
 		case QtDebugMsg:
-			cout << qPrintable(QDateTime::currentDateTime().toString()) << " Debug: " << msg << endl;
+//			cout << qPrintable(QDateTime::currentDateTime().toString()) << " Debug: " << msg << endl;
 			break;
 		case QtWarningMsg:
 			cerr << qPrintable(QDateTime::currentDateTime().toString()) << " Warning: " << msg << endl;

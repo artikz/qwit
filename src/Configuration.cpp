@@ -36,6 +36,7 @@
 #include "Configuration.h"
 #include "Services.h"
 
+QByteArray Configuration::key;
 const QString Configuration::CompanyName = "arti";
 const QString Configuration::ApplicationName = "qwit2";
 const QString Configuration::CacheDirectory = QDir::homePath() + "/.qwit2/";
@@ -69,6 +70,11 @@ Configuration::Configuration() {
 		UrlShorteners.push_back(it.key());
 		UrlShortenersIds[it.key()] = UrlShorteners.size() - 1;
 	}
+	int x = 113;
+	for (int i = 0; i < 100; ++i) {
+		key.append((char)x);
+		x = (x * x) % 253;
+	}
 }
 
 Configuration* Configuration::getInstance() {
@@ -83,6 +89,7 @@ void Configuration::load() {
 	size = settings.value("size", QSize(300, 600)).toSize();
 	currentAccountId = settings.value("currentAccountId", -1).toInt();
 	searchQuery = settings.value("searchQuery", "").toString();
+	bool encryptPasswords = settings.value("encryptPasswords", false).toBool();
 	settings.endGroup();
 	
 // User interface
@@ -148,6 +155,9 @@ void Configuration::load() {
 		settings.setArrayIndex(i);
 		QString username = settings.value("username", "").toString();
 		QString password = settings.value("password", "").toString();
+		if (encryptPasswords) {
+			password = decrypt(password);
+		}
 		QString type = settings.value("type", "").toString();
 		bool useHttps = settings.value("useHttps", false).toBool();
                 QString serviceBaseUrl = settings.value("serviceBaseUrl", "").toString();
@@ -165,6 +175,9 @@ void Configuration::load() {
 	proxyPort = settings.value("proxyPort", "").toInt();
 	proxyUsername = settings.value("proxyUsername", "").toString();
 	proxyPassword = settings.value("proxyPassword", "").toString();
+	if (encryptPasswords) {
+		proxyPassword = decrypt(proxyPassword);
+	}
 	settings.endGroup();
 
 // UrlShortener
@@ -182,6 +195,7 @@ void Configuration::save() {
 	settings.setValue("size", size);
 	settings.setValue("currentAccountId", currentAccountId);
 	settings.setValue("searchQuery", searchQuery);
+	settings.setValue("encryptPasswords", true);
 	settings.endGroup();
 
 // User interface
@@ -241,7 +255,7 @@ void Configuration::save() {
 	for (int i = 0; i < accounts.size(); ++i) {
 		settings.setArrayIndex(i);
 		settings.setValue("username", accounts[i]->username);
-		settings.setValue("password", accounts[i]->password);
+		settings.setValue("password", encrypt(accounts[i]->password));
 		settings.setValue("type", accounts[i]->type);
 		settings.setValue("useHttps", accounts[i]->useHttps);
                 if (accounts[i]->type == "custom") {
@@ -258,7 +272,7 @@ void Configuration::save() {
 	settings.setValue("proxyAddress", proxyAddress);
 	settings.setValue("proxyPort", proxyPort);
 	settings.setValue("proxyUsername", proxyUsername);
-	settings.setValue("proxyPassword", proxyPassword);
+	settings.setValue("proxyPassword", encrypt(proxyPassword));
 	settings.endGroup();
 	
 // UrlShortener
@@ -312,6 +326,25 @@ void Configuration::loadMessages() {
 		accounts[i]->loadMessages(messagesCache);
 	}
 	messagesCache.endArray();
+}
+
+QString Configuration::encrypt(const QString &s) {
+	QByteArray data = s.toUtf8();
+	for (int i = 0; i < data.size(); ++i) {
+		data[i] = data[i] ^ key[i % key.size()];
+	}
+	QString result = data.toBase64();
+	return result;
+}
+
+QString Configuration::decrypt(const QString &s) {
+	QByteArray data = QByteArray::fromBase64(s.toUtf8());
+	for (int i = 0; i < data.size(); ++i) {
+		data[i] = data[i] ^ key[i % key.size()];
+	}
+	QString result = QString::fromUtf8(data);
+	qDebug() << "A " << result;
+	return result;
 }
 
 #endif

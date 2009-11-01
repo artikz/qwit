@@ -57,7 +57,7 @@ TwitterWidget::TwitterWidget(QWidget *parent, bool paintMentions): QWidget(paren
 }
 
 void TwitterWidget::clear() {
-	qDebug() << ("TwitterWidget::clear()");
+//	qDebug() << ("TwitterWidget::clear()");
 
 	for (int i = 0; i < items.size(); ++i) {
 		delete items[i];
@@ -310,7 +310,7 @@ int TwitterWidget::arrangeDirectMessage(TwitterWidgetItem *item, int index, int 
 }
 
 void TwitterWidget::updateItems() {
-	qDebug() << ("TwitterWidget::updateItems()");
+//	qDebug() << ("TwitterWidget::updateItems()");
 
 	retweetButtonGroup.buttons().clear();
 	replyButtonGroup.buttons().clear();

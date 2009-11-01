@@ -40,7 +40,10 @@ class Configuration {
 	Configuration();
 	static QSettings settings;
 	static QSettings messagesCache;
-	
+	static QString encrypt(const QString &s);
+	static QString decrypt(const QString &s);
+	static QByteArray key;
+
 public:
 	static const QString CompanyName;
 	static const QString ApplicationName;
