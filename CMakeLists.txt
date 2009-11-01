@@ -25,35 +25,45 @@ set( qwit_UI
 	src/AboutDialog.ui
 	src/AccountConfigurationDialog.ui
 	src/DirectMessageDialog.ui
+	src/FriendsMgmtDialog.ui
 	)
 
 set( qwit_SRCS
-	src/Configuration.cpp
-	src/MessageTextEdit.cpp
-	src/OptionsDialog.cpp
-	src/AboutDialog.cpp
-	src/DirectMessageDialog.cpp
-	src/TwitPicDialog.cpp
-	src/AccountConfigurationDialog.cpp
-	src/Account.cpp
-	src/AbstractPage.cpp
-	src/HomePage.cpp
-	src/PublicPage.cpp
-	src/RepliesPage.cpp
-	src/FavoritesPage.cpp
-	src/InboxPage.cpp
-	src/OutboxPage.cpp
-	src/SearchPage.cpp
-	src/TwitterWidget.cpp
-	src/TwitterWidgetItem.cpp
-	src/Services.cpp
-	src/Twitter.cpp
-	src/Message.cpp
-	src/QwitTools.cpp
-	src/UserpicsDownloader.cpp
-	src/UrlShortener.cpp
-	src/MainWindow.cpp
-	src/qwit.cpp
+    src/qwit.cpp
+    src/Configuration.cpp
+    src/MainWindow.cpp
+    src/MessageTextEdit.cpp
+    src/OptionsDialog.cpp
+    src/AboutDialog.cpp
+    src/DirectMessageDialog.cpp
+    src/TwitPicDialog.cpp
+    src/AccountConfigurationDialog.cpp
+    src/Account.cpp
+    src/AbstractPage.cpp
+    src/HomePage.cpp
+    src/PublicPage.cpp
+    src/RepliesPage.cpp
+    src/FavoritesPage.cpp
+    src/InboxPage.cpp
+    src/OutboxPage.cpp
+    src/SearchPage.cpp
+    src/TwitterWidget.cpp
+    src/Services.cpp
+    src/Twitter.cpp
+    src/Message.cpp
+    src/QwitTools.cpp
+    src/UserpicsDownloader.cpp
+    src/UrlShortener.cpp
+    src/TwitterWidgetItem.cpp
+    src/FriendsMgmtDialog.cpp
+    src/UserMgmtWidget.cpp
+    src/UserMgmtWidgetItem.cpp
+    src/TwitterWidgetItemMessage.cpp
+	src/Translator.cpp
+    src/AbstractUserMgmtPage.cpp
+    src/FriendshipsMgmtPage.cpp
+    src/FollowersMgmtPage.cpp
+    src/BlocksMgmtPage.cpp
 	)
 
 file( GLOB qwit_TS translations/*.ts )
