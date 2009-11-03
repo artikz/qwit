@@ -57,7 +57,7 @@ p, li { white-space: pre-wrap; }
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;Artem Iglikov - founder and lead developer&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;  e-mail: &lt;/span&gt;&lt;a href=&quot;mailto:artem.iglikov@gmail.com&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;artem.iglikov@gmail.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;  blog: &lt;/span&gt;&lt;a href=&quot;http://arti.kz&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://arti.kz&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
@@ -70,10 +70,10 @@ p, li { white-space: pre-wrap; }
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;Everaldo Coelho&lt;br /&gt;  really cool Crystal icon theme author&lt;br /&gt;  website: &lt;/span&gt;&lt;a href=&quot;http://www.everaldo.com&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.everaldo.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;Thomas Salm&lt;br /&gt;  user management dialog developer&lt;br /&gt;  website: &lt;/span&gt;&lt;a href=&quot;http://www.devtom.de&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.devtom.de&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;Roopesh Chander&lt;br /&gt;  twitpic integrator&lt;br /&gt;  blog: &lt;/span&gt;&lt;a href=&quot;http://blog.forwardbias.in/&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://blog.forwardbias.in/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;Roopesh Chander&lt;br /&gt;  twitpic integrator, some cool features author&lt;br /&gt;  blog: &lt;/span&gt;&lt;a href=&quot;http://blog.forwardbias.in/&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://blog.forwardbias.in/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;Valentin Gritsinger&lt;br /&gt;  direct messages and search integrator&lt;br /&gt;  blog: &lt;/span&gt;&lt;a href=&quot;http://gritsinger.com&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://gritsinger.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;kiracatgirl&lt;br /&gt;  author of several patches&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;Mstislav Sokolov&lt;br /&gt;  FreeBSD package maintainer&lt;br /&gt;  blog: &lt;/span&gt;&lt;a href=&quot;http://truebsd.org/sokolov/&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://truebsd.org/sokolov/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
@@ -87,7 +87,7 @@ p, li { white-space: pre-wrap; }
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;This program is free software: you can redistribute it and/or modify&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;it under the terms of the GNU General Public License as published by&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;the Free Software Foundation, either version 3 of the License, or&lt;/span&gt;&lt;/p&gt;
@@ -180,22 +180,21 @@ p, li { white-space: pre-wrap; }
         <translation>密码:</translation>
     </message>
     <message>
-        <location filename="../src/AccountConfigurationDialog.ui" line="52"/>
         <source>save password</source>
-        <translation>保存密码</translation>
+        <translation type="obsolete">保存密码</translation>
     </message>
     <message>
-        <location filename="../src/AccountConfigurationDialog.ui" line="59"/>
+        <location filename="../src/AccountConfigurationDialog.ui" line="52"/>
         <source>use https instead of http</source>
         <translation>使用https安全连接</translation>
     </message>
     <message>
-        <location filename="../src/AccountConfigurationDialog.ui" line="66"/>
+        <location filename="../src/AccountConfigurationDialog.ui" line="59"/>
         <source>Service base URL:</source>
         <translation>服务基本URL地址:</translation>
     </message>
     <message>
-        <location filename="../src/AccountConfigurationDialog.ui" line="76"/>
+        <location filename="../src/AccountConfigurationDialog.ui" line="69"/>
         <source>Service API URL:</source>
         <translation>服务API URL地址:</translation>
     </message>
@@ -343,37 +342,37 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../src/MainWindow.cpp" line="773"/>
+        <location filename="../src/MainWindow.cpp" line="776"/>
         <source>Pick an image</source>
         <translation>选择一幅图片</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="583"/>
+        <location filename="../src/MainWindow.cpp" line="586"/>
         <source>&amp;Show / Hide</source>
         <translation>&amp;显示/隐藏主界面</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="585"/>
+        <location filename="../src/MainWindow.cpp" line="588"/>
         <source>&amp;Quit</source>
         <translation>&amp;退出</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="705"/>
+        <location filename="../src/MainWindow.cpp" line="708"/>
         <source>Qwit: new messages receieved for %1@%2</source>
         <translation>快推:%2账户%1中有新推</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="773"/>
+        <location filename="../src/MainWindow.cpp" line="776"/>
         <source>Image Files (*.png *.jpg *.jpeg *.bmp *.PNG *.JPG *.JPEG *.BMP)</source>
         <translation>图片文件 (*.png *.jpg *.jpeg *.bmp *.PNG *.JPG *.JPEG *.BMP)</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="805"/>
+        <location filename="../src/MainWindow.cpp" line="808"/>
         <source>Disable shortening of pasted links</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.cpp" line="807"/>
+        <location filename="../src/MainWindow.cpp" line="810"/>
         <source>Enable shortening of pasted links</source>
         <translation type="unfinished"></translation>
     </message>
@@ -477,54 +476,54 @@ p, li { white-space: pre-wrap; }
         <translation>选项</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="387"/>
+        <location filename="../src/OptionsDialog.ui" line="375"/>
         <source>Update interval:</source>
         <translation>更新时间间隔:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="400"/>
+        <location filename="../src/OptionsDialog.ui" line="388"/>
         <source>s</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="447"/>
+        <location filename="../src/OptionsDialog.ui" line="435"/>
         <source>Misc</source>
         <translation>杂项</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="455"/>
+        <location filename="../src/OptionsDialog.ui" line="443"/>
         <source>Show greeting message:</source>
         <translation>显示欢迎语:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="468"/>
+        <location filename="../src/OptionsDialog.ui" line="456"/>
         <source>Show left characters number</source>
         <translation>显示剩余字数</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="475"/>
+        <location filename="../src/OptionsDialog.ui" line="463"/>
         <source>Number of messages per page:</source>
         <translation>每页显示推数:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="505"/>
+        <location filename="../src/OptionsDialog.ui" line="493"/>
         <source>Display retweet tag after text instead of in front</source>
         <translation>把RT标记移到推尾</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="532"/>
+        <location filename="../src/OptionsDialog.ui" line="520"/>
         <source>Place controls vertically</source>
         <translation>竖直放置操作按钮</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="542"/>
+        <location filename="../src/OptionsDialog.ui" line="530"/>
         <source>Place tabs vertically</source>
         <translation>竖直放置标签栏</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.cpp" line="76"/>
         <location filename="../src/OptionsDialog.ui" line="40"/>
-        <location filename="../src/OptionsDialog.ui" line="1181"/>
+        <location filename="../src/OptionsDialog.ui" line="1169"/>
         <source>Accounts</source>
         <translation>账户</translation>
     </message>
@@ -536,189 +535,187 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../src/OptionsDialog.cpp" line="80"/>
-        <location filename="../src/OptionsDialog.ui" line="55"/>
-        <location filename="../src/OptionsDialog.ui" line="84"/>
+        <location filename="../src/OptionsDialog.ui" line="50"/>
+        <location filename="../src/OptionsDialog.ui" line="79"/>
         <source>Connection</source>
         <translation>连接</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.cpp" line="82"/>
-        <location filename="../src/OptionsDialog.ui" line="60"/>
-        <location filename="../src/OptionsDialog.ui" line="190"/>
+        <location filename="../src/OptionsDialog.ui" line="55"/>
+        <location filename="../src/OptionsDialog.ui" line="178"/>
         <source>User interface</source>
         <translation>用户界面</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.cpp" line="84"/>
-        <location filename="../src/OptionsDialog.ui" line="50"/>
-        <location filename="../src/OptionsDialog.ui" line="1158"/>
+        <location filename="../src/OptionsDialog.ui" line="1146"/>
         <source>Translator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="98"/>
+        <location filename="../src/OptionsDialog.ui" line="93"/>
         <source>use proxy</source>
         <translation>使用代理</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="105"/>
+        <location filename="../src/OptionsDialog.ui" line="100"/>
         <source>Proxy address:</source>
         <translation>地址:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="118"/>
+        <location filename="../src/OptionsDialog.ui" line="113"/>
         <source>Proxy port:</source>
         <translation>端口:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="131"/>
+        <location filename="../src/OptionsDialog.ui" line="126"/>
         <source>Proxy username:</source>
         <translation>用户名:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="144"/>
+        <location filename="../src/OptionsDialog.ui" line="139"/>
         <source>Proxy password:</source>
         <translation>密码:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="161"/>
         <source>save proxy password</source>
-        <translation>保存密码</translation>
+        <translation type="obsolete">保存密码</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="200"/>
+        <location filename="../src/OptionsDialog.ui" line="188"/>
         <source>Tabs</source>
         <translation>标签</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="210"/>
+        <location filename="../src/OptionsDialog.ui" line="198"/>
         <source>Home</source>
         <translation>首页</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="220"/>
-        <location filename="../src/OptionsDialog.ui" line="244"/>
-        <location filename="../src/OptionsDialog.ui" line="265"/>
-        <location filename="../src/OptionsDialog.ui" line="289"/>
-        <location filename="../src/OptionsDialog.ui" line="310"/>
-        <location filename="../src/OptionsDialog.ui" line="334"/>
-        <location filename="../src/OptionsDialog.ui" line="355"/>
-        <location filename="../src/OptionsDialog.ui" line="376"/>
+        <location filename="../src/OptionsDialog.ui" line="208"/>
+        <location filename="../src/OptionsDialog.ui" line="232"/>
+        <location filename="../src/OptionsDialog.ui" line="253"/>
+        <location filename="../src/OptionsDialog.ui" line="277"/>
+        <location filename="../src/OptionsDialog.ui" line="298"/>
+        <location filename="../src/OptionsDialog.ui" line="322"/>
+        <location filename="../src/OptionsDialog.ui" line="343"/>
+        <location filename="../src/OptionsDialog.ui" line="364"/>
         <source>auto-update</source>
         <translation>自动更新</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="234"/>
+        <location filename="../src/OptionsDialog.ui" line="222"/>
         <source>Public</source>
         <translation>公众页面</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="255"/>
+        <location filename="../src/OptionsDialog.ui" line="243"/>
         <source>Replies</source>
         <translation>回复</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="279"/>
+        <location filename="../src/OptionsDialog.ui" line="267"/>
         <source>Custom</source>
         <translation>自定义</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="300"/>
+        <location filename="../src/OptionsDialog.ui" line="288"/>
         <source>Inbox</source>
         <translation>私信收件箱</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="324"/>
+        <location filename="../src/OptionsDialog.ui" line="312"/>
         <source>Outbox</source>
         <translation>私信发件箱</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="345"/>
+        <location filename="../src/OptionsDialog.ui" line="333"/>
         <source>Search</source>
         <translation>搜索</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="366"/>
+        <location filename="../src/OptionsDialog.ui" line="354"/>
         <source>Favorites</source>
         <translation>收藏夹</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="485"/>
+        <location filename="../src/OptionsDialog.ui" line="473"/>
         <source>Number of messages in popup:</source>
         <translation>任务栏每次弹出显示新推数目:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="495"/>
+        <location filename="../src/OptionsDialog.ui" line="483"/>
         <source>Retweet tag:</source>
         <translation>重推标记:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="512"/>
+        <location filename="../src/OptionsDialog.ui" line="500"/>
         <source>Place username under avatar</source>
         <translation>放置用户名于头像正下方</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="522"/>
+        <location filename="../src/OptionsDialog.ui" line="510"/>
         <source>Show messages in the tray</source>
         <translation>有新推时在任务栏弹出提示</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="552"/>
+        <location filename="../src/OptionsDialog.ui" line="540"/>
         <source>Show last status</source>
         <translation>显示最后更新的状态</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="578"/>
+        <location filename="../src/OptionsDialog.ui" line="566"/>
         <source>Colors</source>
         <translation>颜色</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="588"/>
+        <location filename="../src/OptionsDialog.ui" line="576"/>
         <source>Common messages:</source>
         <translation>普通消息:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="844"/>
+        <location filename="../src/OptionsDialog.ui" line="832"/>
         <source>Mentions:</source>
         <translation>醒目消息:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="1114"/>
+        <location filename="../src/OptionsDialog.ui" line="1102"/>
         <source>Language</source>
         <translation>语言</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="1122"/>
+        <location filename="../src/OptionsDialog.ui" line="1110"/>
         <source>Choose UI language:</source>
         <translation>选择界面语言:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="1189"/>
+        <location filename="../src/OptionsDialog.ui" line="1177"/>
         <source>Service:</source>
         <translation>选择微博服务:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="1207"/>
+        <location filename="../src/OptionsDialog.ui" line="1195"/>
         <source>Add</source>
         <translation>添加</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="1223"/>
+        <location filename="../src/OptionsDialog.ui" line="1211"/>
         <source>Edit...</source>
         <translation>编辑...</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="1230"/>
+        <location filename="../src/OptionsDialog.ui" line="1218"/>
         <source>Delete...</source>
         <translation>删除...</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="1263"/>
+        <location filename="../src/OptionsDialog.ui" line="1251"/>
         <source>Url shortener</source>
         <translation>缩短URL</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="1271"/>
+        <location filename="../src/OptionsDialog.ui" line="1259"/>
         <source>Choose service:</source>
         <translation>选择短域名服务提供商:</translation>
     </message>

@@ -14,7 +14,7 @@ RCC_DIR = var
 unix:# Prefix: base instalation directory
 isEmpty( PREFIX ):PREFIX = /usr/local
 #DEFINES += 'REVISION=\\\"$(shell svnversion -n .)\\\"'
-DEFINES += 'VERSION=\\\"1.0-alpha\\\"'
+DEFINES += 'VERSION=\\\"1.0-beta\\\"'
 
 # Input
 HEADERS += src/Configuration.h \
