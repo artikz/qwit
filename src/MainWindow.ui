@@ -168,6 +168,9 @@
        </item>
        <item>
         <widget class="QToolButton" name="friendsMgmtToolButton">
+         <property name="toolTip">
+          <string>Friends</string>
+         </property>
          <property name="text">
           <string>...</string>
          </property>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="fi_FI" sourcelanguage="en_US">
+<TS version="2.0" language="pl_PL">
 <context>
     <name></name>
     <message>
         <location filename="../src/qwit.cpp" line="58"/>
         <source>System (%1, %2)</source>
-        <translation type="unfinished"></translation>
+        <translation>Systemowy (%1, %2)</translation>
     </message>
 </context>
 <context>
@@ -14,17 +14,17 @@
     <message>
         <location filename="../src/AboutDialog.ui" line="17"/>
         <source>About Qwit</source>
-        <translation type="unfinished"></translation>
+        <translation>O programie Qwit</translation>
     </message>
     <message>
         <location filename="../src/AboutDialog.ui" line="66"/>
         <source>Qwit</source>
-        <translation type="unfinished">Qwit</translation>
+        <translation>Qwit</translation>
     </message>
     <message>
         <location filename="../src/AboutDialog.ui" line="95"/>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>O programie</translation>
     </message>
     <message>
         <location filename="../src/AboutDialog.ui" line="116"/>
@@ -42,7 +42,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/AboutDialog.ui" line="150"/>
         <source>Authors</source>
-        <translation type="unfinished"></translation>
+        <translation>Autorzy</translation>
     </message>
     <message>
         <location filename="../src/AboutDialog.ui" line="156"/>
@@ -55,6 +55,23 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;  blog: &lt;/span&gt;&lt;a href=&quot;http://arti.kz&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://arti.kz&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/AboutDialog.ui" line="178"/>
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;Everaldo Coelho&lt;br /&gt;  really cool Crystal icon theme author&lt;br /&gt;  website: &lt;/span&gt;&lt;a href=&quot;http://www.everaldo.com&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.everaldo.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;Thomas Salm&lt;br /&gt;  user management dialog developer&lt;br /&gt;  website: &lt;/span&gt;&lt;a href=&quot;http://www.devtom.de&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.devtom.de&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;Roopesh Chander&lt;br /&gt;  twitpic integrator, some cool features author&lt;br /&gt;  blog: &lt;/span&gt;&lt;a href=&quot;http://blog.forwardbias.in/&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://blog.forwardbias.in/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;Valentin Gritsinger&lt;br /&gt;  direct messages and search integrator&lt;br /&gt;  blog: &lt;/span&gt;&lt;a href=&quot;http://gritsinger.com&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://gritsinger.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;kiracatgirl&lt;br /&gt;  author of several patches&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;Mstislav Sokolov&lt;br /&gt;  FreeBSD package maintainer&lt;br /&gt;  blog: &lt;/span&gt;&lt;a href=&quot;http://truebsd.org/sokolov/&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://truebsd.org/sokolov/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;Carlos Galisteo&lt;br /&gt;  official Debian package maintainer&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;Salvatore Ansani&lt;br /&gt;  unofficial Debian package maintainer&lt;br /&gt;  blog: &lt;/span&gt;&lt;a href=&quot;http://ansani.it/&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://ansani.it/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;all people who post issues, submit patches, make translations and use Qwit&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -81,29 +98,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/AboutDialog.ui" line="172"/>
         <source>Thanks To</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/AboutDialog.ui" line="178"/>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;Everaldo Coelho&lt;br /&gt;  really cool Crystal icon theme author&lt;br /&gt;  website: &lt;/span&gt;&lt;a href=&quot;http://www.everaldo.com&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.everaldo.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;Thomas Salm&lt;br /&gt;  user management dialog developer&lt;br /&gt;  website: &lt;/span&gt;&lt;a href=&quot;http://www.devtom.de&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.devtom.de&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;Roopesh Chander&lt;br /&gt;  twitpic integrator, some cool features author&lt;br /&gt;  blog: &lt;/span&gt;&lt;a href=&quot;http://blog.forwardbias.in/&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://blog.forwardbias.in/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;Valentin Gritsinger&lt;br /&gt;  direct messages and search integrator&lt;br /&gt;  blog: &lt;/span&gt;&lt;a href=&quot;http://gritsinger.com&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://gritsinger.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;kiracatgirl&lt;br /&gt;  author of several patches&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;Mstislav Sokolov&lt;br /&gt;  FreeBSD package maintainer&lt;br /&gt;  blog: &lt;/span&gt;&lt;a href=&quot;http://truebsd.org/sokolov/&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://truebsd.org/sokolov/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;Carlos Galisteo&lt;br /&gt;  official Debian package maintainer&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;Salvatore Ansani&lt;br /&gt;  unofficial Debian package maintainer&lt;br /&gt;  blog: &lt;/span&gt;&lt;a href=&quot;http://ansani.it/&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://ansani.it/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;all people who post issues, submit patches, make translations and use Qwit&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>Podziękowania</translation>
     </message>
     <message>
         <location filename="../src/AboutDialog.ui" line="198"/>
         <source>License</source>
-        <translation type="unfinished"></translation>
+        <translation>Licencja</translation>
     </message>
 </context>
 <context>
@@ -111,7 +111,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/AbstractUserMgmtPage.cpp" line="73"/>
         <source> updated</source>
-        <translation type="unfinished"></translation>
+        <translation> - zaktualizowano</translation>
     </message>
 </context>
 <context>
@@ -119,36 +119,36 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="17"/>
         <source>Configure account...</source>
-        <translation type="unfinished"></translation>
+        <translation>Skonfiguruj konto...</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="28"/>
         <source>Username:</source>
-        <translation type="unfinished">Käyttäjänimi:</translation>
+        <translation>Nazwa użytkownika:</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="38"/>
         <source>Password:</source>
-        <translation type="unfinished">Salasana:</translation>
+        <translation>Hasło:</translation>
     </message>
     <message>
         <source>save password</source>
-        <translation type="obsolete">tallenna salasana</translation>
+        <translation type="obsolete">Zapamiętaj hasło</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="52"/>
         <source>use https instead of http</source>
-        <translation type="unfinished"></translation>
+        <translation>Używaj HTTPS zamiast HTTP</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="59"/>
         <source>Service base URL:</source>
-        <translation type="unfinished">Palvelun kanta-URL:</translation>
+        <translation>URL podstawowy usługi:</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="69"/>
         <source>Service API URL:</source>
-        <translation type="unfinished">Palvelun API URL:</translation>
+        <translation>URL API usługi:</translation>
     </message>
 </context>
 <context>
@@ -156,7 +156,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/BlocksMgmtPage.cpp" line="40"/>
         <source>Blocks</source>
-        <translation type="unfinished"></translation>
+        <translation>Zablokowani</translation>
     </message>
 </context>
 <context>
@@ -164,22 +164,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/DirectMessageDialog.ui" line="17"/>
         <source>Direct message</source>
-        <translation type="unfinished"></translation>
+        <translation>Wiadomość</translation>
     </message>
     <message>
         <location filename="../src/DirectMessageDialog.ui" line="27"/>
         <source>Account:</source>
-        <translation type="unfinished"></translation>
+        <translation>Konto:</translation>
     </message>
     <message>
         <location filename="../src/DirectMessageDialog.ui" line="48"/>
         <source>To:</source>
-        <translation type="unfinished"></translation>
+        <translation>Do:</translation>
     </message>
     <message>
         <location filename="../src/DirectMessageDialog.ui" line="60"/>
         <source>Message:</source>
-        <translation type="unfinished"></translation>
+        <translation>Treść:</translation>
     </message>
 </context>
 <context>
@@ -187,7 +187,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/FavoritesPage.cpp" line="64"/>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>Ulubione</translation>
     </message>
 </context>
 <context>
@@ -195,7 +195,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/FollowersMgmtPage.cpp" line="40"/>
         <source>Followers</source>
-        <translation type="unfinished"></translation>
+        <translation>Śledzący</translation>
     </message>
 </context>
 <context>
@@ -204,57 +204,57 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/FriendsMgmtDialog.cpp" line="199"/>
         <location filename="../src/FriendsMgmtDialog.cpp" line="239"/>
         <source>Blocking will prevent %1 from following you. And you won&apos;t see their tweets in your timeline. Are you sure you want to block?</source>
-        <translation type="unfinished"></translation>
+        <translation>Blokowanie uniemożliwi %1 śledzenie Cię ani nie będziesz widzieć jego wpisów. Czy na pewno chcesz go zablokować?</translation>
     </message>
     <message>
         <location filename="../src/FriendsMgmtDialog.cpp" line="279"/>
         <source>Following request sent to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Rozpoczynam śledzenie %1</translation>
     </message>
     <message>
         <location filename="../src/FriendsMgmtDialog.cpp" line="290"/>
         <source>Unfollowing %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Przestaję śledzić %1</translation>
     </message>
     <message>
         <location filename="../src/FriendsMgmtDialog.cpp" line="311"/>
         <source>%1 blocked</source>
-        <translation type="unfinished"></translation>
+        <translation>Zablokowano %1</translation>
     </message>
     <message>
         <location filename="../src/FriendsMgmtDialog.cpp" line="323"/>
         <source>%1 unblocked</source>
-        <translation type="unfinished"></translation>
+        <translation>Odblokowano %1</translation>
     </message>
     <message>
         <location filename="../src/FriendsMgmtDialog.ui" line="14"/>
         <source>Friends Management</source>
-        <translation type="unfinished"></translation>
+        <translation>Zarządzanie znajomościami</translation>
     </message>
     <message>
         <location filename="../src/FriendsMgmtDialog.ui" line="31"/>
         <source>Friends</source>
-        <translation type="unfinished"></translation>
+        <translation>Śledzeni</translation>
     </message>
     <message>
         <location filename="../src/FriendsMgmtDialog.ui" line="47"/>
         <source>new friend:</source>
-        <translation type="unfinished"></translation>
+        <translation>nowy znajomy:</translation>
     </message>
     <message>
         <location filename="../src/FriendsMgmtDialog.ui" line="60"/>
         <source>add</source>
-        <translation type="unfinished"></translation>
+        <translation>dodaj</translation>
     </message>
     <message>
         <location filename="../src/FriendsMgmtDialog.ui" line="75"/>
         <source>Followers</source>
-        <translation type="unfinished"></translation>
+        <translation>Śledzący</translation>
     </message>
     <message>
         <location filename="../src/FriendsMgmtDialog.ui" line="80"/>
         <source>Blocked</source>
-        <translation type="unfinished"></translation>
+        <translation>Blokowani</translation>
     </message>
 </context>
 <context>
@@ -262,17 +262,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/FriendshipsMgmtPage.cpp" line="41"/>
         <source>Friends</source>
-        <translation type="unfinished"></translation>
+        <translation>Znajomości</translation>
     </message>
     <message>
         <location filename="../src/FriendshipsMgmtPage.cpp" line="51"/>
         <source>new friend:</source>
-        <translation type="unfinished"></translation>
+        <translation>nowy znajomy:</translation>
     </message>
     <message>
         <location filename="../src/FriendshipsMgmtPage.cpp" line="55"/>
         <source>add</source>
-        <translation type="unfinished"></translation>
+        <translation>dodaj</translation>
     </message>
 </context>
 <context>
@@ -280,7 +280,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/HomePage.cpp" line="64"/>
         <source>Home</source>
-        <translation type="unfinished">Koti</translation>
+        <translation>Główna</translation>
     </message>
 </context>
 <context>
@@ -288,7 +288,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/InboxPage.cpp" line="64"/>
         <source>Inbox</source>
-        <translation type="unfinished">Saapuneet</translation>
+        <translation>Skrzynka odbiorcza</translation>
     </message>
 </context>
 <context>
@@ -296,37 +296,37 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/MainWindow.cpp" line="776"/>
         <source>Pick an image</source>
-        <translation>Valitse kuva</translation>
+        <translation>Wybierz obrazek</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="586"/>
         <source>&amp;Show / Hide</source>
-        <translation>&amp;Näytä / Piilota</translation>
+        <translation>&amp;Pokaż / Ukryj</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="588"/>
         <source>&amp;Quit</source>
-        <translation>&amp;Lopeta</translation>
+        <translation>Za&amp;kończ</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="708"/>
         <source>Qwit: new messages receieved for %1@%2</source>
-        <translation type="unfinished"></translation>
+        <translation>Qwit: otrzymano nowe wiadomości dla %1@%2</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="776"/>
         <source>Image Files (*.png *.jpg *.jpeg *.bmp *.PNG *.JPG *.JPEG *.BMP)</source>
-        <translation type="unfinished"></translation>
+        <translation>Obrazki (*.png *.jpg *.jpeg *.bmp *.PNG *.JPG *.JPEG *.BMP)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="808"/>
         <source>Disable shortening of pasted links</source>
-        <translation type="unfinished"></translation>
+        <translation>Wyłącz skracanie linków</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="810"/>
         <source>Enable shortening of pasted links</source>
-        <translation type="unfinished"></translation>
+        <translation>Włącza skracanie linków</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.ui" line="14"/>
@@ -336,22 +336,41 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/MainWindow.ui" line="65"/>
         <source>Add an image</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodaj obrazek</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.ui" line="104"/>
         <source>watching movie - 10 minutes ago</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.ui" line="136"/>
         <source>tmp</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/MainWindow.ui" line="172"/>
         <source>Friends</source>
-        <translation type="unfinished"></translation>
+        <translation>Znajomi</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.ui" line="189"/>
+        <source>Refresh</source>
+        <translation>Odśwież</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.ui" line="206"/>
+        <source>Options</source>
+        <translation>Opcje</translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.ui" line="240"/>
+        <source>Exit Qwit</source>
+        <translation>Wyjdź z Qwit</translation>
+    </message>
+    <message>
+        <source>Requests left</source>
+        <translation type="obsolete">Pozostałe żądania</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.ui" line="175"/>
@@ -360,65 +379,62 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/MainWindow.ui" line="226"/>
         <location filename="../src/MainWindow.ui" line="243"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="189"/>
-        <source>Refresh</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/MainWindow.ui" line="206"/>
-        <source>Options</source>
-        <translation type="unfinished">Asetukset</translation>
+        <source>Settings</source>
+        <translation type="obsolete">Ustawienia</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.ui" line="223"/>
         <source>About Qwit</source>
-        <translation type="unfinished"></translation>
+        <translation>O programie Qwit</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="240"/>
-        <source>Exit Qwit</source>
-        <translation type="unfinished"></translation>
+        <source>Quit</source>
+        <translation type="obsolete">Zakończ</translation>
     </message>
 </context>
 <context>
     <name>MessageTextEdit</name>
     <message>
+        <source>My Menu Item</source>
+        <translation type="obsolete">Menu kontekstowe</translation>
+    </message>
+    <message>
         <location filename="../src/MessageTextEdit.cpp" line="105"/>
         <source>Message too long</source>
-        <translation type="unfinished"></translation>
+        <translation>Wiadomość jest zbyt długa</translation>
     </message>
     <message>
         <location filename="../src/MessageTextEdit.cpp" line="106"/>
         <source>This message exceeds %1 characters.</source>
-        <translation type="unfinished"></translation>
+        <translation>Długość wiadomości przekracza %1 znaków.</translation>
     </message>
     <message>
         <location filename="../src/MessageTextEdit.cpp" line="107"/>
         <source>Your followers might receive only a truncated message. Do you want to send this message anyway?</source>
-        <translation type="unfinished"></translation>
+        <translation>Osoby, które Cię śledzą, mogą zobaczyć obcięty wpis. Czy na pewno chcesz wysłać ten wpis?</translation>
     </message>
     <message>
         <location filename="../src/MessageTextEdit.cpp" line="108"/>
         <source>Send</source>
-        <translation type="unfinished"></translation>
+        <translation>Wyślij</translation>
     </message>
     <message>
         <location filename="../src/MessageTextEdit.cpp" line="109"/>
         <source>Don&apos;t send</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie wysyłaj</translation>
     </message>
     <message>
         <location filename="../src/MessageTextEdit.cpp" line="266"/>
         <source>Translation error</source>
-        <translation type="unfinished"></translation>
+        <translation>Błąd tłumaczenia</translation>
     </message>
     <message>
         <location filename="../src/MessageTextEdit.cpp" line="266"/>
         <source>An error occured during translation - maybe this language isn&apos;t supported by GoogleTranslate yet.</source>
-        <translation type="unfinished"></translation>
+        <translation>Podczas tłumaczenia wystąpił błąd - możliwe, że Google Translate nie wspiera tego języka.</translation>
     </message>
 </context>
 <context>
@@ -426,124 +442,134 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/OptionsDialog.ui" line="20"/>
         <source>Options</source>
-        <translation>Asetukset</translation>
+        <translation>Opcje</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="375"/>
         <source>Update interval:</source>
-        <translation>Päivitysväli:</translation>
+        <translation>Odświeżaj co:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="388"/>
         <source>s</source>
-        <translation type="unfinished"></translation>
+        <translation>s</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="435"/>
         <source>Misc</source>
-        <translation type="unfinished"></translation>
+        <translation>Różne</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="443"/>
         <source>Show greeting message:</source>
-        <translation type="unfinished"></translation>
+        <translation>Wyświetl powitanie:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="456"/>
         <source>Show left characters number</source>
-        <translation type="unfinished"></translation>
+        <translation>Wyświetl liczbę pozostałych znaków</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="463"/>
         <source>Number of messages per page:</source>
-        <translation>Viestejä sivulla:</translation>
+        <translation>Liczba wiadomości na stronie:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="493"/>
-        <source>Display retweet tag after text instead of in front</source>
-        <translation>Näytä retweet-tagi tekstin jälkeen, ei sen edellä</translation>
+        <location filename="../src/OptionsDialog.ui" line="473"/>
+        <source>Number of messages in popup:</source>
+        <translation>Liczba wiadomości w powiadomieniu:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="520"/>
-        <source>Place controls vertically</source>
-        <translation type="unfinished">Kontrollit pystysuorassa</translation>
+        <location filename="../src/OptionsDialog.ui" line="483"/>
+        <source>Retweet tag:</source>
+        <translation>Znacznik ReTweetowania:</translation>
+    </message>
+    <message>
+        <location filename="../src/OptionsDialog.ui" line="500"/>
+        <source>Place username under avatar</source>
+        <translation>Wyświetl nazwę użytkownika pod awatarem</translation>
+    </message>
+    <message>
+        <location filename="../src/OptionsDialog.ui" line="510"/>
+        <source>Show messages in the tray</source>
+        <translation>Wyświetl wiadomości w tacce systemowej</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="530"/>
         <source>Place tabs vertically</source>
-        <translation>Välilehdet pystysuorassa</translation>
+        <translation>Wyświetl karty w pionie</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.cpp" line="76"/>
         <location filename="../src/OptionsDialog.ui" line="40"/>
         <location filename="../src/OptionsDialog.ui" line="1169"/>
         <source>Accounts</source>
-        <translation type="unfinished"></translation>
+        <translation>Konta</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.cpp" line="78"/>
         <location filename="../src/OptionsDialog.ui" line="45"/>
         <source>URL shortener</source>
-        <translation type="unfinished"></translation>
+        <translation>Usługa skracania adresów URL</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.cpp" line="80"/>
         <location filename="../src/OptionsDialog.ui" line="50"/>
         <location filename="../src/OptionsDialog.ui" line="79"/>
         <source>Connection</source>
-        <translation>Yhteys</translation>
+        <translation>Połączenie</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.cpp" line="82"/>
         <location filename="../src/OptionsDialog.ui" line="55"/>
         <location filename="../src/OptionsDialog.ui" line="178"/>
         <source>User interface</source>
-        <translation type="unfinished"></translation>
+        <translation>Interfejs użytkownika</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.cpp" line="84"/>
         <location filename="../src/OptionsDialog.ui" line="1146"/>
         <source>Translator</source>
-        <translation type="unfinished"></translation>
+        <translation>Tłumacz</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="93"/>
         <source>use proxy</source>
-        <translation>käytä välityspalvelinta</translation>
+        <translation>Używaj serwera Proxy</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="100"/>
         <source>Proxy address:</source>
-        <translation>Välityspalvelimen osoite:</translation>
+        <translation>Adres serwera Proxy:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="113"/>
         <source>Proxy port:</source>
-        <translation>Välityspalvelimen portti:</translation>
+        <translation>Port serwera Proxy:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="126"/>
         <source>Proxy username:</source>
-        <translation>Välityspalvelimen käyttäjätunnus:</translation>
+        <translation>Nazwa użytkownika na serwerze Proxy:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="139"/>
         <source>Proxy password:</source>
-        <translation>Välityspalvelimen salasana:</translation>
+        <translation>Hasło na serwerze Proxy:</translation>
     </message>
     <message>
         <source>save proxy password</source>
-        <translation type="obsolete">tallenna välityspalvelimen salasana</translation>
+        <translation type="obsolete">Zapamiętaj hasło serwera Proxy</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="188"/>
         <source>Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation>Karty</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="198"/>
         <source>Home</source>
-        <translation type="unfinished">Koti</translation>
+        <translation>Główna</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="208"/>
@@ -555,122 +581,112 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/OptionsDialog.ui" line="343"/>
         <location filename="../src/OptionsDialog.ui" line="364"/>
         <source>auto-update</source>
-        <translation type="unfinished"></translation>
+        <translation>auto-uaktualnianie</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="222"/>
         <source>Public</source>
-        <translation type="unfinished">Julkinen</translation>
+        <translation>Publiczna</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="243"/>
         <source>Replies</source>
-        <translation type="unfinished">Vastaukset</translation>
+        <translation>Odpowiedzi</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="267"/>
         <source>Custom</source>
-        <translation type="unfinished">Vapaavalintainen</translation>
+        <translation>Własna</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="288"/>
         <source>Inbox</source>
-        <translation type="unfinished">Saapuneet</translation>
+        <translation>Wiad. przychodzące</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="312"/>
         <source>Outbox</source>
-        <translation type="unfinished">Lähetetyt</translation>
+        <translation>Wiad. wychodzące</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="333"/>
         <source>Search</source>
-        <translation type="unfinished">Haku</translation>
+        <translation>Wyszukiwanie</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="354"/>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/OptionsDialog.ui" line="473"/>
-        <source>Number of messages in popup:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/OptionsDialog.ui" line="483"/>
-        <source>Retweet tag:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/OptionsDialog.ui" line="500"/>
-        <source>Place username under avatar</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/OptionsDialog.ui" line="510"/>
-        <source>Show messages in the tray</source>
-        <translation type="unfinished"></translation>
+        <translation>Ulubione</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="540"/>
         <source>Show last status</source>
-        <translation type="unfinished"></translation>
+        <translation>Wyświetlaj ostatni status</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="566"/>
         <source>Colors</source>
-        <translation type="unfinished"></translation>
+        <translation>Kolory</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="576"/>
         <source>Common messages:</source>
-        <translation type="unfinished"></translation>
+        <translation>Wiadomości ogółem:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="832"/>
         <source>Mentions:</source>
-        <translation type="unfinished"></translation>
+        <translation>Wzmianki:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1102"/>
         <source>Language</source>
-        <translation type="unfinished"></translation>
+        <translation>Język</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1110"/>
         <source>Choose UI language:</source>
-        <translation type="unfinished"></translation>
+        <translation>Wybierz język interfejsu:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1177"/>
         <source>Service:</source>
-        <translation type="unfinished"></translation>
+        <translation>Usługa:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1195"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Dodaj</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1211"/>
         <source>Edit...</source>
-        <translation type="unfinished"></translation>
+        <translation>Edytuj...</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1218"/>
         <source>Delete...</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuń...</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1251"/>
         <source>Url shortener</source>
-        <translation type="unfinished"></translation>
+        <translation>Usługa skracania URL</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1259"/>
         <source>Choose service:</source>
-        <translation type="unfinished"></translation>
+        <translation>Wybierz usługę:</translation>
+    </message>
+    <message>
+        <location filename="../src/OptionsDialog.ui" line="493"/>
+        <source>Display retweet tag after text instead of in front</source>
+        <translation>Wyświetl znacznik ReTweetowania na końcu zamiast na początku</translation>
+    </message>
+    <message>
+        <location filename="../src/OptionsDialog.ui" line="520"/>
+        <source>Place controls vertically</source>
+        <translation>Wyświetl kontrolki w pionie</translation>
     </message>
 </context>
 <context>
@@ -678,7 +694,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/OutboxPage.cpp" line="64"/>
         <source>Outbox</source>
-        <translation type="unfinished">Lähetetyt</translation>
+        <translation>Skrzynka nadawcza</translation>
     </message>
 </context>
 <context>
@@ -686,7 +702,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/PublicPage.cpp" line="65"/>
         <source>Public</source>
-        <translation type="unfinished">Julkinen</translation>
+        <translation>Publiczna</translation>
     </message>
 </context>
 <context>
@@ -694,38 +710,42 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/QwitTools.cpp" line="90"/>
         <source>Just now</source>
-        <translation type="unfinished">Juuri äsken</translation>
+        <translation>Teraz</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/QwitTools.cpp" line="91"/>
         <source>about %n second(s) ago</source>
-        <translation type="unfinished">
-            <numerusform>noin %n sekunti sitten</numerusform>
-            <numerusform>noin %n sekuntia sitten</numerusform>
+        <translation>
+            <numerusform>Około %n sekunda temu</numerusform>
+            <numerusform>Około %n sekundy temu</numerusform>
+            <numerusform>Około %n sekund temu</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../src/QwitTools.cpp" line="93"/>
         <source>about %n minute(s) ago</source>
-        <translation type="unfinished">
-            <numerusform>noin %n minuutti sitten</numerusform>
-            <numerusform>noin %n minuuttia sitten</numerusform>
+        <translation>
+            <numerusform>Około %n minuta temu</numerusform>
+            <numerusform>Około %n minuty temu</numerusform>
+            <numerusform>Około %n minut temu</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../src/QwitTools.cpp" line="95"/>
         <source>about %n hour(s) ago</source>
-        <translation type="unfinished">
-            <numerusform>noin %n tunti sitten</numerusform>
-            <numerusform>noin %n tuntia sitten</numerusform>
+        <translation>
+            <numerusform>Około %n godzina temu</numerusform>
+            <numerusform>Około %n godziny temu</numerusform>
+            <numerusform>Około %n godzin temu</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../src/QwitTools.cpp" line="97"/>
         <source>about %n day(s) ago</source>
-        <translation type="unfinished">
-            <numerusform>noin %n päivä sitten</numerusform>
-            <numerusform>noin %n päivää sitten</numerusform>
+        <translation>
+            <numerusform>Około %n dzień temu</numerusform>
+            <numerusform>Około %n dni temu</numerusform>
+            <numerusform>Około %n dni temu</numerusform>
         </translation>
     </message>
 </context>
@@ -734,7 +754,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/RepliesPage.cpp" line="65"/>
         <source>Replies</source>
-        <translation type="unfinished">Vastaukset</translation>
+        <translation>Odpowiedzi</translation>
     </message>
 </context>
 <context>
@@ -742,12 +762,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/SearchPage.cpp" line="50"/>
         <source>Find:</source>
-        <translation type="unfinished"></translation>
+        <translation>Szukaj:</translation>
     </message>
     <message>
         <location filename="../src/SearchPage.cpp" line="71"/>
         <source>Search</source>
-        <translation type="unfinished">Haku</translation>
+        <translation>Wyszukiwanie</translation>
     </message>
 </context>
 <context>
@@ -760,7 +780,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/Translator.cpp" line="178"/>
         <source>Restore original</source>
-        <translation type="unfinished"></translation>
+        <translation>Przywróć oryginał</translation>
     </message>
 </context>
 <context>
@@ -768,118 +788,118 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/Twitter.cpp" line="91"/>
         <source>Sending message: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Wysyłanie wpisu: %1</translation>
     </message>
     <message>
         <location filename="../src/Twitter.cpp" line="113"/>
         <location filename="../src/Twitter.cpp" line="237"/>
         <source>Updating friends messages: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualizowanie wpisów znajomych: %1</translation>
     </message>
     <message>
         <location filename="../src/Twitter.cpp" line="134"/>
         <location filename="../src/Twitter.cpp" line="258"/>
         <source>Updating replies: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualizowanie odpowiedzi: %1</translation>
     </message>
     <message>
         <location filename="../src/Twitter.cpp" line="155"/>
         <location filename="../src/Twitter.cpp" line="279"/>
         <source>Updating public messages: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualizowanie wpisów publicznych: %1</translation>
     </message>
     <message>
         <location filename="../src/Twitter.cpp" line="174"/>
         <source>Updating search messages: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualizowanie wyników wyszukiwania: %1</translation>
     </message>
     <message>
         <location filename="../src/Twitter.cpp" line="195"/>
         <source>Updating previous search messages: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualizowanie poprzednio wyszukiwanych wiadomości: %1</translation>
     </message>
     <message>
         <location filename="../src/Twitter.cpp" line="216"/>
         <source>Updating last message: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualizowanie ostatniej wiadomości: %1</translation>
     </message>
     <message>
         <location filename="../src/Twitter.cpp" line="300"/>
         <location filename="../src/Twitter.cpp" line="321"/>
         <source>Updating favorites: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualizowanie ulubionych: %1</translation>
     </message>
     <message>
         <location filename="../src/Twitter.cpp" line="342"/>
         <location filename="../src/Twitter.cpp" line="363"/>
         <source>Updating inbox messages: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualizowanie skrzynki przychodzącej: %1</translation>
     </message>
     <message>
         <location filename="../src/Twitter.cpp" line="384"/>
         <location filename="../src/Twitter.cpp" line="405"/>
         <source>Updating outbox messages: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktualizowanie skrzynki nadawczej: %1</translation>
     </message>
     <message>
         <location filename="../src/Twitter.cpp" line="434"/>
         <source>Sending direct message: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Wysyłanie wiadomości: %1</translation>
     </message>
     <message>
         <location filename="../src/Twitter.cpp" line="463"/>
         <source>Favoring message: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Oznaczanie ciekawego wpisu: %1</translation>
     </message>
     <message>
         <location filename="../src/Twitter.cpp" line="492"/>
         <source>Unfavoring message: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Odznaczanie ciekawego wpisu: %1</translation>
     </message>
     <message>
         <location filename="../src/Twitter.cpp" line="521"/>
         <source>Destroying message: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kasowanie wpisu: %1</translation>
     </message>
     <message>
         <location filename="../src/Twitter.cpp" line="550"/>
         <source>Destroying direct message: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kasowanie wiadomości: %1</translation>
     </message>
     <message>
         <location filename="../src/Twitter.cpp" line="809"/>
         <source>Getting friendships: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Pobieranie śledzonych: %1</translation>
     </message>
     <message>
         <location filename="../src/Twitter.cpp" line="830"/>
         <source>Getting followers: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Pobieranie śledzących: %1</translation>
     </message>
     <message>
         <location filename="../src/Twitter.cpp" line="851"/>
         <source>Getting blocked users: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Pobieranie zablokowanych: %1</translation>
     </message>
     <message>
         <location filename="../src/Twitter.cpp" line="880"/>
         <source>Sending create friendship request: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Wysyłanie żądania nawiązania znajomości: %1</translation>
     </message>
     <message>
         <location filename="../src/Twitter.cpp" line="910"/>
         <source>Sending destroy friendship request: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Wysyłanie żądania zakończenia znajomości: %1</translation>
     </message>
     <message>
         <location filename="../src/Twitter.cpp" line="939"/>
         <source>Sending create block request: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Wysyłanie żądania blokowania: %1</translation>
     </message>
     <message>
         <location filename="../src/Twitter.cpp" line="968"/>
         <source>Sending destroy block request: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Wysyłanie żądania odblokowania: %1</translation>
     </message>
 </context>
 <context>
@@ -887,62 +907,66 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/TwitterWidget.cpp" line="92"/>
         <source>favorize tweet</source>
-        <translation type="unfinished"></translation>
+        <translation>do ulubionych</translation>
     </message>
     <message>
         <location filename="../src/TwitterWidget.cpp" line="102"/>
         <source>reply to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>odpowiedz %1</translation>
     </message>
     <message>
         <location filename="../src/TwitterWidget.cpp" line="113"/>
         <location filename="../src/TwitterWidget.cpp" line="133"/>
         <source>destroy tweet</source>
-        <translation type="unfinished"></translation>
+        <translation>usuń wpis</translation>
     </message>
     <message>
         <location filename="../src/TwitterWidget.cpp" line="123"/>
         <location filename="../src/TwitterWidget.cpp" line="141"/>
         <source>retweet</source>
-        <translation type="unfinished"></translation>
+        <translation>przekaż (RT)</translation>
     </message>
     <message>
         <location filename="../src/TwitterWidget.cpp" line="150"/>
         <source>direct message</source>
-        <translation type="unfinished"></translation>
+        <translation>wiadomość</translation>
     </message>
     <message>
         <location filename="../src/TwitterWidget.cpp" line="422"/>
         <source>more</source>
-        <translation type="unfinished"></translation>
+        <translation>więcej</translation>
     </message>
     <message>
         <location filename="../src/TwitterWidget.cpp" line="432"/>
         <source>less</source>
-        <translation type="unfinished"></translation>
+        <translation>mniej</translation>
     </message>
     <message>
         <location filename="../src/TwitterWidget.cpp" line="445"/>
         <source>Delete message</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuń wpis</translation>
     </message>
     <message>
         <location filename="../src/TwitterWidget.cpp" line="445"/>
         <source>Are you sure to delete this message?</source>
-        <translation type="unfinished"></translation>
+        <translation>Czy na pewno chcesz usunąć ten wpis?</translation>
     </message>
 </context>
 <context>
     <name>TwitterWidgetItemMessage</name>
     <message>
+        <source>Translate by GoogleTranslate</source>
+        <translation type="obsolete">Przetłumacz używając Google Translate</translation>
+    </message>
+    <message>
         <location filename="../src/TwitterWidgetItemMessage.cpp" line="66"/>
         <source>Translation error</source>
-        <translation type="unfinished"></translation>
+        <translation>Błąd tłumaczenia</translation>
     </message>
     <message>
         <location filename="../src/TwitterWidgetItemMessage.cpp" line="66"/>
         <source>An error occured during translation - maybe this language isn&apos;t supported by GoogleTranslate yet.</source>
-        <translation type="unfinished"></translation>
+        <translation>Podczas tłumaczenia wystąpił błąd - możliwe, że Google Translate nie wspiera tego języka.</translation>
     </message>
 </context>
 <context>
@@ -950,22 +974,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/UserMgmtWidgetItem.cpp" line="70"/>
         <source>follow %1</source>
-        <translation type="unfinished"></translation>
+        <translation>śledź %1</translation>
     </message>
     <message>
         <location filename="../src/UserMgmtWidgetItem.cpp" line="78"/>
         <source>unfollow %1</source>
-        <translation type="unfinished"></translation>
+        <translation>nie śledź %1</translation>
     </message>
     <message>
         <location filename="../src/UserMgmtWidgetItem.cpp" line="86"/>
         <source>block %1</source>
-        <translation type="unfinished"></translation>
+        <translation>blokuj %1</translation>
     </message>
     <message>
         <location filename="../src/UserMgmtWidgetItem.cpp" line="94"/>
         <source>unblock %1</source>
-        <translation type="unfinished"></translation>
+        <translation>odblokuj %1</translation>
     </message>
 </context>
 </TS>

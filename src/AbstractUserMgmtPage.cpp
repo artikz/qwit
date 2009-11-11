@@ -70,7 +70,7 @@ void AbstractUserMgmtPage::updateItems(const QVector<Message> &items)
 
     userMgmtWidget->updateItems();
 
-    emit stateChanged(this->title + " updated");
+    emit stateChanged(this->title + tr(" updated"));
 }
 
 void AbstractUserMgmtPage::redraw()

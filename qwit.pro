@@ -103,6 +103,7 @@ TRANSLATIONS += translations/qwit_en_US.ts \
     translations/qwit_de_DE.ts \
     translations/qwit_fi_FI.ts \
     translations/qwit_zh_CN.ts \
+    translations/qwit_pl_PL.ts \
     translations/qwit_tr_TR.ts
 QT += network \
     xml

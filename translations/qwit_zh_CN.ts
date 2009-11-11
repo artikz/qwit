@@ -163,6 +163,14 @@ p, li { white-space: pre-wrap; }
     </message>
 </context>
 <context>
+    <name>AbstractUserMgmtPage</name>
+    <message>
+        <location filename="../src/AbstractUserMgmtPage.cpp" line="73"/>
+        <source> updated</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AccountConfigurationDialog</name>
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="17"/>
@@ -398,30 +406,35 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../src/MainWindow.ui" line="172"/>
-        <location filename="../src/MainWindow.ui" line="189"/>
-        <location filename="../src/MainWindow.ui" line="206"/>
-        <location filename="../src/MainWindow.ui" line="223"/>
-        <location filename="../src/MainWindow.ui" line="240"/>
+        <source>Friends</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/MainWindow.ui" line="175"/>
+        <location filename="../src/MainWindow.ui" line="192"/>
+        <location filename="../src/MainWindow.ui" line="209"/>
+        <location filename="../src/MainWindow.ui" line="226"/>
+        <location filename="../src/MainWindow.ui" line="243"/>
         <source>...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="186"/>
+        <location filename="../src/MainWindow.ui" line="189"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="203"/>
+        <location filename="../src/MainWindow.ui" line="206"/>
         <source>Options</source>
         <translation type="unfinished">选项</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="220"/>
+        <location filename="../src/MainWindow.ui" line="223"/>
         <source>About Qwit</source>
         <translation type="unfinished">关于 快推</translation>
     </message>
     <message>
-        <location filename="../src/MainWindow.ui" line="237"/>
+        <location filename="../src/MainWindow.ui" line="240"/>
         <source>Exit Qwit</source>
         <translation type="unfinished"></translation>
     </message>
