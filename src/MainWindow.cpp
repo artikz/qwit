@@ -703,9 +703,11 @@ void MainWindow::showNewMessages(const QVector<Message> &messages, Account *acco
 		}
 		trayMessage += messages[i].username + ": " + messages[i].text + " /" + QwitTools::formatDateTime(messages[i].time.toLocalTime()) + "\n";
 	}
-	if ((trayMessage != "") && config->showMessagesInTray) {
+	if (trayMessage != "") {
 		trayIcon->setIcon(QIcon(":/images/qwitnewmessages.png"));
-		trayIcon->showMessage(tr("Qwit: new messages receieved for %1@%2").arg(account->username).arg(account->type), trayMessage);
+		if (config->showMessagesInTray) {
+			trayIcon->showMessage(tr("Qwit: new messages receieved for %1@%2").arg(account->username).arg(account->type), trayMessage);
+		}
 	}
 }
 
