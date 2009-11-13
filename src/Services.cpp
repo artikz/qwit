@@ -162,6 +162,13 @@ void Services::initialize() {
 	trimOptions["requesttemplate"] = "?url=%url";
 	trimOptions["responseregexp"] = "http://tr.im/\\w+";
 	urlShorteners["trim"] = trimOptions;
+
+	QMap<QString, QString> jmpOptions;
+	jmpOptions["title"] = "j.mp";
+	jmpOptions["apiurl"] = "http://api.j.mp/shorten";
+	jmpOptions["requesttemplate"] = "?version=2.0.1&longUrl=%url&login=qwit&apiKey=R_7a53b974ee8283876867f1efb1b9205e";
+	jmpOptions["responseregexp"] = "http://j.mp/\\w+";
+	urlShorteners["jmp"] = jmpOptions;
 }
 
 #endif
