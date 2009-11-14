@@ -461,7 +461,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/OptionsDialog.ui" line="473"/>
         <source>Number of messages in popup:</source>
-        <translation>Número de mensages en cada popup</translation>
+        <translation>Número de mensajes en cada popup</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="483"/>
