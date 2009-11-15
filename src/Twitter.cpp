@@ -92,6 +92,8 @@ void Twitter::sendMessage(const QString &message, quint64 inReplyToMessageId) {
 }
 
 void Twitter::receiveFriendsMessages(quint64 lastMessageId, int count) {
+	++count;	// strange Twitter behavior - sometimes return count-1 messages
+
 	qDebug() << ("Twitter::receiveFriendsMessages()");
 	
 	setupProxy();
@@ -114,6 +116,8 @@ void Twitter::receiveFriendsMessages(quint64 lastMessageId, int count) {
 }
 
 void Twitter::receiveReplies(quint64 lastMessageId, int count) {
+	++count;	// strange Twitter behavior - sometimes return count-1 messages
+
 	qDebug() << ("Twitter::receiveReplies()");
 	
 	setupProxy();
@@ -135,6 +139,8 @@ void Twitter::receiveReplies(quint64 lastMessageId, int count) {
 }
 
 void Twitter::receivePublicMessages(quint64 lastMessageId, int count) {
+	++count;	// strange Twitter behavior - sometimes return count-1 messages
+
 	qDebug() << ("Twitter::receivePublicMessages()");
 	
 	setupProxy();
@@ -156,6 +162,8 @@ void Twitter::receivePublicMessages(quint64 lastMessageId, int count) {
 }
 
 void Twitter::receiveSearchMessages(int count, const QString &query) {
+	++count;	// strange Twitter behavior - sometimes return count-1 messages
+
 	qDebug() << ("Twitter::receiveSearchMessages()");
 
 	setupProxy();
@@ -175,6 +183,8 @@ void Twitter::receiveSearchMessages(int count, const QString &query) {
 }
 
 void Twitter::receivePreviousSearchMessages(int page, int count, const QString &query) {
+	++count;	// strange Twitter behavior - sometimes return count-1 messages
+
 	qDebug() << ("Twitter::receivePreviousSearchMessages()");
 
 	setupProxy();
@@ -217,6 +227,8 @@ void Twitter::receiveLastMessage() {
 }
 
 void Twitter::receivePreviousFriendsMessages(quint64 lastMessageId, int count) {
+	++count;	// strange Twitter behavior - sometimes return count-1 messages
+
 	qDebug() << ("Twitter::receiveFriendsMessages()");
 	
 	setupProxy();
@@ -238,6 +250,8 @@ void Twitter::receivePreviousFriendsMessages(quint64 lastMessageId, int count) {
 }
 
 void Twitter::receivePreviousReplies(quint64 lastMessageId, int count) {
+	++count;	// strange Twitter behavior - sometimes return count-1 messages
+
 	qDebug() << ("Twitter::receiveReplies()");
 	
 	setupProxy();
@@ -259,6 +273,8 @@ void Twitter::receivePreviousReplies(quint64 lastMessageId, int count) {
 }
 
 void Twitter::receivePreviousPublicMessages(quint64 lastMessageId, int count) {
+	++count;	// strange Twitter behavior - sometimes return count-1 messages
+
 	qDebug() << ("Twitter::receivePreviousPublicMessages()");
 	
 	setupProxy();
@@ -322,6 +338,8 @@ void Twitter::receivePreviousFavorites(int page) {
 }
 
 void Twitter::receiveInboxMessages(quint64 lastMessageId, int count) {
+	++count;	// strange Twitter behavior - sometimes return count-1 messages
+
 	qDebug() << ("Twitter::receiveInboxMessages()");
 	
 	setupProxy();
@@ -343,6 +361,8 @@ void Twitter::receiveInboxMessages(quint64 lastMessageId, int count) {
 }
 
 void Twitter::receivePreviousInboxMessages(quint64 lastMessageId, int count) {
+	++count;	// strange Twitter behavior - sometimes return count-1 messages
+
 	qDebug() << ("Twitter::receivePreviousInboxMessages()");
 	
 	setupProxy();
@@ -364,6 +384,8 @@ void Twitter::receivePreviousInboxMessages(quint64 lastMessageId, int count) {
 }
 
 void Twitter::receiveOutboxMessages(quint64 lastMessageId, int count) {
+	++count;	// strange Twitter behavior - sometimes return count-1 messages
+
 	qDebug() << ("Twitter::receiveOutboxMessages()");
 	
 	setupProxy();
@@ -385,6 +407,8 @@ void Twitter::receiveOutboxMessages(quint64 lastMessageId, int count) {
 }
 
 void Twitter::receivePreviousOutboxMessages(quint64 lastMessageId, int count) {
+	++count;	// strange Twitter behavior - sometimes return count-1 messages
+
 	qDebug() << ("Twitter::receivePreviousOutboxMessages()");
 	
 	setupProxy();
