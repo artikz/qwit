@@ -169,6 +169,13 @@ void Services::initialize() {
 	jmpOptions["requesttemplate"] = "?version=2.0.1&longUrl=%url&login=qwit&apiKey=R_7a53b974ee8283876867f1efb1b9205e";
 	jmpOptions["responseregexp"] = "http://j.mp/\\w+";
 	urlShorteners["jmp"] = jmpOptions;
+	
+	QMap<QString, QString> migremeOptions;
+	migremeOptions["title"] = "migre.me";
+	migremeOptions["apiurl"] = "http://migre.me/api.txt";
+	migremeOptions["requesttemplate"] = "?url=%url";
+	migremeOptions["responseregexp"] = "http://migre.me/\\w+";
+	urlShorteners["migreme"] = migremeOptions;
 }
 
 #endif
