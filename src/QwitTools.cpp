@@ -38,7 +38,7 @@
 #include "Configuration.h"
 
 QMap<QString, int> QwitTools::monthes;
-QRegExp QwitTools::urlRegExp("((ht|f)tp(s?)\\:\\/\\/|~/|/)?(\\w+:\\w+@)?((([-\\w]+\\.)+(com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|museum|travel|[a-z]{2}))|(([\\d]{1,3}\\.){3}[\\d]{1,3}))(:[\\d]{1,5})?(((/([-\\w~!$+|.=]|%[a-f\\d]{2})+)+|/)+|\\?|#)?((\\?([-\\w]|%[a-f\\d{2}])+=([-\\w~!$+|*:=]|%[a-f\\d]{2})*)(&([-\\w~!$+|.,*:]|%[a-f\\d{2}])+=([-\\w~!$+|.,*:=]|%[a-f\\d]{2})*)*)*(#([-\\w~!$+|.,*:=]|%[a-f\\d]{2})*)?");
+QRegExp QwitTools::urlRegExp("((ht|f)tp(s?)\\:\\/\\/|~/|/)?(\\w+:\\w+@)?((([-\\w]+\\.)+(com|org|net|gov|mil|biz|edu|info|mobi|name|aero|jobs|museum|travel|[a-z]{2}))|(([\\d]{1,3}\\.){3}[\\d]{1,3}))(:[\\d]{1,5})?(((/([-\\w~!$+|.=]|%[a-f\\d]{2})+)+|/)+|\\?|#)?((\\?([-\\w]|%[a-f\\d{2}])+=([-\\w~!$+|*:=]|%[a-f\\d]{2})*)(&([-\\w~!$+|.,*:]|%[a-f\\d{2}])+=([-\\w~!$+|.,*:=]|%[a-f\\d]{2})*)*)*(#([-\\w~!$+|.,*:=]|%[a-f\\d]{2})*)?");
 QRegExp QwitTools::ipAddressRegExp("([\\d]{1,3}\\.){3}[\\d]{1,3}");
 QRegExp QwitTools::usernameRegExp("(^|\\W+)@(\\w+)($|\\W+)");
 QRegExp QwitTools::hashtagRegExp("(^|\\W+)#([-._\\w]+)($|\\W+)");
