@@ -1264,6 +1264,36 @@
                  <widget class="QComboBox" name="urlShortenersComboBox"/>
                 </item>
                 <item>
+                 <widget class="QLabel" name="label_14">
+                  <property name="text">
+                   <string>Service Username:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="urlShortenersUsername"/>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_15">
+                  <property name="text">
+                   <string>Service API Key:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="urlShortenersAPIKey"/>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_16">
+                  <property name="text">
+                   <string>Not all URL shorteners need Username or API keys. Only enter the ones appropriate to your service.</string>
+                  </property>
+                  <property name="wordWrap">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
                  <spacer name="verticalSpacer_7">
                   <property name="orientation">
                    <enum>Qt::Vertical</enum>

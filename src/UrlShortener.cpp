@@ -82,6 +82,20 @@ void UrlShortener::shorten(const QString &url) {
 	buffer.open(QIODevice::WriteOnly);
 	QString request = Services::urlShorteners[config->urlShortener]["requesttemplate"];
 	request.replace("%url", QUrl::toPercentEncoding(url));
+	if(Services::urlShorteners[config->urlShortener]["useapikey"] == "true") {
+		QString tmpapikey = config->urlShortenerAPIKey;
+		if(tmpapikey == "") {
+			tmpapikey = Services::urlShorteners[config->urlShortener]["defaultapikey"];
+		}
+		request.replace("%apikey", tmpapikey);
+	}
+	if(Services::urlShorteners[config->urlShortener]["useusername"] == "true") {
+		QString tmpusername = config->urlShortenerUsername;
+		if(tmpusername == "") {
+			tmpusername = Services::urlShorteners[config->urlShortener]["defaultusername"];
+		}
+		request.replace("%username", tmpusername);
+	}
 	requestId = http->get(shortenerUrl.path() + request, &buffer);
 }
 
@@ -92,6 +106,7 @@ void UrlShortener::requestFinished(int id, bool error) {
 			qDebug() << ("UrlShortener::requestFinished() " + QString::number(id) + " " + currentUrl);
 			Configuration *config = Configuration::getInstance();
 			QString response = buffer.data();
+			response.replace("\\/", "/");
 			QRegExp responseRegexp(Services::urlShorteners[config->urlShortener]["responseregexp"]);
 			if (responseRegexp.indexIn(response, 0) == -1) {
 				qDebug() << ("UrlShortener::requestFinished() error parsing request");

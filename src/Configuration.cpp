@@ -183,6 +183,8 @@ void Configuration::load() {
 // UrlShortener
 	settings.beginGroup("UrlShortener");
 	urlShortener = settings.value("urlShortener", "unu").toString();
+	urlShortenerUsername = settings.value("urlShortenerUsername", "unu").toString();
+	urlShortenerAPIKey = settings.value("urlShortenerAPIKey", "unu").toString();
 	settings.endGroup();
 
 	loadMessages();
@@ -278,6 +280,8 @@ void Configuration::save() {
 // UrlShortener
 	settings.beginGroup("UrlShortener");
 	settings.setValue("urlShortener", urlShortener);
+	settings.setValue("urlShortenerUsername", urlShortenerUsername);
+	settings.setValue("urlShortenerAPIKey", urlShortenerAPIKey);
 	settings.endGroup();
 
 	saveMessages();

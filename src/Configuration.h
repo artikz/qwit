@@ -124,6 +124,8 @@ public:
 
 // UrlShortener
 	QString urlShortener;
+	QString urlShortenerUsername;
+	QString urlShortenerAPIKey;
 	//UrlShortener* getUrlShortener();
 	
 public:

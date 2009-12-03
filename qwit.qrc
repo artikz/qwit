@@ -49,5 +49,7 @@
         <file>images/countries/tr.png</file>
         <file>images/countries/us.png</file>
         <file>images/google.png</file>
+        <file>images/bitly.png</file>
+        <file>images/budurlcom.png</file>
     </qresource>
 </RCC>

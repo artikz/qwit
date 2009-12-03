@@ -209,6 +209,8 @@ void MainWindow::saveOptions() {
 	config->proxyPassword = optionsDialog->proxyPasswordLineEdit->text();
 	
 	config->urlShortener = Configuration::UrlShorteners[optionsDialog->urlShortenersComboBox->currentIndex()];
+	config->urlShortenerUsername = optionsDialog->urlShortenersUsername->text();
+	config->urlShortenerAPIKey = optionsDialog->urlShortenersAPIKey->text();
 
 	saveState();
 	updateState();
@@ -381,6 +383,8 @@ void MainWindow::resetOptionsDialog() {
 
 // UrlShortener
 	optionsDialog->urlShortenersComboBox->setCurrentIndex(Configuration::UrlShortenersIds[config->urlShortener]);
+	optionsDialog->urlShortenersUsername->setText(config->urlShortenerUsername);
+	optionsDialog->urlShortenersAPIKey->setText(config->urlShortenerAPIKey);
 
 }
 

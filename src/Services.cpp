@@ -105,34 +105,42 @@ void Services::initialize() {
 
 	QMap<QString, QString> customOptions;
 	customOptions["title"] = "Custom";
-        customOptions["friends"] = "/statuses/friends_timeline";
-        customOptions["public"] = "/statuses/public_timeline";
-        customOptions["replies"] = "/statuses/mentions";
-        customOptions["favorites"] = "/favorites";
-        customOptions["favor"] = "/favorites/create/";
-        customOptions["unfavor"] = "/favorites/destroy/";
-        customOptions["user"] = "/statuses/user_timeline/";
-        customOptions["last"] = "/users/show/";
-        customOptions["update"] = "/statuses/update";
-        customOptions["destroy"] = "/statuses/destroy/";
-        customOptions["inbox"] = "/direct_messages";
-        customOptions["outbox"] = "/direct_messages/sent";
-        customOptions["send"] = "/direct_messages/new";
-        customOptions["destroydirectmessage"] = "/direct_messages/destroy/";
-        options["custom"] = customOptions;
+	customOptions["friends"] = "/statuses/friends_timeline";
+	customOptions["public"] = "/statuses/public_timeline";
+	customOptions["replies"] = "/statuses/mentions";
+	customOptions["favorites"] = "/favorites";
+	customOptions["favor"] = "/favorites/create/";
+	customOptions["unfavor"] = "/favorites/destroy/";
+	customOptions["user"] = "/statuses/user_timeline/";
+	customOptions["last"] = "/users/show/";
+	customOptions["update"] = "/statuses/update";
+	customOptions["destroy"] = "/statuses/destroy/";
+	customOptions["inbox"] = "/direct_messages";
+	customOptions["outbox"] = "/direct_messages/sent";
+	customOptions["send"] = "/direct_messages/new";
+	customOptions["destroydirectmessage"] = "/direct_messages/destroy/";
+	options["custom"] = customOptions;
 /*
 	QMap<QString, QString> fakeShortenerOptions;
 	fakeShortenerOptions["title"] = "Do not shorten urls";
 	fakeShortenerOptions["apiurl"] = "";
 	fakeShortenerOptions["requesttemplate"] = "";
 	fakeShortenerOptions["responseregexp"] = "";
+	fakeShortenerOptions["useapikey"] = "";
+	fakeShortenerOptions["defaultapikey"] = "";
+	fakeShortenerOptions["useusername"] = "";
+	fakeShortenerOptions["defaultusername"] = "";
 	urlShorteners["0"] = fakeShortenerOptions;
 */
 	QMap<QString, QString> murlkzOptions;
 	murlkzOptions["title"] = "murl.kz";
 	murlkzOptions["apiurl"] = "http://api.murl.kz/basic";
-	murlkzOptions["requesttemplate"] = "?api_key=26e4ab94e13d99a20771d4d2a73d202e&format=xml&url=%url";
+	murlkzOptions["requesttemplate"] = "?api_key=%apikey&format=xml&url=%url";
 	murlkzOptions["responseregexp"] = "http://murl.kz/\\w+";
+	murlkzOptions["useapikey"] = "true";
+	murlkzOptions["defaultapikey"] = "26e4ab94e13d99a20771d4d2a73d202e";
+	murlkzOptions["useusername"] = "false";
+	murlkzOptions["defaultusername"] = "";
 	urlShorteners["murlkz"] = murlkzOptions;
 
 	QMap<QString, QString> unuOptions;
@@ -140,41 +148,87 @@ void Services::initialize() {
 	unuOptions["apiurl"] = "http://u.nu/unu-api-simple";
 	unuOptions["requesttemplate"] = "?url=%url";
 	unuOptions["responseregexp"] = "http://u.nu/\\w+";
+	unuOptions["useapikey"] = "false";
+	unuOptions["defaultapikey"] = "";
+	unuOptions["useusername"] = "false";
+	unuOptions["defaultusername"] = "";
 	urlShorteners["unu"] = unuOptions;
 
 	QMap<QString, QString> clckruOptions;
-	unuOptions["title"] = "clck.ru";
-	unuOptions["apiurl"] = "http://clck.ru/--";
-	unuOptions["requesttemplate"] = "?url=%url";
-	unuOptions["responseregexp"] = "http://clck.ru/\\w+";
-	urlShorteners["clckru"] = unuOptions;
+	clckruOptions["title"] = "clck.ru";
+	clckruOptions["apiurl"] = "http://clck.ru/--";
+	clckruOptions["requesttemplate"] = "?url=%url";
+	clckruOptions["responseregexp"] = "http://clck.ru/\\w+";
+	clckruOptions["useapikey"] = "false";
+	clckruOptions["defaultapikey"] = "";
+	clckruOptions["useusername"] = "false";
+	clckruOptions["defaultusername"] = "";
+	urlShorteners["clckru"] = clckruOptions;
 
 	QMap<QString, QString> uiopmeOptions;
 	uiopmeOptions["title"] = "uiop.me";
 	uiopmeOptions["apiurl"] = "http://uiop.me/api/newlink.php";
 	uiopmeOptions["requesttemplate"] = "?u=%url";
 	uiopmeOptions["responseregexp"] = "http://uiop.me/\\w+";
+	uiopmeOptions["useapikey"] = "false";
+	uiopmeOptions["defaultapikey"] = "";
+	uiopmeOptions["useusername"] = "false";
+	uiopmeOptions["defaultusername"] = "";
 	urlShorteners["uiopme"] = uiopmeOptions;
+
+	QMap<QString, QString> bitlyOptions;
+	bitlyOptions["title"] = "bit.ly";
+	bitlyOptions["apiurl"] = "http://api.bit.ly/shorten";
+	bitlyOptions["requesttemplate"] = "?version=2.0.1&longUrl=%url&login=%username&apiKey=%apikey";
+	bitlyOptions["responseregexp"] = "http://bit.ly/\\w+";
+	bitlyOptions["useapikey"] = "true";
+	bitlyOptions["defaultapikey"] = "R_7a53b974ee8283876867f1efb1b9205e";
+	bitlyOptions["useusername"] = "true";
+	bitlyOptions["defaultusername"] = "qwit";
+	urlShorteners["bitly"] = bitlyOptions;
+
+	QMap<QString, QString> budurlOptions;
+	budurlOptions["title"] = "budurl.com";
+	budurlOptions["apiurl"] = "http://budurl.com/api/v1/budurls/shrink";
+	budurlOptions["requesttemplate"] = "?api_key=%apikey&long_url=%url";
+	budurlOptions["responseregexp"] = "http://budurl.com/\\w+";
+	budurlOptions["useapikey"] = "true";
+	budurlOptions["defaultapikey"] = "";
+	budurlOptions["useusername"] = "false";
+	budurlOptions["defaultusername"] = "";
+	urlShorteners["budurlcom"] = budurlOptions;
 
 	QMap<QString, QString> trimOptions;
 	trimOptions["title"] = "tr.im";
 	trimOptions["apiurl"] = "http://api.tr.im/v1/trim_simple";
 	trimOptions["requesttemplate"] = "?url=%url";
 	trimOptions["responseregexp"] = "http://tr.im/\\w+";
+	trimOptions["useapikey"] = "false";
+	trimOptions["defaultapikey"] = "";
+	trimOptions["useusername"] = "false";
+	trimOptions["defaultusername"] = "";
 	urlShorteners["trim"] = trimOptions;
 
 	QMap<QString, QString> jmpOptions;
 	jmpOptions["title"] = "j.mp";
 	jmpOptions["apiurl"] = "http://api.j.mp/shorten";
-	jmpOptions["requesttemplate"] = "?version=2.0.1&longUrl=%url&login=qwit&apiKey=R_7a53b974ee8283876867f1efb1b9205e";
+	jmpOptions["requesttemplate"] = "?version=2.0.1&longUrl=%url&login=%username&apiKey=%apikey";
 	jmpOptions["responseregexp"] = "http://j.mp/\\w+";
+	jmpOptions["useapikey"] = "true";
+	jmpOptions["defaultapikey"] = "R_7a53b974ee8283876867f1efb1b9205e";
+	jmpOptions["useusername"] = "true";
+	jmpOptions["defaultusername"] = "qwit";
 	urlShorteners["jmp"] = jmpOptions;
-	
+
 	QMap<QString, QString> migremeOptions;
 	migremeOptions["title"] = "migre.me";
 	migremeOptions["apiurl"] = "http://migre.me/api.txt";
 	migremeOptions["requesttemplate"] = "?url=%url";
 	migremeOptions["responseregexp"] = "http://migre.me/\\w+";
+	migremeOptions["useapikey"] = "false";
+	migremeOptions["defaultapikey"] = "";
+	migremeOptions["useusername"] = "false";
+	migremeOptions["defaultusername"] = "";
 	urlShorteners["migreme"] = migremeOptions;
 }
 
