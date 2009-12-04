@@ -31,6 +31,7 @@
 
 #include "TwitPicDialog.h"
 #include <QVBoxLayout>
+#include <QHBoxLayout>
 #include <QProgressBar>
 #include <QDialogButtonBox>
 #include <QLabel>
@@ -50,6 +51,8 @@
 TwitPicDialog::TwitPicDialog(const QString &fileName, QWidget *parent)
 		: QDialog(parent),
 		m_fileName(fileName),
+		m_picCommentEdit(0),
+		m_sendTweetCheckBox(0),
 		m_pixmapLabel(0),
 		m_postButton(0),
 		m_progressBar(0)
@@ -58,10 +61,24 @@ TwitPicDialog::TwitPicDialog(const QString &fileName, QWidget *parent)
 	QVBoxLayout *layout = new QVBoxLayout;
 	m_pixmapLabel = new QLabel(this);
 	layout->addWidget(m_pixmapLabel);
+
+	QHBoxLayout *commentLayout = new QHBoxLayout;
+	QLabel *commentLabel = new QLabel(this);
+	commentLabel->setText(QString("Comment:"));
+	m_picCommentEdit = new QLineEdit(this);
+	m_picCommentEdit->setMaxLength(1024);
+	commentLayout->addWidget(commentLabel);
+	commentLayout->addWidget(m_picCommentEdit);
+	layout->addLayout(commentLayout);
+
+	m_sendTweetCheckBox = new QCheckBox(QString("Send tweet after upload."), this);
+	m_sendTweetCheckBox->setCheckState(Qt::Unchecked);
+	layout->addWidget(m_sendTweetCheckBox);
+
 	QDialogButtonBox *buttonBox = new QDialogButtonBox(this);
 	m_postButton = buttonBox->addButton("Post image", QDialogButtonBox::AcceptRole);
 	m_cancelButton = buttonBox->addButton(QDialogButtonBox::Cancel);
-	layout->addWidget(buttonBox, 0, Qt::AlignCenter);
+	layout->addWidget(buttonBox, 0, Qt::AlignRight);
 	m_progressBar = new QProgressBar(this);
 	m_progressBar->setMinimum(0);
 	m_progressBar->setMaximum(100);
@@ -111,7 +128,9 @@ void TwitPicDialog::accept() {
 
 	QByteArray boundary = "------------------------------her-ad-hoc-person";
 
-	QUrl url("http://twitpic.com/api/upload");
+	QUrl url((m_sendTweetCheckBox->checkState() == Qt::Checked)
+		    ? "https://twitpic.com/api/uploadAndPost"
+		    : "https://twitpic.com/api/upload");
 
 	QHttpRequestHeader header;
 	header.setRequest("POST", url.path());
@@ -139,6 +158,9 @@ void TwitPicDialog::accept() {
 	ba.append("--" + boundary + "\r\n");
 	ba.append("Content-Disposition: form-data; name=\"password\"\r\n\r\n");
 	ba.append(m_password + "\r\n");
+	ba.append("--" + boundary + "\r\n");
+	ba.append("Content-Disposition: form-data; name=\"message\"\r\n\r\n");
+	ba.append(m_picCommentEdit->text() + "\r\n");
 	ba.append("--" + boundary + "--" + "\r\n");
 	header.setContentLength(ba.count());
 	
@@ -174,7 +196,11 @@ void TwitPicDialog::requestFinished(int id, bool error) {
 	xmlReply.replace("\r\n", "");
 	xmlReply.replace("\n", "");
 	QString errorMsg = "";
-	QRegExp rx("<rsp stat=\"(\\S+)\">");
+	QRegExp rx;
+
+	rx.setPattern((m_sendTweetCheckBox->checkState() == Qt::Checked)
+		    ? "<rsp status=\"(\\S+)\">"
+		    : "<rsp stat=\"(\\S+)\">");
 	if (rx.indexIn(xmlReply) >= 0) {
 		if (rx.capturedTexts().at(1) == "ok") {
 			QRegExp rx2("<mediaurl>(\\S+)<\\/mediaurl>");
@@ -200,4 +226,8 @@ void TwitPicDialog::requestFinished(int id, bool error) {
 
 QString TwitPicDialog::twitPickedUrlString() const {
 	return m_twitPickedUrlString;
+}
+
+QString TwitPicDialog::twitPicCommentString() const {
+	return m_picCommentEdit->text();
 }

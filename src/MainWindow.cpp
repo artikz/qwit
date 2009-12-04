@@ -787,7 +787,8 @@ void MainWindow::postTwitPic() {
 	Configuration *config = Configuration::getInstance();
 	dialog.setUser(config->currentAccount()->username, config->currentAccount()->password);
 	if (dialog.exec() == QDialog::Accepted) {
-		messageTextEdit->append(dialog.twitPickedUrlString());
+		messageTextEdit->insertPlainText(dialog.twitPickedUrlString());
+		messageTextEdit->insertPlainText(" " + dialog.twitPicCommentString());
 	}
 }
 

@@ -34,6 +34,8 @@
 #include <QDialog>
 #include <QProgressBar>
 #include <QLabel>
+#include <QLineEdit>
+#include <QCheckBox>
 #include <QPushButton>
 //#include <QNetworkReply>
 #include <QHttp>
@@ -52,6 +54,7 @@ public:
 	QProgressBar *progressBar() const;
 	void setUser(const QString &username, const QString &password);
 	QString twitPickedUrlString() const;
+	QString twitPicCommentString() const;
 
 public slots:
 	void accept();
@@ -63,6 +66,8 @@ private slots:
 
 private:
 	QString m_fileName;
+	QLineEdit *m_picCommentEdit;
+	QCheckBox *m_sendTweetCheckBox;
 	QLabel *m_pixmapLabel, *m_errorMsgLabel;
 	QPushButton *m_postButton, *m_cancelButton;
 	QProgressBar *m_progressBar;
