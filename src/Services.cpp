@@ -45,7 +45,7 @@ void Services::initialize() {
 	twitterOptions["baseurl"] = "http://twitter.com";
 	twitterOptions["singlemessageurl"] = "http://twitter.com/%username/statuses/%messageid";
 	twitterOptions["searchbaseurl"] = "http://search.twitter.com/search?q=";
-	twitterOptions["friends"] = "/1/statuses/home_timeline";
+	twitterOptions["friends"] = "/statuses/home_timeline";
 	twitterOptions["public"] = "/statuses/public_timeline";
 	twitterOptions["replies"] = "/statuses/mentions";
 	twitterOptions["favorites"] = "/favorites";

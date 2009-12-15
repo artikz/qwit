@@ -105,7 +105,7 @@ void Twitter::receiveFriendsMessages(quint64 lastMessageId, int count) {
 	} else {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
-
+cout << qPrintable(account->username + " " + QString::fromAscii(account->password.toUtf8())) << endl;
 	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
 
 	buffer.open(QIODevice::WriteOnly);
