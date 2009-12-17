@@ -45,7 +45,7 @@ public:
 	QString title();
 	
 public slots:
-	void update(Account *account = 0);
+	void update(Account *account = 0, bool initial = false);
 	void updatePrevious();
 	void removePrevious();
 	bool updateAutomatically();

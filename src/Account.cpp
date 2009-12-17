@@ -242,29 +242,29 @@ void Account::messageNotSent() {
 	emit messageNotSent(this);
 }
 
-void Account::receivePublicMessages(int count) {
+void Account::receivePublicMessages(int count, bool initial) {
 	qDebug() << ("Account::receivePublicMessages()");
-	twitter->receivePublicMessages((publicMessages.size() != 0 ? publicMessages[0].id : 0), count);
+	twitter->receivePublicMessages((!initial && (publicMessages.size() != 0) ? publicMessages[0].id : 0), count);
 }
 
-void Account::receiveFriendsMessages(int count) {
+void Account::receiveFriendsMessages(int count, bool initial) {
 	qDebug() << ("Account::receiveFriendsMessages()");
-	twitter->receiveFriendsMessages((friendsMessages.size() != 0 ? friendsMessages[0].id : 0), count);
+	twitter->receiveFriendsMessages((!initial && (friendsMessages.size() != 0) ? friendsMessages[0].id : 0), count);
 }
 
-void Account::receiveReplies(int count) {
+void Account::receiveReplies(int count, bool initial) {
 	qDebug() << ("Account::receiveReplies()");
-	twitter->receiveReplies((replies.size() != 0 ? replies[0].id : 0), count);
+	twitter->receiveReplies((!initial && (replies.size() != 0) ? replies[0].id : 0), count);
 }
 
-void Account::receiveInboxMessages(int count) {
+void Account::receiveInboxMessages(int count, bool initial) {
 	qDebug() << ("Account::receiveInboxMessages()");
-	twitter->receiveInboxMessages((inboxMessages.size() != 0 ? inboxMessages[0].id : 0), count);
+	twitter->receiveInboxMessages((!initial && (inboxMessages.size() != 0) ? inboxMessages[0].id : 0), count);
 }
 
-void Account::receiveOutboxMessages(int count) {
+void Account::receiveOutboxMessages(int count, bool initial) {
 	qDebug() << ("Account::receiveOutboxMessages()");
-	twitter->receiveOutboxMessages((outboxMessages.size() != 0 ? outboxMessages[0].id : 0), count);
+	twitter->receiveOutboxMessages((!initial && (outboxMessages.size() != 0) ? outboxMessages[0].id : 0), count);
 }
 
 void Account::receivePreviousPublicMessages(int count) {
@@ -507,7 +507,7 @@ void Account::setRemainingRequests(int remainingRequests) {
 	emit remainingRequestsUpdated(remainingRequests, this);
 }
 
-void Account::receiveFavorites() {
+void Account::receiveFavorites(bool initial) {
 	qDebug() << ("Account::receiveFavorites()");
 	twitter->receiveFavorites();
 }
@@ -740,7 +740,7 @@ void Account::addUsernamesToCache(const QStringList &usernames) {
 	usernamesCacheModel.setStringList(usernamesCache);
 }
 
-void Account::receiveSearchMessages(int count, const QString &query) {
+void Account::receiveSearchMessages(int count, const QString &query, bool initial) {
 	qDebug() << ("Account::receiveSearchMessages()");
 	searchMessages.clear();
 	twitter->receiveSearchMessages(count, query);

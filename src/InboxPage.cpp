@@ -64,13 +64,13 @@ QString InboxPage::title() {
 	return tr("Inbox");
 }
 
-void InboxPage::update(Account *account) {
+void InboxPage::update(Account *account, bool initial) {
 	qDebug() << ("InboxPage::update()");
 	Configuration *config = Configuration::getInstance();
 	if (account) {
-		account->receiveInboxMessages(config->messagesPerPage);
+		account->receiveInboxMessages(config->messagesPerPage, initial);
 	} else {
-		config->currentAccount()->receiveInboxMessages(config->messagesPerPage);
+		config->currentAccount()->receiveInboxMessages(config->messagesPerPage, initial);
 	}
 }
 

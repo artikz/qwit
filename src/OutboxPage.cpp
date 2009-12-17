@@ -64,13 +64,13 @@ QString OutboxPage::title() {
 	return tr("Outbox");
 }
 
-void OutboxPage::update(Account *account) {
+void OutboxPage::update(Account *account, bool initial) {
 	qDebug() << ("OutboxPage::update()");
 	Configuration *config = Configuration::getInstance();
 	if (account) {
-		account->receiveOutboxMessages(config->messagesPerPage);
+		account->receiveOutboxMessages(config->messagesPerPage, initial);
 	} else {
-		config->currentAccount()->receiveOutboxMessages(config->messagesPerPage);
+		config->currentAccount()->receiveOutboxMessages(config->messagesPerPage, initial);
 	}
 }
 

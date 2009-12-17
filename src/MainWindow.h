@@ -116,8 +116,8 @@ public slots:
 	void messageNotSent(Account *account);
 	void showNewMessages(const QVector<Message> &messages, Account *account);
 	void redrawPages();
-	void updateAccount(Account *account);
-	void updateAll();
+	void updateAccount(Account *account, bool initial = false);
+	void updateAll(bool initial = false);
 	void updateRemainingRequests(int remainingRequests, Account *account);
 	void directMessage(const Message &message);
 	void favor(const Message &message);

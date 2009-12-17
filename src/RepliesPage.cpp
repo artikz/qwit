@@ -65,13 +65,13 @@ QString RepliesPage::title() {
 	return tr("Replies");
 }
 
-void RepliesPage::update(Account *account) {
+void RepliesPage::update(Account *account, bool initial) {
 	qDebug() << ("RepliesPage::update()");
 	Configuration* config = Configuration::getInstance();
 	if (account) {
-		account->receiveReplies(20);
+		account->receiveReplies(20, initial);
 	} else {
-		config->currentAccount()->receiveReplies(20);
+		config->currentAccount()->receiveReplies(20, initial);
 	}
 }
 

@@ -64,13 +64,13 @@ QString FavoritesPage::title() {
 	return tr("Favorites");
 }
 
-void FavoritesPage::update(Account *account) {
+void FavoritesPage::update(Account *account, bool initial) {
 	qDebug() << ("FavoritesPage::update()");
 	Configuration *config = Configuration::getInstance();
 	if (account) {
-		account->receiveFavorites();
+		account->receiveFavorites(initial);
 	} else {
-		config->currentAccount()->receiveFavorites();
+		config->currentAccount()->receiveFavorites(initial);
 	}
 }
 

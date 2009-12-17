@@ -64,13 +64,13 @@ QString HomePage::title() {
 	return tr("Home");
 }
 
-void HomePage::update(Account *account) {
+void HomePage::update(Account *account, bool initial) {
 	qDebug() << ("HomePage::update()");
 	Configuration *config = Configuration::getInstance();
 	if (account) {
-		account->receiveFriendsMessages(config->messagesPerPage);
+		account->receiveFriendsMessages(config->messagesPerPage, initial);
 	} else {
-		config->currentAccount()->receiveFriendsMessages(config->messagesPerPage);
+		config->currentAccount()->receiveFriendsMessages(config->messagesPerPage, initial);
 	}
 }
 

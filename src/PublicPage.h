@@ -42,7 +42,7 @@ public:
 	PublicPage(QWidget* parent = 0);
 	void updateSize();
 	QString title();
-	void update(Account *account = 0);
+	void update(Account *account = 0, bool initial = false);
 	bool updateAutomatically();
 };
 

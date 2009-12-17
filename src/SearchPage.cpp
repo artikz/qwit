@@ -71,14 +71,14 @@ QString SearchPage::title() {
 	return tr("Search");
 }
 
-void SearchPage::update(Account *account) {
+void SearchPage::update(Account *account, bool initial) {
 	qDebug() << ("SearchPage::update()");
 	Configuration *config = Configuration::getInstance();
 	config->searchQuery = lineEdit->text();
 	if (account) {
-		account->receiveSearchMessages(config->messagesPerPage, lineEdit->text());
+		account->receiveSearchMessages(config->messagesPerPage, lineEdit->text(), initial);
 	} else {
-		config->currentAccount()->receiveSearchMessages(config->messagesPerPage, lineEdit->text());
+		config->currentAccount()->receiveSearchMessages(config->messagesPerPage, lineEdit->text(), initial);
 	}
 }
 

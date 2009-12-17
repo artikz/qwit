@@ -65,13 +65,13 @@ QString PublicPage::title() {
 	return tr("Public");
 }
 
-void PublicPage::update(Account *account) {
+void PublicPage::update(Account *account, bool initial) {
 	qDebug() << ("PublicPage::update()");
 	Configuration *config = Configuration::getInstance();
 	if (account) {
-		account->receivePublicMessages(config->messagesPerPage);
+		account->receivePublicMessages(config->messagesPerPage, initial);
 	} else {
-		config->currentAccount()->receivePublicMessages(config->messagesPerPage);
+		config->currentAccount()->receivePublicMessages(config->messagesPerPage, initial);
 	}
 }
 

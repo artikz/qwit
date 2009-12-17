@@ -781,6 +781,8 @@ QVector<Message> QwitTools::mergeMessages(QVector<Message> &messages, QVector<Me
 	if (!receivedMessages.size()) {
 		return newMessages;
 	}
+	bool addingOldMessages = (messages.size() && (messages[0].id > receivedMessages[0].id));
+
 	for (int i = 0; i < receivedMessages.size(); ++i) {
 		usernames << receivedMessages[i].username;
 		QVector<Message>::iterator j = qBinaryFind(messages.begin(), messages.end(), receivedMessages[i]);
@@ -796,6 +798,7 @@ QVector<Message> QwitTools::mergeMessages(QVector<Message> &messages, QVector<Me
 	}
 	qSort(messages.begin(), messages.end());
 	makeMessagesUnique(messages);
+	if (addingOldMessages) newMessages.clear();
 	return newMessages;
 }
 

@@ -46,7 +46,7 @@ public:
 	
 	AbstractPage(QWidget *parent = 0);
 	
-	virtual void update(Account *account = 0) = 0;
+	virtual void update(Account *account = 0, bool initial = false) = 0;
 	virtual void redraw();
 	virtual void addItem(const Message &message);
 	virtual void updateSize() = 0;
