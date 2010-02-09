@@ -42,6 +42,10 @@ TwitterWidgetItemMessage::TwitterWidgetItemMessage(QWidget *parent, const Messag
 	languagesMenu = Translator::getInstance()->createLanguagesMenu(actionLanguage);
 }
 
+TwitterWidgetItemMessage::~TwitterWidgetItemMessage() {
+	delete languagesMenu;
+}
+
 void TwitterWidgetItemMessage::contextMenuEvent(QContextMenuEvent *event) {
 	QMenu *menu = createStandardContextMenu(event->pos());
 	menu->addMenu(languagesMenu);

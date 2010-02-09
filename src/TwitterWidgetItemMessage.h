@@ -43,6 +43,7 @@ class TwitterWidgetItemMessage: public QTextBrowser {
 
 public:
 	TwitterWidgetItemMessage(QWidget *parent, const Message &message);
+	~TwitterWidgetItemMessage();
 	void insertTranslation(const QString &text);
 
 protected:
