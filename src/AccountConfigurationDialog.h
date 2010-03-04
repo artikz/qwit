@@ -39,8 +39,10 @@ class AccountConfigurationDialog: public QDialog, public Ui::AccountConfiguratio
 	Q_OBJECT
 	
 public:
-	static const int ActionAdd = 0;
-	static const int ActionEdit = 1;
+	enum {
+		ActionAdd = 0,
+		ActionEdit = 1
+	};
 
 	int action;
 	int accountId;

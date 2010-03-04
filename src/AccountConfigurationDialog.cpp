@@ -35,9 +35,6 @@
 
 #include "AccountConfigurationDialog.h"
 
-const int AccountConfigurationDialog::ActionAdd;
-const int AccountConfigurationDialog::ActionEdit;
-
 AccountConfigurationDialog::AccountConfigurationDialog(QWidget *parent): QDialog(parent) {
 	setupUi(this);
 	connect(useHttpsCheckBox, SIGNAL(stateChanged(int)), this, SLOT(useHttpsCheckBoxChanged(int)));
