@@ -88,11 +88,11 @@ MainWindow::MainWindow(QWidget *parent): QDialog(parent) {
 
 	friendsMgmtDialog = new FriendsMgmtDialog(this);
 
-	connect(refreshToolButton, SIGNAL(pressed()), this, SLOT(refresh()));
-	connect(optionsToolButton, SIGNAL(pressed()), this, SLOT(showOptionsDialog()));
-	connect(aboutToolButton, SIGNAL(pressed()), aboutDialog, SLOT(show()));
-	connect(exitToolButton, SIGNAL(pressed()), this, SLOT(quit()));
-	connect(friendsMgmtToolButton, SIGNAL(pressed()), friendsMgmtDialog, SLOT(show()));
+	connect(refreshToolButton, SIGNAL(clicked()), this, SLOT(refresh()));
+	connect(optionsToolButton, SIGNAL(clicked()), this, SLOT(showOptionsDialog()));
+	connect(aboutToolButton, SIGNAL(clicked()), aboutDialog, SLOT(show()));
+	connect(exitToolButton, SIGNAL(clicked()), this, SLOT(quit()));
+	connect(friendsMgmtToolButton, SIGNAL(clicked()), friendsMgmtDialog, SLOT(show()));
 
 	connect(&accountsButtonGroup, SIGNAL(buttonClicked(int)), this, SLOT(accountButtonClicked(int)));
 	
