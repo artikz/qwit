@@ -49,7 +49,7 @@ MainWindow* MainWindow::getInstance() {
 	return instance;
 }
 
-MainWindow::MainWindow(QWidget *parent): QDialog(parent) {
+MainWindow::MainWindow(QWidget *parent): QMainWindow(parent) {
 	qDebug() << ("MainWindow::MainWindow()");
 
 	instance = this;
@@ -635,7 +635,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event) {
 		acceptClose = true;
 		quit();
 	} else {
-		QDialog::keyPressEvent(event);
+                QMainWindow::keyPressEvent(event);
 	}
 }
 

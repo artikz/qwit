@@ -50,7 +50,7 @@
 #include "SearchPage.h"
 #include "Message.h"
 
-class MainWindow: public QDialog, public Ui::MainWindow {
+class MainWindow: public QMainWindow, public Ui::MainWindow {
 	Q_OBJECT
 
 private:

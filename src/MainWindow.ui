@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>MainWindow</class>
- <widget class="QDialog" name="MainWindow">
+ <widget class="QMainWindow" name="MainWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -17,6 +17,7 @@
    <iconset resource="../qwit.qrc">
     <normaloff>:/images/qwit.png</normaloff>:/images/qwit.png</iconset>
   </property>
+  <widget class="QWidget" name="centralWidget">
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -256,6 +257,7 @@
     </layout>
    </item>
   </layout>
+  </widget>
  </widget>
  <resources>
   <include location="../qwit.qrc"/>
