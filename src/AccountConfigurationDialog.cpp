@@ -98,7 +98,7 @@ void AccountConfigurationDialog::oauthAuthorize() {
         setEnabled(true);
         oauthDialog->showNormal();
     } else {
-        QMessageBox::critical(this, "Error!", "Error while trying OAuth!");
+        QMessageBox::critical(this, tr("Error!"), tr("Error while trying OAuth!"));
         setEnabled(true);
     }
 }
@@ -113,14 +113,14 @@ void AccountConfigurationDialog::commitAuthorization() {
     QOAuth::ParamMap reply = qoauth->accessToken(serviceOAuthAccessTokenUrl, QOAuth::POST, token.toAscii(), tokenSecret.toAscii(), QOAuth::HMAC_SHA1, otherArgs);
 
     if (qoauth->error() == QOAuth::NoError) {
-        QMessageBox::information(this, "", "Authorization successfull!");
+        QMessageBox::information(this, "", tr("Authorization successfull!"));
         token = reply.value(QOAuth::tokenParameterName());
         tokenSecret = reply.value(QOAuth::tokenSecretParameterName());
         accountUsernameLineEdit->setText(reply.value("screen_name"));
         setEnabled(true);
     } else {
         setEnabled(true);
-        QMessageBox::critical(this, "Error!", "Wrong pin, try again!");
+        QMessageBox::critical(this, tr("Error!"), tr("Wrong pin, try again!"));
         oauthDialog->showNormal();
     }
 }

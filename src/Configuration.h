@@ -74,6 +74,7 @@ public:
 	int messagesPerPage;
 	int messagesInPopup;
 	QString retweetTag;
+    bool startMinimized;
 	bool retweetTagAfterText;
 	bool placeUsernameUnderAvatar;
 	bool showMessagesInTray;

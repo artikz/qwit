@@ -68,7 +68,6 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent) {
 	connect(this, SIGNAL(reply(const Message &)), messageTextEdit, SLOT(reply(const Message &)));
 	
 	lastMessageLabel->setTextFormat(Qt::AutoText);
-	lastMessageLabel->setOpenExternalLinks(true);
 	
 	optionsDialog = new OptionsDialog(this);
 	connect(optionsDialog, SIGNAL(accepted()), this, SLOT(saveOptions()));
@@ -126,7 +125,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent) {
 	Configuration *config = Configuration::getInstance();
 	if (config->accounts.size() == 0) {
 		showOptionsDialog();
-	}
+    }
 }
 
 void MainWindow::leftCharsNumberChanged(int count) {
@@ -177,7 +176,8 @@ void MainWindow::saveOptions() {
 	config->placeTabsVertically = (optionsDialog->placeTabsVerticallyCheckBox->checkState() == Qt::Checked);
 	config->showMessagesInTray = (optionsDialog->showMessagesInTrayCheckBox->checkState() == Qt::Checked);
 	config->placeUsernameUnderAvatar = (optionsDialog->placeUsernameUnderAvatarCheckBox->checkState() == Qt::Checked);
-	
+    config->startMinimized = (optionsDialog->startMinimizedCheckBox->checkState() == Qt::Checked);
+
 	config->showHomeTab = (optionsDialog->homeTabCheckBox->checkState() == Qt::Checked);
 	config->autoUpdateHomeTab = (optionsDialog->homeTabAutoUpdateCheckBox->checkState() == Qt::Checked);
 	config->showPublicTab = (optionsDialog->publicTabCheckBox->checkState() == Qt::Checked);
@@ -331,7 +331,8 @@ void MainWindow::resetOptionsDialog() {
 	optionsDialog->placeTabsVerticallyCheckBox->setCheckState(config->placeTabsVertically ? Qt::Checked : Qt::Unchecked);
 	optionsDialog->showMessagesInTrayCheckBox->setCheckState(config->showMessagesInTray ? Qt::Checked : Qt::Unchecked);
 	optionsDialog->placeUsernameUnderAvatarCheckBox->setCheckState(config->placeUsernameUnderAvatar ? Qt::Checked : Qt::Unchecked);
-	
+    optionsDialog->startMinimizedCheckBox->setCheckState(config->startMinimized ? Qt::Checked : Qt::Unchecked);
+
 	optionsDialog->homeTabCheckBox->setCheckState(config->showHomeTab ? Qt::Checked : Qt::Unchecked);
 	optionsDialog->homeTabAutoUpdateCheckBox->setCheckState(config->autoUpdateHomeTab ? Qt::Checked : Qt::Unchecked);
 	optionsDialog->publicTabCheckBox->setCheckState(config->showPublicTab ? Qt::Checked : Qt::Unchecked);
@@ -744,9 +745,9 @@ void MainWindow::updateRemainingRequests(int remainingRequests, Account *account
 	if (remainingRequests == -1) {
 		stateLabel->setText("");
 	} else if (remainingRequests == 0) {
-		stateLabel->setText("Rate limit exceeded");
+        stateLabel->setText(tr("Rate limit exceeded"));
 	} else {
-		stateLabel->setText(QString::number(remainingRequests) + " requests left");
+        stateLabel->setText(tr("%n requests left", "", remainingRequests));
 	}
 }
 

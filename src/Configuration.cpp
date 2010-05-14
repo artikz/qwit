@@ -108,7 +108,8 @@ void Configuration::load() {
 	placeControlsVertically = settings.value("placeControlsVertically", true).toBool();
 	placeTabsVertically = settings.value("placeTabsVertically", true).toBool();
 	showLastMessage = settings.value("showLastMessage", true).toBool();
-	settings.endGroup();
+    startMinimized = settings.value("startMinimized", false).toBool();
+    settings.endGroup();
 	
 	settings.beginGroup("Tabs");
 	showHomeTab = settings.value("showHomeTab", true).toBool();
@@ -219,7 +220,8 @@ void Configuration::save() {
 	settings.setValue("placeControlsVertically", placeControlsVertically);
 	settings.setValue("placeTabsVertically", placeTabsVertically);
 	settings.setValue("showLastMessage", showLastMessage);
-	settings.endGroup();
+    settings.setValue("startMinimized", startMinimized);
+    settings.endGroup();
 
 	settings.beginGroup("Tabs");
 	settings.setValue("showHomeTab", showHomeTab);
@@ -265,7 +267,7 @@ void Configuration::save() {
 		settings.setValue("useHttps", accounts[i]->useHttps);
         if (accounts[i]->type == "custom") {
                 settings.setValue("serviceBaseUrl", accounts[i]->serviceBaseUrl());
-                settings.setValue("serviceApiUrl", accounts[i]->serviceBaseUrl());
+                settings.setValue("serviceApiUrl", accounts[i]->serviceApiUrl());
         }
         settings.setValue("useOAuth", accounts[i]->useOAuth);
         settings.setValue("oauthToken", accounts[i]->oauthToken);
@@ -353,7 +355,6 @@ QString Configuration::decrypt(const QString &s) {
 		data[i] = data[i] ^ key[i % key.size()];
 	}
 	QString result = QString::fromUtf8(data);
-	qDebug() << "A " << result;
 	return result;
 }
 

@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/" >
+    <qresource prefix="/">
         <file>images/exit.png</file>
         <file>images/about.png</file>
         <file>images/options.png</file>
@@ -51,5 +51,6 @@
         <file>images/google.png</file>
         <file>images/bitly.png</file>
         <file>images/budurlcom.png</file>
+        <file>images/aitu.png</file>
     </qresource>
 </RCC>
