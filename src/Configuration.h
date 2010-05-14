@@ -49,7 +49,7 @@ public:
 	static const QString ApplicationName;
 	static const QString CacheDirectory;
 	static const QString MessagesCacheFileName;
-	static QVector<QString> TranslationsTitles;
+    static QVector<QString> TranslationsTitles;
 	static QVector<QString> TranslationsCodes;
 	static QVector<QString> TranslationsCountries;
 

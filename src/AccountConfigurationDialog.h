@@ -33,11 +33,13 @@
 
 #include "ui_AccountConfigurationDialog.h"
 
+#include "OAuthDialog.h"
 #include "QwitHeaders.h"
 
 class AccountConfigurationDialog: public QDialog, public Ui::AccountConfigurationDialog {
 	Q_OBJECT
 	
+    OAuthDialog *oauthDialog;
 public:
 	enum {
 		ActionAdd = 0,
@@ -47,11 +49,22 @@ public:
 	int action;
 	int accountId;
 	int accountType;
-	
+    QString serviceOAuthRequestTokenUrl;
+    QString serviceOAuthAuthorizeUrl;
+    QString serviceOAuthAccessTokenUrl;
+    QString token;
+    QString tokenSecret;
+    QOAuth::Interface *qoauth;
+
 	AccountConfigurationDialog(QWidget *parent);
-	
+
 public slots:
-	void useHttpsCheckBoxChanged(int state);
+    void oauthAuthorize();
+    void useHttpsCheckBoxChanged(int state);
+    void plainGroupBoxToggled(bool state);
+    void oauthGroupBoxToggled(bool state);
+    void commitAuthorization();
+    void stopAuthorization();
 };
 
 #endif

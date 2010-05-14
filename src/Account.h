@@ -46,46 +46,50 @@ private:
 	QStringList usernamesCache;
 
 public:
-        QString _serviceBaseUrl;
-        QString _serviceApiUrl;
-        QString _searchBaseUrl;
-        QString _searchApiUrl;
-        QString _singleMessageUrl;
+    QString _serviceBaseUrl;
+    QString _serviceApiUrl;
+    QString _searchBaseUrl;
+    QString _searchApiUrl;
+    QString _singleMessageUrl;
 
-        int id;
-	QString type;
-	QString username;
-	QString password;
-	Message lastMessage;
-	Twitter *twitter;
-	int remainingRequests;
-	bool useHttps;
-	bool sendingMessage;
-	QString messageBeingSent;
-	QStringListModel usernamesCacheModel;
-	
-	QVector<Message> friendsMessages;
-	QVector<Message> replies;
-	QVector<Message> publicMessages;
-	QVector<Message> favorites;
-	QVector<Message> inboxMessages;
-	QVector<Message> outboxMessages;
-	QVector<Message> searchMessages;
-	QVector<Message> friendships;
-	QVector<Message> followers;
-	QVector<Message> blocks;
+    int id;
+    QString type;
+    QString username;
+    QString password;
+    QString oauthToken;
+    QString oauthTokenSecret;
+    bool useOAuth;
+    Message lastMessage;
+    Twitter *twitter;
+    int remainingRequests;
+    bool useHttps;
+    bool sendingMessage;
+    QString messageBeingSent;
+    QStringListModel usernamesCacheModel;
 
-	Account();
-        Account(const QString &type, const QString &username, const QString &password, bool useHttps = false, const QString &serviceBaseUrl = "", const QString &serviceApiUrl = "");
-	void saveMessages(QSettings &messagesCache);
-	void loadMessages(QSettings &messagesCache);
-	QString serviceApiUrl();
-	QString serviceBaseUrl();
-	QString searchBaseUrl();
-	QString searchApiUrl();
-	QString singleMessageUrl();
-	void setRemainingRequests(int remainingRequests);
-	void addUsernamesToCache(const QStringList &usernames);
+    QVector<Message> friendsMessages;
+    QVector<Message> replies;
+    QVector<Message> publicMessages;
+    QVector<Message> favorites;
+    QVector<Message> inboxMessages;
+    QVector<Message> outboxMessages;
+    QVector<Message> searchMessages;
+    QVector<Message> friendships;
+    QVector<Message> followers;
+    QVector<Message> blocks;
+
+    Account();
+    Account(const QString &type, const QString &username, const QString &password, bool useHttps = false, const QString &serviceBaseUrl = "", const QString &serviceApiUrl = "", bool useOAuth = false, const QString &oauthToken = "", const QString &oauthTokenSecret = "");
+    void saveMessages(QSettings &messagesCache);
+    void loadMessages(QSettings &messagesCache);
+    QString serviceApiUrl();
+    QString serviceBaseUrl();
+    QString searchBaseUrl();
+    QString searchApiUrl();
+    QString singleMessageUrl();
+    QOAuth::Interface *serviceOAuth();
+    void setRemainingRequests(int remainingRequests);
+    void addUsernamesToCache(const QStringList &usernames);
 
 public slots:
 	void addFriendsMessages(const QByteArray &data);

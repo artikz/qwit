@@ -37,6 +37,7 @@
 
 QMap<QString, QMap<QString, QString> > Services::options;
 QMap<QString, QMap<QString, QString> > Services::urlShorteners;
+QMap<QString, QOAuth::Interface*> Services::oauthInterface;
 
 void Services::initialize() {
 	QMap<QString, QString> twitterOptions;
@@ -70,7 +71,18 @@ void Services::initialize() {
 	twitterOptions["createBlock"] = "/blocks/create/";
 	twitterOptions["destroyBlock"] = "/blocks/destroy/";
 
-	options["twitter"] = twitterOptions;
+    twitterOptions["oauthconsumerkey"] = "IPEL3uRY74G8I2ILdREbw";
+    twitterOptions["oauthconsumersecret"] = "O82aodlbID2kEzGkYlIFd0JF48WbbaV0VZaehmtPU";
+    twitterOptions["oauthrequesttokenurl"] = "http://api.twitter.com/oauth/request_token";
+    twitterOptions["oauthauthorizeurl"] = "http://api.twitter.com/oauth/authorize?oauth_token=%token";
+    twitterOptions["oauthaccesstokenurl"] = "http://api.twitter.com/oauth/access_token";
+
+    oauthInterface["twitter"] = new QOAuth::Interface();
+    oauthInterface["twitter"]->setConsumerKey(twitterOptions["oauthconsumerkey"].toAscii());
+    oauthInterface["twitter"]->setConsumerSecret(twitterOptions["oauthconsumersecret"].toAscii());
+    oauthInterface["twitter"]->setRequestTimeout(10000);
+
+    options["twitter"] = twitterOptions;
 
 	QMap<QString, QString> identicaOptions;
 	identicaOptions["title"] = "Identi.ca";

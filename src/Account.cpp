@@ -82,7 +82,7 @@ Account::Account() {
 	sendingMessage = false;
 }
 
-Account::Account(const QString &type, const QString &username, const QString &password, bool useHttps, const QString &serviceBaseUrl, const QString &serviceApiUrl) {
+Account::Account(const QString &type, const QString &username, const QString &password, bool useHttps, const QString &serviceBaseUrl, const QString &serviceApiUrl, bool useOAuth, const QString &oauthToken, const QString &oauthTokenSecret) {
 	qDebug() << ("Account::Account()");
 	remainingRequests = -1;
 	twitter = new Twitter(this);
@@ -90,7 +90,10 @@ Account::Account(const QString &type, const QString &username, const QString &pa
 	this->username = username;
 	this->password = password;
 	this->useHttps = useHttps;
-	connect(twitter, SIGNAL(friendsMessagesReceived(const QByteArray&)), this, SLOT(addFriendsMessages(const QByteArray&)));
+    this->useOAuth = useOAuth;
+    this->oauthToken = oauthToken;
+    this->oauthTokenSecret = oauthTokenSecret;
+    connect(twitter, SIGNAL(friendsMessagesReceived(const QByteArray&)), this, SLOT(addFriendsMessages(const QByteArray&)));
 	connect(twitter, SIGNAL(repliesReceived(const QByteArray&)), this, SLOT(addReplies(const QByteArray&)));
 	connect(twitter, SIGNAL(publicMessagesReceived(const QByteArray&)), this, SLOT(addPublicMessages(const QByteArray&)));
 	connect(twitter, SIGNAL(favoritesReceived(const QByteArray&)), this, SLOT(addFavorites(const QByteArray&)));
@@ -127,8 +130,8 @@ Account::Account(const QString &type, const QString &username, const QString &pa
 	connect(twitter, SIGNAL(blockCreated(QByteArray,uint)), this, SLOT(addBlock(QByteArray,uint)));
 	connect(twitter, SIGNAL(blockDestroyed(QByteArray,uint)), this, SLOT(removeBlock(QByteArray,uint)));
 	sendingMessage = false;
-        _serviceBaseUrl = serviceBaseUrl;
-        _serviceApiUrl = serviceApiUrl;
+    _serviceBaseUrl = serviceBaseUrl;
+    _serviceApiUrl = serviceApiUrl;
 }
 
 void Account::addFriendsMessages(const QByteArray &data) {
@@ -463,13 +466,17 @@ QString Account::serviceApiUrl() {
 }
 
 QString Account::serviceBaseUrl() {
-        QString url = (type != "custom" ? Services::options[type]["baseurl"] : _serviceBaseUrl);
+    QString url = (type != "custom" ? Services::options[type]["baseurl"] : _serviceBaseUrl);
 	if (useHttps) {
 		if (url.startsWith("http://")) {
 			url = "https://" + url.mid(7);
 		}
 	}
 	return url;
+}
+
+QOAuth::Interface* Account::serviceOAuth() {
+    return (type == "twitter" ? Services::oauthInterface["twitter"] : 0);
 }
 
 QString Account::searchBaseUrl() {

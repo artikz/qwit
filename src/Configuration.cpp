@@ -160,9 +160,12 @@ void Configuration::load() {
 		}
 		QString type = settings.value("type", "").toString();
 		bool useHttps = settings.value("useHttps", false).toBool();
-                QString serviceBaseUrl = settings.value("serviceBaseUrl", "").toString();
-                QString serviceApiUrl = settings.value("serviceApiUrl", "").toString();
-                Account *account = new Account(type, username, password, useHttps, serviceBaseUrl, serviceApiUrl);
+        QString serviceBaseUrl = settings.value("serviceBaseUrl", "").toString();
+        QString serviceApiUrl = settings.value("serviceApiUrl", "").toString();
+        bool useOAuth = settings.value("useOAuth", false).toBool();
+        QString oauthToken = settings.value("oauthToken", "").toString();
+        QString oauthTokenSecret = settings.value("oauthTokenSecret", "").toString();
+        Account *account = new Account(type, username, password, useHttps, serviceBaseUrl, serviceApiUrl, useOAuth, oauthToken, oauthTokenSecret);
 		addAccount(account);
 	}
 	settings.endArray();
@@ -260,11 +263,14 @@ void Configuration::save() {
 		settings.setValue("password", encrypt(accounts[i]->password));
 		settings.setValue("type", accounts[i]->type);
 		settings.setValue("useHttps", accounts[i]->useHttps);
-                if (accounts[i]->type == "custom") {
-                        settings.setValue("serviceBaseUrl", accounts[i]->serviceBaseUrl());
-                        settings.setValue("serviceApiUrl", accounts[i]->serviceBaseUrl());
-                }
+        if (accounts[i]->type == "custom") {
+                settings.setValue("serviceBaseUrl", accounts[i]->serviceBaseUrl());
+                settings.setValue("serviceApiUrl", accounts[i]->serviceBaseUrl());
         }
+        settings.setValue("useOAuth", accounts[i]->useOAuth);
+        settings.setValue("oauthToken", accounts[i]->oauthToken);
+        settings.setValue("oauthTokenSecret", accounts[i]->oauthTokenSecret);
+    }
 	settings.endArray();
 	settings.endGroup();
 	

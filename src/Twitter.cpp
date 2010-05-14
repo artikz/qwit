@@ -75,15 +75,27 @@ void Twitter::sendMessage(const QString &message, quint64 inReplyToMessageId) {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
-
-	QByteArray data = "status=";
-	data += QUrl::toPercentEncoding(message);
-	if (inReplyToMessageId) {
-		data += "&in_reply_to_status_id=" + QString::number(inReplyToMessageId);
-	}
-	data += "&source=qwit";
-
+    QByteArray data = "";
+    if (account->useOAuth) {
+        QOAuth::ParamMap map;
+        map.insert("status", QUrl::toPercentEncoding(message));
+        if (inReplyToMessageId) {
+            map.insert("in_reply_to_status_id", QString::number(inReplyToMessageId).toAscii());
+        }
+        map.insert("source", "qwit");
+        data.append(account->serviceOAuth()->createParametersString(
+                url.toString(), QOAuth::POST,
+                account->oauthToken.toAscii(), account->oauthTokenSecret.toAscii(),
+                QOAuth::HMAC_SHA1, map, QOAuth::ParseForRequestContent));
+    } else {
+        http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
+        data.append("status=");
+        data.append(QUrl::toPercentEncoding(message));
+        if (inReplyToMessageId) {
+            data.append("&in_reply_to_status_id=" + QString::number(inReplyToMessageId));
+        }
+        data.append("&source=qwit");
+    }
 	buffer.open(QIODevice::WriteOnly);
 
 	int id = http->request(header, data, &buffer);
@@ -105,11 +117,24 @@ void Twitter::receiveFriendsMessages(quint64 lastMessageId, int count) {
 	} else {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
-	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
 
 	buffer.open(QIODevice::WriteOnly);
 
-	QString path = url.path() + "?count=" + QString::number(count) + (lastMessageId ? "&since_id=" + QString::number(lastMessageId) : "");
+    QString path = url.path();
+    if (account->useOAuth) {
+        QOAuth::ParamMap map;
+        map.insert("count", QString::number(count).toAscii());
+        if (lastMessageId) {
+            map.insert("since_id", QString::number(lastMessageId).toAscii());
+        }
+        path += account->serviceOAuth()->createParametersString(
+                url.toString(), QOAuth::GET,
+                account->oauthToken.toAscii(), account->oauthTokenSecret.toAscii(),
+                QOAuth::HMAC_SHA1, map, QOAuth::ParseForInlineQuery);
+    } else {
+        http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
+        path += "?count=" + QString::number(count) + (lastMessageId ? "&since_id=" + QString::number(lastMessageId) : "");
+    }
 	int id = http->get(path, &buffer);
 	receiveFriendsMessagesRequests[id] = tr("Updating friends messages: %1").arg(url.host() + path);
 }
@@ -129,11 +154,25 @@ void Twitter::receiveReplies(quint64 lastMessageId, int count) {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
-
 	buffer.open(QIODevice::WriteOnly);
 
-	int id = http->get(url.path() + "?count=" + QString::number(count) + (lastMessageId ? "&since_id=" + QString::number(lastMessageId) : ""), &buffer);
+    QString path = url.path();
+    if (account->useOAuth) {
+        QOAuth::ParamMap map;
+        map.insert("count", QString::number(count).toAscii());
+        if (lastMessageId) {
+            map.insert("since_id", QString::number(lastMessageId).toAscii());
+        }
+        path += account->serviceOAuth()->createParametersString(
+                url.toString(), QOAuth::GET,
+                account->oauthToken.toAscii(), account->oauthTokenSecret.toAscii(),
+                QOAuth::HMAC_SHA1, map, QOAuth::ParseForInlineQuery);
+    } else {
+        http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
+        path += "?count=" + QString::number(count) + (lastMessageId ? "&since_id=" + QString::number(lastMessageId) : "");
+    }
+
+    int id = http->get(path, &buffer);
 	receiveRepliesRequests[id] = tr("Updating replies: %1").arg(url.host() + url.path());
 }
 
@@ -152,11 +191,25 @@ void Twitter::receivePublicMessages(quint64 lastMessageId, int count) {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
-
 	buffer.open(QIODevice::WriteOnly);
 
-	int id = http->get(url.path() + "?count=" + QString::number(count) + (lastMessageId ? "&since_id=" + QString::number(lastMessageId) : ""), &buffer);
+    QString path = url.path();
+    if (account->useOAuth) {
+        QOAuth::ParamMap map;
+        map.insert("count", QString::number(count).toAscii());
+        if (lastMessageId) {
+            map.insert("since_id", QString::number(lastMessageId).toAscii());
+        }
+        path += account->serviceOAuth()->createParametersString(
+                url.toString(), QOAuth::GET,
+                account->oauthToken.toAscii(), account->oauthTokenSecret.toAscii(),
+                QOAuth::HMAC_SHA1, map, QOAuth::ParseForInlineQuery);
+    } else {
+        http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
+        path += "?count=" + QString::number(count) + (lastMessageId ? "&since_id=" + QString::number(lastMessageId) : "");
+    }
+
+    int id = http->get(path, &buffer);
 	receivePublicMessagesRequests[id] = tr("Updating public messages: %1").arg(url.host() + url.path());
 }
 
@@ -196,8 +249,6 @@ void Twitter::receivePreviousSearchMessages(int page, int count, const QString &
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
-
 	buffer.open(QIODevice::WriteOnly);
 
 	int id = http->get(url.path() + "?q=" + query + "&rpp=" + QString::number(count) + "&page=" + QString::number(page), &buffer);
@@ -217,11 +268,20 @@ void Twitter::receiveLastMessage() {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
-
 	buffer.open(QIODevice::WriteOnly);
 
-	int id = http->get(url.path(), &buffer);
+    QString path = url.path();
+    if (account->useOAuth) {
+        QOAuth::ParamMap map;
+        path += account->serviceOAuth()->createParametersString(
+                url.toString(), QOAuth::GET,
+                account->oauthToken.toAscii(), account->oauthTokenSecret.toAscii(),
+                QOAuth::HMAC_SHA1, map, QOAuth::ParseForInlineQuery);
+    } else {
+        http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
+    }
+
+    int id = http->get(path, &buffer);
 	receiveLastMessageRequests[id] = tr("Updating last message: %1").arg(url.host() + url.path());
 }
 
@@ -240,11 +300,25 @@ void Twitter::receivePreviousFriendsMessages(quint64 lastMessageId, int count) {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
-
 	buffer.open(QIODevice::WriteOnly);
 
-	int id = http->get(url.path() + "?count=" + QString::number(count) + (lastMessageId ? "&max_id=" + QString::number(lastMessageId) : ""), &buffer);
+    QString path = url.path();
+    if (account->useOAuth) {
+        QOAuth::ParamMap map;
+        map.insert("count", QString::number(count).toAscii());
+        if (lastMessageId) {
+            map.insert("max_id", QString::number(lastMessageId).toAscii());
+        }
+        path += account->serviceOAuth()->createParametersString(
+                url.toString(), QOAuth::GET,
+                account->oauthToken.toAscii(), account->oauthTokenSecret.toAscii(),
+                QOAuth::HMAC_SHA1, map, QOAuth::ParseForInlineQuery);
+    } else {
+        http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
+        path += "?count=" + QString::number(count) + (lastMessageId ? "&max_id=" + QString::number(lastMessageId) : "");
+    }
+
+    int id = http->get(path, &buffer);
 	receivePreviousFriendsMessagesRequests[id] = tr("Updating friends messages: %1").arg(url.host() + url.path());
 }
 
@@ -263,11 +337,25 @@ void Twitter::receivePreviousReplies(quint64 lastMessageId, int count) {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
-
 	buffer.open(QIODevice::WriteOnly);
 
-	int id = http->get(url.path() + "?count=" + QString::number(count) + (lastMessageId ? "&max_id=" + QString::number(lastMessageId) : ""), &buffer);
+    QString path = url.path();
+    if (account->useOAuth) {
+        QOAuth::ParamMap map;
+        map.insert("count", QString::number(count).toAscii());
+        if (lastMessageId) {
+            map.insert("max_id", QString::number(lastMessageId).toAscii());
+        }
+        path += account->serviceOAuth()->createParametersString(
+                url.toString(), QOAuth::GET,
+                account->oauthToken.toAscii(), account->oauthTokenSecret.toAscii(),
+                QOAuth::HMAC_SHA1, map, QOAuth::ParseForInlineQuery);
+    } else {
+        http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
+        path += "?count=" + QString::number(count) + (lastMessageId ? "&max_id=" + QString::number(lastMessageId) : "");
+    }
+
+    int id = http->get(path, &buffer);
 	receivePreviousRepliesRequests[id] = tr("Updating replies: %1").arg(url.host() + url.path());
 }
 
@@ -286,11 +374,25 @@ void Twitter::receivePreviousPublicMessages(quint64 lastMessageId, int count) {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
-
 	buffer.open(QIODevice::WriteOnly);
 
-	int id = http->get(url.path() + "?count=" + QString::number(count) + (lastMessageId ? "&max_id=" + QString::number(lastMessageId) : ""), &buffer);
+    QString path = url.path();
+    if (account->useOAuth) {
+        QOAuth::ParamMap map;
+        map.insert("count", QString::number(count).toAscii());
+        if (lastMessageId) {
+            map.insert("max_id", QString::number(lastMessageId).toAscii());
+        }
+        path += account->serviceOAuth()->createParametersString(
+                url.toString(), QOAuth::GET,
+                account->oauthToken.toAscii(), account->oauthTokenSecret.toAscii(),
+                QOAuth::HMAC_SHA1, map, QOAuth::ParseForInlineQuery);
+    } else {
+        http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
+        path += "?count=" + QString::number(count) + (lastMessageId ? "&max_id=" + QString::number(lastMessageId) : "");
+    }
+
+    int id = http->get(path, &buffer);
 	receivePreviousPublicMessagesRequests[id] = tr("Updating public messages: %1").arg(url.host() + url.path());
 }
 
@@ -307,11 +409,20 @@ void Twitter::receiveFavorites() {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
-
 	buffer.open(QIODevice::WriteOnly);
 
-	int id = http->get(url.path(), &buffer);
+    QString path = url.path();
+    if (account->useOAuth) {
+        QOAuth::ParamMap map;
+        path += account->serviceOAuth()->createParametersString(
+                url.toString(), QOAuth::GET,
+                account->oauthToken.toAscii(), account->oauthTokenSecret.toAscii(),
+                QOAuth::HMAC_SHA1, map, QOAuth::ParseForInlineQuery);
+    } else {
+        http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
+    }
+
+    int id = http->get(path, &buffer);
 	receiveFavoritesRequests[id] = tr("Updating favorites: %1").arg(url.host() + url.path());
 }
 
@@ -328,11 +439,22 @@ void Twitter::receivePreviousFavorites(int page) {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
-
 	buffer.open(QIODevice::WriteOnly);
 
-	int id = http->get(url.path() + "?page=" + QString::number(page), &buffer);
+    QString path = url.path();
+    if (account->useOAuth) {
+        QOAuth::ParamMap map;
+        map.insert("page", QString::number(page).toAscii());
+        path += account->serviceOAuth()->createParametersString(
+                url.toString(), QOAuth::GET,
+                account->oauthToken.toAscii(), account->oauthTokenSecret.toAscii(),
+                QOAuth::HMAC_SHA1, map, QOAuth::ParseForInlineQuery);
+    } else {
+        http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
+        path += "?page=" + QString::number(page);
+    }
+
+    int id = http->get(path, &buffer);
 	receivePreviousFavoritesRequests[id] = tr("Updating favorites: %1").arg(url.host() + url.path());
 }
 
@@ -351,11 +473,25 @@ void Twitter::receiveInboxMessages(quint64 lastMessageId, int count) {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
-
 	buffer.open(QIODevice::WriteOnly);
 
-	int id = http->get(url.path() + "?count=" + QString::number(count) + (lastMessageId ? "&since_id=" + QString::number(lastMessageId) : ""), &buffer);
+    QString path = url.path();
+    if (account->useOAuth) {
+        QOAuth::ParamMap map;
+        map.insert("count", QString::number(count).toAscii());
+        if (lastMessageId) {
+            map.insert("since_id", QString::number(lastMessageId).toAscii());
+        }
+        path += account->serviceOAuth()->createParametersString(
+                url.toString(), QOAuth::GET,
+                account->oauthToken.toAscii(), account->oauthTokenSecret.toAscii(),
+                QOAuth::HMAC_SHA1, map, QOAuth::ParseForInlineQuery);
+    } else {
+        http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
+        path += "?count=" + QString::number(count) + (lastMessageId ? "&since_id=" + QString::number(lastMessageId) : "");
+    }
+
+    int id = http->get(path, &buffer);
 	receiveInboxMessagesRequests[id] = tr("Updating inbox messages: %1").arg(url.host() + url.path());
 }
 
@@ -374,11 +510,25 @@ void Twitter::receivePreviousInboxMessages(quint64 lastMessageId, int count) {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
-
 	buffer.open(QIODevice::WriteOnly);
 
-	int id = http->get(url.path() + "?count=" + QString::number(count) + (lastMessageId ? "&max_id=" + QString::number(lastMessageId) : ""), &buffer);
+    QString path = url.path();
+    if (account->useOAuth) {
+        QOAuth::ParamMap map;
+        map.insert("count", QString::number(count).toAscii());
+        if (lastMessageId) {
+            map.insert("max_id", QString::number(lastMessageId).toAscii());
+        }
+        path += account->serviceOAuth()->createParametersString(
+                url.toString(), QOAuth::GET,
+                account->oauthToken.toAscii(), account->oauthTokenSecret.toAscii(),
+                QOAuth::HMAC_SHA1, map, QOAuth::ParseForInlineQuery);
+    } else {
+        http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
+        path += "?count=" + QString::number(count) + (lastMessageId ? "&max_id=" + QString::number(lastMessageId) : "");
+    }
+
+    int id = http->get(path, &buffer);
 	receivePreviousInboxMessagesRequests[id] = tr("Updating inbox messages: %1").arg(url.host() + url.path());
 }
 
@@ -397,11 +547,25 @@ void Twitter::receiveOutboxMessages(quint64 lastMessageId, int count) {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
-
 	buffer.open(QIODevice::WriteOnly);
 
-	int id = http->get(url.path() + "?count=" + QString::number(count) + (lastMessageId ? "&since_id=" + QString::number(lastMessageId) : ""), &buffer);
+    QString path = url.path();
+    if (account->useOAuth) {
+        QOAuth::ParamMap map;
+        map.insert("count", QString::number(count).toAscii());
+        if (lastMessageId) {
+            map.insert("since_id", QString::number(lastMessageId).toAscii());
+        }
+        path += account->serviceOAuth()->createParametersString(
+                url.toString(), QOAuth::GET,
+                account->oauthToken.toAscii(), account->oauthTokenSecret.toAscii(),
+                QOAuth::HMAC_SHA1, map, QOAuth::ParseForInlineQuery);
+    } else {
+        http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
+        path += "?count=" + QString::number(count) + (lastMessageId ? "&since_id=" + QString::number(lastMessageId) : "");
+    }
+
+    int id = http->get(path, &buffer);
 	receiveOutboxMessagesRequests[id] = tr("Updating outbox messages: %1").arg(url.host() + url.path());
 }
 
@@ -420,11 +584,25 @@ void Twitter::receivePreviousOutboxMessages(quint64 lastMessageId, int count) {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
-
 	buffer.open(QIODevice::WriteOnly);
 
-	int id = http->get(url.path() + "?count=" + QString::number(count) + (lastMessageId ? "&max_id=" + QString::number(lastMessageId) : ""), &buffer);
+    QString path = url.path();
+    if (account->useOAuth) {
+        QOAuth::ParamMap map;
+        map.insert("count", QString::number(count).toAscii());
+        if (lastMessageId) {
+            map.insert("max_id", QString::number(lastMessageId).toAscii());
+        }
+        path += account->serviceOAuth()->createParametersString(
+                url.toString(), QOAuth::GET,
+                account->oauthToken.toAscii(), account->oauthTokenSecret.toAscii(),
+                QOAuth::HMAC_SHA1, map, QOAuth::ParseForInlineQuery);
+    } else {
+        http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
+        path += "?count=" + QString::number(count) + (lastMessageId ? "&max_id=" + QString::number(lastMessageId) : "");
+    }
+
+    int id = http->get(path, &buffer);
 	receivePreviousOutboxMessagesRequests[id] = tr("Updating outbox messages: %1").arg(url.host() + url.path());
 }
 
@@ -446,9 +624,19 @@ void Twitter::sendDirectMessage(const QString &username, const QString &message)
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
-
-	QByteArray data = "user=" + QUrl::toPercentEncoding(username) + "&text=" + QUrl::toPercentEncoding(message);
+    QByteArray data = "";
+    if (account->useOAuth) {
+        QOAuth::ParamMap map;
+        map.insert("user", QUrl::toPercentEncoding(username));
+        map.insert("text", QUrl::toPercentEncoding(message));
+        data.append(account->serviceOAuth()->createParametersString(
+                url.toString(), QOAuth::POST,
+                account->oauthToken.toAscii(), account->oauthTokenSecret.toAscii(),
+                QOAuth::HMAC_SHA1, map, QOAuth::ParseForRequestContent));
+    } else {
+        http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
+        data = "user=" + QUrl::toPercentEncoding(username) + "&text=" + QUrl::toPercentEncoding(message);
+    }
 
 	buffer.open(QIODevice::WriteOnly);
 
@@ -475,9 +663,16 @@ void Twitter::favorMessage(quint64 messageId) {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
-
-	QByteArray data;
+    QByteArray data = "";
+    if (account->useOAuth) {
+        QOAuth::ParamMap map;
+        data.append(account->serviceOAuth()->createParametersString(
+                url.toString(), QOAuth::POST,
+                account->oauthToken.toAscii(), account->oauthTokenSecret.toAscii(),
+                QOAuth::HMAC_SHA1, map, QOAuth::ParseForRequestContent));
+    } else {
+        http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
+    }
 
 	buffer.open(QIODevice::WriteOnly);
 
@@ -504,9 +699,16 @@ void Twitter::unfavorMessage(quint64 messageId) {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
-
-	QByteArray data;
+    QByteArray data = "";
+    if (account->useOAuth) {
+        QOAuth::ParamMap map;
+        data.append(account->serviceOAuth()->createParametersString(
+                url.toString(), QOAuth::POST,
+                account->oauthToken.toAscii(), account->oauthTokenSecret.toAscii(),
+                QOAuth::HMAC_SHA1, map, QOAuth::ParseForRequestContent));
+    } else {
+        http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
+    }
 
 	buffer.open(QIODevice::WriteOnly);
 
@@ -533,9 +735,16 @@ void Twitter::destroyMessage(quint64 messageId) {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
-
-	QByteArray data;
+    QByteArray data = "";
+    if (account->useOAuth) {
+        QOAuth::ParamMap map;
+        data.append(account->serviceOAuth()->createParametersString(
+                url.toString(), QOAuth::POST,
+                account->oauthToken.toAscii(), account->oauthTokenSecret.toAscii(),
+                QOAuth::HMAC_SHA1, map, QOAuth::ParseForRequestContent));
+    } else {
+        http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
+    }
 
 	buffer.open(QIODevice::WriteOnly);
 
@@ -562,9 +771,16 @@ void Twitter::destroyDirectMessage(quint64 messageId) {
 		http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
 	}
 
-	http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
-
-	QByteArray data;
+    QByteArray data = "";
+    if (account->useOAuth) {
+        QOAuth::ParamMap map;
+        data.append(account->serviceOAuth()->createParametersString(
+                url.toString(), QOAuth::POST,
+                account->oauthToken.toAscii(), account->oauthTokenSecret.toAscii(),
+                QOAuth::HMAC_SHA1, map, QOAuth::ParseForRequestContent));
+    } else {
+        http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
+    }
 
 	buffer.open(QIODevice::WriteOnly);
 
@@ -819,16 +1035,25 @@ void Twitter::receiveFriendships() {
     QUrl url(account->serviceApiUrl() + Services::options[account->type]["showFriendships"] + ".xml");
 
     if(url.toString().indexOf("https") == 0) {
-	http->setHost(url.host(), QHttp::ConnectionModeHttps, url.port(443));
+        http->setHost(url.host(), QHttp::ConnectionModeHttps, url.port(443));
     } else {
-	http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
+        http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
     }
-
-    http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
 
     buffer.open(QIODevice::WriteOnly);
 
-    int id = http->get(url.path(), &buffer);
+    QString path = url.path();
+    if (account->useOAuth) {
+        QOAuth::ParamMap map;
+        path += account->serviceOAuth()->createParametersString(
+                url.toString(), QOAuth::GET,
+                account->oauthToken.toAscii(), account->oauthTokenSecret.toAscii(),
+                QOAuth::HMAC_SHA1, map, QOAuth::ParseForInlineQuery);
+    } else {
+        http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
+    }
+
+    int id = http->get(path, &buffer);
     receiveFriendshipsRequests[id] = tr("Getting friendships: %1").arg(url.host() + url.path());
 }
 
@@ -840,16 +1065,25 @@ void Twitter::receiveFollowers() {
     QUrl url(account->serviceApiUrl() + Services::options[account->type]["showFollowers"] + ".xml");
 
     if(url.toString().indexOf("https") == 0) {
-	http->setHost(url.host(), QHttp::ConnectionModeHttps, url.port(443));
+        http->setHost(url.host(), QHttp::ConnectionModeHttps, url.port(443));
     } else {
-	http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
+        http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
     }
-
-    http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
 
     buffer.open(QIODevice::WriteOnly);
 
-    int id = http->get(url.path(), &buffer);
+    QString path = url.path();
+    if (account->useOAuth) {
+        QOAuth::ParamMap map;
+        path += account->serviceOAuth()->createParametersString(
+                url.toString(), QOAuth::GET,
+                account->oauthToken.toAscii(), account->oauthTokenSecret.toAscii(),
+                QOAuth::HMAC_SHA1, map, QOAuth::ParseForInlineQuery);
+    } else {
+        http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
+    }
+
+    int id = http->get(path, &buffer);
     receiveFollowersRequests[id] = tr("Getting followers: %1").arg(url.host() + url.path());
 }
 
@@ -861,16 +1095,25 @@ void Twitter::receiveBlocks() {
     QUrl url(account->serviceApiUrl() + Services::options[account->type]["showBlocks"] + ".xml");
 
     if(url.toString().indexOf("https") == 0) {
-	http->setHost(url.host(), QHttp::ConnectionModeHttps, url.port(443));
+        http->setHost(url.host(), QHttp::ConnectionModeHttps, url.port(443));
     } else {
-	http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
+        http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
     }
-
-    http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
 
     buffer.open(QIODevice::WriteOnly);
 
-    int id = http->get(url.path(), &buffer);
+    QString path = url.path();
+    if (account->useOAuth) {
+        QOAuth::ParamMap map;
+        path += account->serviceOAuth()->createParametersString(
+                url.toString(), QOAuth::GET,
+                account->oauthToken.toAscii(), account->oauthTokenSecret.toAscii(),
+                QOAuth::HMAC_SHA1, map, QOAuth::ParseForInlineQuery);
+    } else {
+        http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
+    }
+
+    int id = http->get(path, &buffer);
     receiveBlocksRequests[id] = tr("Getting blocked users: %1").arg(url.host() + url.path());
 }
 
@@ -887,15 +1130,24 @@ void Twitter::createFriendship(QString screenName, uint requestId) {
     header.setContentType("application/x-www-form-urlencoded");
 
     if(url.toString().indexOf("https") == 0) {
-	http->setHost(url.host(), QHttp::ConnectionModeHttps, url.port(443));
+        http->setHost(url.host(), QHttp::ConnectionModeHttps, url.port(443));
     } else {
-	http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
+        http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
     }
 
-    http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
+    QByteArray data = "";
+    if (account->useOAuth) {
+        QOAuth::ParamMap map;
+        map.insert("screen_name", QUrl::toPercentEncoding(screenName));
+        data.append(account->serviceOAuth()->createParametersString(
+                url.toString(), QOAuth::POST,
+                account->oauthToken.toAscii(), account->oauthTokenSecret.toAscii(),
+                QOAuth::HMAC_SHA1, map, QOAuth::ParseForRequestContent));
+    } else {
+        http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
+        data.append("screen_name=" + screenName);
+    }
 
-    QByteArray data = "screen_name=";
-    data+= screenName;
 
     buffer.open(QIODevice::WriteOnly);
 
@@ -917,15 +1169,23 @@ void Twitter::destroyFriendship(QString screenName, uint requestId) {
     header.setContentType("application/x-www-form-urlencoded");
 
     if(url.toString().indexOf("https") == 0) {
-	http->setHost(url.host(), QHttp::ConnectionModeHttps, url.port(443));
+        http->setHost(url.host(), QHttp::ConnectionModeHttps, url.port(443));
     } else {
-	http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
+        http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
     }
 
-    http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
-
-    QByteArray data = "screen_name=";
-    data += screenName;
+    QByteArray data = "";
+    if (account->useOAuth) {
+        QOAuth::ParamMap map;
+        map.insert("screen_name", QUrl::toPercentEncoding(screenName));
+        data.append(account->serviceOAuth()->createParametersString(
+                url.toString(), QOAuth::POST,
+                account->oauthToken.toAscii(), account->oauthTokenSecret.toAscii(),
+                QOAuth::HMAC_SHA1, map, QOAuth::ParseForRequestContent));
+    } else {
+        http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
+        data.append("screen_name=" + screenName);
+    }
 
     buffer.open(QIODevice::WriteOnly);
 
@@ -947,14 +1207,21 @@ void Twitter::createBlock(QString screenName, uint requestId) {
     header.setContentType("application/x-www-form-urlencoded");
 
     if(url.toString().indexOf("https") == 0) {
-	http->setHost(url.host(), QHttp::ConnectionModeHttps, url.port(443));
+        http->setHost(url.host(), QHttp::ConnectionModeHttps, url.port(443));
     } else {
-	http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
+        http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
     }
 
-    http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
-
-    QByteArray data;
+    QByteArray data = "";
+    if (account->useOAuth) {
+        QOAuth::ParamMap map;
+        data.append(account->serviceOAuth()->createParametersString(
+                url.toString(), QOAuth::POST,
+                account->oauthToken.toAscii(), account->oauthTokenSecret.toAscii(),
+                QOAuth::HMAC_SHA1, map, QOAuth::ParseForRequestContent));
+    } else {
+        http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
+    }
 
     buffer.open(QIODevice::WriteOnly);
 
@@ -976,14 +1243,21 @@ void Twitter::destroyBlock(QString screenName, uint requestId) {
     header.setContentType("application/x-www-form-urlencoded");
 
     if(url.toString().indexOf("https") == 0) {
-	http->setHost(url.host(), QHttp::ConnectionModeHttps, url.port(443));
+        http->setHost(url.host(), QHttp::ConnectionModeHttps, url.port(443));
     } else {
-	http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
+    	http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
     }
 
-    http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
-
-    QByteArray data;
+    QByteArray data = "";
+    if (account->useOAuth) {
+        QOAuth::ParamMap map;
+        data.append(account->serviceOAuth()->createParametersString(
+                url.toString(), QOAuth::POST,
+                account->oauthToken.toAscii(), account->oauthTokenSecret.toAscii(),
+                QOAuth::HMAC_SHA1, map, QOAuth::ParseForRequestContent));
+    } else {
+        http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
+    }
 
     buffer.open(QIODevice::WriteOnly);
 

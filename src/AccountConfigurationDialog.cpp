@@ -37,7 +37,17 @@
 
 AccountConfigurationDialog::AccountConfigurationDialog(QWidget *parent): QDialog(parent) {
 	setupUi(this);
-	connect(useHttpsCheckBox, SIGNAL(stateChanged(int)), this, SLOT(useHttpsCheckBoxChanged(int)));
+
+    oauthDialog = new OAuthDialog(this);
+
+    connect(oauthAuthorizePushButton, SIGNAL(pressed()), this, SLOT(oauthAuthorize()));
+    connect(useHttpsCheckBox, SIGNAL(stateChanged(int)), this, SLOT(useHttpsCheckBoxChanged(int)));
+    connect(plainGroupBox, SIGNAL(toggled(bool)), this, SLOT(plainGroupBoxToggled(bool)));
+    connect(oauthGroupBox, SIGNAL(toggled(bool)), this, SLOT(oauthGroupBoxToggled(bool)));
+
+    connect(oauthDialog, SIGNAL(accepted()), this, SLOT(commitAuthorization()));
+    connect(oauthDialog, SIGNAL(rejected()), this, SLOT(stopAuthorization()));
+
 }
 
 void AccountConfigurationDialog::useHttpsCheckBoxChanged(int state) {
@@ -64,6 +74,59 @@ void AccountConfigurationDialog::useHttpsCheckBoxChanged(int state) {
 		}
 		serviceApiUrlLineEdit->setText(serviceApiUrl);
 	}
+}
+
+void AccountConfigurationDialog::plainGroupBoxToggled(bool state) {
+    oauthGroupBox->setChecked(!state);
+}
+
+void AccountConfigurationDialog::oauthGroupBoxToggled(bool state) {
+    plainGroupBox->setChecked(!state);
+}
+
+void AccountConfigurationDialog::oauthAuthorize() {
+    setEnabled(false);
+    QOAuth::ParamMap reply = qoauth->requestToken(serviceOAuthRequestTokenUrl, QOAuth::GET, QOAuth::HMAC_SHA1 );
+    if (qoauth->error() == QOAuth::NoError) {
+        token = reply.value(QOAuth::tokenParameterName());
+        tokenSecret = reply.value(QOAuth::tokenSecretParameterName());
+        QString url = serviceOAuthAuthorizeUrl;
+        url.replace("%token", token);
+        QString text = oauthDialog->oauthLabel->text();
+        text.replace("%url", url);
+        oauthDialog->oauthLabel->setText(text);
+        setEnabled(true);
+        oauthDialog->showNormal();
+    } else {
+        QMessageBox::critical(this, "Error!", "Error while trying OAuth!");
+        setEnabled(true);
+    }
+}
+
+void AccountConfigurationDialog::commitAuthorization() {
+    setEnabled(false);
+    QString pin = oauthDialog->pinLineEdit->text();
+
+    QOAuth::ParamMap otherArgs;
+    otherArgs.insert(QByteArray("oauth_verifier"), pin.toAscii());
+
+    QOAuth::ParamMap reply = qoauth->accessToken(serviceOAuthAccessTokenUrl, QOAuth::POST, token.toAscii(), tokenSecret.toAscii(), QOAuth::HMAC_SHA1, otherArgs);
+
+    if (qoauth->error() == QOAuth::NoError) {
+        QMessageBox::information(this, "", "Authorization successfull!");
+        token = reply.value(QOAuth::tokenParameterName());
+        tokenSecret = reply.value(QOAuth::tokenSecretParameterName());
+        accountUsernameLineEdit->setText(reply.value("screen_name"));
+        setEnabled(true);
+    } else {
+        setEnabled(true);
+        QMessageBox::critical(this, "Error!", "Wrong pin, try again!");
+        oauthDialog->showNormal();
+    }
+}
+
+void AccountConfigurationDialog::stopAuthorization() {
+    setEnabled(true);
 }
 
 #endif
