@@ -13,6 +13,8 @@ remove_definitions(-DQT3_SUPPORT_WARNINGS -DQT3_SUPPORT)
 
 include_directories( 
 	${QT_INCLUDES} 
+	/usr/include/QtOAuth
+	/usr/include/qca2/QtCrypto
 	${CMAKE_CURRENT_SOURCE_DIR}
 	${CMAKE_CURRENT_BINARY_DIR}
 	)
@@ -23,6 +25,7 @@ set( qwit_UI
 	src/MainWindow.ui
 	src/OptionsDialog.ui
 	src/AboutDialog.ui
+	src/OAuthDialog.ui
 	src/AccountConfigurationDialog.ui
 	src/DirectMessageDialog.ui
 	src/FriendsMgmtDialog.ui
@@ -35,6 +38,7 @@ set( qwit_SRCS
     src/MessageTextEdit.cpp
     src/OptionsDialog.cpp
     src/AboutDialog.cpp
+    src/OAuthDialog.cpp
     src/DirectMessageDialog.cpp
     src/TwitPicDialog.cpp
     src/AccountConfigurationDialog.cpp
@@ -89,9 +93,10 @@ add_dependencies( qwit translations_target )
 
 target_link_libraries( qwit
 	${QT_QTCORE_LIBRARY}
+	${QT_QTNETWORK_LIBRARY}
 	${QT_QTGUI_LIBRARY}
 	${QT_QTXML_LIBRARY}
-	${QT_QTNETWORK_LIBRARY}
+	qoauth
 	)
 
 install( TARGETS qwit DESTINATION ${QT_BINARY_DIR} )
