@@ -262,7 +262,11 @@ void Configuration::save() {
 	for (int i = 0; i < accounts.size(); ++i) {
 		settings.setArrayIndex(i);
 		settings.setValue("username", accounts[i]->username);
-		settings.setValue("password", encrypt(accounts[i]->password));
+        if (accounts[i]->useOAuth) {
+            settings.setValue("password", "");
+        } else {
+            settings.setValue("password", encrypt(accounts[i]->password));
+        }
 		settings.setValue("type", accounts[i]->type);
 		settings.setValue("useHttps", accounts[i]->useHttps);
         if (accounts[i]->type == "custom") {

@@ -117,6 +117,7 @@ void AccountConfigurationDialog::commitAuthorization() {
         token = reply.value(QOAuth::tokenParameterName());
         tokenSecret = reply.value(QOAuth::tokenSecretParameterName());
         accountUsernameLineEdit->setText(reply.value("screen_name"));
+        accountPasswordLineEdit->setText("");
         setEnabled(true);
     } else {
         setEnabled(true);
