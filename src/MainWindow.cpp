@@ -49,6 +49,7 @@ MainWindow* MainWindow::getInstance() {
 	return instance;
 }
 
+
 MainWindow::MainWindow(QWidget *parent): QMainWindow(parent) {
 	qDebug() << ("MainWindow::MainWindow()");
 
@@ -590,6 +591,10 @@ void MainWindow::hideEvent(QHideEvent *event) {
 void MainWindow::setupTrayIcon() {
 	qDebug() << ("MainWindow::setupTrayIcon()");
 
+        trayIcon = new QSystemTrayIcon(this);
+        trayIcon->setIcon(QIcon(":/images/qwit.png"));
+
+#ifndef Q_OS_MAC //no context menu for trayicon in mac osx
 	trayShowhideAction = new QAction(tr("&Show / Hide"), this);
 	connect(trayShowhideAction, SIGNAL(triggered()), this, SLOT(showhide()));
 	trayQuitAction = new QAction(tr("&Quit"), this);
@@ -597,9 +602,8 @@ void MainWindow::setupTrayIcon() {
 	trayIconMenu = new QMenu(this);
 	trayIconMenu->addAction(trayShowhideAction);
 	trayIconMenu->addAction(trayQuitAction);
-	trayIcon = new QSystemTrayIcon(this);
 	trayIcon->setContextMenu(trayIconMenu);
-	trayIcon->setIcon(QIcon(":/images/qwit.png"));
+#endif
 	trayIcon->show();
 //	connect(trayIcon, SIGNAL(messageClicked()), this, SLOT(makeActive()));
 	connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this, SLOT(iconActivated(QSystemTrayIcon::ActivationReason)));
@@ -616,11 +620,12 @@ void MainWindow::iconActivated(QSystemTrayIcon::ActivationReason reason) {
 void MainWindow::showhide() {
 	qDebug() << ("MainWindow::showhide()");
 
-	if (isVisible()) {
+        if (isVisible() && isActiveWindow()) {
 		hide();
 	} else {
 		show();
-		activateWindow();
+                raise();
+                activateWindow();
 //		for (int i = 0; i < TWITTER_TABS; ++i) {
 //			twitterTabs[i].twitterWidget->updateItems();
 //		}

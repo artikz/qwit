@@ -108,6 +108,7 @@ TRANSLATIONS += translations/qwit_en_US.ts \
     translations/qwit_fi_FI.ts \
     translations/qwit_zh_CN.ts \
     translations/qwit_pl_PL.ts \
+    translations/qwit_ro_RO.ts \
     translations/qwit_tr_TR.ts
 QT += network \
     xml
@@ -126,7 +127,7 @@ icon.files += images/qwit.png
 INSTALLS = target \
     desktop \
     icon
-CONFIG += debug \
+CONFIG += release \
     x86 \
     ppc \
     x86_64 \
