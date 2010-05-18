@@ -167,7 +167,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="28"/>
         <source>Plain-text authorization</source>
-        <translation type="unfinished"></translation>
+        <translation>Autorizare plain-text</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="39"/>
@@ -182,17 +182,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="80"/>
         <source>OAuth</source>
-        <translation type="unfinished"></translation>
+        <translation>OAuth</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="107"/>
         <source>Authorize</source>
-        <translation type="unfinished"></translation>
+        <translation>Autorizează</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="132"/>
         <source>Service options</source>
-        <translation type="unfinished"></translation>
+        <translation>Opțiuni serviciu</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="140"/>
@@ -213,22 +213,22 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/AccountConfigurationDialog.cpp" line="101"/>
         <location filename="../src/AccountConfigurationDialog.cpp" line="124"/>
         <source>Error!</source>
-        <translation type="unfinished"></translation>
+        <translation>Eroare!</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.cpp" line="101"/>
         <source>Error while trying OAuth!</source>
-        <translation type="unfinished"></translation>
+        <translation>Eroare încercând OAuth!</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.cpp" line="116"/>
         <source>Authorization successfull!</source>
-        <translation type="unfinished"></translation>
+        <translation>Autorizat cu succes!</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.cpp" line="124"/>
         <source>Wrong pin, try again!</source>
-        <translation type="unfinished"></translation>
+        <translation>Cod pin greșit, încearcați din nou!</translation>
     </message>
 </context>
 <context>
@@ -396,15 +396,15 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/MainWindow.cpp" line="753"/>
         <source>Rate limit exceeded</source>
-        <translation type="unfinished"></translation>
+        <translation>Limita ratei depășită</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/MainWindow.cpp" line="755"/>
         <source>%n requests left</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n solicitare rămasă</numerusform>
+            <numerusform>%n solicitare rămasă</numerusform>
+            <numerusform>%n solicitări rămase</numerusform>
         </translation>
     </message>
     <message>
@@ -520,12 +520,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/OAuthDialog.ui" line="14"/>
         <source>OAuth configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Configurare OAuth</translation>
     </message>
     <message>
         <location filename="../src/OAuthDialog.ui" line="25"/>
         <source>Click &lt;a href=&quot;%url&quot;&gt;here&lt;/a&gt; to allow Qwit access your account and enter received pin code.</source>
-        <translation type="unfinished"></translation>
+        <translation>Click &lt;a href=&quot;%url&quot;&gt;aici&lt;/a&gt; pentru a permite Qwit să acceseze contul dumneavoastră și introduceți codul pin primit.</translation>
     </message>
 </context>
 <context>
@@ -601,7 +601,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/OptionsDialog.ui" line="45"/>
         <location filename="../src/OptionsDialog.cpp" line="78"/>
         <source>URL shortener</source>
-        <translation>Scurtător de URL-uri</translation>
+        <translation>Generator de URL-uri scurte</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="50"/>
@@ -713,7 +713,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/OptionsDialog.ui" line="550"/>
         <source>Start minimized</source>
-        <translation type="unfinished"></translation>
+        <translation>Porneste minimizat</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="573"/>
@@ -763,7 +763,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/OptionsDialog.ui" line="1258"/>
         <source>Url shortener</source>
-        <translation>Scurtător de URL-uri</translation>
+        <translation>Generator de URL-uri scurte</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1266"/>
@@ -773,17 +773,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/OptionsDialog.ui" line="1276"/>
         <source>Service Username:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nume utilizator serviciu:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1286"/>
         <source>Service API Key:</source>
-        <translation type="unfinished"></translation>
+        <translation>API Key serviciu:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1296"/>
         <source>Not all URL shorteners need Username or API keys. Only enter the ones appropriate to your service.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nu toate generatoarele de URL-uri scurte au nevoie de API key-uri. Introduceți doar cele adecvate serviciului dumneavoastră.</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="493"/>
@@ -823,36 +823,36 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/QwitTools.cpp" line="91"/>
         <source>about %n second(s) ago</source>
         <translation>
-            <numerusform>about %n second ago</numerusform>
-            <numerusform>about %n seconds ago</numerusform>
-            <numerusform></numerusform>
+            <numerusform>de aprope %n secundă</numerusform>
+            <numerusform>de aproape %n secundă</numerusform>
+            <numerusform>de aproape %n secunde</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../src/QwitTools.cpp" line="93"/>
         <source>about %n minute(s) ago</source>
         <translation>
-            <numerusform>about %n minute ago</numerusform>
-            <numerusform>about %n minutes ago</numerusform>
-            <numerusform></numerusform>
+            <numerusform>de aproape %n minut</numerusform>
+            <numerusform>de aproape %n minut</numerusform>
+            <numerusform>de aproape %n minute</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../src/QwitTools.cpp" line="95"/>
         <source>about %n hour(s) ago</source>
         <translation>
-            <numerusform>about %n hour ago</numerusform>
-            <numerusform>about %n hours ago</numerusform>
-            <numerusform></numerusform>
+            <numerusform>de aproape %n oră</numerusform>
+            <numerusform>de aproape %n oră</numerusform>
+            <numerusform>de aproape %n ore</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../src/QwitTools.cpp" line="97"/>
         <source>about %n day(s) ago</source>
         <translation>
-            <numerusform>about %n day ago</numerusform>
-            <numerusform>about %n days ago</numerusform>
-            <numerusform></numerusform>
+            <numerusform>de aproape %n zi</numerusform>
+            <numerusform>de aproape %n zi</numerusform>
+            <numerusform>de aproape %n zile</numerusform>
         </translation>
     </message>
 </context>
