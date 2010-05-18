@@ -224,6 +224,12 @@ void MainWindow::updateState() {
 
 	Configuration *config = Configuration::getInstance();
 
+    if (config->useProxy) {
+        QNetworkProxy::setApplicationProxy(QNetworkProxy(QNetworkProxy::HttpProxy, config->proxyAddress, config->proxyPort, config->proxyUsername, config->proxyPassword));
+    } else {
+        QNetworkProxy::setApplicationProxy(QNetworkProxy(QNetworkProxy::NoProxy));
+    }
+
 	if ((greetingMessageLabel->isVisible() != config->showGreetingMessage) || (leftCharactersNumberLabel->isVisible() != config->showLeftCharactersNumber)) {
 		if (greetingMessageLabel->isVisible()) {
 			QLayout *layout = (QLayout*)verticalLayout->itemAt(0);

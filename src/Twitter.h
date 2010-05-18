@@ -71,7 +71,6 @@ class Twitter: public QObject {
 	QMap<int, QString> destroyFriendshipRequests;
 	QMap<int, QString> createBlockRequests;
 	QMap<int, QString> destroyBlockRequests;
-	void setupProxy();
 	QMap<int, uint> httpRequestId2InternalRequestId;
 
 public:

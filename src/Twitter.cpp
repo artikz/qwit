@@ -48,19 +48,8 @@ Twitter::Twitter(Account *account) {
 	connect(http, SIGNAL(sslErrors(const QList<QSslError> &)), this, SLOT(sslErrors(const QList<QSslError> &)));
 }
 
-void Twitter::setupProxy() {
-	Configuration *config = Configuration::getInstance();
-	if (config->useProxy) {
-		http->setProxy(config->proxyAddress, config->proxyPort, config->proxyUsername, config->proxyPassword);
-	} else {
-		http->setProxy(QNetworkProxy(QNetworkProxy::NoProxy));
-	}
-}
-
 void Twitter::sendMessage(const QString &message, quint64 inReplyToMessageId) {
 	qDebug() << ("Twitter::sendMessage()");
-	
-	setupProxy();
 	
 	QUrl url(account->serviceApiUrl() + Services::options[account->type]["update"] + ".xml");
 
@@ -105,8 +94,6 @@ void Twitter::sendMessage(const QString &message, quint64 inReplyToMessageId) {
 
 void Twitter::receiveFriendsMessages(quint64 lastMessageId, int count) {
 	qDebug() << ("Twitter::receiveFriendsMessages()");
-	
-	setupProxy();
 
 	QUrl url(account->serviceApiUrl() + Services::options[account->type]["friends"] + ".xml");
 
@@ -139,8 +126,6 @@ void Twitter::receiveFriendsMessages(quint64 lastMessageId, int count) {
 
 void Twitter::receiveReplies(quint64 lastMessageId, int count) {
 	qDebug() << ("Twitter::receiveReplies()");
-	
-	setupProxy();
 
 	QUrl url(account->serviceApiUrl() + Services::options[account->type]["replies"] + ".xml");
 
@@ -174,8 +159,6 @@ void Twitter::receiveReplies(quint64 lastMessageId, int count) {
 
 void Twitter::receivePublicMessages(quint64 lastMessageId, int count) {
 	qDebug() << ("Twitter::receivePublicMessages()");
-	
-	setupProxy();
 
 	QUrl url(account->serviceApiUrl() + Services::options[account->type]["public"] + ".xml");
 
@@ -210,8 +193,6 @@ void Twitter::receivePublicMessages(quint64 lastMessageId, int count) {
 void Twitter::receiveSearchMessages(int count, const QString &query) {
 	qDebug() << ("Twitter::receiveSearchMessages()");
 
-	setupProxy();
-
 	QUrl url(account->searchApiUrl() + Services::options[account->type]["search"] + ".atom");
 
 	if(url.toString().indexOf("https") == 0) {
@@ -229,8 +210,6 @@ void Twitter::receiveSearchMessages(int count, const QString &query) {
 void Twitter::receivePreviousSearchMessages(int page, int count, const QString &query) {
 	qDebug() << ("Twitter::receivePreviousSearchMessages()");
 
-	setupProxy();
-
 	QUrl url(account->searchApiUrl() + Services::options[account->type]["search"] + ".atom");
 
 	if(url.toString().indexOf("https") == 0) {
@@ -247,8 +226,6 @@ void Twitter::receivePreviousSearchMessages(int page, int count, const QString &
 
 void Twitter::receiveLastMessage() {
 	qDebug() << ("Twitter::receiveLastMessage()");
-	
-	setupProxy();
 
 	QUrl url(account->serviceApiUrl() + Services::options[account->type]["last"] + account->username + ".xml");
 
@@ -277,8 +254,6 @@ void Twitter::receiveLastMessage() {
 
 void Twitter::receivePreviousFriendsMessages(quint64 lastMessageId, int count) {
 	qDebug() << ("Twitter::receiveFriendsMessages()");
-	
-	setupProxy();
 
 	QUrl url(account->serviceApiUrl() + Services::options[account->type]["friends"] + ".xml");
 
@@ -312,8 +287,6 @@ void Twitter::receivePreviousFriendsMessages(quint64 lastMessageId, int count) {
 
 void Twitter::receivePreviousReplies(quint64 lastMessageId, int count) {
 	qDebug() << ("Twitter::receiveReplies()");
-	
-	setupProxy();
 
 	QUrl url(account->serviceApiUrl() + Services::options[account->type]["replies"] + ".xml");
 
@@ -347,8 +320,6 @@ void Twitter::receivePreviousReplies(quint64 lastMessageId, int count) {
 
 void Twitter::receivePreviousPublicMessages(quint64 lastMessageId, int count) {
 	qDebug() << ("Twitter::receivePreviousPublicMessages()");
-	
-	setupProxy();
 
 	QUrl url(account->serviceApiUrl() + Services::options[account->type]["public"] + ".xml");
 
@@ -382,8 +353,6 @@ void Twitter::receivePreviousPublicMessages(quint64 lastMessageId, int count) {
 
 void Twitter::receiveFavorites() {
 	qDebug() << ("Twitter::receiveFavorites()");
-	
-	setupProxy();
 
 	QUrl url(account->serviceApiUrl() + Services::options[account->type]["favorites"] + ".xml");
 
@@ -412,8 +381,6 @@ void Twitter::receiveFavorites() {
 
 void Twitter::receivePreviousFavorites(int page) {
 	qDebug() << ("Twitter::receivePreviousFavorites()");
-	
-	setupProxy();
 
 	QUrl url(account->serviceApiUrl() + Services::options[account->type]["favorites"] + ".xml");
 
@@ -445,8 +412,6 @@ void Twitter::receivePreviousFavorites(int page) {
 void Twitter::receiveInboxMessages(quint64 lastMessageId, int count) {
 	qDebug() << ("Twitter::receiveInboxMessages()");
 	
-	setupProxy();
-
 	QUrl url(account->serviceApiUrl() + Services::options[account->type]["inbox"] + ".xml");
 
 	if(url.toString().indexOf("https") == 0) {
@@ -479,8 +444,6 @@ void Twitter::receiveInboxMessages(quint64 lastMessageId, int count) {
 
 void Twitter::receivePreviousInboxMessages(quint64 lastMessageId, int count) {
 	qDebug() << ("Twitter::receivePreviousInboxMessages()");
-	
-	setupProxy();
 
 	QUrl url(account->serviceApiUrl() + Services::options[account->type]["inbox"] + ".xml");
 
@@ -514,8 +477,6 @@ void Twitter::receivePreviousInboxMessages(quint64 lastMessageId, int count) {
 
 void Twitter::receiveOutboxMessages(quint64 lastMessageId, int count) {
 	qDebug() << ("Twitter::receiveOutboxMessages()");
-	
-	setupProxy();
 
 	QUrl url(account->serviceApiUrl() + Services::options[account->type]["outbox"] + ".xml");
 
@@ -549,8 +510,6 @@ void Twitter::receiveOutboxMessages(quint64 lastMessageId, int count) {
 
 void Twitter::receivePreviousOutboxMessages(quint64 lastMessageId, int count) {
 	qDebug() << ("Twitter::receivePreviousOutboxMessages()");
-	
-	setupProxy();
 
 	QUrl url(account->serviceApiUrl() + Services::options[account->type]["outbox"] + ".xml");
 
@@ -584,8 +543,6 @@ void Twitter::receivePreviousOutboxMessages(quint64 lastMessageId, int count) {
 
 void Twitter::sendDirectMessage(const QString &username, const QString &message) {
 	qDebug() << ("Twitter::sendDirectMessage()");
-	
-	setupProxy();
 	
 	QUrl url(account->serviceApiUrl() + Services::options[account->type]["send"] + ".xml");
 
@@ -624,8 +581,6 @@ void Twitter::sendDirectMessage(const QString &username, const QString &message)
 void Twitter::favorMessage(quint64 messageId) {
 	qDebug() << ("Twitter::favorMessage()");
 	
-	setupProxy();
-	
 	QUrl url(account->serviceApiUrl() + Services::options[account->type]["favor"] + QString::number(messageId) + ".xml");
 
 	QHttpRequestHeader header;
@@ -659,8 +614,6 @@ void Twitter::favorMessage(quint64 messageId) {
 
 void Twitter::unfavorMessage(quint64 messageId) {
 	qDebug() << ("Twitter::unfavorMessage()");
-	
-	setupProxy();
 	
 	QUrl url(account->serviceApiUrl() + Services::options[account->type]["unfavor"] + QString::number(messageId) + ".xml");
 
@@ -696,8 +649,6 @@ void Twitter::unfavorMessage(quint64 messageId) {
 void Twitter::destroyMessage(quint64 messageId) {
 	qDebug() << ("Twitter::destroyMessage()");
 	
-	setupProxy();
-	
 	QUrl url(account->serviceApiUrl() + Services::options[account->type]["destroy"] + QString::number(messageId) + ".xml");
 
 	QHttpRequestHeader header;
@@ -731,8 +682,6 @@ void Twitter::destroyMessage(quint64 messageId) {
 
 void Twitter::destroyDirectMessage(quint64 messageId) {
 	qDebug() << ("Twitter::destroyDirectMessage()");
-	
-	setupProxy();
 	
 	QUrl url(account->serviceApiUrl() + Services::options[account->type]["destroydirectmessage"] + QString::number(messageId) + ".xml");
 
@@ -1006,8 +955,6 @@ void Twitter::sslErrors(const QList<QSslError> &errors) {
 void Twitter::receiveFriendships() {
     qDebug() << ("Twitter::receiveFriendships()");
 
-    setupProxy();
-
     QUrl url(account->serviceApiUrl() + Services::options[account->type]["showFriendships"] + ".xml");
 
     if(url.toString().indexOf("https") == 0) {
@@ -1035,8 +982,6 @@ void Twitter::receiveFriendships() {
 
 void Twitter::receiveFollowers() {
     qDebug() << ("Twitter::receiveFollowers()");
-
-    setupProxy();
 
     QUrl url(account->serviceApiUrl() + Services::options[account->type]["showFollowers"] + ".xml");
 
@@ -1066,8 +1011,6 @@ void Twitter::receiveFollowers() {
 void Twitter::receiveBlocks() {
     qDebug() << ("Twitter::receiveBlocks()");
 
-    setupProxy();
-
     QUrl url(account->serviceApiUrl() + Services::options[account->type]["showBlocks"] + ".xml");
 
     if(url.toString().indexOf("https") == 0) {
@@ -1095,8 +1038,6 @@ void Twitter::receiveBlocks() {
 
 void Twitter::createFriendship(QString screenName, uint requestId) {
     qDebug() << ("Twitter::createFriendship()");
-
-    setupProxy();
 
     QUrl url(account->serviceApiUrl() + Services::options[account->type]["createFriendship"] + ".xml");
 
@@ -1135,8 +1076,6 @@ void Twitter::createFriendship(QString screenName, uint requestId) {
 void Twitter::destroyFriendship(QString screenName, uint requestId) {
     qDebug() << ("Twitter::destroyFriendship()");
 
-    setupProxy();
-
     QUrl url(account->serviceApiUrl() + Services::options[account->type]["destroyFriendship"] + ".xml");
 
     QHttpRequestHeader header;
@@ -1173,8 +1112,6 @@ void Twitter::destroyFriendship(QString screenName, uint requestId) {
 void Twitter::createBlock(QString screenName, uint requestId) {
     qDebug() << ("Twitter::createBlock()");
 
-    setupProxy();
-
     QUrl url(account->serviceApiUrl() + Services::options[account->type]["createBlock"] + screenName + ".xml");
 
     QHttpRequestHeader header;
@@ -1208,8 +1145,6 @@ void Twitter::createBlock(QString screenName, uint requestId) {
 
 void Twitter::destroyBlock(QString screenName, uint requestId) {
     qDebug() << ("Twitter::destroyBlock()");
-
-    setupProxy();
 
     QUrl url(account->serviceApiUrl() + Services::options[account->type]["destroyBlock"] + screenName + ".xml");
 
