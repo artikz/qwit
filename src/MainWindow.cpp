@@ -202,6 +202,7 @@ void MainWindow::saveOptions() {
 	config->mentionsEvenColor = optionsDialog->mentionsEvenColorPushButton->palette().color(QPalette::Button);
 	config->mentionsOddColor = optionsDialog->mentionsOddColorPushButton->palette().color(QPalette::Button);
 	config->language = config->TranslationsCodes[optionsDialog->translationsComboBox->currentIndex()];
+    config->notificationSubsystem = (optionsDialog->kdialogRadioButton->isChecked() ? "kdialog" : (optionsDialog->libnotifyRadioButton->isChecked() ? "libnotify" : "qt"));
 
 	config->useProxy = (optionsDialog->useProxyCheckBox->checkState() == Qt::Checked);
 	config->proxyAddress = optionsDialog->proxyAddressLineEdit->text();
@@ -375,6 +376,20 @@ void MainWindow::resetOptionsDialog() {
 	optionsDialog->mentionsOddColorPushButton->setPalette(palette);
 
 	optionsDialog->translationsComboBox->setCurrentIndex(config->TranslationsCodes.indexOf(config->language));
+
+    if (config->notificationSubsystem == "qt") {
+        optionsDialog->qtRadioButton->setChecked(true);
+        optionsDialog->kdialogRadioButton->setChecked(false);
+        optionsDialog->libnotifyRadioButton->setChecked(false);
+    } else if (config->notificationSubsystem == "kdialog") {
+        optionsDialog->qtRadioButton->setChecked(false);
+        optionsDialog->kdialogRadioButton->setChecked(true);
+        optionsDialog->libnotifyRadioButton->setChecked(false);
+    } else if (config->notificationSubsystem == "libnotify") {
+        optionsDialog->qtRadioButton->setChecked(false);
+        optionsDialog->kdialogRadioButton->setChecked(false);
+        optionsDialog->libnotifyRadioButton->setChecked(true);
+    }
 
 // Accounts
 	optionsDialog->accountsListWidget->clear();
@@ -714,18 +729,35 @@ void MainWindow::messageNotSent(Account *account) {
 void MainWindow::showNewMessages(const QVector<Message> &messages, Account *account) {
 	qDebug() << ("MainWindow::showNewMessages()");
 	Configuration *config = Configuration::getInstance();
-	QString trayMessage = "";
-	for (int i = 0; i < min(messages.size(), config->messagesInPopup); ++i) {
-		if (trayMessage.length()) {
-			trayMessage += "----------------------------\n";
-		}
-		trayMessage += messages[i].username + ": " + messages[i].text + " /" + QwitTools::formatDateTime(messages[i].time.toLocalTime()) + "\n";
-	}
-	if (trayMessage != "") {
+    if (min(messages.size(), config->messagesInPopup) != 0) {
 		trayIcon->setIcon(QIcon(":/images/qwitnewmessages.png"));
 		if (config->showMessagesInTray) {
-			trayIcon->showMessage(tr("Qwit: new messages receieved for %1@%2").arg(account->username).arg(account->type), trayMessage);
-		}
+            QString title = tr("Qwit: new messages receieved for %1@%2").arg(account->username).arg(account->type);
+            if (config->notificationSubsystem == "qt") {
+                QString trayMessage = "";
+                for (int i = 0; i < min(messages.size(), config->messagesInPopup); ++i) {
+                    if (trayMessage.length()) {
+                        trayMessage += "----------------------------\n";
+                    }
+                    trayMessage += messages[i].username + ": " + messages[i].text + " /" + QwitTools::formatDateTime(messages[i].time.toLocalTime()) + "\n";
+                }
+                trayIcon->showMessage(title, trayMessage);
+            } else if (config->notificationSubsystem == "libnotify") {
+                for (int i = 0; i < min(messages.size(), config->messagesInPopup); ++i) {
+                    QString trayMessage = messages[i].username + ": " + messages[i].text + " /" + QwitTools::formatDateTime(messages[i].time.toLocalTime());
+                    QStringList args;
+                    args << "-u" << "normal" << "-t" << "30000" << "-i" << "qwit" << "--" << title << trayMessage;
+                    QProcess::execute("notify-send", args);
+                }
+            } else if (config->notificationSubsystem == "kdialog") {
+                for (int i = 0; i < min(messages.size(), config->messagesInPopup); ++i) {
+                    QString trayMessage = messages[i].username + ": " + messages[i].text + " /" + QwitTools::formatDateTime(messages[i].time.toLocalTime());
+                    QStringList args;
+                    args << "--title" << title << "--passivepopup" << trayMessage << "30";
+                    QProcess::execute("kdialog", args);
+                }
+            }
+        }
 	}
 }
 

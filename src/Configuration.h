@@ -103,6 +103,7 @@ public:
 	QColor mentionsOddColor;
 	QColor mentionsEvenColor;
 	QString language;
+    QString notificationSubsystem;
 
 // Connection
 	bool useProxy;

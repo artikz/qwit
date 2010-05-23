@@ -146,7 +146,11 @@ void Configuration::load() {
 	language = settings.value("language", "system").toString();
 	settings.endGroup();
 
-	settings.endGroup();
+    settings.beginGroup("Integration");
+    notificationSubsystem = settings.value("notificationSubsystem", "qt").toString();
+    settings.endGroup();
+
+    settings.endGroup();
 
 // Accounts
 	settings.beginGroup("Accounts");
@@ -253,6 +257,10 @@ void Configuration::save() {
 	settings.beginGroup("Language");
 	settings.setValue("language", language);
 	settings.endGroup();
+
+    settings.beginGroup("Integration");
+    settings.setValue("notificationSubsystem", notificationSubsystem);
+    settings.endGroup();
 
 	settings.endGroup();
 

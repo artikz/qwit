@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>535</width>
-    <height>551</height>
+    <height>558</height>
    </rect>
   </property>
   <property name="acceptDrops">
@@ -69,7 +69,7 @@
           <number>-4</number>
          </property>
          <property name="currentIndex">
-          <number>3</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="connectionPage">
           <layout class="QGridLayout" name="gridLayout_2">
@@ -181,7 +181,7 @@
               <item row="0" column="0">
                <widget class="QTabWidget" name="tabWidget">
                 <property name="currentIndex">
-                 <number>1</number>
+                 <number>4</number>
                 </property>
                 <widget class="QWidget" name="Tab_2">
                  <attribute name="title">
@@ -1123,6 +1123,67 @@
                     </item>
                     <item>
                      <spacer name="verticalSpacer_6">
+                      <property name="orientation">
+                       <enum>Qt::Vertical</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>20</width>
+                        <height>40</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="tab_4">
+                 <attribute name="title">
+                  <string>Integration</string>
+                 </attribute>
+                 <layout class="QGridLayout" name="gridLayout_16">
+                  <item row="0" column="0">
+                   <layout class="QVBoxLayout" name="verticalLayout_11">
+                    <item>
+                     <widget class="QGroupBox" name="groupBox_6">
+                      <property name="title">
+                       <string>Notification subsystem</string>
+                      </property>
+                      <layout class="QGridLayout" name="gridLayout_15">
+                       <item row="0" column="0">
+                        <layout class="QVBoxLayout" name="verticalLayout_9">
+                         <item>
+                          <widget class="QRadioButton" name="qtRadioButton">
+                           <property name="text">
+                            <string>Qt</string>
+                           </property>
+                           <property name="checked">
+                            <bool>true</bool>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QRadioButton" name="kdialogRadioButton">
+                           <property name="text">
+                            <string>kdialog</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QRadioButton" name="libnotifyRadioButton">
+                           <property name="text">
+                            <string>libnotify</string>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                    <item>
+                     <spacer name="verticalSpacer_8">
                       <property name="orientation">
                        <enum>Qt::Vertical</enum>
                       </property>
