@@ -31,15 +31,7 @@
 #ifndef TWITPICDIALOG_H
 #define TWITPICDIALOG_H
 
-#include <QDialog>
-#include <QProgressBar>
-#include <QLabel>
-#include <QLineEdit>
-#include <QCheckBox>
-#include <QPushButton>
-//#include <QNetworkReply>
-#include <QHttp>
-#include <QBuffer>
+#include "QwitHeaders.h"
 
 class TwitPicDialog : public QDialog
 {
@@ -72,7 +64,6 @@ private:
 	QPushButton *m_postButton, *m_cancelButton;
 	QProgressBar *m_progressBar;
 	QString m_username, m_password;
-//	QNetworkReply *m_reply;
 	QString m_twitPickedUrlString;
 };
 

@@ -30,20 +30,6 @@
 
 
 #include "TwitPicDialog.h"
-#include <QVBoxLayout>
-#include <QHBoxLayout>
-#include <QProgressBar>
-#include <QDialogButtonBox>
-#include <QLabel>
-#include <QNetworkRequest>
-#include <QNetworkAccessManager>
-//#include <QNetworkReply>
-#include <QImageReader>
-#include <QFile>
-#include <QRegExp>
-#include <QFileInfo>
-
-#include "Configuration.h"
 
 // Original (roop's) version worked with QNetworkAccessManager, but without proxy support
 // It's strange, but the request could not finish when proxy support was added, so I decided to move to QHttp
@@ -115,13 +101,6 @@ void TwitPicDialog::setUser(const QString &username, const QString &password) {
 }
 
 void TwitPicDialog::accept() {
-	Configuration *config = Configuration::getInstance();
-	if (config->useProxy) {
-		http.setProxy(config->proxyAddress, config->proxyPort, config->proxyUsername, config->proxyPassword);
-	} else {
-		http.setProxy(QNetworkProxy(QNetworkProxy::NoProxy));
-	}
-
 	m_progressBar->reset();
 	m_errorMsgLabel->hide();
 	m_progressBar->show();
