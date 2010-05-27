@@ -44,7 +44,8 @@ class Twitter: public QObject {
 	QHttp *http;
 	Account *account;
 	QMap<int, QString> sendMessageRequests;
-	QMap<int, QString> receiveFriendsMessagesRequests;
+    QMap<int, QString> retweetRequests;
+    QMap<int, QString> receiveFriendsMessagesRequests;
 	QMap<int, QString> receiveRepliesRequests;
 	QMap<int, QString> receivePublicMessagesRequests;
 	QMap<int, QString> receiveFavoritesRequests;
@@ -92,7 +93,8 @@ public:
 	void receivePreviousFavorites(int page);
 	void receivePreviousSearchMessages(int page, int count, const QString &query);
 	void sendMessage(const QString &message, quint64 inReplyToMessageId);
-	void sendDirectMessage(const QString &username, const QString &message);
+    void retweet(quint64 retweetMessageId);
+    void sendDirectMessage(const QString &username, const QString &message);
 	void favorMessage(quint64 messageId);
 	void unfavorMessage(quint64 messageId);
 	void destroyMessage(quint64 messageId);
@@ -117,7 +119,8 @@ signals:
 	void outboxMessagesReceived(const QByteArray &);
 	void searchMessagesReceived(const QByteArray &);
 	void messageSent(const QByteArray &);
-	void messageNotSent();
+    void retweeted(const QByteArray &);
+    void messageNotSent();
 	void directMessageSent(const QByteArray &);
 	void messageFavored(const QByteArray &);
 	void messageUnfavored(const QByteArray &);

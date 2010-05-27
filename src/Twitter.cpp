@@ -92,6 +92,42 @@ void Twitter::sendMessage(const QString &message, quint64 inReplyToMessageId) {
 	sendMessageRequests[id] = tr("Sending message: %1").arg(url.host() + url.path());
 }
 
+void Twitter::retweet(quint64 retweetMessageId) {
+    qDebug() << ("Twitter::retweet()");
+
+    QUrl url(account->serviceApiUrl() + Services::options[account->type]["retweet"] + QString::number(retweetMessageId) + ".xml");
+
+    QHttpRequestHeader header;
+    header.setRequest("POST", url.path());
+    header.setValue("Host", url.host());
+    header.setContentType("application/x-www-form-urlencoded");
+
+    if(url.toString().indexOf("https") == 0) {
+        http->setHost(url.host(), QHttp::ConnectionModeHttps, url.port(443));
+    } else {
+        http->setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
+    }
+
+    QByteArray data = "";
+    if (account->useOAuth) {
+        QOAuth::ParamMap map;
+        map.insert("source", "qwit");
+        data.append(account->serviceOAuth()->createParametersString(
+                url.toString(), QOAuth::POST,
+                account->oauthToken.toAscii(), account->oauthTokenSecret.toAscii(),
+                QOAuth::HMAC_SHA1, map, QOAuth::ParseForRequestContent));
+    } else {
+        http->setUser(account->username, QString::fromAscii(account->password.toUtf8()));
+        data.append("source=qwit");
+    }
+    buffer.open(QIODevice::WriteOnly);
+
+    int id = http->request(header, data, &buffer);
+
+    retweetRequests[id] = tr("Retweetting message: %1").arg(url.host() + url.path());
+}
+
+
 void Twitter::receiveFriendsMessages(quint64 lastMessageId, int count) {
 	qDebug() << ("Twitter::receiveFriendsMessages()");
 
@@ -809,7 +845,11 @@ void Twitter::requestFinished(int id, bool error) {
 			qDebug() << ("Request finished: " + sendMessageRequests[id]);
 			emit messageSent(buffer.data());
 			sendMessageRequests.remove(id);
-		} else if (receiveFavoritesRequests.find(id) != receiveFavoritesRequests.end()) {
+        } else if (retweetRequests.find(id) != retweetRequests.end()) {
+            qDebug() << ("Request finished: " + retweetRequests[id]);
+            emit retweeted(buffer.data());
+            retweetRequests.remove(id);
+        } else if (receiveFavoritesRequests.find(id) != receiveFavoritesRequests.end()) {
 			qDebug() << ("Request finished: " + receiveFavoritesRequests[id]);
 			account->setRemainingRequests(remainingRequests != "" ? remainingRequests.toInt() : -1);
 			emit favoritesReceived(buffer.data());

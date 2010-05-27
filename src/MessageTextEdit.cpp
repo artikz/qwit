@@ -115,7 +115,7 @@ void MessageTextEdit::keyPressEvent(QKeyEvent *e) {
 			}
 		}
 		setEnabled(false);
-		emit messageEntered(tweet, inReplyToMessageId);
+        emit messageEntered(tweet, inReplyToMessageId, retweetMessageId);
 		e->accept();
 		return;
 	}
@@ -146,7 +146,9 @@ void MessageTextEdit::keyPressEvent(QKeyEvent *e) {
 	}
 	QRect cr = cursorRect();
 	cr.setWidth(completer->popup()->sizeHintForColumn(0) + completer->popup()->verticalScrollBar()->sizeHint().width());
-	completer->complete(cr); // popup it up!
+    completer->complete(cr);
+
+    retweetMessageId = 0;
 //QTextEdit::keyPressEvent(e);
 }
 
@@ -179,21 +181,30 @@ void MessageTextEdit::contextMenuEvent(QContextMenuEvent *event) {
 
 void MessageTextEdit::retweet(const Message &message) {
 	Configuration *config = Configuration::getInstance();
-	QString retweetTag = config->retweetTag;
-	int i = retweetTag.indexOf("@");
-	if (i != -1) {
-		QString firsthalf = retweetTag.left(i + 1);
-		QString secondhalf = retweetTag.right(retweetTag.size() - (i + 1));
-		retweetTag = firsthalf + message.username + secondhalf;
-	}
-	QString text = message.text;
-	if (config->retweetTagAfterText) {
-		setText(text + " " + retweetTag);
-	} else {
-		setText(retweetTag + " " + text);
-	}
+    Account *account = config->currentAccount();
 
-	setFocus(Qt::OtherFocusReason);
+    if (account->type == "twitter") {
+        setText("RT @" + message.username + ": " + message.text);
+        retweetMessageId = message.id;
+    } else {
+        QString retweetTag = config->retweetTag;
+        int i = retweetTag.indexOf("@");
+        if (i != -1) {
+            QString firsthalf = retweetTag.left(i + 1);
+            QString secondhalf = retweetTag.right(retweetTag.size() - (i + 1));
+            retweetTag = firsthalf + message.username + secondhalf;
+        }
+        QString text = message.text;
+        if (config->retweetTagAfterText) {
+            setText(text + " " + retweetTag);
+        } else {
+            setText(retweetTag + " " + text);
+        }
+    }
+
+    inReplyToMessageId = 0;
+
+    setFocus(Qt::OtherFocusReason);
 	moveCursor(QTextCursor::End);
 }
 
@@ -202,7 +213,8 @@ void MessageTextEdit::reply(const Message &message) {
 	setText("@" + message.username + " " + text);
 
 	inReplyToMessageId = message.id;
-	
+    retweetMessageId = 0;
+
 	setFocus(Qt::OtherFocusReason);
 	moveCursor(QTextCursor::NextWord);
 }

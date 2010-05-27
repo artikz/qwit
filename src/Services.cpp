@@ -42,7 +42,7 @@ QMap<QString, QOAuth::Interface*> Services::oauthInterface;
 void Services::initialize() {
 	QMap<QString, QString> twitterOptions;
 	twitterOptions["title"] = "Twitter";
-	twitterOptions["apiurl"] = "http://twitter.com";
+    twitterOptions["apiurl"] = "http://api.twitter.com/1";
 	twitterOptions["baseurl"] = "http://twitter.com";
 	twitterOptions["singlemessageurl"] = "http://twitter.com/%username/statuses/%messageid";
 	twitterOptions["searchbaseurl"] = "http://search.twitter.com/search?q=";
@@ -59,7 +59,8 @@ void Services::initialize() {
 	twitterOptions["inbox"] = "/direct_messages";
 	twitterOptions["outbox"] = "/direct_messages/sent";
 	twitterOptions["send"] = "/direct_messages/new";
-	twitterOptions["destroydirectmessage"] = "/direct_messages/destroy/";
+    twitterOptions["retweet"] = "/statuses/retweet/";
+    twitterOptions["destroydirectmessage"] = "/direct_messages/destroy/";
 	twitterOptions["searchapiurl"] = "http://search.twitter.com";
 	twitterOptions["search"] = "/search";
 

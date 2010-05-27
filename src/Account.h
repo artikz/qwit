@@ -102,9 +102,9 @@ public slots:
 	void addSearchMessages(const QByteArray &data);
 	void updateLastMessage(const QByteArray &data);
 	void updateLastMessage();
-	void sendMessage(const QString &message, quint64 inReplyToMessageId);
+    void sendMessage(const QString &message, quint64 inReplyToMessageId, quint64 retweetMessageId);
 	void messageSent(const QByteArray &data);
-	void messageNotSent();
+    void messageNotSent();
 //	void directMessageSent(const QByteArray &data);
 	void messageFavored(const QByteArray &data);
 	void messageUnfavored(const QByteArray &data);

@@ -40,7 +40,8 @@ class MessageTextEdit: public QTextEdit {
 
 private:
 	quint64 inReplyToMessageId;
-	QCompleter *_completer;
+    quint64 retweetMessageId;
+    QCompleter *_completer;
 	QString textUnderCursor() const;
 	QMenu *languagesMenu;
 	QMap<QAction*, QString> actionLanguage;
@@ -66,7 +67,7 @@ protected:
 	
 signals:
 
-	void messageEntered(const QString &, quint64);
+    void messageEntered(const QString &, quint64, quint64);
 	void leftCharsNumberChanged(int);
 
 private slots:

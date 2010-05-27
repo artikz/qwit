@@ -567,8 +567,8 @@ void MainWindow::updateCurrentAccount(int id) {
 	connect(config->currentAccount(), SIGNAL(lastMessageReceived(const QString &, Account *)), this, SLOT(updateLastMessage(const QString &, Account *)));
 	disconnect(config->accounts[oldAccountId], SIGNAL(remainingRequestsUpdated(int, Account *)), 0, 0);
 	connect(config->currentAccount(), SIGNAL(remainingRequestsUpdated(int, Account *)), this, SLOT(updateRemainingRequests(int, Account *)));
-	disconnect(messageTextEdit, SIGNAL(messageEntered(const QString &, quint64)), 0, 0);
-	connect(messageTextEdit, SIGNAL(messageEntered(const QString &, quint64)), config->currentAccount(), SLOT(sendMessage(const QString &, quint64)));
+    disconnect(messageTextEdit, SIGNAL(messageEntered(const QString &, quint64, quint64)), 0, 0);
+    connect(messageTextEdit, SIGNAL(messageEntered(const QString &, quint64, quint64)), config->currentAccount(), SLOT(sendMessage(const QString &, quint64, quint64)));
 	messageTextEdit->setEnabled(!config->currentAccount()->sendingMessage);
 	for (int i = 0; i < config->accounts.size(); ++i) {
 		disconnect(config->accounts[i], 0, this, SLOT(messageSent(const QString &, Account *)));
