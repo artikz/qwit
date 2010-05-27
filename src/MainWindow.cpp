@@ -510,7 +510,11 @@ void MainWindow::updateCurrentAccount(int id) {
 	
 	int oldAccountId = config->currentAccountId;
 	config->currentAccountId = id;
-	if (homePage) {
+
+    Account *account = config->currentAccount();
+    twitPicButton->setEnabled((account->type == "twitter") && account->useOAuth);
+
+    if (homePage) {
 		disconnect(config->accounts[oldAccountId], SIGNAL(friendsMessagesUpdated(const QVector<Message> &, Account *)), 0, 0);
 		connect(config->currentAccount(), SIGNAL(friendsMessagesUpdated(const QVector<Message> &, Account *)), homePage, SLOT(updateItems(const QVector<Message> &, Account *)));
 		homePage->updateItems(config->currentAccount()->friendsMessages, config->currentAccount());
@@ -829,9 +833,8 @@ void MainWindow::postTwitPic() {
 	if (fileName.isEmpty()) {
 		return;
 	}
-	TwitPicDialog dialog(fileName, this);
-	Configuration *config = Configuration::getInstance();
-	dialog.setUser(config->currentAccount()->username, config->currentAccount()->password);
+    TwitPicDialog dialog(fileName, this);
+//	dialog.setUser(config->currentAccount()->username, config->currentAccount()->password);
 	if (dialog.exec() == QDialog::Accepted) {
 		messageTextEdit->insertPlainText(dialog.twitPickedUrlString());
 		messageTextEdit->insertPlainText(" " + dialog.twitPicCommentString());

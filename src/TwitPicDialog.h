@@ -63,7 +63,6 @@ private:
 	QLabel *m_pixmapLabel, *m_errorMsgLabel;
 	QPushButton *m_postButton, *m_cancelButton;
 	QProgressBar *m_progressBar;
-	QString m_username, m_password;
 	QString m_twitPickedUrlString;
 };
 

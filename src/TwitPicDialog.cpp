@@ -30,6 +30,9 @@
 
 
 #include "TwitPicDialog.h"
+#include "Configuration.h"
+
+const QString TWITPIC_API_KEY = "03e7ac34de764d11eb249298f1b4b261";
 
 // Original (roop's) version worked with QNetworkAccessManager, but without proxy support
 // It's strange, but the request could not finish when proxy support was added, so I decided to move to QHttp
@@ -83,6 +86,8 @@ TwitPicDialog::TwitPicDialog(const QString &fileName, QWidget *parent)
 	connect(&http, SIGNAL(requestStarted(int)), this, SLOT(requestStarted(int)));
 	connect(&http, SIGNAL(requestFinished(int, bool)), this, SLOT(requestFinished(int, bool)));
 	connect(&http, SIGNAL(dataSendProgress(int, int)), this, SLOT(updateProgressBar(int, int)));
+
+    m_postButton->setEnabled(true);
 }
 
 void TwitPicDialog::setTwitPixmap(const QPixmap &pixmap) {
@@ -94,56 +99,57 @@ void TwitPicDialog::setTwitPixmap(const QPixmap &pixmap) {
 	}
 }
 
-void TwitPicDialog::setUser(const QString &username, const QString &password) {
-	m_username = username;
-	m_password = password;
-	m_postButton->setEnabled(true);
-}
-
 void TwitPicDialog::accept() {
+    Account *account = Configuration::getInstance()->currentAccount();
+
 	m_progressBar->reset();
 	m_errorMsgLabel->hide();
 	m_progressBar->show();
 
 	QByteArray boundary = "------------------------------her-ad-hoc-person";
 
-	QUrl url((m_sendTweetCheckBox->checkState() == Qt::Checked)
-		    ? "https://twitpic.com/api/uploadAndPost"
-		    : "https://twitpic.com/api/upload");
+    QUrl url = QUrl("http://api.twitpic.com/2/upload.xml");
 
-	QHttpRequestHeader header;
-	header.setRequest("POST", url.path());
-	header.setValue("Host", url.host());
-	header.setContentType("multipart/form-data; boundary=" + boundary);
+    QHttpRequestHeader header;
+    header.setRequest("POST", url.path());
+    header.setValue("Host", url.host());
 
-	if(url.toString().indexOf("https") == 0) {
-		http.setHost(url.host(), QHttp::ConnectionModeHttps, url.port(443));
-	} else {
-		http.setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
-	}
+    QString serviceProvider = "https://api.twitter.com/1/account/verify_credentials.json";
+    QString signature = account->serviceOAuth()->createParametersString(
+            serviceProvider, QOAuth::GET,
+            account->oauthToken.toAscii(),
+            account->oauthTokenSecret.toAscii(),
+            QOAuth::HMAC_SHA1, QOAuth::ParamMap(), QOAuth::ParseForHeaderArguments);
+    signature.insert(6, "realm=\"http://api.twitter.com/\",");
+    header.setValue("X-Verify-Credentials-Authorization", signature);
+    header.setValue("X-Auth-Service-Provider", serviceProvider);
+
+    if(url.toString().indexOf("https") == 0) {
+        http.setHost(url.host(), QHttp::ConnectionModeHttps, url.port(443));
+    } else {
+        http.setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
+    }
 
 	QByteArray ba;
+	ba.append("--" + boundary + "\r\n");
+    ba.append("Content-Disposition: form-data; name=\"key\"\r\n\r\n");
+    ba.append(TWITPIC_API_KEY + "\r\n");
+    ba.append("--" + boundary + "\r\n");
+	ba.append("Content-Disposition: form-data; name=\"message\"\r\n\r\n");
+	ba.append(m_picCommentEdit->text() + "\r\n");
 	ba.append("--" + boundary + "\r\n");
 	ba.append("Content-Disposition: form-data; name=\"media\"; "
 	          "filename=\"" + QFileInfo(m_fileName).baseName() + "\"\r\n");
 	ba.append("Content-Type: image/" + QImageReader::imageFormat(m_fileName) + "\r\n\r\n");
-	QFile file(m_fileName);
+    QFile file(m_fileName);
 	file.open(QIODevice::ReadOnly);
 	ba.append(file.readAll());
 	ba.append("\r\n");
-	ba.append("--" + boundary + "\r\n");
-	ba.append("Content-Disposition: form-data; name=\"username\"\r\n\r\n");
-	ba.append(m_username + "\r\n");
-	ba.append("--" + boundary + "\r\n");
-	ba.append("Content-Disposition: form-data; name=\"password\"\r\n\r\n");
-	ba.append(m_password + "\r\n");
-	ba.append("--" + boundary + "\r\n");
-	ba.append("Content-Disposition: form-data; name=\"message\"\r\n\r\n");
-	ba.append(m_picCommentEdit->text() + "\r\n");
 	ba.append("--" + boundary + "--" + "\r\n");
 	header.setContentLength(ba.count());
-	
-	buffer.open(QIODevice::WriteOnly);
+    header.setContentType("multipart/form-data; boundary=" + boundary);
+
+    buffer.open(QIODevice::WriteOnly);
 	postRequestId = http.request(header, ba, &buffer);
 	m_postButton->setEnabled(false);
 }
@@ -163,21 +169,26 @@ void TwitPicDialog::requestFinished(int id, bool error) {
 	if (id != postRequestId) {
 		return;
 	}
-	buffer.close();
-	if (!error) {
+    buffer.close();
+    QString errorMsg = "";
+    if (!error) {
 		qDebug() << "TwitPicDialog::requestFinished() " << QString::number(id);
-	} else {
-		qDebug() << "TwitPicDialog::requestFinished() " << QString::number(id) << " error";
-		return;
-	}
-	// The xml module is too heavy for this (and a pain to use). Managing with QRegExp for now.
-	QString xmlReply = buffer.data();
-	xmlReply.replace("\r\n", "");
-	xmlReply.replace("\n", "");
-	QString errorMsg = "";
-	QRegExp rx;
+        QString xmlReply = buffer.data();
+        xmlReply.replace("\r\n", "");
+        xmlReply.replace("\n", "");
+        QRegExp rx;
 
-	rx.setPattern((m_sendTweetCheckBox->checkState() == Qt::Checked)
+        rx.setPattern("<url>(\\S+)</url>");
+        if (rx.indexIn(xmlReply) >= 0) {
+            m_twitPickedUrlString = rx.capturedTexts().at(1);
+        }
+    } else {
+		qDebug() << "TwitPicDialog::requestFinished() " << QString::number(id) << " error";
+        errorMsg = QString::number(http.error()) + " " + http.errorString();
+    }
+	// The xml module is too heavy for this (and a pain to use). Managing with QRegExp for now.
+
+/*	rx.setPattern((m_sendTweetCheckBox->checkState() == Qt::Checked)
 		    ? "<rsp status=\"(\\S+)\">"
 		    : "<rsp stat=\"(\\S+)\">");
 	if (rx.indexIn(xmlReply) >= 0) {
@@ -192,7 +203,7 @@ void TwitPicDialog::requestFinished(int id, bool error) {
 				errorMsg = rx.capturedTexts().at(1);
 			}
 		}
-	}
+    }*/
 	if (!m_twitPickedUrlString.isEmpty()) {
 		QDialog::accept();
 	} else if (!errorMsg.isEmpty()) {
