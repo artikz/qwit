@@ -159,7 +159,8 @@ void Account::addReplies(const QByteArray &data) {
 		Configuration *config = Configuration::getInstance();
 		int size = max(config->messagesPerPage, replies.size());
 		quint64 maxId = (replies.size() ? replies[0].id : 0);
-		messages = QwitTools::mergeMessages(replies, messages);
+
+        messages = QwitTools::mergeMessages(replies, messages);
 		if ((replies[0].id > maxId) && (replies.size() > size)) {
 			replies.resize(size);
 		}

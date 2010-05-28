@@ -786,10 +786,13 @@ QVector<Message> QwitTools::mergeMessages(QVector<Message> &messages, QVector<Me
 	for (int i = 0; i < receivedMessages.size(); ++i) {
 		usernames << receivedMessages[i].username;
 		QVector<Message>::iterator j = qBinaryFind(messages.begin(), messages.end(), receivedMessages[i]);
-		if (j == messages.end()) {
-			newMessages.push_back(receivedMessages[i]);
+        if (j == messages.end()) {
+            if (!messages.size() ||
+                (receivedMessages[i].id > messages[messages.size() - 1].id)) {
+                newMessages.push_back(receivedMessages[i]);
+            }
 		} else {
-			*j = receivedMessages[i];
+            *j = receivedMessages[i];
 		}
 	}
 	receivedMessages[0].account->addUsernamesToCache(usernames);
