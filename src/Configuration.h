@@ -105,6 +105,9 @@ public:
 	QString language;
     QString notificationSubsystem;
 
+// Misc
+    int cacheSize;
+
 // Connection
 	bool useProxy;
 	QString proxyAddress;

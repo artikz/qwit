@@ -109,6 +109,7 @@ void Configuration::load() {
 	placeTabsVertically = settings.value("placeTabsVertically", true).toBool();
 	showLastMessage = settings.value("showLastMessage", true).toBool();
     startMinimized = settings.value("startMinimized", false).toBool();
+    cacheSize = settings.value("cacheSize", 10).toInt();
     settings.endGroup();
 	
 	settings.beginGroup("Tabs");
@@ -225,6 +226,7 @@ void Configuration::save() {
 	settings.setValue("placeTabsVertically", placeTabsVertically);
 	settings.setValue("showLastMessage", showLastMessage);
     settings.setValue("startMinimized", startMinimized);
+    settings.setValue("cacheSize", cacheSize);
     settings.endGroup();
 
 	settings.beginGroup("Tabs");

@@ -50,7 +50,8 @@ public:
 	static UserpicsDownloader* getInstance();
 	void startDownload();
 	void download(const QString &url, const QString &filename);
-	
+    void cleanCache();
+
 	// user image file name: maps the username to her profile image stored in the local cache
 	void setUserImageFileName(QString serviceBaseUrl, QString user, QString imageFileName, bool replace = true);
 	QString userImageFileName(QString serviceBaseUrl, QString user) const;

@@ -143,9 +143,9 @@ QVector<Message> QwitTools::parseMessages(const QByteArray &data, Account *accou
 						user = node3.toElement().text();
 					} else if (node3.toElement().tagName() == "profile_image_url") {
 						image = node3.toElement().text();
-                                        } else if (node3.toElement().tagName() == "following") {
-                                                following = node3.toElement().text() == "true";
-                                        }
+                    } else if (node3.toElement().tagName() == "following") {
+                        following = node3.toElement().text() == "true";
+                    }
 					node3 = node3.nextSibling();
 				}
 			}

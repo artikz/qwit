@@ -41,8 +41,7 @@
 
 void TwitterWidgetItem::loadUserpic() {
 	QPixmap pixmap(message.userpicFilename);
-	QString inReplyToUserImageFileName = UserpicsDownloader::getInstance()->userImageFileName(
-											message.account->serviceBaseUrl(), message.inReplyToUsername);
+    QString inReplyToUserImageFileName = UserpicsDownloader::getInstance()->userImageFileName(message.account->serviceBaseUrl(), message.inReplyToUsername);
 	QPixmap inReplyToUserPic(inReplyToUserImageFileName);
 	if (!inReplyToUserPic.isNull()) {
 		// if this is a reply, show the replied-to person in a smaller inset thumbnail
