@@ -177,7 +177,7 @@ QVector<Message> QwitTools::parseMessages(const QByteArray &data, Account *accou
 			imageFileName = Configuration::CacheDirectory + imageFileName;
 			UserpicsDownloader::getInstance()->download(image, imageFileName);
 			UserpicsDownloader::getInstance()->setUserImageFileName(account->serviceBaseUrl(), user, imageFileName);
-			messages.push_back(Message(id, text.simplified(), user, imageFileName, time.toLocalTime(), favorited, account, source, inReplyToMessageId, inReplyToUsername, following, false));
+            messages.push_back(Message(id, text.simplified(), user, image, imageFileName, time.toLocalTime(), favorited, account, source, inReplyToMessageId, inReplyToUsername, following, false));
 		}
 		node = node.nextSibling();
 	}
@@ -257,7 +257,7 @@ QVector<Message> QwitTools::parseSearchMessages(const QByteArray &data, Account 
 				}
 				imageFileName = Configuration::CacheDirectory + imageFileName;
 				UserpicsDownloader::getInstance()->download(image, imageFileName);
-				messages.push_back(Message(id, text.simplified(), user, imageFileName, time.toLocalTime(), favorited, account, source, inReplyToMessageId, inReplyToUsername, following, false));
+                messages.push_back(Message(id, text.simplified(), user, image, imageFileName, time.toLocalTime(), favorited, account, source, inReplyToMessageId, inReplyToUsername, following, false));
 			}
 		}
 		node = node.nextSibling();
@@ -300,9 +300,9 @@ QVector<Message> QwitTools::parseInboxMessages(const QByteArray &data, Account *
 						user = node3.toElement().text();
 					} else if (node3.toElement().tagName() == "profile_image_url") {
 						image = node3.toElement().text();
-                                        } else if (node3.toElement().tagName() == "following") {
-                                                following = node3.toElement().text() == "true";
-                                        }
+                    } else if (node3.toElement().tagName() == "following") {
+                        following = node3.toElement().text() == "true";
+                    }
 					node3 = node3.nextSibling();
 				}
 			}
@@ -333,7 +333,7 @@ QVector<Message> QwitTools::parseInboxMessages(const QByteArray &data, Account *
 			}
 			imageFileName = Configuration::CacheDirectory + imageFileName;
 			UserpicsDownloader::getInstance()->download(image, imageFileName);
-                        messages.push_back(Message(id, text.simplified(), user, imageFileName, time.toLocalTime(), false, account, source, 0, "", following, true));
+            messages.push_back(Message(id, text.simplified(), user, image, imageFileName, time.toLocalTime(), false, account, source, 0, "", following, true));
 		}
 		node = node.nextSibling();
 	}
@@ -359,8 +359,8 @@ QVector<Message> QwitTools::parseOutboxMessages(const QByteArray &data, Account 
 		}
 		QDomNode node2 = node.firstChild();
 		QString text = "", timeStr = "", user = "", image = "", source = "";
-                bool following = false;
-                quint64 id = 0;
+        bool following = false;
+        quint64 id = 0;
 		while (!node2.isNull()) {
 			if (node2.toElement().tagName() == "created_at") {
 				timeStr = node2.toElement().text();
@@ -375,9 +375,9 @@ QVector<Message> QwitTools::parseOutboxMessages(const QByteArray &data, Account 
 						user = node3.toElement().text();
 					} else if (node3.toElement().tagName() == "profile_image_url") {
 						image = node3.toElement().text();
-                                        } else if (node3.toElement().tagName() == "following") {
-                                                following = node3.toElement().text() == "true";
-                                        }
+                    } else if (node3.toElement().tagName() == "following") {
+                        following = node3.toElement().text() == "true";
+                    }
 					node3 = node3.nextSibling();
 				}
 			}
@@ -408,7 +408,7 @@ QVector<Message> QwitTools::parseOutboxMessages(const QByteArray &data, Account 
 			}
 			imageFileName = Configuration::CacheDirectory + imageFileName;
 			UserpicsDownloader::getInstance()->download(image, imageFileName);
-                        messages.push_back(Message(id, text.simplified(), user, imageFileName, time.toLocalTime(), false, account, source, 0, "", following, true));
+            messages.push_back(Message(id, text.simplified(), user, image, imageFileName, time.toLocalTime(), false, account, source, 0, "", following, true));
 		}
 		node = node.nextSibling();
 	}
@@ -517,7 +517,7 @@ Message QwitTools::parseUser(const QByteArray &data, Account *account) {
 	    }
 	    imageFileName = Configuration::CacheDirectory + imageFileName;
 	    UserpicsDownloader::getInstance()->download(image, imageFileName);
-	    message = Message(id, text.simplified(), user, imageFileName, time.toLocalTime(), favorited, account, source, inReplyToMessageId, inReplyToUsername, following, false);
+        message = Message(id, text.simplified(), user, image, imageFileName, time.toLocalTime(), favorited, account, source, inReplyToMessageId, inReplyToUsername, following, false);
 	}
 	return message;
 }
@@ -594,7 +594,7 @@ Message QwitTools::parseMessage(const QByteArray &data, Account *account) {
 		}
 		imageFileName = Configuration::CacheDirectory + imageFileName;
 //		UserpicsDownloader::getInstance()->download(image, imageFileName);
-                message = Message(id, text.simplified(), user, imageFileName, time.toLocalTime(), favorited, account, source, inReplyToMessageId, inReplyToUsername, following, false);
+        message = Message(id, text.simplified(), user, image, imageFileName, time.toLocalTime(), favorited, account, source, inReplyToMessageId, inReplyToUsername, following, false);
 	}
 	return message;
 }
@@ -630,9 +630,9 @@ Message QwitTools::parseDirectMessage(const QByteArray &data, Account *account) 
 					user = node2.toElement().text();
 				} else if (node2.toElement().tagName() == "profile_image_url") {
 					image = node2.toElement().text();
-                                } else if (node2.toElement().tagName() == "following") {
-                                        following = node2.toElement().text() == "true";
-                                }
+                } else if (node2.toElement().tagName() == "following") {
+                        following = node2.toElement().text() == "true";
+                }
 				node2 = node2.nextSibling();
 			}
 		}
@@ -663,7 +663,7 @@ Message QwitTools::parseDirectMessage(const QByteArray &data, Account *account) 
 		}
 		imageFileName = Configuration::CacheDirectory + imageFileName;
 		UserpicsDownloader::getInstance()->download(image, imageFileName);
-                message = Message(id, text.simplified(), user, imageFileName, time.toLocalTime(), false, account, source, 0, "", following, true);
+        message = Message(id, text.simplified(), user, image, imageFileName, time.toLocalTime(), false, account, source, 0, "", following, true);
 	}
 	return message;
 }
@@ -966,7 +966,7 @@ QVector<Message> QwitTools::parseUsers(const QByteArray &data, Account *account)
 	    }
 	    imageFileName = Configuration::CacheDirectory + imageFileName;
 	    UserpicsDownloader::getInstance()->download(image, imageFileName);
-	    Message message = Message(id, text.simplified(), user, imageFileName, time.toLocalTime(), favorited, account, source, inReplyToMessageId, inReplyToUsername, following, false);
+        Message message = Message(id, text.simplified(), user, image, imageFileName, time.toLocalTime(), favorited, account, source, inReplyToMessageId, inReplyToUsername, following, false);
 	    messages.push_back(message);
 	}
 	node = node.nextSibling();

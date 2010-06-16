@@ -36,7 +36,7 @@
 
 #include "Message.h"
 
-Message::Message(quint64 id, const QString &text, const QString &username, const QString &userpicFilename, const QDateTime &time, bool favorited, Account *account, const QString &source, quint64 inReplyToMessageId, const QString &inReplyToUsername, bool following, bool directMessage) {
+Message::Message(quint64 id, const QString &text, const QString &username, const QString &userpicUrl, const QString &userpicFilename, const QDateTime &time, bool favorited, Account *account, const QString &source, quint64 inReplyToMessageId, const QString &inReplyToUsername, bool following, bool directMessage) {
 /// FIXIT: temporary workaround for strange id values in ~/.qwit2/messages after KDE shutdown
 	if (id > ((quint64)1 << 60)) {
 		id = (long long)id + ((long long) 1 << 32);
@@ -45,12 +45,13 @@ Message::Message(quint64 id, const QString &text, const QString &username, const
 	this->id = id;
 	this->text = text;
 	this->username = username;
-	this->userpicFilename = userpicFilename;
+    this->userpicUrl = userpicUrl;
+    this->userpicFilename = userpicFilename;
 	this->time = time;
 	this->account = account;
 	this->favorited = favorited;
 	this->source = source;
-        this->following = following;
+    this->following = following;
 	this->inReplyToMessageId = inReplyToMessageId;
 	this->inReplyToUsername = inReplyToUsername;
 	this->directMessage = directMessage;
@@ -73,12 +74,13 @@ void Message::save(QSettings &messagesCache) {
 	messagesCache.setValue("id", id);
 	messagesCache.setValue("text", text);
 	messagesCache.setValue("username", username);
-	messagesCache.setValue("userpicFilename", userpicFilename);
+    messagesCache.setValue("userpicUrl", userpicUrl);
+    messagesCache.setValue("userpicFilename", userpicFilename);
 	messagesCache.setValue("time", time);
 	messagesCache.setValue("favorited", favorited);
 	messagesCache.setValue("source", source);
-        messagesCache.setValue("following", following);
-        messagesCache.setValue("inReplyToMessageId", inReplyToMessageId);
+    messagesCache.setValue("following", following);
+    messagesCache.setValue("inReplyToMessageId", inReplyToMessageId);
 	messagesCache.setValue("inReplyToUsername", inReplyToUsername);
 	messagesCache.setValue("directMessage", directMessage);
 }
@@ -88,15 +90,16 @@ Message Message::load(QSettings &messagesCache, Account *account) {
 		messagesCache.value("id").toULongLong(),
 		messagesCache.value("text").toString(),
 		messagesCache.value("username").toString(),
-		messagesCache.value("userpicFilename").toString(),
+        messagesCache.value("userpicUrl").toString(),
+        messagesCache.value("userpicFilename").toString(),
 		messagesCache.value("time").toDateTime(),
 		messagesCache.value("favorited").toBool(),
 		account,
 		messagesCache.value("source").toString(),
 		messagesCache.value("inReplyToMessageId").toULongLong(),
 		messagesCache.value("inReplyToUsername").toString(),
-                messagesCache.value("following").toBool(),
-                messagesCache.value("directMessage").toBool()
+        messagesCache.value("following").toBool(),
+        messagesCache.value("directMessage").toBool()
 	);
 }
 

@@ -40,7 +40,8 @@ public:
 	quint64 id;
 	QString text;
 	QString username;
-	QString userpicFilename;
+    QString userpicUrl;
+    QString userpicFilename;
 	QDateTime time;
 	Account *account;
 	bool favorited;
@@ -51,7 +52,7 @@ public:
     bool following;
 	bool mention;
 	Message() {}
-    Message(quint64 id, const QString &text, const QString &username, const QString &userpicFilename, const QDateTime &time, bool favorited, Account *account, const QString &source, quint64 inReplyToMessageId, const QString &inReplyToUsername, bool following, bool directMessage);
+    Message(quint64 id, const QString &text, const QString &username, const QString &userpicUrl, const QString &userpicFilename, const QDateTime &time, bool favorited, Account *account, const QString &source, quint64 inReplyToMessageId, const QString &inReplyToUsername, bool following, bool directMessage);
 	bool operator<(const Message &x) const;
 	bool operator==(const Message &x) const;
 	bool operator!=(const Message &x) const;

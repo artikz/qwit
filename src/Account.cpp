@@ -390,10 +390,13 @@ void Account::loadMessages(QSettings &messagesCache) {
 	messagesCache.endGroup();
 	int n = messagesCache.beginReadArray("Friends");
 	friendsMessages.clear();
+    UserpicsDownloader *userpicsDownloader = UserpicsDownloader::getInstance();
 	for (int i = 0; i < n; ++i) {
 		messagesCache.setArrayIndex(i);
 		Message message = Message::load(messagesCache, this);
-		UserpicsDownloader::getInstance()->setUserImageFileName(serviceBaseUrl(), message.username, message.userpicFilename, false);
+        userpicsDownloader->download(message.userpicUrl, message.userpicFilename);
+        userpicsDownloader->setUserImageFileName(serviceBaseUrl(), message.username, message.userpicFilename, false);
+//		UserpicsDownloader::getInstance()->setUserImageFileName(serviceBaseUrl(), message.username, message.userpicFilename, false);
 		usernames << message.username;
 		friendsMessages.push_back(message);
 	}
@@ -403,7 +406,9 @@ void Account::loadMessages(QSettings &messagesCache) {
 	for (int i = 0; i < n; ++i) {
 		messagesCache.setArrayIndex(i);
 		Message message = Message::load(messagesCache, this);
-		usernames << message.username;
+        userpicsDownloader->download(message.userpicUrl, message.userpicFilename);
+        userpicsDownloader->setUserImageFileName(serviceBaseUrl(), message.username, message.userpicFilename, false);
+        usernames << message.username;
 		replies.push_back(message);
 	}
 	messagesCache.endArray();
@@ -412,7 +417,9 @@ void Account::loadMessages(QSettings &messagesCache) {
 	for (int i = 0; i < n; ++i) {
 		messagesCache.setArrayIndex(i);
 		Message message = Message::load(messagesCache, this);
-		usernames << message.username;
+        userpicsDownloader->download(message.userpicUrl, message.userpicFilename);
+        userpicsDownloader->setUserImageFileName(serviceBaseUrl(), message.username, message.userpicFilename, false);
+        usernames << message.username;
 		publicMessages.push_back(message);
 	}
 	messagesCache.endArray();
@@ -421,7 +428,9 @@ void Account::loadMessages(QSettings &messagesCache) {
 	for (int i = 0; i < n; ++i) {
 		messagesCache.setArrayIndex(i);
 		Message message = Message::load(messagesCache, this);
-		usernames << message.username;
+        userpicsDownloader->download(message.userpicUrl, message.userpicFilename);
+        userpicsDownloader->setUserImageFileName(serviceBaseUrl(), message.username, message.userpicFilename, false);
+        usernames << message.username;
 		favorites.push_back(message);
 	}
 	messagesCache.endArray();
@@ -430,7 +439,9 @@ void Account::loadMessages(QSettings &messagesCache) {
 	for (int i = 0; i < n; ++i) {
 		messagesCache.setArrayIndex(i);
 		Message message = Message::load(messagesCache, this);
-		usernames << message.username;
+        userpicsDownloader->download(message.userpicUrl, message.userpicFilename);
+        userpicsDownloader->setUserImageFileName(serviceBaseUrl(), message.username, message.userpicFilename, false);
+        usernames << message.username;
 		inboxMessages.push_back(message);
 	}
 	messagesCache.endArray();
@@ -439,7 +450,9 @@ void Account::loadMessages(QSettings &messagesCache) {
 	for (int i = 0; i < n; ++i) {
 		messagesCache.setArrayIndex(i);
 		Message message = Message::load(messagesCache, this);
-		usernames << message.username;
+        userpicsDownloader->download(message.userpicUrl, message.userpicFilename);
+        userpicsDownloader->setUserImageFileName(serviceBaseUrl(), message.username, message.userpicFilename, false);
+        usernames << message.username;
 		outboxMessages.push_back(message);
 	}
 	messagesCache.endArray();
@@ -448,7 +461,9 @@ void Account::loadMessages(QSettings &messagesCache) {
 	for (int i = 0; i < n; ++i) {
 		messagesCache.setArrayIndex(i);
 		Message message = Message::load(messagesCache, this);
-		usernames << message.username;
+        userpicsDownloader->download(message.userpicUrl, message.userpicFilename);
+        userpicsDownloader->setUserImageFileName(serviceBaseUrl(), message.username, message.userpicFilename, false);
+        usernames << message.username;
 		searchMessages.push_back(message);
 	}
 	messagesCache.endArray();
