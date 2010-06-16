@@ -107,7 +107,7 @@ void TwitterWidget::addItem(const Message &message) {
 	item->replyButton->show();
 
 	if (!message.directMessage) {
-		if (message.username == message.account->username) {
+        if (message.username.compare(message.account->username, Qt::CaseInsensitive)) {
 			item->destroyButton = new QToolButton(this);
 			QAction *destroyAction = new QAction(this);
 			destroyAction->setToolTip(tr("destroy tweet"));
