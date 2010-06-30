@@ -189,6 +189,12 @@ void Configuration::load() {
 	}
 	settings.endGroup();
 
+    if (useProxy) {
+        QNetworkProxy::setApplicationProxy(QNetworkProxy(QNetworkProxy::HttpProxy, proxyAddress, proxyPort, proxyUsername, proxyPassword));
+    } else {
+        QNetworkProxy::setApplicationProxy(QNetworkProxy(QNetworkProxy::NoProxy));
+    }
+
 // UrlShortener
 	settings.beginGroup("UrlShortener");
 	urlShortener = settings.value("urlShortener", "unu").toString();
@@ -298,7 +304,13 @@ void Configuration::save() {
 	settings.setValue("proxyUsername", proxyUsername);
 	settings.setValue("proxyPassword", encrypt(proxyPassword));
 	settings.endGroup();
-	
+
+    if (useProxy) {
+        QNetworkProxy::setApplicationProxy(QNetworkProxy(QNetworkProxy::HttpProxy, proxyAddress, proxyPort, proxyUsername, proxyPassword));
+    } else {
+        QNetworkProxy::setApplicationProxy(QNetworkProxy(QNetworkProxy::NoProxy));
+    }
+
 // UrlShortener
 	settings.beginGroup("UrlShortener");
 	settings.setValue("urlShortener", urlShortener);

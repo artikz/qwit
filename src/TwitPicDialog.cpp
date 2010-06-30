@@ -100,7 +100,8 @@ void TwitPicDialog::setTwitPixmap(const QPixmap &pixmap) {
 }
 
 void TwitPicDialog::accept() {
-    Account *account = Configuration::getInstance()->currentAccount();
+    Configuration *config = Configuration::getInstance();
+    Account *account = config->currentAccount();
 
 	m_progressBar->reset();
 	m_errorMsgLabel->hide();
@@ -128,6 +129,12 @@ void TwitPicDialog::accept() {
         http.setHost(url.host(), QHttp::ConnectionModeHttps, url.port(443));
     } else {
         http.setHost(url.host(), QHttp::ConnectionModeHttp, url.port(80));
+    }
+
+    if (config->useProxy) {
+        http.setProxy(config->proxyAddress, config->proxyPort, config->proxyUsername, config->proxyPassword);
+    } else {
+        http.setProxy(QNetworkProxy(QNetworkProxy::NoProxy));
     }
 
 	QByteArray ba;

@@ -39,7 +39,7 @@ UrlShortener* UrlShortener::instance = 0;
 
 UrlShortener::UrlShortener() {
 	http = new QHttp(this);
-	connect(http, SIGNAL(requestFinished(int, bool)), this, SLOT(requestFinished(int, bool)));
+    connect(http, SIGNAL(requestFinished(int, bool)), this, SLOT(requestFinished(int, bool)));
 }
 
 UrlShortener* UrlShortener::getInstance() {
@@ -67,7 +67,7 @@ void UrlShortener::shorten(const QString &url) {
 
 	QUrl shortenerUrl(Services::urlShorteners[config->urlShortener]["apiurl"]);
 
-	if (config->useProxy) {
+    if (config->useProxy) {
 		http->setProxy(config->proxyAddress, config->proxyPort, config->proxyUsername, config->proxyPassword);
 	} else {
 		http->setProxy(QNetworkProxy(QNetworkProxy::NoProxy));
@@ -109,12 +109,12 @@ void UrlShortener::requestFinished(int id, bool error) {
 			response.replace("\\/", "/");
 			QRegExp responseRegexp(Services::urlShorteners[config->urlShortener]["responseregexp"]);
 			if (responseRegexp.indexIn(response, 0) == -1) {
-				qDebug() << ("UrlShortener::requestFinished() error parsing request");
+                qWarning() << ("UrlShortener::requestFinished() error parsing request");
 			} else {
 				shortenedUrl = responseRegexp.cap(0);
 			}
 		} else {
-			qDebug() << ("UrlShortener::requestFinished() " + QString::number(id) + " error " + QString::number(http->lastResponse().statusCode()) + " " + http->lastResponse().reasonPhrase());
+            qWarning() << ("UrlShortener::requestFinished() " + QString::number(id) + " error " + QString::number(http->lastResponse().statusCode()) + " " + http->lastResponse().reasonPhrase());
 		}
 		emit urlShortened(shortenedUrl);
 	}

@@ -46,8 +46,8 @@ UserpicsDownloader* UserpicsDownloader::getInstance() {
 }
 
 UserpicsDownloader::UserpicsDownloader() {
-	http = new QHttp(this);
-	connect(http, SIGNAL(requestStarted(int)), this, SLOT(requestStarted(int)));
+    http = new QHttp(this);
+    connect(http, SIGNAL(requestStarted(int)), this, SLOT(requestStarted(int)));
 //	connect(http, SIGNAL(requestFinished(int, bool)), this, SLOT(requestFinished(int, bool)));
 	connect(http, SIGNAL(done(bool)), this, SLOT(httpDone(bool)));
 	requestId = -1;
@@ -57,7 +57,12 @@ UserpicsDownloader::UserpicsDownloader() {
 void UserpicsDownloader::startDownload() {
 	if ((queue.size() == 0) || (requestId != -1)) return;
 	Configuration *config = Configuration::getInstance();
-	while (queue.size() > 0) {
+    if (config->useProxy) {
+        http->setProxy(QNetworkProxy(QNetworkProxy::HttpProxy, config->proxyAddress, config->proxyPort, config->proxyUsername, config->proxyPassword));
+    } else {
+        http->setProxy(QNetworkProxy(QNetworkProxy::NoProxy));
+    }
+    while (queue.size() > 0) {
 		QPair<QString, QString> item = queue.dequeue();
 		QFileInfo fi = QFileInfo(item.second);
 		if (fi.exists() && (fi.size() > 0)) {
@@ -71,7 +76,7 @@ void UserpicsDownloader::startDownload() {
 		}
 		qDebug() << "UserpicsDownloader::startDownload() " << item.first << " -> " << item.second;
 		QUrl url(item.first);
-		http->setHost(url.host(), url.port(80));
+        http->setHost(url.host(), url.port(80));
 		requestId = http->get(QUrl::toPercentEncoding(url.path(), "/"), &file);
 		this->url = item.first;
 		break;
@@ -122,7 +127,7 @@ void UserpicsDownloader::download(const QString &imageUrl, const QString &filena
 void UserpicsDownloader::httpDone(bool error) {
 	file.close();
 	if (error) {
-		qDebug() << "UserpicsDownloader::httpDone() error " + url + " -> " + file.fileName();
+        qWarning() << "UserpicsDownloader::httpDone() error " + url + " -> " + file.fileName() << ", " << qPrintable(http->errorString());
 	} else {
         cleanCache();
 		qDebug() << "UserpicsDownloader::httpDone() " + url + " -> " + file.fileName();

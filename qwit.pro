@@ -127,7 +127,7 @@ icon.files += images/qwit.png
 INSTALLS = target \
     desktop \
     icon
-CONFIG += release \
+CONFIG += debug \
     x86 \
     ppc \
     x86_64 \

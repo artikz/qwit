@@ -43,7 +43,13 @@ Twitter::Twitter(Account *account) {
 
 	this->account = account;
 	http = new QHttp(this);
-	connect(http, SIGNAL(requestStarted(int)), this, SLOT(requestStarted(int)));
+    Configuration *config = Configuration::getInstance();
+    if (config->useProxy) {
+        http->setProxy(QNetworkProxy(QNetworkProxy::HttpProxy, config->proxyAddress, config->proxyPort, config->proxyUsername, config->proxyPassword));
+    } else {
+        http->setProxy(QNetworkProxy(QNetworkProxy::NoProxy));
+    }
+    connect(http, SIGNAL(requestStarted(int)), this, SLOT(requestStarted(int)));
 	connect(http, SIGNAL(requestFinished(int, bool)), this, SLOT(requestFinished(int, bool)));
 	connect(http, SIGNAL(sslErrors(const QList<QSslError> &)), this, SLOT(sslErrors(const QList<QSslError> &)));
 }
