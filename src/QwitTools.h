@@ -60,7 +60,7 @@ public:
 	static QString parseError(const QByteArray &data);
 	static void makeMessagesUnique(QVector<Message> &messages);
 	static QString prepareMessage(const QString &text, Account *account);
-	static QVector<Message> mergeMessages(QVector<Message> &messages, QVector<Message> &receivedMessages);
+    static QVector<Message> mergeMessages(QVector<Message> &messages, QVector<Message> &receivedMessages);
 	static bool isUrl(const QString &s);
 	static bool isMention(const Message &message);
 	static QVector<Message> parseUsers(const QByteArray &data, Account *account);

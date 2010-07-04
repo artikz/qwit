@@ -783,12 +783,20 @@ QVector<Message> QwitTools::mergeMessages(QVector<Message> &messages, QVector<Me
 	}
 	bool addingOldMessages = (messages.size() && (messages[0].id > receivedMessages[0].id));
 
+    bool more = true;
+    for (int i = 0; i < receivedMessages.size(); ++i) {
+        if (receivedMessages[i].id > messages[messages.size() - 1].id) {
+            more = false;
+        }
+    }
+
 	for (int i = 0; i < receivedMessages.size(); ++i) {
 		usernames << receivedMessages[i].username;
 		QVector<Message>::iterator j = qBinaryFind(messages.begin(), messages.end(), receivedMessages[i]);
         if (j == messages.end()) {
             if (!messages.size() ||
-                (receivedMessages[i].id > messages[messages.size() - 1].id)) {
+                (!more && receivedMessages[i].id > messages[messages.size() - 1].id) ||
+                (more && receivedMessages[i].id < messages[0].id)) {
                 newMessages.push_back(receivedMessages[i]);
             }
 		} else {
