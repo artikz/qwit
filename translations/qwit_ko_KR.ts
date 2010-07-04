@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="it_IT" sourcelanguage="en_US">
+<TS version="2.0" language="ko_KR">
 <context>
     <name>AboutDialog</name>
     <message>
         <location filename="../src/AboutDialog.ui" line="17"/>
         <source>About Qwit</source>
-        <translation type="unfinished"></translation>
+        <translation>Qwit 정보</translation>
     </message>
     <message>
         <location filename="../src/AboutDialog.ui" line="66"/>
@@ -16,7 +16,7 @@
     <message>
         <location filename="../src/AboutDialog.ui" line="95"/>
         <source>About</source>
-        <translation type="unfinished"></translation>
+        <translation>정보</translation>
     </message>
     <message>
         <location filename="../src/AboutDialog.ui" line="116"/>
@@ -29,12 +29,20 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Copyright (c) 2008-2009, Artem Iglikov.&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://code.google.com/p/qwit/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://code.google.com/p/qwit/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;사용이 자유롭고 여러 플랫폼이 지원되는 Qt4 기반 가벼운 오픈소스 데스크탑 트위터 클라이언트&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Copyright &amp;copy; 2008-2009, Artem Iglikov.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://code.google.com/p/qwit/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://code.google.com/p/qwit/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/AboutDialog.ui" line="150"/>
         <source>Authors</source>
-        <translation type="unfinished"></translation>
+        <translation>만든 사람들</translation>
     </message>
     <message>
         <location filename="../src/AboutDialog.ui" line="156"/>
@@ -47,7 +55,15 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;  blog: &lt;/span&gt;&lt;a href=&quot;http://arti.kz&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://arti.kz&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;Artem Iglikov - founder and lead developer&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;  이메일: &lt;/span&gt;&lt;a href=&quot;mailto:artem.iglikov@gmail.com&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;artem.iglikov@gmail.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;  블로그: &lt;/span&gt;&lt;a href=&quot;http://arti.kz&quot;&gt;&lt;span style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://arti.kz&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;DejaVu Sans&apos;; font-size:9pt;&quot;&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/AboutDialog.ui" line="204"/>
@@ -73,7 +89,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/AboutDialog.ui" line="172"/>
         <source>Thanks To</source>
-        <translation type="unfinished"></translation>
+        <translation>도움 주신 분</translation>
     </message>
     <message>
         <location filename="../src/AboutDialog.ui" line="178"/>
@@ -95,7 +111,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/AboutDialog.ui" line="198"/>
         <source>License</source>
-        <translation type="unfinished"></translation>
+        <translation>사용권</translation>
     </message>
 </context>
 <context>
@@ -111,77 +127,74 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="17"/>
         <source>Configure account...</source>
-        <translation type="unfinished"></translation>
+        <translation>계정 설정하기...</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="28"/>
         <source>Plain-text authorization</source>
-        <translation type="unfinished"></translation>
+        <translation>일반 텍스트 인증</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="39"/>
         <source>Username:</source>
-        <translation type="unfinished">Nome utente:</translation>
+        <translation>로그인 이름:</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="49"/>
         <source>Password:</source>
-        <translation type="unfinished">Password:</translation>
+        <translation>암호:</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="80"/>
         <source>OAuth</source>
-        <translation type="unfinished"></translation>
+        <translation>OAuth
+</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="107"/>
         <source>Authorize</source>
-        <translation type="unfinished"></translation>
+        <translation>인증하기</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="132"/>
         <source>Service options</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>save password</source>
-        <translation type="obsolete">salva password</translation>
+        <translation>서비스 설정</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="140"/>
         <source>use https instead of http</source>
-        <translation type="unfinished"></translation>
+        <translation>HTTP 대신 HTTPS 사용하기</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="147"/>
         <source>Service base URL:</source>
-        <translation type="unfinished">URL di base del servizio:</translation>
+        <translation>서비스 기본 URL:</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.ui" line="157"/>
         <source>Service API URL:</source>
-        <translation type="unfinished">URL delle API del servizio:</translation>
+        <translation>서비스 API URL:</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.cpp" line="101"/>
         <location filename="../src/AccountConfigurationDialog.cpp" line="124"/>
         <source>Error!</source>
-        <translation type="unfinished"></translation>
+        <translation>오류!</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.cpp" line="101"/>
         <source>Error while trying OAuth!</source>
-        <translation type="unfinished"></translation>
+        <translation>OAuth 인증 중 오류가 발생하였습니다!</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.cpp" line="116"/>
         <source>Authorization successfull!</source>
-        <translation type="unfinished"></translation>
+        <translation>인증이 성공적으로 이루어졌습니다!</translation>
     </message>
     <message>
         <location filename="../src/AccountConfigurationDialog.cpp" line="124"/>
         <source>Wrong pin, try again!</source>
-        <translation type="unfinished"></translation>
+        <translation>PIN이 잘못되었습니다. 다시 시도하십시오!</translation>
     </message>
 </context>
 <context>
@@ -197,22 +210,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/DirectMessageDialog.ui" line="17"/>
         <source>Direct message</source>
-        <translation type="unfinished"></translation>
+        <translation>DM 보내기</translation>
     </message>
     <message>
         <location filename="../src/DirectMessageDialog.ui" line="27"/>
         <source>Account:</source>
-        <translation type="unfinished"></translation>
+        <translation>계정:</translation>
     </message>
     <message>
         <location filename="../src/DirectMessageDialog.ui" line="48"/>
         <source>To:</source>
-        <translation type="unfinished"></translation>
+        <translation>받는 사람:</translation>
     </message>
     <message>
         <location filename="../src/DirectMessageDialog.ui" line="60"/>
         <source>Message:</source>
-        <translation type="unfinished"></translation>
+        <translation>메시지:</translation>
     </message>
 </context>
 <context>
@@ -220,7 +233,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/FavoritesPage.cpp" line="64"/>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
+        <translation>즐겨찾기</translation>
     </message>
 </context>
 <context>
@@ -267,7 +280,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/FriendsMgmtDialog.ui" line="31"/>
         <source>Friends</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">친구들</translation>
     </message>
     <message>
         <location filename="../src/FriendsMgmtDialog.ui" line="47"/>
@@ -295,7 +308,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/FriendshipsMgmtPage.cpp" line="41"/>
         <source>Friends</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">친구들</translation>
     </message>
     <message>
         <location filename="../src/FriendshipsMgmtPage.cpp" line="51"/>
@@ -313,7 +326,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/HomePage.cpp" line="64"/>
         <source>Home</source>
-        <translation type="unfinished">Home</translation>
+        <translation>홈</translation>
     </message>
 </context>
 <context>
@@ -321,7 +334,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/InboxPage.cpp" line="64"/>
         <source>Inbox</source>
-        <translation type="unfinished">In Arrivo</translation>
+        <translation>받은 메시지함</translation>
     </message>
 </context>
 <context>
@@ -329,40 +342,39 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/MainWindow.cpp" line="826"/>
         <source>Pick an image</source>
-        <translation type="unfinished"></translation>
+        <translation>이미지 선택하기</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="617"/>
         <source>&amp;Show / Hide</source>
-        <translation>Mo&amp;stra / Nascondi</translation>
+        <translation>보이기/숨기기(&amp;S)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="619"/>
         <source>&amp;Quit</source>
-        <translation>&amp;Esci</translation>
+        <translation>종료(&amp;Q)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="733"/>
         <source>Qwit: new messages receieved for %1@%2</source>
-        <translation type="unfinished"></translation>
+        <translation>Qwit: %1@%2에 새로운 메시지</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="789"/>
         <source>Rate limit exceeded</source>
-        <translation type="unfinished"></translation>
+        <translation>요청 제한 초과함</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/MainWindow.cpp" line="791"/>
         <source>%n requests left</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
+        <translation>
+            <numerusform>%n 요청 남음</numerusform>
         </translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="826"/>
         <source>Image Files (*.png *.jpg *.jpeg *.bmp *.PNG *.JPG *.JPEG *.BMP)</source>
-        <translation type="unfinished"></translation>
+        <translation>이미지 파일 (*.png *.jpg *.jpeg *.bmp *.PNG *.JPG *.JPEG *.BMP)</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.cpp" line="858"/>
@@ -382,12 +394,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/MainWindow.ui" line="66"/>
         <source>Add an image</source>
-        <translation type="unfinished"></translation>
+        <translation>이미지 추가하기</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.ui" line="105"/>
         <source>watching movie - 10 minutes ago</source>
-        <translation type="unfinished"></translation>
+        <translation>영화 감상 중 - 10 분 전</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.ui" line="140"/>
@@ -397,7 +409,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/MainWindow.ui" line="176"/>
         <source>Friends</source>
-        <translation type="unfinished"></translation>
+        <translation>친구들</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.ui" line="179"/>
@@ -411,22 +423,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/MainWindow.ui" line="193"/>
         <source>Refresh</source>
-        <translation type="unfinished"></translation>
+        <translation>새로 고침</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.ui" line="210"/>
         <source>Options</source>
-        <translation type="unfinished">Opzioni</translation>
+        <translation>설정</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.ui" line="227"/>
         <source>About Qwit</source>
-        <translation type="unfinished"></translation>
+        <translation>Qwit 정보</translation>
     </message>
     <message>
         <location filename="../src/MainWindow.ui" line="244"/>
         <source>Exit Qwit</source>
-        <translation type="unfinished"></translation>
+        <translation>Qwit 종료</translation>
     </message>
 </context>
 <context>
@@ -434,27 +446,27 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/MessageTextEdit.cpp" line="105"/>
         <source>Message too long</source>
-        <translation type="unfinished"></translation>
+        <translation>너무 긴 메시지</translation>
     </message>
     <message>
         <location filename="../src/MessageTextEdit.cpp" line="106"/>
         <source>This message exceeds %1 characters.</source>
-        <translation type="unfinished"></translation>
+        <translation>이 메시지는 %1 글자를 초과합니다.</translation>
     </message>
     <message>
         <location filename="../src/MessageTextEdit.cpp" line="107"/>
         <source>Your followers might receive only a truncated message. Do you want to send this message anyway?</source>
-        <translation type="unfinished"></translation>
+        <translation>당신의 팔로워들에게는 메시지가 짤려진 채 보입니다. 그래도 이 메시지를 전송하겠습니까?</translation>
     </message>
     <message>
         <location filename="../src/MessageTextEdit.cpp" line="108"/>
         <source>Send</source>
-        <translation type="unfinished"></translation>
+        <translation>전송하기</translation>
     </message>
     <message>
         <location filename="../src/MessageTextEdit.cpp" line="109"/>
         <source>Don&apos;t send</source>
-        <translation type="unfinished"></translation>
+        <translation>전송하지 않기</translation>
     </message>
     <message>
         <location filename="../src/MessageTextEdit.cpp" line="278"/>
@@ -472,12 +484,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/OAuthDialog.ui" line="14"/>
         <source>OAuth configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>OAuth 설정</translation>
     </message>
     <message>
         <location filename="../src/OAuthDialog.ui" line="25"/>
         <source>Click &lt;a href=&quot;%url&quot;&gt;here&lt;/a&gt; to allow Qwit access your account and enter received pin code.</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;a href=&quot;%url&quot;&gt;여기&lt;/a&gt;를 클릭하여 Qwit가 당신의 계정에 접근할 수 있게 허용한 후 주어진 PIN 코드를 아래에 입력하십시오.</translation>
     </message>
 </context>
 <context>
@@ -485,59 +497,69 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/OptionsDialog.ui" line="20"/>
         <source>Options</source>
-        <translation>Opzioni</translation>
+        <translation type="unfinished">설정</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="375"/>
         <source>Update interval:</source>
-        <translation>Intervallo di aggiornamento:</translation>
+        <translation type="unfinished">새로고침 주기:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="388"/>
         <source>s</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">초</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="435"/>
         <source>Misc</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">추가 설정</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="443"/>
         <source>Show greeting message:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">인사 메시지 보이기:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="456"/>
         <source>Show left characters number</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">남은 글자수 보이기</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="463"/>
         <source>Number of messages per page:</source>
-        <translation>Numero di messaggi per pagina:</translation>
+        <translation type="unfinished">페이지 당 메시지 개수:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="493"/>
-        <source>Display retweet tag after text instead of in front</source>
-        <translation>Mostra tag di risposta dopo il testo anzichè all&apos;inizio</translation>
+        <location filename="../src/OptionsDialog.ui" line="473"/>
+        <source>Number of messages in popup:</source>
+        <translation type="unfinished">팝업창으로 보여줄 메시지 개수:</translation>
     </message>
     <message>
-        <location filename="../src/OptionsDialog.ui" line="520"/>
-        <source>Place controls vertically</source>
-        <translation>Disponi i controlli verticalmente</translation>
+        <location filename="../src/OptionsDialog.ui" line="483"/>
+        <source>Retweet tag:</source>
+        <translation type="unfinished">리트윗 태그:</translation>
+    </message>
+    <message>
+        <location filename="../src/OptionsDialog.ui" line="500"/>
+        <source>Place username under avatar</source>
+        <translation type="unfinished">아바타 밑에 사용자 이름 보이기</translation>
+    </message>
+    <message>
+        <location filename="../src/OptionsDialog.ui" line="510"/>
+        <source>Show messages in the tray</source>
+        <translation type="unfinished">트레이에 메시지 보이기</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="530"/>
         <source>Place tabs vertically</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">탭을 세로로 배치하기</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="40"/>
         <location filename="../src/OptionsDialog.ui" line="1271"/>
         <location filename="../src/OptionsDialog.cpp" line="76"/>
         <source>Accounts</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">계정</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="45"/>
@@ -550,14 +572,14 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/OptionsDialog.ui" line="79"/>
         <location filename="../src/OptionsDialog.cpp" line="80"/>
         <source>Connection</source>
-        <translation>Connessione</translation>
+        <translation type="unfinished">연결</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="55"/>
         <location filename="../src/OptionsDialog.ui" line="178"/>
         <location filename="../src/OptionsDialog.cpp" line="82"/>
         <source>User interface</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">사용자 인터페이스</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1248"/>
@@ -568,41 +590,37 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/OptionsDialog.ui" line="93"/>
         <source>use proxy</source>
-        <translation>Utilizza proxy</translation>
+        <translation type="unfinished">프록시 사용하기</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="100"/>
         <source>Proxy address:</source>
-        <translation>Indirizzo Proxy:</translation>
+        <translation type="unfinished">프록시 주소:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="113"/>
         <source>Proxy port:</source>
-        <translation>Porta Proxy:</translation>
+        <translation type="unfinished">프록시 포트:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="126"/>
         <source>Proxy username:</source>
-        <translation>Utente proxy:</translation>
+        <translation type="unfinished">프록시 사용자 이름:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="139"/>
         <source>Proxy password:</source>
-        <translation>Password Proxy:</translation>
-    </message>
-    <message>
-        <source>save proxy password</source>
-        <translation type="obsolete">Salva la password</translation>
+        <translation type="unfinished">프록시 암호:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="188"/>
         <source>Tabs</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">탭</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="198"/>
         <source>Home</source>
-        <translation type="unfinished">Home</translation>
+        <translation type="unfinished">홈</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="208"/>
@@ -614,72 +632,52 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/OptionsDialog.ui" line="343"/>
         <location filename="../src/OptionsDialog.ui" line="364"/>
         <source>auto-update</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">자동으로 새로고침</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="222"/>
         <source>Public</source>
-        <translation type="unfinished">Pubblico</translation>
+        <translation type="unfinished">공개</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="243"/>
         <source>Replies</source>
-        <translation type="unfinished">Risposte</translation>
+        <translation type="unfinished">답장</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="267"/>
         <source>Custom</source>
-        <translation type="unfinished">Personalizzato</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="288"/>
         <source>Inbox</source>
-        <translation type="unfinished">In Arrivo</translation>
+        <translation type="unfinished">받은 메시지함</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="312"/>
         <source>Outbox</source>
-        <translation type="unfinished">Inviata</translation>
+        <translation type="unfinished">보낸 메시지함</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="333"/>
         <source>Search</source>
-        <translation type="unfinished">Cerca</translation>
+        <translation type="unfinished">찾기</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="354"/>
         <source>Favorites</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/OptionsDialog.ui" line="473"/>
-        <source>Number of messages in popup:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/OptionsDialog.ui" line="483"/>
-        <source>Retweet tag:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/OptionsDialog.ui" line="500"/>
-        <source>Place username under avatar</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/OptionsDialog.ui" line="510"/>
-        <source>Show messages in the tray</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">즐겨찾기</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="540"/>
         <source>Show last status</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">마지막 상태 보이기</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="550"/>
         <source>Start minimized</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">최소화된 상태로 시작하기</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="573"/>
@@ -719,47 +717,47 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/OptionsDialog.ui" line="668"/>
         <source>Colors</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">색상</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="678"/>
         <source>Common messages:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">일반적인 메시지:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="934"/>
         <source>Mentions:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">나에 대한 멘션:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1204"/>
         <source>Language</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">언어</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1212"/>
         <source>Choose UI language:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">UI 언어 선택:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1279"/>
         <source>Service:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">서비스:</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1297"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">추가하기</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1313"/>
         <source>Edit...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">편집하기...</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1320"/>
         <source>Delete...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">삭제하기...</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="1353"/>
@@ -786,13 +784,23 @@ p, li { white-space: pre-wrap; }
         <source>Not all URL shorteners need Username or API keys. Only enter the ones appropriate to your service.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../src/OptionsDialog.ui" line="493"/>
+        <source>Display retweet tag after text instead of in front</source>
+        <translation type="unfinished">리트윗 태그를 본문 뒤에 붙이기</translation>
+    </message>
+    <message>
+        <location filename="../src/OptionsDialog.ui" line="520"/>
+        <source>Place controls vertically</source>
+        <translation type="unfinished">제어도구를 세로로 배치하기</translation>
+    </message>
 </context>
 <context>
     <name>OutboxPage</name>
     <message>
         <location filename="../src/OutboxPage.cpp" line="64"/>
         <source>Outbox</source>
-        <translation type="unfinished">Inviata</translation>
+        <translation>보낸 메시지함</translation>
     </message>
 </context>
 <context>
@@ -800,7 +808,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/PublicPage.cpp" line="65"/>
         <source>Public</source>
-        <translation type="unfinished">Pubblico</translation>
+        <translation>공개</translation>
     </message>
 </context>
 <context>
@@ -808,38 +816,34 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/QwitTools.cpp" line="90"/>
         <source>Just now</source>
-        <translation type="unfinished">Solo adesso</translation>
+        <translation>지금</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/QwitTools.cpp" line="91"/>
         <source>about %n second(s) ago</source>
-        <translation type="unfinished">
-            <numerusform>circa %n secondo fa</numerusform>
-            <numerusform>circa %n secondi fa</numerusform>
+        <translation>
+            <numerusform>약 %n 초 전</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../src/QwitTools.cpp" line="93"/>
         <source>about %n minute(s) ago</source>
-        <translation type="unfinished">
-            <numerusform>circa %n minuto fa</numerusform>
-            <numerusform>circa %n minuti fa</numerusform>
+        <translation>
+            <numerusform>약 %n 분 전</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../src/QwitTools.cpp" line="95"/>
         <source>about %n hour(s) ago</source>
-        <translation type="unfinished">
-            <numerusform>circa %n ora fa</numerusform>
-            <numerusform>circa %n ore fa</numerusform>
+        <translation>
+            <numerusform>약 %n 시간 전</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../src/QwitTools.cpp" line="97"/>
         <source>about %n day(s) ago</source>
-        <translation type="unfinished">
-            <numerusform>circa %n giorno fa</numerusform>
-            <numerusform>circa %n giorni fa</numerusform>
+        <translation>
+            <numerusform>약 %n 일 전</numerusform>
         </translation>
     </message>
 </context>
@@ -848,7 +852,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/RepliesPage.cpp" line="65"/>
         <source>Replies</source>
-        <translation type="unfinished">Risposte</translation>
+        <translation>답장</translation>
     </message>
 </context>
 <context>
@@ -856,12 +860,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/SearchPage.cpp" line="50"/>
         <source>Find:</source>
-        <translation type="unfinished"></translation>
+        <translation>찾기:</translation>
     </message>
     <message>
         <location filename="../src/SearchPage.cpp" line="71"/>
         <source>Search</source>
-        <translation type="unfinished">Cerca</translation>
+        <translation>찾기</translation>
     </message>
 </context>
 <context>
@@ -869,7 +873,11 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/Translator.cpp" line="176"/>
         <source>GoogleTranslate</source>
-        <translation type="unfinished"></translation>
+        <translation>구글 번역</translation>
+    </message>
+    <message>
+        <source>Restore original</source>
+        <translation type="obsolete">원래대로 되돌리기</translation>
     </message>
 </context>
 <context>
@@ -1001,49 +1009,49 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/TwitterWidget.cpp" line="92"/>
         <source>favorize tweet</source>
-        <translation type="unfinished"></translation>
+        <translation>즐겨찾기에 추가하기</translation>
     </message>
     <message>
         <location filename="../src/TwitterWidget.cpp" line="102"/>
         <source>reply to %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1에게 답장하기</translation>
     </message>
     <message>
         <location filename="../src/TwitterWidget.cpp" line="113"/>
         <location filename="../src/TwitterWidget.cpp" line="133"/>
         <source>destroy tweet</source>
-        <translation type="unfinished"></translation>
+        <translation>트윗 지우기</translation>
     </message>
     <message>
         <location filename="../src/TwitterWidget.cpp" line="123"/>
         <location filename="../src/TwitterWidget.cpp" line="141"/>
         <source>retweet</source>
-        <translation type="unfinished"></translation>
+        <translation>리트윗하기</translation>
     </message>
     <message>
         <location filename="../src/TwitterWidget.cpp" line="150"/>
         <source>direct message</source>
-        <translation type="unfinished"></translation>
+        <translation>DM 보내기</translation>
     </message>
     <message>
         <location filename="../src/TwitterWidget.cpp" line="422"/>
         <source>more</source>
-        <translation type="unfinished"></translation>
+        <translation>더 보기</translation>
     </message>
     <message>
         <location filename="../src/TwitterWidget.cpp" line="432"/>
         <source>less</source>
-        <translation type="unfinished"></translation>
+        <translation>적게 보기</translation>
     </message>
     <message>
         <location filename="../src/TwitterWidget.cpp" line="445"/>
         <source>Delete message</source>
-        <translation type="unfinished"></translation>
+        <translation>메시지 지우기</translation>
     </message>
     <message>
         <location filename="../src/TwitterWidget.cpp" line="445"/>
         <source>Are you sure to delete this message?</source>
-        <translation type="unfinished"></translation>
+        <translation>정말 이 메시지를 지우겠습니까?</translation>
     </message>
 </context>
 <context>
