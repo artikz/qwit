@@ -9,6 +9,7 @@ find_package(Automoc4 REQUIRED)
 include (CheckCXXCompilerFlag)
 
 add_definitions( ${QT_DEFINITIONS} )
+add_definitions(-DVERSION=\"1.1\")
 remove_definitions(-DQT3_SUPPORT_WARNINGS -DQT3_SUPPORT)
 
 include_directories( 

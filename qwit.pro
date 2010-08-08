@@ -15,7 +15,7 @@ unix:# Prefix: base instalation directory
 isEmpty( PREFIX ):PREFIX = /usr/local
 
 # DEFINES += 'REVISION=\\\"$(shell svnversion -n .)\\\"'
-DEFINES += 'VERSION=\\\"1.0-beta\\\"'
+DEFINES += 'VERSION=\\\"1.1\\\"'
 
 # Input
 HEADERS += src/Configuration.h \
@@ -128,11 +128,10 @@ icon.files += images/qwit.png
 INSTALLS = target \
     desktop \
     icon
-CONFIG += debug \
-    x86 \
+CONFIG += x86 \
     ppc \
     x86_64 \
     ppc64 \
-    oauth \
-    console
+    oauth
+#    console
 OTHER_FILES += qwit-win.rc

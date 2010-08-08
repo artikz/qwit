@@ -242,17 +242,6 @@ void Services::initialize() {
 	budurlOptions["defaultusername"] = "";
 	urlShorteners["budurlcom"] = budurlOptions;
 
-	QMap<QString, QString> trimOptions;
-	trimOptions["title"] = "tr.im";
-	trimOptions["apiurl"] = "http://api.tr.im/v1/trim_simple";
-	trimOptions["requesttemplate"] = "?url=%url";
-	trimOptions["responseregexp"] = "http://tr.im/\\w+";
-	trimOptions["useapikey"] = "false";
-	trimOptions["defaultapikey"] = "";
-	trimOptions["useusername"] = "false";
-	trimOptions["defaultusername"] = "";
-	urlShorteners["trim"] = trimOptions;
-
 	QMap<QString, QString> jmpOptions;
 	jmpOptions["title"] = "j.mp";
 	jmpOptions["apiurl"] = "http://api.j.mp/shorten";

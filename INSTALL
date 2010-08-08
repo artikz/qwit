@@ -2,7 +2,7 @@ $Id$
 
 Prerequisites
 
-You should have development version of Qt4.
+You should have development version of Qt4 and QOAuth (http://wiki.github.com/ayoy/qoauth/) installed.
 
 Compiling & Installing Qwit
 
@@ -12,3 +12,9 @@ Compiling & Installing Qwit
 3. run `make` - this will compile Qwit sources
 4. run `make install` - this will install Qwit into chosen directory and create a shortcut in menu
 5. to start Qwit use the shortcut in menu, or `qwit` command
+
+And if you like cmake-way, you may try:
+
+1. chdir into unpacked qwit directory
+2. mkdir build
+3. cd build && cmake .. && make && make install
