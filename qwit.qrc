@@ -33,6 +33,7 @@
         <file>translations/qwit_pl_PL.qm</file>
         <file>translations/qwit_ro_RO.qm</file>
         <file>translations/qwit_ko_KR.qm</file>
+        <file>translations/qwit_id_ID.qm</file>
         <file>images/uiopme.png</file>
         <file>images/unu.png</file>
         <file>images/murlkz.png</file>
@@ -52,6 +53,7 @@
         <file>images/countries/us.png</file>
         <file>images/countries/ro.png</file>
         <file>images/countries/kr.png</file>
+        <file>images/countries/id.png</file>
         <file>images/google.png</file>
         <file>images/bitly.png</file>
         <file>images/budurlcom.png</file>
