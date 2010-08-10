@@ -560,7 +560,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/OptionsDialog.ui" line="79"/>
         <location filename="../src/OptionsDialog.cpp" line="80"/>
         <source>Connection</source>
-        <translation>Conecção</translation>
+        <translation>Conexão</translation>
     </message>
     <message>
         <location filename="../src/OptionsDialog.ui" line="55"/>
