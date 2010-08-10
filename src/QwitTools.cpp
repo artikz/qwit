@@ -783,10 +783,13 @@ QVector<Message> QwitTools::mergeMessages(QVector<Message> &messages, QVector<Me
 	}
 	bool addingOldMessages = (messages.size() && (messages[0].id > receivedMessages[0].id));
 
-    bool more = true;
-    for (int i = 0; i < receivedMessages.size(); ++i) {
-        if (receivedMessages[i].id > messages[messages.size() - 1].id) {
-            more = false;
+    bool more = false;
+    if (messages.size() > 0) {
+        more = true;
+        for (int i = 0; i < receivedMessages.size(); ++i) {
+            if (receivedMessages[i].id > messages[messages.size() - 1].id) {
+                more = false;
+            }
         }
     }
 
