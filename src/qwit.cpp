@@ -34,6 +34,7 @@
 #include "Services.h"
 #include "QwitTools.h"
 
+
 int main(int argc, char *argv[]) {
 	QDir dir(QDir::homePath());
 	dir.mkdir(Configuration::CacheDirectory);

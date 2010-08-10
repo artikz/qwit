@@ -129,7 +129,8 @@ icon.files += images/qwit.png
 INSTALLS = target \
     desktop \
     icon
-CONFIG += x86 \
+CONFIG += debug \
+    x86 \
     ppc \
     x86_64 \
     ppc64 \
