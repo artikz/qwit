@@ -844,7 +844,7 @@ bool QwitTools::isUrl(const QString &s) {
 }
 
 bool QwitTools::isMention(const Message &message) {
-	QRegExp re("(^|\\W+)@" + message.account->username + "($|\\W+)");
+    QRegExp re("(^|\\W+)@" + message.account->username + "($|\\W+)", Qt::CaseInsensitive);
 	return (re.indexIn(message.text) != -1);
 }
 
