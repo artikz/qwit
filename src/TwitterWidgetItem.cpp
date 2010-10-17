@@ -41,16 +41,18 @@
 
 void TwitterWidgetItem::loadUserpic() {
 	QPixmap pixmap(message.userpicFilename);
-    QString inReplyToUserImageFileName = UserpicsDownloader::getInstance()->userImageFileName(message.account->serviceBaseUrl(), message.inReplyToUsername);
-	QPixmap inReplyToUserPic(inReplyToUserImageFileName);
-	if (!inReplyToUserPic.isNull()) {
-		// if this is a reply, show the replied-to person in a smaller inset thumbnail
-		QPixmap comboPic(ICON_SIZE, ICON_SIZE);
-		comboPic.fill(Qt::transparent);
-		QPainter painter(&comboPic);
-		painter.drawPixmap(0, ICON_SIZE * 0.2, pixmap.scaled(ICON_SIZE * 0.8, ICON_SIZE * 0.8, Qt::KeepAspectRatio, Qt::SmoothTransformation));
-		painter.drawPixmap(ICON_SIZE * 0.5, 0, inReplyToUserPic.scaled(ICON_SIZE * 0.5, ICON_SIZE * 0.5, Qt::KeepAspectRatio, Qt::SmoothTransformation));
-		pixmap = comboPic;
+	if (message.inReplyToUsername != "") {
+		QString inReplyToUserImageFileName = UserpicsDownloader::getInstance()->userImageFileName(message.account->serviceBaseUrl(), message.inReplyToUsername);
+		QPixmap inReplyToUserPic(inReplyToUserImageFileName);
+		if (!inReplyToUserPic.isNull()) {
+			// if this is a reply, show the replied-to person in a smaller inset thumbnail
+			QPixmap comboPic(ICON_SIZE, ICON_SIZE);
+			comboPic.fill(Qt::transparent);
+			QPainter painter(&comboPic);
+			painter.drawPixmap(0, ICON_SIZE * 0.2, pixmap.scaled(ICON_SIZE * 0.8, ICON_SIZE * 0.8, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+			painter.drawPixmap(ICON_SIZE * 0.5, 0, inReplyToUserPic.scaled(ICON_SIZE * 0.5, ICON_SIZE * 0.5, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+			pixmap = comboPic;
+		}
 	}
 	if (!pixmap.isNull()) {
 		userpicLabel->setPixmap(pixmap.scaled(ICON_SIZE, ICON_SIZE));
