@@ -220,6 +220,7 @@ void Account::addOutboxMessages(const QByteArray &data) {
 void Account::updateLastMessage(const QByteArray &data) {
 	qDebug() << ("Account::updateLastMessage()");
 	lastMessage = QwitTools::parseUser(data, this);
+    emit lastMessageReceived(lastMessage.text, this);
 }
 
 void Account::updateLastMessage() {
@@ -242,7 +243,6 @@ void Account::messageSent(const QByteArray &data) {
 	qDebug() << ("Account::messageSent()");
 	sendingMessage = false;
 	lastMessage = QwitTools::parseMessage(data, this);
-	emit lastMessageReceived(lastMessage.text, this);
 	emit messageSent(lastMessage.text, this);
 }
 

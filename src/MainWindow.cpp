@@ -715,7 +715,6 @@ void MainWindow::messageSent(const QString &message, Account *account) {
 	qDebug() << ("MainWindow::messageSent()");
 	messageTextEdit->setEnabled(true);
 	messageTextEdit->clear();
-	updateLastMessage(message, account);
 	updateAccount(account);
 }
 
