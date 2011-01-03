@@ -630,7 +630,6 @@ void MainWindow::setupTrayIcon() {
 
 void MainWindow::iconActivated(QSystemTrayIcon::ActivationReason reason) {
 	qDebug() << ("MainWindow::iconActivated()");
-	trayIcon->setIcon(QIcon(":/images/qwit.png"));
 	if (reason == QSystemTrayIcon::Trigger) {
 		showhide();
 	}
@@ -662,6 +661,12 @@ void MainWindow::keyPressEvent(QKeyEvent *event) {
 	} else {
                 QMainWindow::keyPressEvent(event);
 	}
+}
+
+void MainWindow::changeEvent(QEvent *event)
+{
+	if (event->type() == QEvent::ActivationChange && isActiveWindow())
+		trayIcon->setIcon(QIcon(":/images/qwit.png"));
 }
 
 void MainWindow::quit() {
@@ -726,8 +731,9 @@ void MainWindow::messageNotSent(Account *account) {
 void MainWindow::showNewMessages(const QVector<Message> &messages, Account *account) {
 	qDebug() << ("MainWindow::showNewMessages()");
 	Configuration *config = Configuration::getInstance();
-    if (min(messages.size(), config->messagesInPopup) != 0) {
+	if (!isActiveWindow())
 		trayIcon->setIcon(QIcon(":/images/qwitnewmessages.png"));
+    if (min(messages.size(), config->messagesInPopup) != 0) {
 		if (config->showMessagesInTray) {
             QString title = tr("Qwit: new messages receieved for %1@%2").arg(account->username).arg(account->type);
             if (config->notificationSubsystem == "qt") {

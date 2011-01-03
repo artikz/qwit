@@ -142,6 +142,7 @@ protected:
 	void hideEvent(QHideEvent *event);
 	void keyPressEvent(QKeyEvent *event);
 	void closeEvent(QCloseEvent *event);
+	void changeEvent(QEvent *event);
 };
 
 #endif
