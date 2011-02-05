@@ -54,7 +54,8 @@ HEADERS += src/Configuration.h \
     src/FriendshipsMgmtPage.h \
     src/FollowersMgmtPage.h \
     src/BlocksMgmtPage.h \
-    src/OAuthDialog.h
+    src/OAuthDialog.h  \
+    src/QProgressIndicator.h
 FORMS += src/MainWindow.ui \
     src/OptionsDialog.ui \
     src/AboutDialog.ui \
@@ -97,7 +98,8 @@ SOURCES += src/qwit.cpp \
     src/FriendshipsMgmtPage.cpp \
     src/FollowersMgmtPage.cpp \
     src/BlocksMgmtPage.cpp \
-    src/OAuthDialog.cpp
+    src/OAuthDialog.cpp  \
+    src/QProgressIndicator.cpp    
 TRANSLATIONS += translations/qwit_en_US.ts \
     translations/qwit_es_ES.ts \
     translations/qwit_it_IT.ts \

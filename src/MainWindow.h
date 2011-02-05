@@ -50,6 +50,8 @@
 #include "SearchPage.h"
 #include "Message.h"
 
+class QProgressIndicator;
+
 class MainWindow: public QMainWindow, public Ui::MainWindow {
 	Q_OBJECT
 
@@ -67,6 +69,8 @@ private:
 	QMenu *trayIconMenu;
 	QAction *trayQuitAction;
 	QAction *trayShowhideAction;
+	QAction *trayUpdateAction;
+	QAction *trayTimerEnableAction;
 	HomePage *homePage;
 	RepliesPage *repliesPage;
 	PublicPage *publicPage;
@@ -79,9 +83,12 @@ private:
 	MessageTextEdit *messageTextEdit;
 	QLabel *greetingMessageLabel;
 	QLabel *leftCharactersNumberLabel;
-
+	QProgressIndicator *progressIndicator;
+	QHBoxLayout* lastMsgLayout;
+	QString *updateTitleStr;
 	
 	bool acceptClose;
+	bool updateInProccess;
 	
 	static MainWindow* instance;
 	MainWindow(QWidget *parent = 0);
@@ -129,9 +136,13 @@ public slots:
 
 private slots:
 	void updateUrlShorteningButtonTooltip(bool);
+	void startUpdateNotification();
+	void stopUpdateNotification();
+	void updateTimerEnabling(bool enabled);
 
 signals:
-
+	void updateInitiated();
+	void updateCompleted();
 	void retweet(const Message &);
 	void reply(const Message &);
 	

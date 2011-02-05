@@ -39,6 +39,7 @@
 #include "Configuration.h"
 #include "TwitPicDialog.h"
 #include "QwitTools.h"
+#include "QProgressIndicator.h"
 
 MainWindow* MainWindow::instance = 0;
 
@@ -53,9 +54,21 @@ MainWindow* MainWindow::getInstance() {
 MainWindow::MainWindow(QWidget *parent): QMainWindow(parent) {
 	qDebug() << ("MainWindow::MainWindow()");
 
+	updateTitleStr = new QString(" - " +tr("updating..."));
 	instance = this;
+	updateInProccess = false;
 
 	setupUi(this);
+
+	verticalLayout->removeWidget(lastMessageLabel);
+	progressIndicator = new QProgressIndicator(this);
+	progressIndicator->setAnimationDelay(100);
+	lastMsgLayout = new QHBoxLayout(this);
+	lastMsgLayout->addWidget(progressIndicator);
+	lastMsgLayout->addWidget(lastMessageLabel);
+	verticalLayout->insertLayout(1, lastMsgLayout);
+	connect(this, SIGNAL(updateInitiated()), this, SLOT(startUpdateNotification()));
+	connect(this, SIGNAL(updateCompleted()), this, SLOT(stopUpdateNotification()));
 
 	greetingMessageLabel = new QLabel(this);
 	leftCharactersNumberLabel = new QLabel(this);
@@ -614,17 +627,25 @@ void MainWindow::setupTrayIcon() {
         trayIcon->setIcon(QIcon(":/images/qwit.png"));
 
 #ifndef Q_OS_MAC //no context menu for trayicon in mac osx
-	trayShowhideAction = new QAction(tr("&Show / Hide"), this);
+    trayTimerEnableAction = new QAction(tr("&Enable updates"), this);
+    trayTimerEnableAction->setCheckable(true);
+    trayTimerEnableAction->setChecked(true);
+	trayShowhideAction = new QAction(QIcon(":/images/view-restore.png"), tr("&Show / Hide"), this);
 	connect(trayShowhideAction, SIGNAL(triggered()), this, SLOT(showhide()));
-	trayQuitAction = new QAction(tr("&Quit"), this);
+	trayQuitAction = new QAction(QIcon(":/images/application-exit.png"), tr("&Quit"), this);
 	connect(trayQuitAction, SIGNAL(triggered()), this, SLOT(quit()));
+	trayUpdateAction = new QAction(QIcon(":/images/view-refresh.png"), tr("&Update"), this);
+	connect(trayUpdateAction, SIGNAL(triggered()), this, SLOT(refresh()));
 	trayIconMenu = new QMenu(this);
 	trayIconMenu->addAction(trayShowhideAction);
+	trayIconMenu->addAction(trayTimerEnableAction);
+	trayIconMenu->addAction(trayUpdateAction);
 	trayIconMenu->addAction(trayQuitAction);
 	trayIcon->setContextMenu(trayIconMenu);
 #endif
 	trayIcon->show();
 //	connect(trayIcon, SIGNAL(messageClicked()), this, SLOT(makeActive()));
+	connect(trayTimerEnableAction, SIGNAL(toggled(bool)), this, SLOT(updateTimerEnabling(bool)));
 	connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this, SLOT(iconActivated(QSystemTrayIcon::ActivationReason)));
 }
 
@@ -691,6 +712,7 @@ void MainWindow::closeEvent(QCloseEvent *event) {
 void MainWindow::refresh() {
 	qDebug() << ("MainWindow::refresh()");
 
+	emit updateInitiated();
 	pages[mainTabWidget->currentIndex()]->update();
 	Configuration *config = Configuration::getInstance();
 	config->currentAccount()->updateLastMessage();
@@ -714,6 +736,7 @@ void MainWindow::reloadUserpics() {
 void MainWindow::updateLastMessage(const QString &message, Account *account) {
 	qDebug() << ("MainWindow::updateLastMessage()");
 	lastMessageLabel->setText(QwitTools::prepareMessage(message, account));
+	emit updateCompleted();
 }
 
 void MainWindow::messageSent(const QString &message, Account *account) {
@@ -781,13 +804,17 @@ void MainWindow::updateAccount(Account *account, bool initial) {
 }
 
 void MainWindow::updateAll(bool initial) {
+	emit updateInitiated();
 	Configuration *config = Configuration::getInstance();
 	for (int i = 0; i < config->accounts.size(); ++i) {
 		updateAccount(config->accounts[i], initial);
 	}
+	qDebug() << " update all finished";
 }
 
 void MainWindow::updateRemainingRequests(int remainingRequests, Account *account) {
+	if (updateInProccess)
+		return;
 	if (remainingRequests == -1) {
 		stateLabel->setText("");
 	} else if (remainingRequests == 0) {
@@ -863,6 +890,33 @@ void MainWindow::updateUrlShorteningButtonTooltip(bool enabled) {
 		urlShorteningEnabledButton->setToolTip(tr("Disable shortening of pasted links"));
 	else
 		urlShorteningEnabledButton->setToolTip(tr("Enable shortening of pasted links"));
+}
+
+void MainWindow::startUpdateNotification()
+{
+	updateInProccess = true;
+	progressIndicator->startAnimation();
+	stateLabel->setText(tr("Updating in proccess ..."));
+	setWindowTitle(this->windowTitle().append(*updateTitleStr));
+}
+
+void MainWindow::stopUpdateNotification()
+{
+	updateInProccess = false;
+	setWindowTitle(this->windowTitle().remove(*updateTitleStr));
+	progressIndicator->stopAnimation();
+	Configuration *config = Configuration::getInstance();
+	updateRemainingRequests(config->currentAccount()->remainingRequests, config->currentAccount());
+	QString lastUpdatedStr(" (" + tr("latest update at ") + QDateTime::currentDateTime().toString("dd MMM hh:mm:ss") + ")");
+	stateLabel->setText(stateLabel->text().append(lastUpdatedStr));
+}
+
+void MainWindow::updateTimerEnabling(bool enabled)
+{
+	if (enabled)
+		updateTimer->start(Configuration::getInstance()->updateInterval * 1000);
+	else
+		updateTimer->stop();
 }
 
 #endif

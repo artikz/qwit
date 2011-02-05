@@ -20,6 +20,9 @@
         <file>images/friends.png</file>
         <file>images/unblock.png</file>
         <file>images/block.png</file>
+        <file>images/view-refresh.png</file>
+        <file>images/view-restore.png</file>        
+        <file>images/application-exit.png</file>
         <file>translations/qwit_it_IT.qm</file>
         <file>translations/qwit_kk_KZ.qm</file>
         <file>translations/qwit_pt_BR.qm</file>
